@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import ThemeSwitch from "./themeSwitch";
 import Link from "next/link";
 import MobileMenu from "./MobileMenu";
-import { motion, AnimatePresence, useScroll } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { HoverBorderGradient } from "./ui/hover-border-gradient";
 import { LanguageSelector } from "./LanguageSelector";
 import { useTranslation } from 'next-i18next';

@@ -1,4 +1,4 @@
-import React, { ReactElement, useEffect, useMemo, useState } from 'react'
+import React, { ReactElement, useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { DateTime } from 'luxon'
 
@@ -51,7 +51,6 @@ const useCountdown = (endDate: DateTime): CurrentPrevious => {
 
 const Countdown = (): ReactElement => {
     const isMounted = useIsMounted()
-    const searchParams = useSearchParams()
     
     // Set the countdown to finish on December 8, 2024, at 18:00 Bulgarian time
     const endDate = DateTime.fromObject({ year: 2024, month: 12, day: 8, hour: 18 })

@@ -20,6 +20,11 @@ export default function Home({ params: { lng } }: { params: { lng: string } }) {
       </div>
       <div className="mt-[620px] ">
       <h1 className="text-6xl mb-20 mt-20">{t('hello')}</h1>
+      <h1 className="text-6xl mb-20 mt-20">{t('hello')}</h1>
+      <h1 className="text-6xl mb-20 mt-20">{t('hello')}</h1>
+      <h1 className="text-6xl mb-20 mt-20">{t('hello')}</h1>
+      <h1 className="text-6xl mb-20 mt-20">{t('hello')}</h1>
+      <h1 className="text-6xl mb-20 mt-20">{t('hello')}</h1>
       </div>
 
       {/* ... other elements ... */}
