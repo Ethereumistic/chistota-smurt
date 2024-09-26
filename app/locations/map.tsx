@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { therapyCenters } from './therapyCenters';
 import 'leaflet/dist/leaflet.css';
@@ -5,9 +6,17 @@ import 'leaflet/dist/leaflet.css';
 type CenterType = 'Adult' | 'Underaged' | 'Mixed' | 'All';
 
 const TherapyMap = ({ className, filter }: { className: string, filter: CenterType }) => {
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
     const filteredCenters = filter === 'All' 
       ? therapyCenters 
       : therapyCenters.filter(center => center.type === filter);
+
+    if (!isMounted) return null;
 
     return (
       <MapContainer className={className} center={[42.6977, 23.3219]} zoom={7} style={{ height: '100%', width: '100%' }}>

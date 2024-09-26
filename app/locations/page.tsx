@@ -1,9 +1,15 @@
 'use client'
 
 import { useState } from 'react';
-import TherapyMap from "./map";
+import dynamic from 'next/dynamic';
 
 type CenterType = 'Adult' | 'Underaged' | 'Mixed' | 'All';
+
+// Dynamically import the TherapyMap component with SSR disabled
+const TherapyMap = dynamic(() => import("./map"), {
+    ssr: false,
+    loading: () => <p>Зареждане на картата...</p>
+  });
 
 export default function Locations() {
 
