@@ -10,11 +10,9 @@ import { motion, AnimatePresence, useScroll } from "framer-motion";
 import { HoverBorderGradient } from "./ui/hover-border-gradient";
 import { LanguageSelector } from "./LanguageSelector";
 import { useTranslation } from 'next-i18next';
-import { useAuthStore } from '@/store/authStore';
 import { FlipWordsNav } from "./FlipWords";
 
 export function NavbarDemo({ className }: { className?: string }) {
-  const isLoggedIn = useAuthStore(state => state.isLoggedIn);
   const [visible, setVisible] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -70,7 +68,6 @@ export function NavbarDemo({ className }: { className?: string }) {
             isMobile={isMobile} 
             mobileMenuOpen={mobileMenuOpen}
             setMobileMenuOpen={setMobileMenuOpen} 
-            isLoggedIn={isLoggedIn}
           />
         </motion.div>
       </AnimatePresence>
@@ -89,13 +86,11 @@ function Navbar({
   isMobile, 
   mobileMenuOpen,
   setMobileMenuOpen,
-  isLoggedIn
 }: { 
   className?: string, 
   isMobile: boolean, 
   mobileMenuOpen: boolean,
   setMobileMenuOpen: (isOpen: boolean) => void 
-  isLoggedIn: boolean
 
 }) {  
   const [active, setActive] = useState<string | null>(null);
@@ -207,21 +202,6 @@ function Navbar({
                 </HoverBorderGradient>
                 </div>
                 </Link>
-
-                {isLoggedIn && (
-                  <Link href="/profile" className="text-lg">
-                    <HoverBorderGradient
-                      containerClassName="rounded-full"
-                      as="button"
-                      className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-1 sm:space-x-2 
-                                 px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-2 lg:px-5 lg:py-3
-                                 text-sm sm:text-sm md:text-base lg:text-lg transition-all duration-300"
-                    >
-                      Profile
-                    </HoverBorderGradient>
-                  </Link>
-                )}
-
                 <ThemeSwitch />
                 <LanguageSelector />
               </div>

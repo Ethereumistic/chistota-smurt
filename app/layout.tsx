@@ -5,7 +5,6 @@ import { Providers } from "./providers";
 import { NavbarDemo } from "./components/NavbarDemo";
 import { languages } from '../i18n/settings'
 import DotEffect from "./components/ui/DotEffect";
-import SmoothScroll from "./components/ui/SmoothScroll";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -52,12 +51,7 @@ export default function RootLayout({
         <Providers>
           <div className="">
             <NavbarDemo />
-
-            {/* <SmoothScroll gridSize={10}> */}
-
-            {/* <FloatingNavDemo /> */}
             {children}
-            {/* </SmoothScroll> */}
             <DotEffect dotSize={1} spacing={20}  />
 
           </div>
