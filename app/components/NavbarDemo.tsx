@@ -1,47 +1,25 @@
 "use client";
+import { IconContract, IconSpray, IconTie, IconMenu, IconX } from "@tabler/icons-react";
 import React, { useState, useEffect, useRef } from "react";
-import { HoveredLink, LogoImage,  Menu, MenuItem, ProductItem } from "./ui/navbar-menu";
+import { HoveredLink, Menu, MenuItem, ProductItem } from "./ui/navbar-menu";
 import { cn } from "@/lib/utils";
 import ThemeSwitch from "./themeSwitch";
-import { LoginWithNostr } from "./LoginWithNostr";
 import Link from "next/link";
-import { FlipWordsNav } from "./FlipWords";
 import MobileMenu from "./MobileMenu";
-import {
-  motion,
-  AnimatePresence,
-  useScroll,
-  useMotionValueEvent,
-} from "framer-motion";
+import { motion, AnimatePresence, useScroll } from "framer-motion";
 import { HoverBorderGradient } from "./ui/hover-border-gradient";
-import { IconContract, IconSpray, IconTie, IconMenu, IconX } from "@tabler/icons-react";
 import { LanguageSelector } from "./LanguageSelector";
 import { useTranslation } from 'next-i18next';
 import { useAuthStore } from '@/store/authStore';
+import { FlipWordsNav } from "./FlipWords";
 
 export function NavbarDemo({ className }: { className?: string }) {
   const isLoggedIn = useAuthStore(state => state.isLoggedIn);
-
-  const { scrollYProgress } = useScroll();
   const [visible, setVisible] = useState(true);
-
   const [isMobile, setIsMobile] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const checkLoginStatus = () => {
-      const npub = localStorage.getItem("nostrPublicKey");
-      useAuthStore.setState({ isLoggedIn: !!npub });
-    };
-
-    checkLoginStatus();
-    window.addEventListener("storage", checkLoginStatus);
-
-    return () => {
-      window.removeEventListener("storage", checkLoginStatus);
-    };
-  }, []);
+  const prevScrollY = useRef(0);
 
   useEffect(() => {
     const handleResize = () => {
@@ -53,40 +31,37 @@ export function NavbarDemo({ className }: { className?: string }) {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  useMotionValueEvent(scrollYProgress, "change", (current) => {
-    // Check if current is not undefined and is a number
-    if (typeof current === "number") {
-      const direction = current! - scrollYProgress.getPrevious()!;
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
 
-      if (scrollYProgress.get() < 0.05) {
-        setVisible(true);
+      if (currentScrollY > prevScrollY.current) {
+        // Scrolling down
+        setVisible(false);
       } else {
-        if (direction < 0) {
-          setVisible(true);
-        } else {
-          setVisible(false);
-        }
+        // Scrolling up
+        setVisible(true);
       }
-    }
-  });
-  
+
+      prevScrollY.current = currentScrollY; // Update previous scroll position
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <div className="relative w-full flex items-center justify-center">
-      <AnimatePresence mode="wait">
-      <motion.div
-        initial={{
-          opacity: 1,
-          y: -100,
-        }}
-        animate={{
-          y: visible ? 0 : -100,
-          opacity: visible ? 1 : 0,
-        }}
-        transition={{
-          duration: 0.2,
-        }}
+      <AnimatePresence>
+        <motion.div
+          initial={{ opacity: 1, y: 0 }}
+          animate={{ y: visible ? 0 : -100, opacity: visible ? 1 : 0 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2 }}
           className={cn(
-            "flex fixed top-0 inset-x-0 mx-auto rounded-full bg-transparent z-[5000] items-center justify-center",
+            "flex fixed top-0 inset-x-0 mx-auto  bg-transparent z-[5000] items-center justify-center",
             className
           )}
         >
@@ -127,18 +102,19 @@ function Navbar({
   const { t } = useTranslation();
   
   return (
-    <div className="w-full px-4 sm:px-6 lg:px-8 ">
-      <div className={cn("max-w-7xl mx-auto", className)}>
+    <div className="w-full  ">
+      <div className={cn("max-w-full mx-auto", className)}>
         <Menu setActive={setActive}>
           <div className="flex items-center justify-between w-full">
             {/* Logo on the left */}
-            <div className="flex  items-center hover:scale-105 transition duration-700">
-              <LogoImage
+            <div className="flex  items-center hover:scale-105 transition duration-700 ">
+              {/* <LogoImage
                 title="Bio DDD"
                 href="/"
                 src="https://cdn.jsdelivr.net/gh/Ethereumistic/bio-ddd-assets/logo/logo-light.png"
                 darkSrc="https://cdn.jsdelivr.net/gh/Ethereumistic/bio-ddd-assets/logo/logo-dark.png"
-              />
+              /> */}
+              <h1 className="text-4xl font-bold text-black dark:text-white ">Чистота или Смърт</h1>
             </div>
 
             {/* Navigation items or menu icon */}
@@ -198,7 +174,7 @@ function Navbar({
                   </div>
                 </Link>
 
-                <Link href="/business" className="text-lg">
+                <Link href="/locations" className="text-lg">
                 <div className="flex justify-center text-center">
                 <HoverBorderGradient
                   containerClassName="rounded-full"
@@ -207,7 +183,7 @@ function Navbar({
                              px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-2 lg:px-5 lg:py-3
                              text-sm sm:text-sm md:text-base lg:text-lg transition-all duration-300"
                 >
-                  <MenuItem setActive={setActive} active={active} item={t('Business')}>
+                  <MenuItem setActive={setActive} active={active} item={t('Локации')}>
                     <div className="flex flex-col text-lg px-8 my-10">
                       <div className="flex flex-row  pb-10  justify-center hover:scale-105 transition duration-300 hover:drop-shadow-[0_1.5px_1.5px_rgba(94,187,70,1)]">
                       <IconTie width={30} height={30} className="mr-2" />
@@ -246,7 +222,6 @@ function Navbar({
                   </Link>
                 )}
 
-                <LoginWithNostr />
                 <ThemeSwitch />
                 <LanguageSelector />
               </div>

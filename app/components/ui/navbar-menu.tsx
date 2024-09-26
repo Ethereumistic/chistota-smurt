@@ -112,10 +112,10 @@ export const Menu = ({
 }) => {
   return (
     <div className="border border-transparent 
-      dark:bg-gray-800/50 dark:border-white/[0.2] bg-slate-200/50 rounded-full">
+      dark:bg-gray-800/50 dark:border-white/[0.2] bg-slate-200/50 ">
       <nav
         onMouseLeave={() => setActive(null)} // resets the state
-        className="relative h-[90px] rounded-full 
+        className="relative h-[90px]  
         shadow-input flex items-center px-8 py-6"
       >
         <div className="flex justify-between w-full">
