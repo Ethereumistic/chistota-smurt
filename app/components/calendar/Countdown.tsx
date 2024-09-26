@@ -1,5 +1,4 @@
 import React, { ReactElement, useEffect, useState } from 'react'
-import { useSearchParams } from 'next/navigation'
 import { DateTime } from 'luxon'
 
 import CountdownCard from './CountdownCard'
