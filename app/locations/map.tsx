@@ -3,7 +3,7 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { therapyCenters } from './therapyCenters';
 import 'leaflet/dist/leaflet.css';
 
-type CenterType = 'Adult' | 'Underaged' | 'Mixed' | 'All';
+type CenterType = 'Терапевтична общност' | 'Програми за непълнолетни' | 'Частни Клиники' | 'All';
 
 const TherapyMap = ({ className, filter }: { className: string, filter: CenterType }) => {
     const [isMounted, setIsMounted] = useState(false);
@@ -19,7 +19,9 @@ const TherapyMap = ({ className, filter }: { className: string, filter: CenterTy
     if (!isMounted) return null;
 
     return (
-      <MapContainer className={className} center={[42.6977, 23.3219]} zoom={7} style={{ height: '100%', width: '100%' }}>
+        <>
+        
+      <MapContainer className={className} center={[42.6977, 23.3219]} zoom={7} style={{ height: '86vh', width: '100%', position: 'sticky', top: '70px' }}>
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
@@ -29,6 +31,8 @@ const TherapyMap = ({ className, filter }: { className: string, filter: CenterTy
               <div>
                 <h3>{center.name}</h3>
                 <p><strong>Адрес:</strong> {center.address}</p>
+                
+                <p><strong>Телефон:</strong></p>
                 <ul>
                   {center.phone.map((phone: string, idx: number) => (
                     <li key={idx}>{phone}</li>
@@ -61,6 +65,7 @@ const TherapyMap = ({ className, filter }: { className: string, filter: CenterTy
           </Marker>
         ))}
       </MapContainer>
+      </>
     );
   };
   

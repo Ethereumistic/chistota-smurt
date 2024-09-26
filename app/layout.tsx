@@ -5,6 +5,7 @@ import { Providers } from "./providers";
 import { NavbarDemo } from "./components/NavbarDemo";
 import { languages } from '../i18n/settings'
 import DotEffect from "./components/ui/DotEffect";
+import Footer from "./components/ui/Footer";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -53,7 +54,7 @@ export default function RootLayout({
             <NavbarDemo />
             {children}
             <DotEffect dotSize={1} spacing={20}  />
-
+            <Footer />
           </div>
         </Providers>
       </body>
