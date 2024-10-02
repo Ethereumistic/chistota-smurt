@@ -102,6 +102,7 @@ function Navbar({
         <Menu setActive={setActive}>
           <div className="flex items-center justify-between w-full">
             {/* Logo on the left */}
+            <Link href="/">
             <div className="flex  items-center hover:scale-105 transition duration-700 ">
               {/* <LogoImage
                 title="Bio DDD"
@@ -111,6 +112,7 @@ function Navbar({
               /> */}
               <h1 className="text-4xl font-bold text-black dark:text-white ">Чистота или Смърт</h1>
             </div>
+            </Link>
 
             {/* Navigation items or menu icon */}
             {isMobile ? (
@@ -128,7 +130,7 @@ function Navbar({
               
             ) : (
               <div className="flex items-center font-russo space-x-2 xs:space-x-3 sm:space-x-4 md:space-x-6 lg:space-x-12">
-                <Link href="/pests" className="text-lg ">
+                <Link href="/partners" className="text-lg ">
                 <div className="flex justify-center text-center">
                   <HoverBorderGradient
                     containerClassName="rounded-full"
@@ -137,7 +139,7 @@ function Navbar({
                                px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-2 lg:px-5 lg:py-3
                                text-sm sm:text-sm md:text-base lg:text-lg transition-all duration-300"
                   >
-                  <MenuItem setActive={setActive} active={active} item={t('Resources')}>
+                  <MenuItem setActive={setActive} active={active} item={t('Партньори')}>
                   
                     <div className="flex justify-center items-center my-4"><IconSpray width={50} height={50} /><FlipWordsNav /></div>
                       <div className=" text-sm grid grid-cols-4 gap-10 p-4 ">

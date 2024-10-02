@@ -1,13 +1,35 @@
-import { useEffect, useState } from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import { therapyCenters } from './therapyCenters';
+import { useEffect, useState, useRef } from 'react';
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
+import { therapyCenters, TherapyCenter } from './therapyCenters';
 import 'leaflet/dist/leaflet.css';
+import { Icon } from 'leaflet';
+import L from 'leaflet';
 
-type CenterType = 'Терапевтична общност' | 'Програми за непълнолетни' | 'Частни Клиники' | 'All';
+type CenterType = 'Терапевтични общности' | 'Програми за непълнолетни' | 'Дневни центрове' | 'Вечерни програми' | 'All';
 
-const TherapyMap = ({ className, filter }: { className: string, filter: CenterType }) => {
-    const [isMounted, setIsMounted] = useState(false);
+interface TherapyMapProps {
+  className: string;
+  filter: CenterType;
+  selectedCenter: TherapyCenter | null;
+}
 
+
+
+export default function TherapyMap({ className, filter, selectedCenter }: TherapyMapProps) {
+  const mapRef = useRef<L.Map>(null);
+  const [isMounted, setIsMounted] = useState(false);
+
+  const customIcon = new Icon({
+      iconUrl: 'https://cdn.jsdelivr.net/gh/Ethereumistic/obshtini/locations/lrpin.png', // Update path as necessary
+      iconSize: [25, 25], // Size of the icon
+  });
+
+  useEffect(() => {
+    if (selectedCenter && mapRef.current) {
+        mapRef.current.setView(selectedCenter.position, 15);
+    }
+}, [selectedCenter]);
+  
     useEffect(() => {
         setIsMounted(true);
     }, []);
@@ -16,17 +38,20 @@ const TherapyMap = ({ className, filter }: { className: string, filter: CenterTy
       ? therapyCenters 
       : therapyCenters.filter(center => center.type === filter);
 
+
+    
+
     if (!isMounted) return null;
 
     return (
         <>
         
-      <MapContainer className={className} center={[42.6977, 23.3219]} zoom={7} style={{ height: '86vh', width: '100%', position: 'sticky', top: '70px' }}>
+      <MapContainer className={className} ref={mapRef} center={[42.7339, 25.4858]} zoom={8} style={{ height: '86vh', width: '100%', position: 'sticky', top: '70px' }}>
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         {filteredCenters.map((center, index) => (
-          <Marker key={index} position={center.position}>
+          <Marker key={index} position={center.position} icon={customIcon}>
             <Popup>
               <div>
                 <h3>{center.name}</h3>
@@ -49,14 +74,14 @@ const TherapyMap = ({ className, filter }: { className: string, filter: CenterTy
   
                 <h4>Дейности:</h4>
                 <ul>
-                  {center.activities.map((activity, idx) => (
+                  {center.activities?.map((activity, idx) => (
                     <li key={idx}>{activity}</li>
                   ))}
                 </ul>
   
                 <h4>Условия за прием:</h4>
                 <ul>
-                  {center.conditions.map((condition, idx) => (
+                  {center.conditions?.map((condition, idx) => (
                     <li key={idx}>{condition}</li>
                   ))}
                 </ul>
@@ -69,4 +94,3 @@ const TherapyMap = ({ className, filter }: { className: string, filter: CenterTy
     );
   };
   
-  export default TherapyMap;

@@ -24,8 +24,8 @@ function isRTL(lang: string) {
 }
 
 export const metadata: Metadata = {
-  title: "FTM FTW",
-  description: "Fix the money, fix the world",
+  title: "Чистота или Смърт",
+  description: "Чистота или Смърт - филм за зависимостта",
 };
 
 export async function generateStaticParams() {

@@ -95,7 +95,7 @@ const DotEffect: React.FC<DotEffectProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-30 translate-x-[10px] translate-y-[10px]">
+    <div className="fixed inset-0 pointer-events-none z-0 translate-x-[10px] translate-y-[10px]">
       {generateDots()}
     </div>
   );

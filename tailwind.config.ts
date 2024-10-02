@@ -15,6 +15,8 @@ const config: Config = {
   theme: {
     extend: {
       animation: {
+        scroll:
+        "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
         flipTop: 'flipTop 1s ease-in',
         flipBottom: 'flipBottom 1s ease-in',
       },
@@ -52,6 +54,11 @@ const config: Config = {
         geistMono: ["var(--font-geist-mono)"],
       },
       keyframes: {
+        scroll: {
+          to: {
+            transform: "translate(calc(-50% - 0.5rem))",
+          },
+        },
         flipTop: {
           '0%': { transform: 'rotateX(0deg)' },
           '100%': { transform: 'rotateX(-180deg)' }
