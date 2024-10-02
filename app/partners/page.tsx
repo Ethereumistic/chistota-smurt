@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { InfiniteMovingCardsDemo } from "../components/InfiniteMovingCardsDemo";
 import Loader from "../components/ui/Loader";
 

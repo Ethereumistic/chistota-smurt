@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { therapyCenters, TherapyCenter } from './therapyCenters';
 import 'leaflet/dist/leaflet.css';
 import { Icon } from 'leaflet';
