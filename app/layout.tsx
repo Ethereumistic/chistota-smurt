@@ -44,8 +44,8 @@ export default function RootLayout({
   }
 }) {
   return (
-    <html lang={lng} dir={isRTL(lng) ? 'rtl' : 'ltr'}>
-      {/* <html> */}
+    // <html lang={lng} dir={isRTL(lng) ? 'rtl' : 'ltr'}>
+      <html>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

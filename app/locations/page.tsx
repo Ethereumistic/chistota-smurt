@@ -195,7 +195,7 @@ export default function Locations() {
                     </div>
                 </div> {/* 1/3 width */}
 
-                <TherapyMap className="col-span-2"  filter={filter} selectedCenter={selectedCenter} /> {/* 2/3 width */}
+                <TherapyMap className="col-span-2"  filter={filter} selectedCenter={selectedCenter} />
             </div>
         </div>
     );
