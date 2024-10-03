@@ -62,14 +62,14 @@ export default function Locations() {
             <div className="mt-10 grid grid-cols-3 justify-items-center min-h-screen p-8 pb-24 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
                 <div className="col-span-1 flex-col flex gap-4">
                 <motion.div 
-    className="sticky top-[130px] flex gap-2 mb-4 p-2 bg-white dark:bg-black border border-gray-300 dark:border-gray-700 rounded-lg"
+    className="sticky top-[120px] flex gap-2 mb-4 p-2 bg-ddblue border border-gray-300 dark:border-gray-700 rounded-lg"
     initial={{ opacity: 1, y: 0 }}
     animate={controls}
     transition={{ duration: 0.2 }}
 >
     <button 
         onClick={() => setFilter('All')}
-        className={`relative flex items-center justify-start pl-1 pr-8 py-2 rounded ${filter === 'All' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+        className={`relative flex items-center justify-start pl-1 pr-8 py-2 rounded ${filter === 'All' ? 'bg-lblue text-cream' : 'bg-gray-200'}`}
     >
         <span className="text-left">Всички</span>
         <span className="absolute top-0 right-0 inline-flex items-center m-1 justify-center w-5 h-5 text-xs font-bold text-white bg-red-500 rounded-full">
@@ -78,7 +78,7 @@ export default function Locations() {
     </button>
     <button 
         onClick={() => setFilter('Терапевтични общности')}
-        className={`relative flex items-center justify-start pl-1 pr-8 py-2 rounded ${filter === 'Терапевтични общности' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+        className={`relative flex items-center justify-start pl-1 pr-8 py-2 rounded ${filter === 'Терапевтични общности' ? 'bg-lblue text-cream' : 'bg-gray-200'}`}
     >
         <span className="text-left">Терапевтична общност</span>
         <span className="absolute top-0 right-0 inline-flex items-center m-1 justify-center w-5 h-5 text-xs font-bold text-white bg-red-500 rounded-full">
@@ -87,16 +87,16 @@ export default function Locations() {
     </button>
     <button 
         onClick={() => setFilter('Програми за непълнолетни')}
-        className={`relative flex items-center justify-start pl-1 pr-6 py-2 rounded ${filter === 'Програми за непълнолетни' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+        className={`relative flex items-center justify-start pl-1 pr-6 py-2 rounded ${filter === 'Програми за непълнолетни' ? 'bg-lblue text-cream' : 'bg-gray-200'}`}
     >
         <span className="text-left">Програми за непълнолетни</span>
-        <span className="absolute top-0 right-0 inline-flex items-center m-1 justify-center w-5 h-5 text-xs font-bold text-white bg-red-500 rounded-full">
+        <span className="absolute top-0 right-0 inline-flex items-center m-1 justify-center w-5 h-5 text-xs font-bold text-white bg-sgreen rounded-full">
             {countCenters('Програми за непълнолетни')}
         </span>
     </button>
     <button 
         onClick={() => setFilter('Дневни центрове')}
-        className={`relative flex items-center justify-start pl-1 pr-5 py-2 rounded ${filter === 'Дневни центрове' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+        className={`relative flex items-center justify-start pl-1 pr-5 py-2 rounded ${filter === 'Дневни центрове' ? 'bg-lblue text-cream' : 'bg-gray-200'}`}
     >
         <span className="text-left">Дневни центрове</span>
         <span className="absolute top-0 right-0 inline-flex items-center m-1 justify-center w-5 h-5 text-xs font-bold text-white bg-red-500 rounded-full">
@@ -105,7 +105,7 @@ export default function Locations() {
     </button>
     <button 
         onClick={() => setFilter('Вечерни програми')}
-        className={`relative flex items-center justify-start pl-1 pr-7 py-2 rounded ${filter === 'Вечерни програми' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+        className={`relative flex items-center justify-start pl-1 pr-7 py-2 rounded ${filter === 'Вечерни програми' ? 'bg-lblue text-cream' : 'bg-gray-200'}`}
     >
         <span className="text-left">Вечерни програми</span>
         <span className="absolute top-0 right-0 inline-flex items-center m-1 justify-center w-5 h-5 text-xs font-bold text-white bg-red-500 rounded-full">

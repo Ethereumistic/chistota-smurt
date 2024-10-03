@@ -112,7 +112,7 @@ export const Menu = ({
 }) => {
   return (
     <div className="border border-transparent 
-      dark:bg-gray-800/50 dark:border-white/[0.2] bg-slate-200/50 ">
+       dark:border-white/[0.2]  ">
       <nav
         onMouseLeave={() => setActive(null)} // resets the state
         className="relative h-[90px]  

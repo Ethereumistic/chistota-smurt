@@ -13,6 +13,23 @@ const config: Config = {
   ],
   darkMode: "class",
   theme: {
+    screens: {
+      'sm': '640px',
+      // => @media (min-width: 640px) { ... }
+
+      'md': '768px',
+      // => @media (min-width: 768px) { ... }
+
+      'lg': '1024px',
+      // => @media (min-width: 1024px) { ... }
+
+      'xl': '1280px',
+      // => @media (min-width: 1280px) { ... }
+
+      '2xl': '1536px',
+      // => @media (min-width: 1536px) { ... }
+      'cst': '932px',
+    },
     extend: {
       animation: {
         scroll:
@@ -33,11 +50,15 @@ const config: Config = {
         dred: " #4C0414 ",
         lyellow: " #FFDE59 ",
         dyellow: " #60562E ",
-        lblue: " #003174 ",
-        dblue: " #020617 ",
-        ddblue:" #003174",
+
+        lblue: " #58779F",
+        dblue: " #1A2A40",
+        ddblue: "#132031",
+        sgreen:"#7A8B7F",
+        cream:"#F5F1E8",
+        rred:"#A34A28",
         theme_grayishBlue: 'hsl(237, 18%, 59%)',
-        theme_softRed: 'hsl(345, 95%, 68%)',
+        theme_softRed: '#fff',
         theme_white: 'hsl(0, 0%, 100%)',
         theme_darkDesaturatedBlue: 'hsl(236, 21%, 26%)',
         theme_veryDarkBlue: 'hsl(235, 16%, 14%)',
@@ -52,6 +73,8 @@ const config: Config = {
         paci: ["var(--font-paci)"],
         geistSans: ["var(--font-geist-sans)"],
         geistMono: ["var(--font-geist-mono)"],
+        raleway: ["var(--font-raleway)"],
+        montserrat: ["var(--font-montserrat)"],
       },
       keyframes: {
         scroll: {

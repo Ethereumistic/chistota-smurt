@@ -18,42 +18,44 @@ export function NavbarDemo({ className }: { className?: string }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const prevScrollY = useRef(0);
+  const [scrolled, setScrolled] = useState(false); // New state for scroll detection
+  const [scrollY, setScrollY] = useState(0); // New state for scroll position
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 932); // Adjust breakpoint as needed
+      setIsMobile(window.innerWidth < 932);
+    };
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      setScrollY(currentScrollY); // Update scroll position
+
+      if (currentScrollY > prevScrollY.current) {
+        setVisible(false);
+      } else {
+        setVisible(true);
+      }
+
+      setScrolled(currentScrollY > 0);
+      prevScrollY.current = currentScrollY;
     };
 
     handleResize(); // Initial check
     window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      if (currentScrollY > prevScrollY.current) {
-        // Scrolling down
-        setVisible(false);
-      } else {
-        // Scrolling up
-        setVisible(true);
-      }
-
-      prevScrollY.current = currentScrollY; // Update previous scroll position
-    };
-
     window.addEventListener("scroll", handleScroll);
+
     return () => {
+      window.removeEventListener("resize", handleResize);
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
+
+
   return (
     <div className="relative w-full flex items-center justify-center">
       <AnimatePresence>
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 1, y: 0 }}
           animate={{ y: visible ? 0 : -100, opacity: visible ? 1 : 0 }}
           exit={{ opacity: 0 }}
@@ -62,12 +64,25 @@ export function NavbarDemo({ className }: { className?: string }) {
             "flex fixed top-0 inset-x-0 mx-auto  bg-transparent z-[5000] items-center justify-center",
             className
           )}
+        > */}
+        <motion.div
+          initial={{ opacity: 1, y: 0 }}
+          animate={{  }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2 }}
+          className={cn(
+            "flex fixed top-0 inset-x-0 mx-auto z-[5000] items-center justify-center",
+            className,
+            { 'backdrop-blur-sm ': scrolled } // Apply blur and semi-transparent background
+          )}
         >
+
           <Navbar 
             className="top-0" 
             isMobile={isMobile} 
             mobileMenuOpen={mobileMenuOpen}
             setMobileMenuOpen={setMobileMenuOpen} 
+            scrollY={scrollY}
           />
         </motion.div>
       </AnimatePresence>
@@ -86,11 +101,13 @@ function Navbar({
   isMobile, 
   mobileMenuOpen,
   setMobileMenuOpen,
+  scrollY
 }: { 
   className?: string, 
   isMobile: boolean, 
   mobileMenuOpen: boolean,
   setMobileMenuOpen: (isOpen: boolean) => void 
+  scrollY: number
 
 }) {  
   const [active, setActive] = useState<string | null>(null);
@@ -101,24 +118,61 @@ function Navbar({
       <div className={cn("max-w-full mx-auto", className)}>
         <Menu setActive={setActive}>
           <div className="flex items-center justify-between w-full">
-            {/* Logo on the left */}
-            <Link href="/">
-            <div className="flex  items-center hover:scale-105 transition duration-700 ">
-              {/* <LogoImage
-                title="Bio DDD"
-                href="/"
-                src="https://cdn.jsdelivr.net/gh/Ethereumistic/bio-ddd-assets/logo/logo-light.png"
-                darkSrc="https://cdn.jsdelivr.net/gh/Ethereumistic/bio-ddd-assets/logo/logo-dark.png"
-              /> */}
-              <h1 className="text-4xl font-bold text-black dark:text-white ">Чистота или Смърт</h1>
+            
+            {/* Logo on the left DESKTOP */}
+            <div className=" items-center justify-center translate-x-[760px] hidden cst:flex">
+            <motion.div
+          initial={{ x: 0, y: 200, scale: 1.8 }} // Start position and scale
+          animate={{ 
+            y: Math.max(200 - scrollY, 0), // Move up to 0
+            scale: Math.max(1.8 - scrollY / 200 * 0.8, 1), // Scale down to 1
+            x: scrollY > 200 ? Math.max(-scrollY + 200, -760) : 0 // Move on X after Y is done
+          }} 
+          transition={{ duration: 0.2 }}
+          className="flex flex-col mt-2  "
+        >
+          <Link href="/" className="  ">
+            <h1 className="text-white text-center text-[50px] font-montserrat tracking-custom">
+              ЧИСТОТА
+            </h1>
+            <div className="flex flex-row items-center justify-center -translate-y-4 ">
+              <h1 className="text-black text-center text-[30px] tracking-custom font-montserrat">ИЛИ СМЪР</h1>
+              <span className="text-black text-center text-[30px] rotate-[50deg] translate-y-2 -translate-x-2 tracking-custom font-montserrat">Т</span>
             </div>
-            </Link>
+          </Link>
+        </motion.div>
+        </div>
+
+                    {/* Logo on the left DESKTOP */}
+                    <div className="flex items-center justify-center translate-x-[10px] -translate-y-12 cst:hidden">
+            <motion.div
+          initial={{ x: 0, y: 200, scale: 1.8 }} // Start position and scale
+          animate={{ 
+            y: Math.max(200 - scrollY, 48), // Move up to 0
+            scale: Math.max(1.2 - scrollY / 200 * 0.8, 1), // Scale down to 1
+            x: scrollY > 200 ? Math.max(-scrollY + 200, -20) : 0 // Move on X after Y is done
+          }} 
+          transition={{ duration: 0.2 }}
+          className="flex flex-col mt-2  "
+        >
+          <Link href="/" className="  ">
+            <h1 className="text-red-500 text-center text-[50px] font-montserrat tracking-custom">
+              ЧИСТОТА
+            </h1>
+            <div className="flex flex-row items-center justify-center -translate-y-4">
+              <h1 className="text-black text-center text-[30px] tracking-custom font-montserrat">ИЛИ СМЪР</h1>
+              <span className="text-black text-center text-[30px] rotate-[50deg] translate-y-2 -translate-x-2 tracking-custom font-montserrat">Т</span>
+            </div>
+          </Link>
+        </motion.div>
+        </div>
+
 
             {/* Navigation items or menu icon */}
             {isMobile ? (
-              <div className="flex items-center space-x-4">
+              <div className="flex ">
                 <div className="" >
-                  <ThemeSwitch  />
+                  {/* <ThemeSwitch  /> */}
                 </div>
               <button 
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
@@ -205,7 +259,7 @@ function Navbar({
                 </div>
                 </Link>
                 <ThemeSwitch />
-                <LanguageSelector />
+                {/* <LanguageSelector /> */}
               </div>
             )}
           </div>

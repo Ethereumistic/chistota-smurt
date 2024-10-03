@@ -13,9 +13,9 @@ const Accordion: React.FC<AccordionProps> = ({ title, children }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className="border-b  border-gray-300">
+        <div className="border-b  border-gray-300 ">
             <div 
-                className="flex items-center justify-between p-4 cursor-pointer bg-white dark:bg-black"
+                className="flex items-center justify-between p-4 cursor-pointer bg-ddblue rounded-lg"
                 onClick={() => setIsOpen(!isOpen)}
             >
                 <h3 className="text-lg font-bold">{title}</h3>
@@ -27,7 +27,7 @@ const Accordion: React.FC<AccordionProps> = ({ title, children }) => {
                 transition={{ duration: 0.3 }}
                 className="overflow-hidden"
             >
-                <div className="p-4 bg-gray-100 dark:bg-gray-800">
+                <div className="p-4 bg-dblue">
                     {children}
                 </div>
             </motion.div>

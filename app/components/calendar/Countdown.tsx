@@ -61,14 +61,14 @@ const Countdown = (): ReactElement => {
 
     return (
     <div className="flex flex-col items-center justify-center  space-y-10">
-        <h1 className="text-6xl ">Остават...</h1>
+        {/* <h1 className="text-6xl ">Остават...</h1> */}
       <div className="flex space-x-1 lg:space-x-10 ">
         <CountdownCard id={`days${current.days}-${previous?.days}`} label="ДНИ" key={`days${current.days}-${previous?.days}`} current={current.days} previous={previous?.days} />
         <CountdownCard id={`hours${current.hours}-${previous?.hours}`} label="ЧАСА" key={`hours${current.hours}-${previous?.hours}`} current={current.hours} previous={previous?.hours} />
         <CountdownCard id={`minutes${current.minutes}-${previous?.minutes}`} label="МИНУТИ" key={`minutes${current.minutes}-${previous?.minutes}`} current={current.minutes} previous={previous?.minutes} />
         <CountdownCard id={`seconds${current.seconds}-${previous?.seconds}`} label="СЕКУНДИ" key={`seconds${current.seconds}-${previous?.seconds}`} current={current.seconds} previous={previous?.seconds} />
       </div>
-      <h1 className="text-6xl ">До премиерата ни в София</h1>
+      {/* <h1 className="text-6xl ">До премиерата ни в София</h1> */}
 
     </div>
     )

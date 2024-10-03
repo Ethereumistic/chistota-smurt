@@ -12,7 +12,7 @@ body {
 
 html.dark body {
   /* Dark mode background with dotted pattern */
-  background-color: #000000; /* slate-900 */
+  background-color: black;
   color: white;
   background-image: radial-gradient(circle, #0000 1px, transparent 1px);
   background-size: 20px 20px;
@@ -20,3 +20,41 @@ html.dark body {
 }
 
 
+.tracking-custom {
+  letter-spacing: 0.2em;
+}
+
+.underline-hover {
+  background: 
+      linear-gradient(currentColor 0 0) 
+      var(--p, 100%) 100% /var(--d, 0) 1px 
+      no-repeat;
+  transition: 0.3s, background-position 0s 0.3s;
+}
+.underline-hover:hover {
+  --d: 100%;
+  --p: 0%;
+}
+
+.basic-3 {
+  background: 
+      linear-gradient(currentColor 0 0) 
+      bottom /var(--d, 0) 1px 
+      no-repeat;
+  transition:0.5s;
+}
+.basic-3:hover {
+  --d: 100%;
+}
+
+@media (min-width: 932px) {
+  .cst\:flex {
+      display: flex;
+  }
+}
+
+@media (min-width: 932px) {
+  .cst\:hidden {
+      display: none;
+  }
+}
