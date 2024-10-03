@@ -1,23 +1,38 @@
 "use client";
-import { TextGenerateEffect } from "./text-gen";
 
+import Link from "next/link";
+import { Chistota } from "./Chistota";
+import { Ili } from "./Ili";
+import { Smur } from "./Smur";
+import { T } from "./T";
 
-const words = `ЧИСТОТА ИЛИ СМЪРТ
-`;
 
 export function Logo() {
 
   return (
 
-    <div className="flex flex-col items-center">
-
-      <TextGenerateEffect words="ЧИСТОТА" className="text-white text-[40px] font-montserrat tracking-custom" filter={false} /> {/* First row */}
-
-    <div className="flex flex-row items-center justify-center -translate-y-2 text-nowrap">
-      <TextGenerateEffect words="ИЛИ СМЪР" className="text-black text-center  text-[25px] tracking-custom font-montserrat" filter={false} /> {/* Second row */}
-
-      <TextGenerateEffect words="Т" className="text-black text-center text-[25px] rotate-[50deg] translate-y-1 -translate-x-1 tracking-custom font-montserrat" filter={false} /> {/* Rotated T */}
+    <div className="">
+            <div className="flex-1 flex items-center justify-center z-10"> {/* Centering the logo */}
+<div className="flex flex-col mt-0 " >
+    <Link href="/" className="">
+    <div className="flex flex-col items-center justify-center -translate-x-1">
+      <Chistota />
+        <div className="flex flex-row items-center justify-center -translate-x-1">
+            <div className="flex flex-row ">
+                <div className="mx-2">
+                <Ili />
+                </div>
+                <div className="ml-2">
+                <Smur />
+                </div>
+                <T />
+            </div>
+        
+        </div>
     </div>
+    </Link>
+  </div>
+</div>
     </div>
   );
 

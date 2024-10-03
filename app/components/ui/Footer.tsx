@@ -1,8 +1,8 @@
 "use client";
 import React from 'react'
 import Link from 'next/link';
-import { IconMail, IconMapPin, IconPhone } from '@tabler/icons-react';
-import { HoverBorderGradient } from './hover-border-gradient';
+import { IconBrandInstagram, IconBrandFacebook, IconBrandYoutube } from '@tabler/icons-react';
+import { Logo } from '../cover/Logo';
 
 export default function Footer() {
     return (
@@ -13,19 +13,19 @@ export default function Footer() {
   This component comes with some `rtl` classes. Please remove them if they are not needed in your project.
 */}
 
-<footer className="bg-white dark:bg-dblue">
+<footer className="bg-dblue">
   <div className="mx-auto max-w-screen-xl px-4 pb-6 pt-16 sm:px-6 lg:px-8 lg:pt-24">
     <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
       <div>
-        <Link href="/"
-         className="flex text-4xl font-bold dark:text-white text-black sm:justify-start">
+        {/* <Link href="/"
+         className="flex text-4xl font-bold text-cream sm:justify-start">
 
             <h1>Чистота или Смърт</h1>
-        </Link>
+        </Link> */}
+        <Logo />
 
-        <p className="mt-6 max-w-md text-center justify-center items-center leading-relaxed text-gray-500 sm:max-w-xs sm:text-left">
-        Ние сме водеща компания, специализирана в професионални ДДД услуги. Ние предлагаме надеждни решения за контрол на вредители, 
-        дезинфекция на помещения и ефективна защита срещу гризачи, насекоми, влечуги и птици.
+        <p className="mt-6 max-w-md text-center justify-center items-center leading-relaxed text-gray-500 md:max-w-lg ">
+        Представяме документален филм за наркотичната зависимост. Изследваме пътя към възстановяването и въздействието върху обществото. Целим да повишим осведомеността и да вдъхновим промяна.
         </p>
 
 
@@ -33,68 +33,53 @@ export default function Footer() {
 
       <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4 lg:col-span-2">
         <div className="text-center sm:text-left">
-          <p className="text-lg font-russo text-gray-900 dark:text-gray-100">За Дома</p>
+          <p className="text-lg font-montserrat font-bold">История</p>
 
-          <ul className="mt-8 space-y-4 font-russo text-sm">
+          <ul className="mt-8 space-y-4 font-montserrat text-sm">
             <li>
-              <Link className="text-gray-700 dark:text-gray-200 transition hover:text-ddblue dark:hover:text-lgreen" href="/pests">
-                Контрол на насекоми
+              <Link className="transition hover:text-llblue" href="/pests">
+                За Нас
               </Link>
-            </li>
-
-            <li>
-              <Link className="text-gray-700 dark:text-gray-200 transition hover:text-ddblue dark:hover:text-lgreen" href="/pests">
-              Контрол на гризачи
-              </Link>
-            </li>
-
-            <li>
-              <Link className="text-gray-700 dark:text-gray-200 transition hover:text-ddblue dark:hover:text-lgreen" href="/pests">
-              Контрол на влечуги
-              </Link>
-            </li>
-
-            <li>
-              <Link className="text-gray-700 dark:text-gray-200 transition hover:text-ddblue dark:hover:text-lgreen" href="/pests">
-              Контрол на птици
-               </Link>
-            </li>
-
-            <li>
-              <Link className="text-gray-700 dark:text-gray-200 transition hover:text-ddblue dark:hover:text-lgreen" href="/disinfection">
-              Дезинфекция
-               </Link>
-            </li>
-          </ul>
-        </div>
-
-        <div className="text-center font-russo sm:text-left ">
-          <p className="text-lg font-russo text-gray-900 dark:text-gray-100">За Бизнеса</p>
-
-          <ul className="mt-8 space-y-4 text-sm">
-            <li>
-              <Link className="text-gray-700 dark:text-gray-200 transition hover:text-ddblue dark:hover:text-lgreen" href="/business/contract">
-                ДДД Договор
-              </Link>
-            </li>
-
-            <li>
-              <Link className="text-gray-700 dark:text-gray-200 transition hover:text-ddblue dark:hover:text-lgreen" href="/disinfection"> Професионална Дезинфекция </Link>
-            </li>
-
-            <li>
-              <Link className="text-gray-700 dark:text-gray-200 transition hover:text-ddblue dark:hover:text-lgreen" href="/pests"> Контрол на вредители </Link>
             </li>
 
           </ul>
         </div>
 
-        <div className="text-center font-russo sm:text-left">
-          <p className="text-lg font-russo text-gray-900 dark:text-gray-100">Полезно</p>
+        <div className="text-center font-montserrat sm:text-left ">
+          <p className="text-lg font-montserrat font-bold">Локации</p>
 
           <ul className="mt-8 space-y-4 text-sm">
             <li>
-              <Link className="text-gray-700  dark:text-gray-200 transition hover:text-ddblue dark:hover:text-lgreen" href="/faq"> Често задавани въпроси </Link>
+              <Link className="transition hover:text-llblue" href="/locations/?filter=Терапевтични общности">
+                Терапевтични общности
+              </Link>
+            </li>
+            <li>
+              <Link className="transition hover:text-llblue" href="/locations/?filter=Програми за непълнолетни">
+                Програми за непълнолетни
+              </Link>
+            </li>
+            <li>
+              <Link className="transition hover:text-llblue" href="/locations/?filter=Дневни центрове">
+                Дневни центрове
+              </Link>
+            </li>
+            <li>
+              <Link className="transition hover:text-llblue" href="/locations/?filter=Вечерни програми">
+                Вечерни програми
+              </Link>
+            </li>
+
+
+          </ul>
+        </div>
+
+        <div className="text-center font-montserrat sm:text-left">
+          <p className="text-lg font-montserrat font-bold">Партньори</p>
+
+          <ul className="mt-8 space-y-4 text-sm">
+            <li>
+              <Link className="transition hover:text-llblue " href="/faq"> Често задавани въпроси </Link>
             </li>
 
 
@@ -102,45 +87,11 @@ export default function Footer() {
         </div>
 
         <div className="text-center sm:text-left flex flex-col items-center">
-        <div className='flex flex-row items-center'>
-        <HoverBorderGradient >
-        <Link href='/contact'>
-        
-        </Link>
-        </HoverBorderGradient>
-        </div>
-          <ul className="mt-8 space-y-4 text-sm">
-            <li>
-              <Link
-                className="flex items-center justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end "
-                href="mailto:office@bio-ddd.com"
-              >
-                <IconMail />
-                <span  className="flex-1 text-gray-700 dark:text-gray-200 hover:text-ddblue dark:hover:text-lgreen" >office@bio-ddd.com</span>
-              </Link>
-            </li>
 
-            <li>
-              <Link
-                className="flex items-center justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end"
-                href="tel:+1234567890"
-              >
-                <IconPhone />
-
-                <span className="flex-1 text-gray-700 dark:text-gray-200 hover:text-ddblue dark:hover:text-lgreen">0123456789</span>
-              </Link>
-            </li>
-
-            <li
-              className="flex items-start justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end"
-            >
-              <Link target="_blank" className='flex items-center justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end' href="https://www.google.com/maps/place/42%C2%B052'39.0%22N+25%C2%B018'60.0%22E/@42.877495,25.3140811,17z/data=!3m1!4b1!4m13!1m8!3m7!1s0x40a90fe2d6958745:0x400a01269bf5010!2sGabrovo!3b1!8m2!3d42.8742212!4d25.3186837!16zL20vMDNqZm1w!3m3!8m2!3d42.877495!4d25.316656?entry=ttu&g_ep=EgoyMDI0MDkxNi4wIKXMDSoASAFQAw%3D%3D">
-                <IconMapPin />
-              <address className="-mt-0.5 flex-1 not-italic text-gray-700 dark:text-gray-200 hover:text-ddblue dark:hover:text-lgreen">
-                гр. Габрово, ул. &quot;Цар Борис&quot; 12
-              </address>
-              </Link>
-            </li>
+          <ul className=" space-y-4 text-sm">
+            <IconBrandFacebook className="w-10 h-10 " />
+            <IconBrandInstagram className="w-10 h-10 " />
+            <IconBrandYoutube className="w-10 h-10 " />
           </ul>
         </div>
       </div>

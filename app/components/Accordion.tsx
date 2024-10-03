@@ -13,7 +13,7 @@ const Accordion: React.FC<AccordionProps> = ({ title, children }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className="border-b  border-gray-300 ">
+        <div className="border-b  border-gray-600 ">
             <div 
                 className="flex items-center justify-between p-4 cursor-pointer bg-ddblue rounded-lg"
                 onClick={() => setIsOpen(!isOpen)}

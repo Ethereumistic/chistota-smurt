@@ -52,6 +52,7 @@ const config: Config = {
         dyellow: " #60562E ",
 
         lblue: " #58779F",
+        llblue: " #8CB2E4",
         dblue: " #1A2A40",
         ddblue: "#132031",
         sgreen:"#7A8B7F",

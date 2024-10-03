@@ -72,7 +72,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${raleway.variable} ${russo.variable} ${montserrat.variable} antialiased`}
       >
         <Providers>
-          <div className="bg-dblue">
+          <div className="bg-dblue text-cream">
             {/* <NavbarDemo /> */}
             <NavbarTest />
             {children}
