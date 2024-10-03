@@ -18,7 +18,7 @@ export const TextGenerateEffect = ({
     delay?: number;
   }) => {
     const [scope, animate] = useAnimate();
-    let wordsArray = words.split("");
+    const wordsArray = words.split("");
   
     useEffect(() => {
       const staggerDelay = 0.2; // Define a fixed stagger delay
