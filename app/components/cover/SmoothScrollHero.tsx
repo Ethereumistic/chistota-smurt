@@ -29,19 +29,22 @@ export const SmoothScrollHero = () => {
 const SECTION_HEIGHT = 1500;
 
 const Hero = () => {
-  return (
-    <div
-      style={{ height: `calc(${SECTION_HEIGHT}px + 100vh)` }}
-      className="relative w-full"
-    >
-      <CenterImage />
-
-      <ParallaxImages />
-
-      <div className="absolute bottom-0 left-0 right-0 h-96 bg-gradient-to-b from-zinc-950/0 to-zinc-950" />
-    </div>
-  );
-};
+    const { scrollY } = useScroll();
+    
+    // Dynamically calculate the section height based on scroll position
+    const dynamicSectionHeight = useTransform(scrollY, [0, SECTION_HEIGHT + 800], [SECTION_HEIGHT, SECTION_HEIGHT + 800]);
+  
+    return (
+      <div
+        style={{ height: `calc(${dynamicSectionHeight}px + 100vh)` }} // Use dynamic height
+        className="relative w-full"
+      >
+        <CenterImage />
+        <ParallaxImages />
+        <div className="absolute  bottom-0 left-0 right-0 h-96 bg-gradient-to-b from-zinc-950/0 to-zinc-950" />
+      </div>
+    );
+  };
 
 const CenterImage = () => {
   const { scrollY } = useScroll();
@@ -60,79 +63,93 @@ const CenterImage = () => {
   );
   const opacity = useTransform(
     scrollY,
-    [SECTION_HEIGHT, SECTION_HEIGHT + 500],
-    [1, 0]
+    [SECTION_HEIGHT, SECTION_HEIGHT + 1500],
+    [1, 0] // This controls the opacity of the CenterImage
   );
 
   return (
     <motion.div
-      className="sticky top-0 h-screen w-full"
-      style={{
-        clipPath,
-        backgroundSize: "cover",
-        opacity,
-        backgroundImage:
-          "url(https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/cover/bg.png)",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
-    />
+    className="sticky top-0 h-screen w-full "
+    style={{
+      clipPath,
+      backgroundSize: "cover",
+      opacity,
+      backgroundImage:
+        "url(https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/cover/bg.png)",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+    }}
+  />
   );
 };
 
 const ParallaxImages = () => {
-  return (
-    <div className="mx-auto max-w-5xl px-4 pt-[100px]">
+    const { scrollY } = useScroll();
+    
+    // Calculate the height of the CenterImage dynamically
+    const centerImageHeight = useTransform(scrollY, [0, SECTION_HEIGHT + 800], [SECTION_HEIGHT, SECTION_HEIGHT + 800]);
+  
+    return (
+      <motion.div 
+        className="mx-auto max-w-7xl px-4 pt-[0px] sticky top-0"
+        style={{ height: centerImageHeight }}
+      >
+        <ParallaxImg
+          src="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/cover/montain.png"
+          alt="An example of a space launch"
+          start={0}
+          end={-5}
+          stopAt={2400}
+          className="mx-auto w-full absolute bottom-0 left-0 right-0"
+        />
+      </motion.div>
+    );
+  };
 
-      <ParallaxImg
-        src="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/cover/montain.png"
-        alt="An example of a space launch"
-        start={200}
-        end={-200}
-        className="mx-auto w-full"
+  const ParallaxImg = ({
+    className,
+    alt,
+    src,
+    start,
+    end,
+    stopAt,
+  }: {
+    className?: string;
+    alt: string;
+    src: string;
+    start: number;
+    end: number;
+    stopAt: number;
+  }) => {
+    const ref = useRef(null);
+    const { scrollY } = useScroll();
+  
+    const y = useTransform(
+      scrollY,
+      [0, stopAt, stopAt + 1],
+      [start, end, end],
+      { clamp: false }
+    );
+  
+    const scale = useTransform(
+      scrollY,
+      [0, stopAt, stopAt + 1],
+      [1.2, 1, 1],
+      { clamp: false }
+    );
+  
+    const transform = useMotionTemplate`translateY(${y}px) scale(${scale})`;
+  
+    return (
+      <motion.img
+        src={src}
+        alt={alt}
+        className={className}
+        ref={ref}
+        style={{ transform }}
       />
-
-    </div>
-  );
-};
-
-const ParallaxImg = ({
-  className,
-  alt,
-  src,
-  start,
-  end,
-}: {
-  className?: string;
-  alt: string;
-  src: string;
-  start: number;
-  end: number;
-}) => {
-  const ref = useRef(null);
-
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    // @ts-ignore
-    offset: [`${start}px end`, `end ${end * -1}px`],
-  });
-
-  const opacity = useTransform(scrollYProgress, [0.75, 1], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0.1, 1.3], [1.3, 0.1]);
-
-  const y = useTransform(scrollYProgress, [0, 1], [start, end]);
-  const transform = useMotionTemplate`translateY(${y}px) scale(${scale})`;
-
-  return (
-    <motion.img
-      src={src}
-      alt={alt}
-      className={className}
-      ref={ref}
-      style={{ transform, opacity }}
-    />
-  );
-};
+    );
+  };
 
 const Schedule = () => {
   return (
