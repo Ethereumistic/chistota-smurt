@@ -1,11 +1,12 @@
 import { ReactLenis } from 'lenis/react'
+
 import {
   motion,
   useMotionTemplate,
   useScroll,
   useTransform,
 } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { IconArrowDown, IconMapPin, IconX } from "@tabler/icons-react";
 
 export const TestScroll = () => {
@@ -26,130 +27,147 @@ export const TestScroll = () => {
   );
 };
 
-const SECTION_HEIGHT = 1500;
+const SECTION_HEIGHT_DESKTOP = 1000;
+const SECTION_HEIGHT_MOBILE = 500;
 
 const Hero = () => {
+    const [isMobile, setIsMobile] = useState(false);
     const { scrollY } = useScroll();
     
-    // Dynamically calculate the section height based on scroll position
-    const dynamicSectionHeight = useTransform(scrollY, [0, SECTION_HEIGHT + 800], [SECTION_HEIGHT, SECTION_HEIGHT + 800]);
-  
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
+    const sectionHeight = isMobile ? SECTION_HEIGHT_MOBILE : SECTION_HEIGHT_DESKTOP;
+    
+    const dynamicSectionHeight = useTransform(
+        scrollY,
+        [0, sectionHeight + (isMobile ? 800 : 1600)],
+        [sectionHeight, sectionHeight + (isMobile ? 800 : 1600)]
+    );
+
     return (
       <div
-        style={{ height: `calc(${dynamicSectionHeight}px + 100vh)` }} // Use dynamic height
+        style={{ height: `calc(${dynamicSectionHeight}px + 100vh)` }}
         className="relative w-full"
       >
-        <CenterImage />
-        <ParallaxImages />
-        <div className="absolute  bottom-0 left-0 right-0 h-96 bg-gradient-to-b from-zinc-950/0 to-zinc-950" />
+        <CenterImage isMobile={isMobile} />
+        <ParallaxImages isMobile={isMobile} />
+        <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-b from-dblue/0 to-dblue" />
       </div>
     );
-  };
+};
 
-const CenterImage = () => {
+const CenterImage = ({ isMobile }: { isMobile: boolean }) => {
   const { scrollY } = useScroll();
 
-  
+  const clipStart = isMobile ? 500 : 1000;
+  const clipEnd = isMobile ? 500 : 1000;
 
-  const clip1 = useTransform(scrollY, [1500, 1500], [25, 0]);
-  const clip2 = useTransform(scrollY, [1500, 1500], [75, 100]);
+  const clip1 = useTransform(scrollY, [clipStart, clipEnd], [25, 0]);
+  const clip2 = useTransform(scrollY, [clipStart, clipEnd], [75, 100]);
 
   const clipPath = useMotionTemplate`polygon(${clip1}% ${clip1}%, ${clip2}% ${clip1}%, ${clip2}% ${clip2}%, ${clip1}% ${clip2}%)`;
 
-  const backgroundSize = useTransform(
-    scrollY,
-    [0, SECTION_HEIGHT + 500],
-    ["170%", "100%"]
-  );
-  const opacity = useTransform(
-    scrollY,
-    [SECTION_HEIGHT, SECTION_HEIGHT + 1500],
-    [1, 0] // This controls the opacity of the CenterImage
-  );
-
   return (
     <motion.div
-    className="sticky top-0 h-screen w-full "
-    style={{
-      clipPath,
-      backgroundSize: "cover",
-      opacity,
-      backgroundImage:
-        "url(https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/cover/bg.png)",
-      backgroundPosition: "center",
-      backgroundRepeat: "no-repeat",
-    }}
-  />
+      className="sticky top-0 h-screen w-full"
+      style={{
+        clipPath,
+        backgroundSize: "cover",
+        backgroundImage:
+          "url(https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/cover/bg.png)",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    />
   );
 };
 
-const ParallaxImages = () => {
+const ParallaxImages = ({ isMobile }: { isMobile: boolean }) => {
     const { scrollY } = useScroll();
     
-    // Calculate the height of the CenterImage dynamically
-    const centerImageHeight = useTransform(scrollY, [0, SECTION_HEIGHT + 800], [SECTION_HEIGHT, SECTION_HEIGHT + 800]);
+    const sectionHeight = isMobile ? SECTION_HEIGHT_MOBILE : SECTION_HEIGHT_DESKTOP;
+    const centerImageHeight = useTransform(
+        scrollY,
+        [0, sectionHeight + (isMobile ? 400 : 800)],
+        [sectionHeight, sectionHeight + (isMobile ? 400 : 800)]
+    );
   
     return (
-      <motion.div 
-        className="mx-auto max-w-7xl px-4 pt-[0px] sticky top-0"
-        style={{ height: centerImageHeight }}
-      >
-        <ParallaxImg
-          src="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/cover/montain.png"
-          alt="An example of a space launch"
-          start={0}
-          end={-5}
-          stopAt={2400}
-          className="mx-auto w-full absolute bottom-0 left-0 right-0"
-        />
-      </motion.div>
+        <motion.div 
+          className="mx-auto max-w-3xl xl:max-w-5xl px-4 pt-[0px] sticky top-0 h-screen flex items-end"
+          style={{ height: centerImageHeight }}
+        >
+          <ParallaxImg
+            src="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/cover/montain.png"
+            alt="An example of a space launch"
+            start={0}
+            end={0}
+            stopAt={isMobile ? 1000 : 2000}
+            initialScale={isMobile ? 1.1 : 1.2}
+            finalScale={isMobile ? 0.8 : 0.6}
+            className="w-full"
+          />
+        </motion.div>
     );
-  };
+};
+  
+const ParallaxImg = ({
+  className,
+  alt,
+  src,
+  start,
+  end,
+  stopAt,
+  initialScale,
+  finalScale,
+}: {
+  className?: string;
+  alt: string;
+  src: string;
+  start: number;
+  end: number;
+  stopAt: number;
+  initialScale: number;
+  finalScale: number;
+}) => {
+  const ref = useRef(null);
+  const { scrollY } = useScroll();
 
-  const ParallaxImg = ({
-    className,
-    alt,
-    src,
-    start,
-    end,
-    stopAt,
-  }: {
-    className?: string;
-    alt: string;
-    src: string;
-    start: number;
-    end: number;
-    stopAt: number;
-  }) => {
-    const ref = useRef(null);
-    const { scrollY } = useScroll();
-  
-    const y = useTransform(
-      scrollY,
-      [0, stopAt, stopAt + 1],
-      [start, end, end],
-      { clamp: false }
-    );
-  
-    const scale = useTransform(
-      scrollY,
-      [0, stopAt, stopAt + 1],
-      [1.2, 1, 1],
-      { clamp: false }
-    );
-  
-    const transform = useMotionTemplate`translateY(${y}px) scale(${scale})`;
-  
-    return (
-      <motion.img
-        src={src}
-        alt={alt}
-        className={className}
-        ref={ref}
-        style={{ transform }}
-      />
-    );
-  };
+  const scale = useTransform(
+    scrollY,
+    [0, stopAt],
+    [initialScale, finalScale],
+    { clamp: true }
+  );
+
+  const y = useTransform(
+    scrollY,
+    [0, stopAt],
+    [start, end],
+    { clamp: true }
+  );
+
+  return (
+    <motion.img
+      src={src}
+      alt={alt}
+      className={className}
+      ref={ref}
+      style={{
+        y,
+        scale,
+        transformOrigin: 'bottom center',
+      }}
+    />
+  );
+};
 
 const Schedule = () => {
   return (
