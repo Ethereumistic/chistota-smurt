@@ -5,6 +5,7 @@ import { useEffect } from 'react'
 import i18next from './i18n'
 import Countdown from './components/calendar/Countdown'
 import { Cover } from './components/cover/Cover'
+import MultiLayerParallax from './components/cover/MultiLayerParallax'
 export default function Home({ params: { lng } }: { params: { lng: string } }) {
   // const { t } = useTranslation()
 
@@ -14,7 +15,8 @@ export default function Home({ params: { lng } }: { params: { lng: string } }) {
 
   return (
     <div>
-      <Cover />
+      {/* <Cover /> */}
+      <MultiLayerParallax />
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       
       
@@ -30,6 +32,7 @@ export default function Home({ params: { lng } }: { params: { lng: string } }) {
       <h1 className="text-6xl mb-20 mt-20">hello</h1>
       <h1 className="text-6xl mb-20 mt-20">hello</h1>
       </div>
+      
 
       {/* ... other elements ... */}
     </div>

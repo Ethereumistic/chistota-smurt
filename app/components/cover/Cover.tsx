@@ -9,7 +9,7 @@ import Countdown from "../calendar/Countdown";
 
 export function Cover() {
   const images = [
-    "https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/cover/v1-expanded.png",
+    "https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/cover/montain.png",
   ];
 
   const [scrollY, setScrollY] = useState(0);
@@ -42,9 +42,9 @@ export function Cover() {
       >
 
 
-        <div className="mb-[1500px]">
+        {/* <div className="mb-[1500px]">
           <Countdown />
-        </div>
+        </div> */}
 
       </motion.div>
     </ImagesSlider>

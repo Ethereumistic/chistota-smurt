@@ -152,7 +152,7 @@ function Navbar({
             scale: Math.max(1.2 - scrollY / 200 * 0.8, 1), // Scale down to 1
             x: scrollY > 200 ? Math.max(-scrollY + 200, -20) : 0 // Move on X after Y is done
           }} 
-          transition={{ duration: 0.2 }}
+          transition={{ duration: 0.1 }}
           className="flex flex-col mt-2  "
         >
           <Link href="/" className="  ">
