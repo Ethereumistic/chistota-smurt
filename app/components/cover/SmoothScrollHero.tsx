@@ -41,7 +41,7 @@ const Hero = () => {
       >
         <CenterImage />
         <ParallaxImages />
-        <div className="absolute  bottom-0 left-0 right-0 h-96 bg-gradient-to-b from-zinc-950/0 to-zinc-950" />
+        {/* <div className="absolute  bottom-0 left-0 right-0 h-96 bg-gradient-to-b from-zinc-950/0 to-zinc-950" /> */}
       </div>
     );
   };
@@ -75,7 +75,7 @@ const CenterImage = () => {
       backgroundSize: "cover",
       opacity,
       backgroundImage:
-        "url(https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/cover/bg.png)",
+        "url(https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/cover/bg-s.png)",
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
     }}

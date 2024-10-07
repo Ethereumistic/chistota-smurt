@@ -67,7 +67,16 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${russo.variable} ${montserrat.variable} antialiased`}
       >
         <Providers>
-          <div className="bg-dblue text-cream">
+          {/* <div className="bg-dblue text-cream"> */}
+          <div className=""
+                    style={{
+                      backgroundSize: "cover",
+                      backgroundImage:
+                        "url(https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/cover/bg-s.png)",
+                      backgroundPosition: "center",
+                      backgroundRepeat: "no-repeat",
+                    }}>
+          
             {/* <NavbarDemo /> */}
             <NavbarTest />
             {children}

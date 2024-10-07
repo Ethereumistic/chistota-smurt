@@ -7,12 +7,13 @@ import {
 } from "framer-motion";
 import { useRef } from "react";
 import { IconMapPin } from "@tabler/icons-react";
+import Countdown from '../calendar/Countdown';
 
 const SECTION_HEIGHT = 1000;
 
 export const TestScroll = () => {
   return (
-    <div className="bg-zinc-950">
+    <div className="">
       <ReactLenis
         root
         options={{
@@ -20,6 +21,11 @@ export const TestScroll = () => {
         }}
       >
         <Hero />
+        
+        <div className="bg-gradient-to-t from-black/0 to-black/[0.5] w-full h-12"></div>
+
+        <Countdown />
+        <Schedule />
       </ReactLenis>
     </div>
   );
@@ -41,7 +47,7 @@ const Hero = () => {
       >
         <CenterImage />
         <ParallaxImages />
-        <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-b from-dblue/0 to-dblue" />
+        <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-b from-black/0 to-black/[0.5]" />
       </div>
     );
 };
@@ -64,7 +70,7 @@ const CenterImage = () => {
         clipPath,
         backgroundSize: "cover",
         backgroundImage:
-          "url(https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/cover/bg.png)",
+          "url(https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/cover/bg-s.png)",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
       }}
@@ -73,76 +79,129 @@ const CenterImage = () => {
 };
 
 const ParallaxImages = () => {
-    const { scrollY } = useScroll();
-    
-    const centerImageHeight = useTransform(
-        scrollY,
-        [0, SECTION_HEIGHT],
-        [SECTION_HEIGHT, SECTION_HEIGHT]
-    );
-
-    const sideElementOpacity = useTransform(
-        scrollY,
-        [0, 500],
-        [0, 1]
-    );
-
-    const sideElementX = useTransform(
-        scrollY,
-        [0, 500],
-        [100, 0]
-    );
-
-    const sideElementScale = useTransform(
-        scrollY,
-        [0, 2000],
-        [1, 0.3]
-    );
+  const { scrollY } = useScroll();
   
-    return (
-        <motion.div 
-          className="mx-auto max-w-3xl xl:max-w-5xl px-4 pt-[0px] sticky top-0 h-screen flex items-end"
-          style={{ height: centerImageHeight }}
-        >
-          <motion.div
-            className="absolute left-0 top-1/2 -translate-y-1/2 w-1/4"
-            style={{
-              opacity: sideElementOpacity,
-              x: sideElementX,
-              scale: sideElementScale,
-            }}
-          >
-            <div className="">
-              <h2 className="text-5xl text-black font-bold mb-2">Left Title</h2>
-              <p className="text-black text-2xl">This is some text on the left side that will animate in.</p>
-            </div>
-          </motion.div>
+  const centerImageHeight = useTransform(
+      scrollY,
+      [0, SECTION_HEIGHT],
+      [SECTION_HEIGHT, SECTION_HEIGHT]
+  );
 
-          <ParallaxImg
-            src="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/cover/montain.png"
-            alt="An example of a space launch"
-            start={0}
-            end={0}
-            stopAt={2000}
-            initialScale={1.2}
-            finalScale={0.3}
-            className="w-full"
-          />
-          <motion.div
-            className="absolute right-0 top-1/2 -translate-y-1/2 w-1/4"
-            style={{
-              opacity: sideElementOpacity,
-              x: sideElementX,
-              scale: sideElementScale,
-            }}
-          >
-            <div className="">
-              <h2 className="text-5xl text-black font-bold mb-2">Right Title</h2>
-              <p className="text-black text-2xl">This is some text on the right side that will animate in.</p>
-            </div>
-          </motion.div>
+  const sideElementOpacity = useTransform(
+      scrollY,
+      [0, 1000],
+      [0, 1]
+  );
+
+  const additionalElementOpacity = useTransform(
+      scrollY,
+      [0, 1000],
+      [0, 1]
+  );
+
+  const sideElementScale = useTransform(
+      scrollY,
+      [0, 2000],
+      [1, 0.3]
+  );
+
+  // Set initial Y positions for the text elements
+  const initialYPosition = 100; // Adjust this value as needed
+
+  return (
+      <motion.div 
+        className="mx-auto max-w-3xl xl:max-w-5xl px-4 pt-[0px] sticky top-0 h-screen flex items-end"
+        style={{ height: centerImageHeight }}
+      >
+        {/* Left Title */}
+        <motion.div
+          className="absolute w-1/4"
+          style={{
+            top: '30%', // Exact Y coordinate for Left Title
+            left: '5%', // Exact X coordinate for Left Title
+            opacity: sideElementOpacity,
+            scale: sideElementScale,
+            y: initialYPosition, // Set initial Y position
+          }}
+          initial={{ y: initialYPosition }} // Initial position
+          animate={{ y: 0 }} // Animate to current position
+        >
+          <div>
+            <h2 className="text-5xl text-black font-bold mb-2">София</h2>
+            <p className="text-black text-2xl">10 ДЕКЕМВРИ</p>
+          </div>
         </motion.div>
-    );
+
+        {/* Additional Left Title */}
+        <motion.div
+          className="absolute w-1/4"
+          style={{
+            top: '50%', // Exact Y coordinate for Additional Left Title
+            left: '-20%', // Exact X coordinate for Additional Left Title
+            opacity: additionalElementOpacity,
+            scale: sideElementScale,
+            y: initialYPosition, // Set initial Y position
+          }}
+          initial={{ y: initialYPosition }} // Initial position
+          animate={{ y: 0 }} // Animate to current position
+        >
+          <div>
+            <h2 className="text-5xl text-black font-bold mb-2">Стара Загора</h2>
+            <p className="text-black text-2xl">15 ДЕКЕМВРИ</p>
+          </div>
+        </motion.div>
+
+        {/* Parallax Image */}
+        <ParallaxImg
+          src="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/cover/montain.png"
+          alt="An example of a space launch"
+          start={0}
+          end={0}
+          stopAt={2000}
+          initialScale={1.2}
+          finalScale={0.3}
+          className="w-full"
+        />
+
+        {/* Additional Right Title */}
+        <motion.div
+          className="absolute w-1/4"
+          style={{
+            top: '50%', // Exact Y coordinate for Additional Right Title
+            right: '-20%', // Exact X coordinate for Additional Right Title
+            opacity: additionalElementOpacity,
+            scale: sideElementScale,
+            y: initialYPosition, // Set initial Y position
+          }}
+          initial={{ y: initialYPosition }} // Initial position
+          animate={{ y: 0 }} // Animate to current position
+        >
+          <div>
+            <h2 className="text-5xl text-black font-bold mb-2">Варна</h2>
+            <p className="text-black text-2xl">2 ЯНУАРИ</p>
+          </div>
+        </motion.div>
+
+        {/* Right Title */}
+        <motion.div
+          className="absolute w-1/4"
+          style={{
+            top: '30%', // Exact Y coordinate for Right Title
+            right: '5%', // Exact X coordinate for Right Title
+            opacity: sideElementOpacity,
+            scale: sideElementScale,
+            y: initialYPosition, // Set initial Y position
+          }}
+          initial={{ y: initialYPosition }} // Initial position
+          animate={{ y: 0 }} // Animate to current position
+        >
+          <div>
+            <h2 className="text-5xl text-black font-bold mb-2">Пловдив</h2>
+            <p className="text-black text-2xl">15 ЯНУАРИ</p>
+          </div>
+        </motion.div>
+      </motion.div>
+  );
 };
   
 const ParallaxImg = ({
@@ -200,23 +259,21 @@ const Schedule = () => {
   return (
     <section
       id="launch-schedule"
-      className="mx-auto max-w-5xl px-4 py-48 text-white"
+      className="mx-auto max-w-5xl px-4  text-white"
     >
       <motion.h1
         initial={{ y: 48, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ ease: "easeInOut", duration: 0.75 }}
-        className="mb-20 text-4xl font-black uppercase text-zinc-50"
+        className="my-20 text-4xl text-center font-black uppercase text-zinc-50"
       >
-        Launch Schedule
+        ПРЕМИЕРИ
       </motion.h1>
-      <ScheduleItem title="NG-21" date="Dec 9th" location="Florida" />
-      <ScheduleItem title="Starlink" date="Dec 20th" location="Texas" />
-      <ScheduleItem title="Starlink" date="Jan 13th" location="Florida" />
-      <ScheduleItem title="Turksat 6A" date="Feb 22nd" location="Florida" />
-      <ScheduleItem title="NROL-186" date="Mar 1st" location="California" />
-      <ScheduleItem title="GOES-U" date="Mar 8th" location="California" />
-      <ScheduleItem title="ASTRA 1P" date="Apr 8th" location="Texas" />
+      <ScheduleItem title="София" date="8 ДЕКЕМВРИ" location="СОФИЯ" />
+      <ScheduleItem title="Пловдив" date="Dec 20th" location="ПЛОВДИВ" />
+      <ScheduleItem title="Варна" date="Jan 13th" location="ВАРНА" />
+      <ScheduleItem title="Стара Загора" date="Feb 22nd" location="СТАРА ЗАГОРА" />
+
     </section>
   );
 };

@@ -2,6 +2,7 @@ import { getPost } from '../getPosts'
 import Image from 'next/image'
 import { PortableText } from '@portabletext/react'
 import { urlForImage } from '@/sanity/lib/image'
+import { PostType } from '@/types/postType'
 
 const components = {
     types: {
@@ -10,15 +11,23 @@ const components = {
           return null
         }
         return (
-          <div className="relative w-full h-96 mb-4 rounded-xl overflow-hidden">
-            <Image
-              src={urlForImage(value).url()}
-              alt={value.alt || 'Embedded image'}
-              fill
-              style={{ objectFit: 'cover' }}
-              className="rounded-xl "
-            />
-          </div>
+          <figure className="my-8 w-full max-w-4xl mx-auto">
+            <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+              <Image
+                src={urlForImage(value).width(800).height(450).fit('max').auto('format').url()}
+                alt={value.alt || ' '}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                style={{ objectFit: 'contain' }}
+                className="rounded-lg"
+              />
+            </div>
+            {value.caption && (
+              <figcaption className="text-center text-sm mt-2 text-gray-600">
+                {value.caption}
+              </figcaption>
+            )}
+          </figure>
         )
       },
     },
@@ -28,19 +37,19 @@ export default async function Post({ params }: { params: { slug: string } }) {
   const post = await getPost(params.slug)
 
   if (!post) {
-    return <div>Post not found</div>
+    return <div>Блог поста не е намерен</div>
   }
 
   return (
     <article className="max-w-5xl mx-auto mt-32 p-6  rounded-lg">
-      <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
+      <h1 className="text-4xl font-bold mb-8">{post.title}</h1>
       {post.mainImage && (
-        <div className="relative w-full h-64 mb-4 rounded-xl overflow-hidden">
+        <div className="flex  w-full justify-center mx-auto mb-8 rounded-xl overflow-hidden">
           <Image
             src={post.mainImage.asset.url}
             alt={post.mainImage.alt || post.title}
-            layout="fill"
-            objectFit="cover"
+            width={800}
+            height={450}
             className="rounded-xl"
           />
         </div>

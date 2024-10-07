@@ -16,6 +16,7 @@ import { Ili } from "./cover/Ili";
 import { Smur } from "./cover/Smur";
 import { T } from "./cover/T";
 import { usePathname } from 'next/navigation'; // Import usePathname
+import Image from "next/image";
 
 interface AnimatedLinkProps {
     href: string;
@@ -138,10 +139,17 @@ function Navbar({
     return (
       <div className="w-full">
         <div className={cn("max-w-full mx-auto flex justify-between items-center h-24 bg-gradient-to-b from-dblue/[0.9] to-lblue/[0.8] border-b border-white", className)}> {/* Added items-center and set height */}
-          
+
 {/* First Section (Icons) */}
 <div className="flex-1 ml-4 " ref={firstSectionRef}>
-<div className="cst:flex hidden mt-0 justify-start space-x-8 items-center   ml-64">
+<div className="cst:flex hidden mt-0 justify-start space-x-8 items-center">
+            <div className="flex flex-col mr-8">
+              <h1>Подкрепени от:</h1>
+            <Image src="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/aonk.png" 
+                    alt="Logo" 
+                    width={150}
+                    height={100} />
+            </div>
     <IconBrandFacebook className="w-10 h-10 " />
     <IconBrandInstagram className="w-10 h-10 " />
     <IconBrandYoutube className="w-10 h-10 " />

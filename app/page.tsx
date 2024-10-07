@@ -21,7 +21,7 @@ const BACKGROUND_IMAGE_URL = "https://cdn.jsdelivr.net/gh/Ethereumistic/chistota
 
   return (
     <div>
-      <ScrollTracker />
+      {/* <ScrollTracker /> */}
       {/* <Cover /> */}
       <TestScroll />
 
