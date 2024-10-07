@@ -58,6 +58,7 @@ const config: Config = {
         ddblue: "#132031",
         sgreen:"#7A8B7F",
         cream:"#F5F1E8",
+        
         rred:"#A34A28",
         theme_grayishBlue: 'hsl(237, 18%, 59%)',
         theme_softRed: '#fff',

@@ -23,6 +23,7 @@ interface AnimatedLinkProps {
   }
 
 export function NavbarTest({ className }: { className?: string }) {
+  const pathname = usePathname();
   const [visible, setVisible] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -31,6 +32,7 @@ export function NavbarTest({ className }: { className?: string }) {
   const [scrolled, setScrolled] = useState(false); // New state for scroll detection
   const [scrollY, setScrollY] = useState(0); // New state for scroll position
 
+  if (pathname.startsWith('/studio')) return null;
 
   
 

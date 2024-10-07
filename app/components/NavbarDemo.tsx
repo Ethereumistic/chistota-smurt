@@ -11,8 +11,13 @@ import { HoverBorderGradient } from "./ui/hover-border-gradient";
 import { LanguageSelector } from "./LanguageSelector";
 import { useTranslation } from 'next-i18next';
 import { FlipWordsNav } from "./FlipWords";
+import { usePathname } from 'next/navigation';
 
 export function NavbarDemo({ className }: { className?: string }) {
+
+  const pathname = usePathname();
+  const isStudioRoute = pathname.startsWith('/studio'); // Check if the current route is '/studio'
+
   const [visible, setVisible] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -20,6 +25,9 @@ export function NavbarDemo({ className }: { className?: string }) {
   const prevScrollY = useRef(0);
   const [scrolled, setScrolled] = useState(false); // New state for scroll detection
   const [scrollY, setScrollY] = useState(0); // New state for scroll position
+
+  if (isStudioRoute) return null; // Prevent rendering if on studio route
+
 
   useEffect(() => {
     const handleResize = () => {
@@ -55,16 +63,6 @@ export function NavbarDemo({ className }: { className?: string }) {
   return (
     <div className="relative w-full flex items-center justify-center">
       <AnimatePresence>
-        {/* <motion.div
-          initial={{ opacity: 1, y: 0 }}
-          animate={{ y: visible ? 0 : -100, opacity: visible ? 1 : 0 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.2 }}
-          className={cn(
-            "flex fixed top-0 inset-x-0 mx-auto  bg-transparent z-[5000] items-center justify-center",
-            className
-          )}
-        > */}
         <motion.div
           initial={{ opacity: 1, y: 0 }}
           animate={{  }}

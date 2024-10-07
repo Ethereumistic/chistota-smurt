@@ -1,19 +1,20 @@
-"use client";
-import React from 'react'
+"use client"; // Ensure this is a client component
+import React from 'react';
 import Link from 'next/link';
 import { IconBrandInstagram, IconBrandFacebook, IconBrandYoutube } from '@tabler/icons-react';
 import { Logo } from '../cover/Logo';
+import { usePathname } from 'next/navigation'; // Import usePathname
 
 export default function Footer() {
+    const pathname = usePathname(); // Get the current pathname
+    const isStudioRoute = pathname.startsWith('/studio'); // Check if the current route includes '/studio'
+
+    if (isStudioRoute) return null; // Prevent rendering if on studio route
+
     return (
-        <div className='overflow-x-hidden'>
-            {/*
-  Heads up! 👋
+      // <div className={`overflow-x-hidden ${isStudioRoute ? 'hidden' : ''}`}>
 
-  This component comes with some `rtl` classes. Please remove them if they are not needed in your project.
-*/}
-
-<footer className="bg-dblue">
+<footer className={`overflow-x-hidden bg-dblue ${isStudioRoute ? 'hidden' : ''}`}>
   <div className="mx-auto max-w-screen-xl px-4 pb-6 pt-16 sm:px-6 lg:px-8 lg:pt-24">
     <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
       <div>
@@ -124,6 +125,6 @@ export default function Footer() {
     </div>
   </div>
 </footer>
-        </div>
+        // </div>
     )
 }

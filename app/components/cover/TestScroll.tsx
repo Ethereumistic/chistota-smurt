@@ -1,13 +1,14 @@
 import { ReactLenis } from 'lenis/react'
-
 import {
   motion,
   useMotionTemplate,
   useScroll,
   useTransform,
 } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
-import { IconArrowDown, IconMapPin, IconX } from "@tabler/icons-react";
+import { useRef } from "react";
+import { IconMapPin } from "@tabler/icons-react";
+
+const SECTION_HEIGHT = 1000;
 
 export const TestScroll = () => {
   return (
@@ -15,10 +16,7 @@ export const TestScroll = () => {
       <ReactLenis
         root
         options={{
-          // Learn more -> https://github.com/darkroomengineering/lenis?tab=readme-ov-file#instance-settings
           lerp: 0.05,
-          //   infinite: true,
-          //   syncTouch: true,
         }}
       >
         <Hero />
@@ -27,28 +25,13 @@ export const TestScroll = () => {
   );
 };
 
-const SECTION_HEIGHT_DESKTOP = 1000;
-const SECTION_HEIGHT_MOBILE = 500;
-
 const Hero = () => {
-    const [isMobile, setIsMobile] = useState(false);
     const { scrollY } = useScroll();
-    
-    useEffect(() => {
-        const checkMobile = () => {
-            setIsMobile(window.innerWidth <= 768);
-        };
-        checkMobile();
-        window.addEventListener('resize', checkMobile);
-        return () => window.removeEventListener('resize', checkMobile);
-    }, []);
-
-    const sectionHeight = isMobile ? SECTION_HEIGHT_MOBILE : SECTION_HEIGHT_DESKTOP;
     
     const dynamicSectionHeight = useTransform(
         scrollY,
-        [0, sectionHeight + (isMobile ? 800 : 1600)],
-        [sectionHeight, sectionHeight + (isMobile ? 800 : 1600)]
+        [0, SECTION_HEIGHT + 1600],
+        [SECTION_HEIGHT, SECTION_HEIGHT + 1600]
     );
 
     return (
@@ -56,18 +39,18 @@ const Hero = () => {
         style={{ height: `calc(${dynamicSectionHeight}px + 100vh)` }}
         className="relative w-full"
       >
-        <CenterImage isMobile={isMobile} />
-        <ParallaxImages isMobile={isMobile} />
+        <CenterImage />
+        <ParallaxImages />
         <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-b from-dblue/0 to-dblue" />
       </div>
     );
 };
 
-const CenterImage = ({ isMobile }: { isMobile: boolean }) => {
+const CenterImage = () => {
   const { scrollY } = useScroll();
 
-  const clipStart = isMobile ? 500 : 1000;
-  const clipEnd = isMobile ? 500 : 1000;
+  const clipStart = 1000;
+  const clipEnd = 1000;
 
   const clip1 = useTransform(scrollY, [clipStart, clipEnd], [25, 0]);
   const clip2 = useTransform(scrollY, [clipStart, clipEnd], [75, 100]);
@@ -89,14 +72,31 @@ const CenterImage = ({ isMobile }: { isMobile: boolean }) => {
   );
 };
 
-const ParallaxImages = ({ isMobile }: { isMobile: boolean }) => {
+const ParallaxImages = () => {
     const { scrollY } = useScroll();
     
-    const sectionHeight = isMobile ? SECTION_HEIGHT_MOBILE : SECTION_HEIGHT_DESKTOP;
     const centerImageHeight = useTransform(
         scrollY,
-        [0, sectionHeight + (isMobile ? 400 : 800)],
-        [sectionHeight, sectionHeight + (isMobile ? 400 : 800)]
+        [0, SECTION_HEIGHT],
+        [SECTION_HEIGHT, SECTION_HEIGHT]
+    );
+
+    const sideElementOpacity = useTransform(
+        scrollY,
+        [0, 500],
+        [0, 1]
+    );
+
+    const sideElementX = useTransform(
+        scrollY,
+        [0, 500],
+        [100, 0]
+    );
+
+    const sideElementScale = useTransform(
+        scrollY,
+        [0, 2000],
+        [1, 0.3]
     );
   
     return (
@@ -104,16 +104,43 @@ const ParallaxImages = ({ isMobile }: { isMobile: boolean }) => {
           className="mx-auto max-w-3xl xl:max-w-5xl px-4 pt-[0px] sticky top-0 h-screen flex items-end"
           style={{ height: centerImageHeight }}
         >
+          <motion.div
+            className="absolute left-0 top-1/2 -translate-y-1/2 w-1/4"
+            style={{
+              opacity: sideElementOpacity,
+              x: sideElementX,
+              scale: sideElementScale,
+            }}
+          >
+            <div className="">
+              <h2 className="text-5xl text-black font-bold mb-2">Left Title</h2>
+              <p className="text-black text-2xl">This is some text on the left side that will animate in.</p>
+            </div>
+          </motion.div>
+
           <ParallaxImg
             src="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/cover/montain.png"
             alt="An example of a space launch"
             start={0}
             end={0}
-            stopAt={isMobile ? 1000 : 2000}
-            initialScale={isMobile ? 1.1 : 1.2}
-            finalScale={isMobile ? 0.8 : 0.6}
+            stopAt={2000}
+            initialScale={1.2}
+            finalScale={0.3}
             className="w-full"
           />
+          <motion.div
+            className="absolute right-0 top-1/2 -translate-y-1/2 w-1/4"
+            style={{
+              opacity: sideElementOpacity,
+              x: sideElementX,
+              scale: sideElementScale,
+            }}
+          >
+            <div className="">
+              <h2 className="text-5xl text-black font-bold mb-2">Right Title</h2>
+              <p className="text-black text-2xl">This is some text on the right side that will animate in.</p>
+            </div>
+          </motion.div>
         </motion.div>
     );
 };

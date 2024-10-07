@@ -65,6 +65,7 @@ export default function RootLayout({
     lng: string
   }
 }) {
+
   return (
     // <html lang={lng} dir={isRTL(lng) ? 'rtl' : 'ltr'}>
       <html>
