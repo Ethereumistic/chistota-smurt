@@ -32,7 +32,7 @@ export function NavbarTest({ className }: { className?: string }) {
   const [scrolled, setScrolled] = useState(false); // New state for scroll detection
   const [scrollY, setScrollY] = useState(0); // New state for scroll position
 
-  if (pathname.startsWith('/studio')) return null;
+
 
   
 
@@ -66,7 +66,7 @@ export function NavbarTest({ className }: { className?: string }) {
   }, []);
 
 
-
+  if (pathname.startsWith('/studio')) return null;
   return (
     <div className="relative w-full flex items-center justify-center">
       <AnimatePresence>

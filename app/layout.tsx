@@ -6,7 +6,6 @@ import { NavbarDemo } from "./components/NavbarDemo";
 import { languages } from '../i18n/settings'
 import DotEffect from "./components/ui/DotEffect";
 import Footer from "./components/ui/Footer";
-import { Raleway } from "next/font/google";
 import { Russo_One } from "next/font/google";
 import { Montserrat } from "next/font/google";
 import { NavbarTest } from "./components/NavbarTest";
@@ -17,11 +16,6 @@ const montserrat = Montserrat({
   weight: ["300", "400", "500", "600", "700", "800", "900"]
 });
 
-const raleway = Raleway({
-  subsets: ['latin', 'cyrillic'],
-  variable: "--font-raleway",
-  weight: ["400"]
-});
 
 const russo = Russo_One({
   subsets: ['latin', 'cyrillic'],
@@ -70,7 +64,7 @@ export default function RootLayout({
     // <html lang={lng} dir={isRTL(lng) ? 'rtl' : 'ltr'}>
       <html>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${raleway.variable} ${russo.variable} ${montserrat.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${russo.variable} ${montserrat.variable} antialiased`}
       >
         <Providers>
           <div className="bg-dblue text-cream">

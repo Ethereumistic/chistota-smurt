@@ -26,7 +26,6 @@ export function NavbarDemo({ className }: { className?: string }) {
   const [scrolled, setScrolled] = useState(false); // New state for scroll detection
   const [scrollY, setScrollY] = useState(0); // New state for scroll position
 
-  if (isStudioRoute) return null; // Prevent rendering if on studio route
 
 
   useEffect(() => {
@@ -58,6 +57,7 @@ export function NavbarDemo({ className }: { className?: string }) {
     };
   }, []);
 
+  if (isStudioRoute) return null; // Prevent rendering if on studio route
 
 
   return (

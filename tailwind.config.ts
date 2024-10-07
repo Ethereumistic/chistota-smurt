@@ -76,7 +76,6 @@ const config: Config = {
         paci: ["var(--font-paci)"],
         geistSans: ["var(--font-geist-sans)"],
         geistMono: ["var(--font-geist-mono)"],
-        raleway: ["var(--font-raleway)"],
         montserrat: ["var(--font-montserrat)"],
       },
       keyframes: {
