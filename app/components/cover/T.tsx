@@ -14,7 +14,7 @@ export function T() {
       >
         <TextGenerateEffect
           words={words}
-          className="text-black text-[25px] font-montserrat"
+          className="text-black text-[60px] font-montserrat"
           delay={3.2} // Delay for the text animation
         />
       </motion.div>

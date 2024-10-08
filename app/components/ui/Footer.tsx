@@ -14,16 +14,22 @@ export default function Footer() {
     return (
       // <div className={`overflow-x-hidden ${isStudioRoute ? 'hidden' : ''}`}>
 
-<footer className={`overflow-x-hidden bg-dblue ${isStudioRoute ? 'hidden' : ''}`}>
+<footer className={`overflow-x-hidden bg-dblue ${isStudioRoute ? 'hidden' : ''}`}
+                    style={{
+                      backgroundSize: "cover",
+                      backgroundImage:
+                        "url(https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/cover/bg-s.png)",
+                      backgroundPosition: "center",
+                      backgroundRepeat: "no-repeat",
+                    }}>
+        <div className="bg-gradient-to-t from-black/0 to-black/[0.5] w-full h-5"></div>
+                    
   <div className="mx-auto max-w-screen-xl px-4 pb-6 pt-16 sm:px-6 lg:px-8 lg:pt-24">
     <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
       <div>
-        {/* <Link href="/"
-         className="flex text-4xl font-bold text-cream sm:justify-start">
-
-            <h1>Чистота или Смърт</h1>
-        </Link> */}
+        <div className="flex justify-center items-center scale-50">            
         <Logo />
+        </div>
 
         <p className="mt-6 max-w-md text-center justify-center items-center leading-relaxed text-gray-500 md:max-w-lg ">
         Представяме документален филм за наркотичната зависимост. Изследваме пътя към възстановяването и въздействието върху обществото. Целим да повишим осведомеността и да вдъхновим промяна.

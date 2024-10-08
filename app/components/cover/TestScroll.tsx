@@ -25,7 +25,7 @@ export const TestScroll = () => {
         <div className="bg-gradient-to-t from-black/0 to-black/[0.5] w-full h-12"></div>
 
         <Countdown />
-        <Schedule />
+        {/* <Schedule /> */}
       </ReactLenis>
     </div>
   );
@@ -128,7 +128,7 @@ const ParallaxImages = () => {
         >
           <div>
             <h2 className="text-5xl text-black font-bold mb-2">София</h2>
-            <p className="text-black text-2xl">10 ДЕКЕМВРИ</p>
+            <p className="text-black text-2xl">6 ДЕКЕМВРИ</p>
           </div>
         </motion.div>
 
@@ -147,7 +147,7 @@ const ParallaxImages = () => {
         >
           <div>
             <h2 className="text-5xl text-black font-bold mb-2">Стара Загора</h2>
-            <p className="text-black text-2xl">15 ДЕКЕМВРИ</p>
+            <p className="text-black text-2xl">12 ДЕКЕМВРИ</p>
           </div>
         </motion.div>
 
@@ -178,7 +178,7 @@ const ParallaxImages = () => {
         >
           <div>
             <h2 className="text-5xl text-black font-bold mb-2">Варна</h2>
-            <p className="text-black text-2xl">2 ЯНУАРИ</p>
+            <p className="text-black text-2xl">13 ДЕКЕМВРИ</p>
           </div>
         </motion.div>
 
@@ -197,7 +197,7 @@ const ParallaxImages = () => {
         >
           <div>
             <h2 className="text-5xl text-black font-bold mb-2">Пловдив</h2>
-            <p className="text-black text-2xl">15 ЯНУАРИ</p>
+            <p className="text-black text-2xl">11 ДЕКЕМВРИ</p>
           </div>
         </motion.div>
       </motion.div>

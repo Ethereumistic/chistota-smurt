@@ -10,6 +10,7 @@ import { Russo_One } from "next/font/google";
 import { Montserrat } from "next/font/google";
 import { NavbarTest } from "./components/NavbarTest";
 import Script from "next/script";
+import { NavbarTest2 } from "./components/NavbarTest2";
 
 
 
@@ -81,9 +82,11 @@ export default function RootLayout({
                     }}>
           
             {/* <NavbarDemo /> */}
-            <NavbarTest />
+            <NavbarTest2 />
             {children}
             <DotEffect dotSize={1} spacing={20}  />
+            <div className="bg-gradient-to-b from-black/0 to-black/[0.5] w-full h-5"></div>
+
             <Footer />
           </div>
           </Providers>

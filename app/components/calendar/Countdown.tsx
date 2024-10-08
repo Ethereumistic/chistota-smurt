@@ -1,9 +1,13 @@
 'use client';
 import React, { ReactElement, useEffect, useState } from 'react'
-import { DateTime } from 'luxon'
-
+import { DateTime, Settings } from 'luxon'
+import { motion } from 'framer-motion';
 import CountdownCard from './CountdownCard'
 import useIsMounted from './hooks/useIsMounted'
+import { IconMapPin } from '@tabler/icons-react';
+
+
+Settings.defaultLocale = "bg";
 
 interface CurrentPrevious {
   current: Countdown
@@ -53,13 +57,19 @@ const useCountdown = (endDate: DateTime): CurrentPrevious => {
 
 const Countdown = (): ReactElement | null => {
   const isMounted = useIsMounted()
-
   // Define end dates for each premiere location
   const endDates = [
-      DateTime.fromObject({ year: 2024, month: 12, day: 8, hour: 18 }), // Sofia
-      DateTime.fromObject({ year: 2024, month: 12, day: 15, hour: 18 }), // Plovdiv
-      DateTime.fromObject({ year: 2024, month: 12, day: 22, hour: 18 }), // Varna
-      DateTime.fromObject({ year: 2024, month: 12, day: 29, hour: 18 })  // Zagora
+      DateTime.fromObject({ year: 2024, month: 12, day: 6, hour: 18 }), // Sofia
+      DateTime.fromObject({ year: 2024, month: 12, day: 11, hour: 18 }), // Plovdiv
+      DateTime.fromObject({ year: 2024, month: 12, day: 12, hour: 18 }),  // Zagora
+      DateTime.fromObject({ year: 2024, month: 12, day: 13, hour: 18 }), // Varna
+  ];
+
+  const scheduleInfo = [
+    { title: "София", location: "Кино Люмиер" },
+    { title: "Пловдив", location: "Кино Лъки" },
+    { title: "Стара Загора", location: "Кино Люмиер" },
+    { title: "Варна", location: "Зала Европа ФКЦ Варна" },
   ];
 
   const cities = ["София", "Пловдив", "Варна", "Загорa"];
@@ -85,10 +95,82 @@ const Countdown = (): ReactElement | null => {
       <CountdownCard id={`minutes${current.minutes}-${previous?.minutes}`} label="МИНУТИ" key={`minutes${current.minutes}-${previous?.minutes}`} current={current.minutes} previous={previous?.minutes} />
       <CountdownCard id={`seconds${current.seconds}-${previous?.seconds}`} label="СЕКУНДИ" key={`seconds${current.seconds}-${previous?.seconds}`} current={current.seconds} previous={previous?.seconds} />
     </div>
-    <h2 className="text-4xl font-bold">Остават до премиерата ни в {activeCity}</h2> {/* Display the city name */}
-
+    <h2 className="text-3xl font-bold font-montserrat text-center px-6">Остават до премиерата ни в {activeCity}</h2> {/* Display the city name */}
+    <div className="w-full">
+    <Schedule endDates={endDates} scheduleInfo={scheduleInfo} />
+    </div>
   </div>
   )
 }
 
+const Schedule = ({ endDates, scheduleInfo }: { endDates: DateTime[], scheduleInfo: { title: string, location: string }[] }) => {
+  const currentDateTime = DateTime.local();
+
+  const activeScheduleItems = endDates.map((endDate, index) => ({
+    ...scheduleInfo[index],
+    date: endDate.toFormat('d MMMM').toUpperCase(),
+    time: endDate.toFormat('HH:mm'),
+    endDate
+  })).filter(item => item.endDate > currentDateTime);
+
+  return (
+    <section
+      id="launch-schedule"
+      className="mx-auto max-w-5xl px-4 text-white"
+    >
+      <motion.h1
+        initial={{ y: 48, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ ease: "easeInOut", duration: 0.75 }}
+        className="my-20 text-4xl text-center font-black uppercase text-black"
+      >
+        ПРЕМИЕРИ
+      </motion.h1>
+      {activeScheduleItems.map((item, index) => (
+        <ScheduleItem
+          key={index}
+          title={item.title}
+          date={item.date}
+          time={item.time}
+          location={item.location}
+        />
+      ))}
+    </section>
+  );
+};
+
+const ScheduleItem = ({
+  title,
+  date,
+  location,
+  time,
+}: {
+  title: string;
+  date: string;
+  location: string;
+  time: string;
+}) => {
+  return (
+    <motion.div
+      initial={{ y: 48, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      transition={{ ease: "easeInOut", duration: 0.75 }}
+      className="mb-9 flex items-center justify-between border-b border-zinc-800 px-3 pb-9"
+    >
+      <div>
+        <p className="mb-1.5 text-xl text-gray-900 font-montserrat">{title}</p>
+        <p className="text-sm uppercase text-zinc-500">{date}</p>
+        <p className="text-sm uppercase text-zinc-500">{time}</p>
+      </div>
+      <div className="flex items-center gap-1.5 text-end text-sm uppercase text-gray-900">
+        <p>{location}</p>
+        <IconMapPin />
+      </div>
+    </motion.div>
+  );
+};
+
 export default Countdown
+
+
+

@@ -1,15 +1,12 @@
 "use client";
 import { IconMenu, IconX, IconBrandFacebook, IconBrandInstagram, IconBrandYoutube } from "@tabler/icons-react";
 import React, { useState, useEffect, useRef } from "react";
-import { HoveredLink, Menu, MenuItem, ProductItem } from "./ui/navbar-menu";
 import { cn } from "@/lib/utils";
 import ThemeSwitch from "./themeSwitch";
 import Link from "next/link";
 import MobileMenu from "./MobileMenu";
 import { motion, AnimatePresence } from "framer-motion";
-import { LanguageSelector } from "./LanguageSelector";
 import { useTranslation } from 'next-i18next';
-import { FlipWordsNav } from "./FlipWords";
 import { Logo } from "./cover/Logo";
 import { Chistota } from "./cover/Chistota";
 import { Ili } from "./cover/Ili";
@@ -23,7 +20,7 @@ interface AnimatedLinkProps {
     children: React.ReactNode;
   }
 
-export function NavbarTest({ className }: { className?: string }) {
+export function NavbarTest2({ className }: { className?: string }) {
   const pathname = usePathname();
   const [visible, setVisible] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
@@ -71,16 +68,6 @@ export function NavbarTest({ className }: { className?: string }) {
   return (
     <div className="relative w-full flex items-center justify-center">
       <AnimatePresence>
-        {/* <motion.div
-          initial={{ opacity: 1, y: 0 }}
-          animate={{ y: visible ? 0 : -100, opacity: visible ? 1 : 0 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.2 }}
-          className={cn(
-            "flex fixed top-0 inset-x-0 mx-auto  bg-transparent z-[5000] items-center justify-center",
-            className
-          )}
-        > */}
         <motion.div
           initial={{ opacity: 1, y: 0 }}
           animate={{  }}
@@ -157,38 +144,24 @@ function Navbar({
 </div>
   
 {/* Second Section (Logo) */}
-<div className="flex-1 items-center justify-center z-10 "> {/* Centering the logo */}
+<div className="absolute left-1/2 transform -translate-x-1/2 z-10"> {/* Center the logo */}
 <motion.div
   initial={{ 
-    x: isHome ? (isMobile ? -100 : 0) : 0, // Set initial X to -100 for mobile
+    x: isHome ? (isMobile ? -100 : 0) : 0, 
     y: isHome ? (isMobile ? 160 : 250) : 0, 
     scale: isHome ? (isMobile ? 0.5 : 1) : 1 
-  }} // Keep other initial properties
+  }} 
   animate={{ 
-    y: isHome ? Math.max((isMobile ? 160 : 250) - scrollY, 0) : 0, // Only animate if on home
-    scale: isHome ? (isMobile ? Math.max(0.5 - (scrollY / 200) * 0.25, 0.25) : Math.max(1 - (scrollY / 200) * 0.6, 0.4)) : 1, // Adjust to scale down to 0.25 on mobile
+    y: isHome ? Math.max((isMobile ? 160 : 250) - scrollY, 0) : 0,
+    scale: isHome ? (isMobile ? Math.max(0.5 - (scrollY / 200) * 0.25, 0.25) : Math.max(1 - (scrollY / 200) * 0.6, 0.4)) : (isMobile ? 0.25 : 0.4), // Adjust to scale down to 0.25 on mobile
+    x: isMobile && scrollY > 200 ? Math.max(-scrollY + 200, firstSectionRef.current ? -firstSectionRef.current.clientWidth : 0) : 0 // Only translate on X if mobile
+
   }} 
   transition={{ duration: 0.5 }}
   className="flex flex-col mt-0 " 
 
 >
-    <Link href="/" className="">
-    <div className="flex flex-col items-center justify-center -translate-x-1">
-      <Chistota />
-        <div className="flex flex-row items-center justify-center -translate-x-1">
-            <div className="flex flex-row ">
-                <div className="mx-2">
-                <Ili />
-                </div>
-                <div className="ml-2">
-                <Smur />
-                </div>
-                <T />
-            </div>
-        
-        </div>
-    </div>
-    </Link>
+    <Logo />
   </motion.div>
 </div>
   
@@ -204,13 +177,13 @@ function Navbar({
             window.scrollTo({ top: 200, behavior: 'smooth' });
           }
         }} 
-        className="text-3xl ml-4"
+        className="text-3xl ml-4 z-20"
       >
         {mobileMenuOpen ? <IconX /> : <IconMenu />}
       </button>
     </div>
   ) : (
-    <div className="flex items-center font-russo space-x-2 xs:space-x-3 sm:space-x-4 md:space-x-6 lg:space-x-12">
+    <div className="flex items-center font-russo space-x-4">
       <div className="flex justify-center text-center underline-hover font-bold transition-all duration-900">
         <Link href="/about" className="text-xl font-montserrat px-4">
           История
@@ -226,7 +199,7 @@ function Navbar({
           Партньори
         </Link>
       </div>
-      <ThemeSwitch />
+      {/* <ThemeSwitch /> */}
       {/* Other buttons can be added here */}
     </div>
   )}
