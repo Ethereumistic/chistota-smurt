@@ -88,7 +88,7 @@ const MobileParallaxImages = () => {
         start={0}
         end={0}
         stopAt={1000}
-        initialScale={1.5}
+        initialScale={1}
         finalScale={0.3}
         className="w-full"
       />

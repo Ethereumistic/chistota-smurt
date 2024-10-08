@@ -61,18 +61,18 @@ const Countdown = (): ReactElement | null => {
   const endDates = [
       DateTime.fromObject({ year: 2024, month: 12, day: 6, hour: 18 }), // Sofia
       DateTime.fromObject({ year: 2024, month: 12, day: 11, hour: 18 }), // Plovdiv
-      DateTime.fromObject({ year: 2024, month: 12, day: 12, hour: 18 }),  // Zagora
+      DateTime.fromObject({ year: 2024, month: 12, day: 12, hour: 18 }),  // Burgas
       DateTime.fromObject({ year: 2024, month: 12, day: 13, hour: 18 }), // Varna
   ];
 
   const scheduleInfo = [
     { title: "София", location: "Кино Люмиер" },
     { title: "Пловдив", location: "Кино Лъки" },
-    { title: "Стара Загора", location: "Кино Люмиер" },
+    { title: "Бургас", location: "Ne se znae" },
     { title: "Варна", location: "Зала Европа ФКЦ Варна" },
   ];
 
-  const cities = ["София", "Пловдив", "Варна", "Загорa"];
+  const cities = ["София", "Пловдив", "Бургас", "Варна"];
 
 
   // Find the next active end date
@@ -89,6 +89,16 @@ const Countdown = (): ReactElement | null => {
 
   return (
   <div className="flex flex-col items-center justify-center space-y-10">
+    <h2 className="text-3xl font-bold font-montserrat text-center px-6">ТРЕЙЛЪР</h2>
+    <iframe 
+        width="800" 
+        height="450" 
+        src="https://www.youtube.com/embed/c1nYtX-NUsc" 
+        title="YouTube video player" 
+        frameBorder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowFullScreen 
+    ></iframe>
     <div className="flex space-x-1 lg:space-x-10 ">
       <CountdownCard id={`days${current.days}-${previous?.days}`} label="ДНИ" key={`days${current.days}-${previous?.days}`} current={current.days} previous={previous?.days} />
       <CountdownCard id={`hours${current.hours}-${previous?.hours}`} label="ЧАСА" key={`hours${current.hours}-${previous?.hours}`} current={current.hours} previous={previous?.hours} />

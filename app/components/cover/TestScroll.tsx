@@ -146,7 +146,7 @@ const ParallaxImages = () => {
           animate={{ y: 0 }} // Animate to current position
         >
           <div>
-            <h2 className="text-5xl text-black font-bold mb-2">Стара Загора</h2>
+            <h2 className="text-5xl text-black font-bold mb-2">Бургас</h2>
             <p className="text-black text-2xl">12 ДЕКЕМВРИ</p>
           </div>
         </motion.div>
