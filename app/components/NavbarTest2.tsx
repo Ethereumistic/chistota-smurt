@@ -177,7 +177,7 @@ function Navbar({
             window.scrollTo({ top: 200, behavior: 'smooth' });
           }
         }} 
-        className="text-3xl ml-4 z-20"
+        className="text-3xl mr-6 z-20"
       >
         {mobileMenuOpen ? <IconX /> : <IconMenu />}
       </button>

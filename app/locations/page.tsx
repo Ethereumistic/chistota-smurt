@@ -118,7 +118,7 @@ export default function Locations() {
             <div className="mt-10 grid grid-cols-1 3xl:grid-cols-3 justify-items-center min-h-screen p-8 pb-24 gap-0 3xl:gap-4 space-x-0 3xl:space-x-8  font-[family-name:var(--font-geist-sans)]">
                 <div className="col-span-1 flex-col flex mt-8 w-full md:w-auto ml-0 ">
                 <motion.div 
-                    className="sticky top-[120px] justify-center items-center flex lg:flex-nowrap flex-col gap-2 mb-4 p-2 bg-ddblue border border-gray-700 rounded-lg z-[5010]"
+                    className="sticky top-[120px] justify-center items-center flex lg:flex-row flex-col gap-2 mb-4 p-2 bg-ddblue border border-gray-700 rounded-lg z-[5010]"
                     initial={{ opacity: 1, y: 0 }}
                     animate={controls}
                     transition={{ duration: 0.2 }}

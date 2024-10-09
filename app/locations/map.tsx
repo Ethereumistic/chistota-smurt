@@ -24,6 +24,25 @@ export default function TherapyMap({ className, filter, selectedCenter }: Therap
       iconSize: [25, 25], // Size of the icon
   });
 
+  const icons = {
+    'Терапевтични общности': new Icon({
+      iconUrl: 'https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/pins/therapy.png',
+      iconSize: [25, 25],
+    }),
+    'Програми за непълнолетни': new Icon({
+      iconUrl: 'https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/pins/minor.png',
+      iconSize: [25, 25],
+    }),
+    'Дневни центрове': new Icon({
+      iconUrl: 'https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/pins/day.png',
+      iconSize: [25, 25],
+    }),
+    'Вечерни програми': new Icon({
+      iconUrl: 'https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/pins/night.png',
+      iconSize: [25, 25],
+    }),
+  };
+
   useEffect(() => {
     if (selectedCenter && mapRef.current) {
         mapRef.current.setView(selectedCenter.position, 15);
@@ -51,7 +70,11 @@ export default function TherapyMap({ className, filter, selectedCenter }: Therap
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         {filteredCenters.map((center, index) => (
-          <Marker key={index} position={center.position} icon={customIcon}>
+          <Marker 
+          key={index} 
+          position={center.position} 
+          icon={icons[center.type]}
+          >
             <Popup>
               <div>
                 <h3>{center.name}</h3>
