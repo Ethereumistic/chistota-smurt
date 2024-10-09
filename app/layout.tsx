@@ -2,12 +2,10 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { Providers } from "./providers";
-import { NavbarDemo } from "./components/NavbarDemo";
 import { languages } from '../i18n/settings'
 import Footer from "./components/ui/Footer";
 import { Russo_One } from "next/font/google";
 import { Montserrat } from "next/font/google";
-import { NavbarTest } from "./components/NavbarTest";
 import Script from "next/script";
 import { NavbarTest2 } from "./components/NavbarTest2";
 
@@ -80,7 +78,6 @@ export default function RootLayout({
                       backgroundRepeat: "no-repeat",
                     }}>
           
-            {/* <NavbarDemo /> */}
             <NavbarTest2 />
             {children}
             <div className="bg-gradient-to-b from-black/0 to-black/[0.5] w-full h-5"></div>
