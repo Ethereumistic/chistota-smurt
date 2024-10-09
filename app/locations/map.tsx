@@ -46,7 +46,7 @@ export default function TherapyMap({ className, filter, selectedCenter }: Therap
     return (
         <>
         
-      <MapContainer className={className} ref={mapRef} center={[42.7339, 25.4858]} zoom={8} style={{ height: '86vh', width: '100%', position: 'sticky', top: '120px' }}>
+      <MapContainer className={className} ref={mapRef} center={[42.7339, 25.4858]} zoom={8} style={{ height: '86vh', width: '90%', position: 'sticky', top: '120px' }}>
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />

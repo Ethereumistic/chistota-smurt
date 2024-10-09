@@ -17,7 +17,7 @@ export const TestScroll = () => {
       <ReactLenis
         root
         options={{
-          lerp: 0.05,
+          lerp: 0.025,
         }}
       >
         <Hero />

@@ -90,15 +90,16 @@ const Countdown = (): ReactElement | null => {
   return (
   <div className="flex flex-col items-center justify-center space-y-10">
     <h2 className="text-3xl font-bold font-montserrat text-center px-6">ТРЕЙЛЪР</h2>
-    <iframe 
-        width="800" 
-        height="450" 
-        src="https://www.youtube.com/embed/c1nYtX-NUsc" 
-        title="YouTube video player" 
-        frameBorder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowFullScreen 
-    ></iframe>
+    <div className="relative aspect-video w-[85%] cst:w-[43%]"> {/* 16:9 Aspect Ratio */}
+        <iframe 
+            className="absolute top-0 left-0 w-full h-full" 
+            src="https://www.youtube.com/embed/c1nYtX-NUsc" 
+            title="YouTube video player" 
+            frameBorder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowFullScreen 
+        ></iframe>
+    </div>
     <div className="flex space-x-1 lg:space-x-10 ">
       <CountdownCard id={`days${current.days}-${previous?.days}`} label="ДНИ" key={`days${current.days}-${previous?.days}`} current={current.days} previous={previous?.days} />
       <CountdownCard id={`hours${current.hours}-${previous?.hours}`} label="ЧАСА" key={`hours${current.hours}-${previous?.hours}`} current={current.hours} previous={previous?.hours} />

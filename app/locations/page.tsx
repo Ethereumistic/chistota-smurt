@@ -22,8 +22,35 @@ export default function Locations() {
     const [filter, setFilter] = useState<CenterType>('All');
     const [selectedCenter, setSelectedCenter] = useState<TherapyCenter | null>(null);
 
+    const [showAllAccordions, setShowAllAccordions] = useState(false); // New state to control showing all accordions
+    const [showAccordions, setShowAccordions] = useState(false); // New state to control accordion visibility
+    const [isMobile, setIsMobile] = useState(false); 
+    const [isToggled, setIsToggled] = useState(false);
 
+    // Function to handle button clicks and show accordions
+    const handleButtonClick = (filterType: CenterType) => {
+        setFilter(filterType);
+        router.push(`?filter=${filterType}`);
+        setShowAccordions(true);
+        setShowAllAccordions(false);
+        setIsToggled(true); // Set toggle to true when a category is selected
+    };
 
+    // Updated toggleAllAccordions function
+    const toggleAllAccordions = () => {
+        const newToggledState = !isToggled;
+        setIsToggled(newToggledState);
+        
+        if (newToggledState) {
+            setShowAllAccordions(true);
+            setFilter('All');
+            router.push('?filter=All');
+            setShowAccordions(true);
+        } else {
+            setShowAllAccordions(false);
+            setShowAccordions(false);
+        }
+    };
 
     const lastScrollTop = useRef(0);
     const controls = useAnimation();
@@ -37,9 +64,22 @@ export default function Locations() {
             return type === 'All' ? therapyCenters.length : therapyCenters.filter(center => center.type === type).length;
         };
 
+        useEffect(() => {
+            const handleResize = () => {
+                setIsMobile(window.innerWidth < 932);
+            };
+    
+            handleResize(); // Check on mount
+            window.addEventListener('resize', handleResize); // Add event listener for resize
+    
+            return () => window.removeEventListener('resize', handleResize); // Cleanup
+        }, []);
+
 
     useEffect(() => {
         const handleScroll = () => {
+
+            
             const st = window.pageYOffset || document.documentElement.scrollTop;
             if (st > lastScrollTop.current) {
                 // Scrolling down
@@ -69,36 +109,82 @@ export default function Locations() {
             setSelectedCenter(center);
         }, []);
 
-        
+        const buttonText = showAllAccordions || (filter !== 'All' && showAccordions) 
+        ? 'Скрии всички' 
+        : 'Покажи всички';
 
     return (
         <div className="flex flex-col">
             <div className="mt-10 grid grid-cols-1 3xl:grid-cols-3 justify-items-center min-h-screen p-8 pb-24 gap-0 3xl:gap-4 space-x-0 3xl:space-x-8  font-[family-name:var(--font-geist-sans)]">
                 <div className="col-span-1 flex-col flex mt-8 w-full md:w-auto ml-0 ">
                 <motion.div 
-                    className="sticky top-[120px] justify-center items-center flex lg:flex-nowrap flex-wrap gap-2 mb-4 p-2 bg-ddblue border border-gray-700 rounded-lg"
+                    className="sticky top-[120px] justify-center items-center flex lg:flex-nowrap flex-col gap-2 mb-4 p-2 bg-ddblue border border-gray-700 rounded-lg z-[5010]"
                     initial={{ opacity: 1, y: 0 }}
                     animate={controls}
                     transition={{ duration: 0.2 }}
                 >
-                    <button 
-        onClick={() => {
-            setFilter('All');
-                            router.push('?filter=All'); // Update the URL
-                        }}
-                        className={`relative flex items-center justify-start pl-1 pr-8 py-2 rounded ${filter === 'All' ? 'bg-lblue text-cream' : 'bg-dblue'}`}
+        {isMobile ? (
+            <div className="flex items-center space-x-2">
+                <label
+                    htmlFor="toggleAccordions"
+                    className="relative inline-block h-8 w-14 cursor-pointer rounded-full bg-gray-300 transition [-webkit-tap-highlight-color:_transparent] has-[:checked]:bg-lblue"
+                >
+                    <input
+                        type="checkbox"
+                        id="toggleAccordions"
+                        checked={isToggled}
+                        onChange={toggleAllAccordions}
+                        className="peer sr-only [&:checked_+_span_svg[data-checked-icon]]:block [&:checked_+_span_svg[data-unchecked-icon]]:hidden"
+                    />
+
+                    <span
+                        className="absolute inset-y-0 start-0 z-10 m-1 inline-flex size-6 items-center justify-center rounded-full bg-white text-gray-400 transition-all peer-checked:start-6 peer-checked:text-lblue"
                     >
-        <span className="text-left">Всички центрове</span>
-        <span className={`absolute top-0 right-0 inline-flex items-center m-1 justify-center w-5 h-5 text-xs font-bold text-white rounded-full ${filter === 'All' ? 'bg-red-500 text-cream' : 'bg-lblue'}`}>
-            {countCenters('All')}
-        </span>
-    </button>
+                        <svg
+                            data-unchecked-icon
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="size-4"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                        >
+                            <path
+                                fillRule="evenodd"
+                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                clipRule="evenodd"
+                            />
+                        </svg>
+
+                        <svg
+                            data-checked-icon
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="hidden size-4"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                        >
+                            <path
+                                fillRule="evenodd"
+                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                clipRule="evenodd"
+                            />
+                        </svg>
+                    </span>
+                </label>
+                <span className="text-left">{isToggled ? 'Скрии всички' : 'Покажи всички'}</span>
+            </div>
+        ) : (
+                        <button 
+                            onClick={() => handleButtonClick('All')} // Updated to use the new function
+                            className={`relative flex items-center justify-start pl-1 pr-8 py-2 rounded ${filter === 'All' ? 'bg-lblue text-cream' : 'bg-dblue'}`}
+                        >
+                            <span className="text-left">Всички центрове</span>
+                            <span className={`absolute top-0 right-0 inline-flex items-center m-1 justify-center w-5 h-5 text-xs font-bold text-white rounded-full ${filter === 'All' ? 'bg-red-500 text-cream' : 'bg-lblue'}`}>
+                                {countCenters('All')}
+                            </span>
+                        </button>
+                    )}
     
-    <button 
-        onClick={() => {
-            setFilter('Терапевтични общности');
-                            router.push('?filter=Терапевтични общности');
-                        }}
+                    <button 
+                        onClick={() => handleButtonClick('Терапевтични общности')}
                         className={`relative flex items-center justify-start pl-1 pr-8 py-2 rounded ${filter === 'Терапевтични общности' ? 'bg-lblue text-cream' : 'bg-dblue'}`}
                     >
         <span className="text-left">Терапевтична общност</span>
@@ -106,11 +192,10 @@ export default function Locations() {
             {countCenters('Терапевтични общности')}
         </span>
     </button>
+
+
     <button 
-        onClick={() => {
-            setFilter('Програми за непълнолетни');
-                            router.push('?filter=Програми за непълнолетни');
-                        }}
+        onClick={() => handleButtonClick('Програми за непълнолетни')}
         className={`relative flex items-center justify-start pl-1 pr-6 py-2 rounded ${filter === 'Програми за непълнолетни' ? 'bg-lblue text-cream' : 'bg-dblue'}`}
     >
         <span className="text-left">Програми за непълнолетни</span>
@@ -118,11 +203,10 @@ export default function Locations() {
             {countCenters('Програми за непълнолетни')}
         </span>
     </button>
+
+
     <button 
-        onClick={() => {
-            setFilter('Дневни центрове');
-                            router.push('?filter=Дневни центрове');
-                        }}
+        onClick={() => handleButtonClick('Дневни центрове')}
         className={`relative flex items-center justify-start pl-1 pr-5 py-2 rounded ${filter === 'Дневни центрове' ? 'bg-lblue text-cream' : 'bg-dblue'}`}
     >
         <span className="text-left">Дневни центрове</span>
@@ -131,10 +215,7 @@ export default function Locations() {
         </span>
     </button>
     <button 
-        onClick={() => {
-            setFilter('Вечерни програми');
-                            router.push('?filter=Вечерни програми');
-                        }}
+        onClick={() => handleButtonClick('Вечерни програми')}
         className={`relative flex items-center justify-start pl-1 pr-7 py-2 rounded ${filter === 'Вечерни програми' ? 'bg-lblue text-cream' : 'bg-dblue'}`}
     >
         <span className="text-left">Вечерни програми</span>
@@ -145,8 +226,8 @@ export default function Locations() {
 </motion.div>
 
                     <div className="mt-4 w-full">
-                    {filteredCenters.map((center, index) => (
-                            <Accordion key={index} title={center.name}>
+                    {(!isMobile || showAccordions) && filteredCenters.map((center, index) => ( // Conditional rendering based on isMobile
+                        <Accordion key={index} title={center.name}>
                                 {/* ADDRESS */}
                                 <p className='border-b border-gray-600 mb-4 pb-4 '>
                                     <strong className='mr-8'>📌Адрес:</strong> 
