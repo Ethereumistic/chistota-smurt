@@ -5,8 +5,8 @@
 body {
   /* Set the default background color and dotted background */
   background-color: white; /* Original background color */
-  background-image: radial-gradient(circle, #fff 1px, transparent 1px);
-  background-size: 20px 20px;
+  color: white;
+
   height: 100vh;
 }
 
@@ -14,8 +14,7 @@ html.dark body {
   /* Dark mode background with dotted pattern */
   background-color: black;
   color: white;
-  background-image: radial-gradient(circle, #0000 1px, transparent 1px);
-  background-size: 20px 20px;
+
   height: 100vh;
 }
 

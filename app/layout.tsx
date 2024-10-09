@@ -4,7 +4,6 @@ import "./globals.css";
 import { Providers } from "./providers";
 import { NavbarDemo } from "./components/NavbarDemo";
 import { languages } from '../i18n/settings'
-import DotEffect from "./components/ui/DotEffect";
 import Footer from "./components/ui/Footer";
 import { Russo_One } from "next/font/google";
 import { Montserrat } from "next/font/google";
@@ -84,7 +83,6 @@ export default function RootLayout({
             {/* <NavbarDemo /> */}
             <NavbarTest2 />
             {children}
-            <DotEffect dotSize={1} spacing={20}  />
             <div className="bg-gradient-to-b from-black/0 to-black/[0.5] w-full h-5"></div>
 
             <Footer />
