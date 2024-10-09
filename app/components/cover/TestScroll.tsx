@@ -1,3 +1,4 @@
+'use client'
 import { ReactLenis } from 'lenis/react'
 import {
   motion,
@@ -5,9 +6,10 @@ import {
   useScroll,
   useTransform,
 } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { IconMapPin } from "@tabler/icons-react";
 import Countdown from '../calendar/Countdown';
+import { useRouter, usePathname } from 'next/navigation';
 
 const SECTION_HEIGHT = 1000;
 
@@ -79,34 +81,68 @@ const CenterImage = () => {
 };
 
 const ParallaxImages = () => {
+  const router = useRouter();
+  const [animationDelay, setAnimationDelay] = useState(4);
+  const pathname = usePathname();
   const { scrollY } = useScroll();
-  
   const centerImageHeight = useTransform(
       scrollY,
       [0, SECTION_HEIGHT],
       [SECTION_HEIGHT, SECTION_HEIGHT]
   );
-
   const sideElementOpacity = useTransform(
       scrollY,
       [0, 1000],
       [0, 1]
   );
-
   const additionalElementOpacity = useTransform(
       scrollY,
       [0, 1000],
       [0, 1]
   );
-
   const sideElementScale = useTransform(
       scrollY,
       [0, 2000],
       [1, 0.3]
   );
+  const initialYPosition = 100;
 
-  // Set initial Y positions for the text elements
-  const initialYPosition = 100; // Adjust this value as needed
+  const centeredTextOpacity = useTransform(
+    scrollY,
+    [0, 200, 400, 600],
+    [1, 1, 0.5, 0]
+  );
+
+  const centeredTextY = useTransform(
+    scrollY,
+    [0, 1000],
+    [0, 300]  // Changed from [0, -100] to [0, -50] to slow down the upward movement
+  );
+
+  const centeredTextScale = useTransform(
+    scrollY,
+    [0, 800],
+    [1, 0.5]
+  );
+
+  useEffect(() => {
+    const handleRouteChange = () => {
+      setAnimationDelay(1);
+    };
+
+    // Check if this is the initial load
+    if (performance.navigation.type === 1 || !sessionStorage.getItem('visited')) {
+      setAnimationDelay(4);
+      sessionStorage.setItem('visited', 'true');
+    } else {
+      setAnimationDelay(1);
+    }
+
+    // This will run on route changes
+    handleRouteChange();
+
+    // We don't need to return a cleanup function here
+  }, [pathname]);  // Add pathname as a dependency
 
   return (
       <motion.div 
@@ -150,6 +186,27 @@ const ParallaxImages = () => {
             <p className="text-black text-2xl">12 ДЕКЕМВРИ</p>
           </div>
         </motion.div>
+
+        {/* Centered Title */}
+        <motion.div
+        className="absolute w-full text-center"
+        style={{
+          top: '-42%',
+          left: '0%',
+          transform: 'translate(-50%, -50%)',
+          opacity: centeredTextOpacity,
+          y: centeredTextY,
+          scale: centeredTextScale,
+        }}
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ 
+          opacity: { delay: animationDelay, duration: 2, ease: "easeOut" },
+          y: { duration: 3, ease: "easeOut" }
+        }}
+      >
+        <p className="text-2xl max-w-2xl mx-auto font-montserrat text-black">Представяме документален филм за наркотичната зависимост. Изследваме пътя към възстановяването и въздействието върху обществото. Целим да повишим осведомеността и да вдъхновим промяна.</p>
+      </motion.div>
 
         {/* Parallax Image */}
         <ParallaxImg

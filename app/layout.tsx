@@ -8,6 +8,7 @@ import { Russo_One } from "next/font/google";
 import { Montserrat } from "next/font/google";
 import Script from "next/script";
 import { NavbarTest2 } from "./components/NavbarTest2";
+import Footer2 from "./components/ui/Footer2";
 
 
 
@@ -82,7 +83,7 @@ export default function RootLayout({
             {children}
             <div className="bg-gradient-to-b from-black/0 to-black/[0.5] w-full h-5"></div>
 
-            <Footer />
+            <Footer2 />
           </div>
           </Providers>
           <Script

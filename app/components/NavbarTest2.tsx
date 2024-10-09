@@ -12,7 +12,7 @@ import { Chistota } from "./cover/Chistota";
 import { Ili } from "./cover/Ili";
 import { Smur } from "./cover/Smur";
 import { T } from "./cover/T";
-import { usePathname } from 'next/navigation'; // Import usePathname
+import { usePathname, useRouter } from 'next/navigation'; // Import usePathname
 import Image from "next/image";
 import { BuyButton, LocationsButton } from "./ui/BuyButton";
 import { Documentary } from "./cover/Documentary";
@@ -119,6 +119,7 @@ function Navbar({
     const { t } = useTranslation();
     const firstSectionRef = useRef<HTMLDivElement>(null); // Create a ref for the first section
     const pathname = usePathname();
+    const router = useRouter();
     const [isHome, setIsHome] = useState(true);
     const [textVisible, setTextVisible] = useState(true); // New state for text visibility
 
@@ -126,16 +127,23 @@ function Navbar({
 
         
     useEffect(() => {
-        setIsHome(pathname === '/'); // Check if the current route is the home page
-      }, [pathname]); // Dependency on pathname
+      setIsHome(pathname === '/');
+      
+      // Reset scroll and show text when navigating to home
+      if (pathname === '/') {
+          window.scrollTo(0, 0);
+          setTextVisible(true);
+      } else {
+          setTextVisible(false);
+      }
+  }, [pathname]);
 
-      useEffect(() => {
-        const handleScroll = () => {
-            const currentScrollY = window.scrollY;
-            // Show text only when at the top (0px) and on the home page
-            setTextVisible(currentScrollY === 0 && pathname === '/'); 
-            prevScrollY.current = currentScrollY; // Update previous scroll position
-        };
+  useEffect(() => {
+      const handleScroll = () => {
+          const currentScrollY = window.scrollY;
+          setTextVisible(currentScrollY === 0 && pathname === '/');
+          prevScrollY.current = currentScrollY;
+      };
     
         const handlePathChange = () => {
             setTextVisible(pathname === '/'); // Hide text when navigating away from home

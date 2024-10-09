@@ -34,8 +34,8 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
               <nav className="flex flex-col space-y-4 text-center ">
                 <div className="space-y-16 mb-10">
                   <div className="flex flex-col justify-center items-center text-center space-y-10  ">
-                    <BuyButton />
-                    <LocationsButton />    
+                    <BuyButton onClick={onClose} />    
+                    <LocationsButton onClick={onClose} />    
                   </div>
 
                     <div className="space-y-8 mb-10">
@@ -58,7 +58,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                   <ThemeSwitch />
                 </div> */}
 
-                <div className="flex flex-col bg-gray-300 w-1/2 mx-auto rounded-xl mb-10">
+                <div className="flex flex-col bg-lblue/[0.8] w-1/2 mx-auto rounded-xl mb-10">
                   <h1 className="text-center font-montserrat text-xl mt-2 text-black">Подкрепени от:</h1>
                   <Link href="https://aonk.bg" target="_blank">
                   <Image src="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/aonk.png" 
