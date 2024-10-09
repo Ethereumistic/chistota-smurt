@@ -12,7 +12,7 @@ export function Logo() {
   return (
 
     <div className="">
-            <div className="flex-1 flex items-center justify-center z-10"> {/* Centering the logo */}
+            <div className="flex-1 flex items-center justify-center "> {/* Centering the logo */}
 <div className="flex flex-col mt-0 " >
     <Link href="/" className="">
     <div className="flex flex-col items-center justify-center -translate-x-1">

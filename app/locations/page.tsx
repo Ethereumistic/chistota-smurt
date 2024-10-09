@@ -107,7 +107,17 @@ export default function Locations() {
         // Function to handle address click
         const handleAddressClick = useCallback((center: TherapyCenter) => {
             setSelectedCenter(center);
-        }, []);
+            
+            // Add this new code
+            if (isMobile) {
+                // Find the map element
+                const mapElement = document.querySelector('.col-span-2');
+                if (mapElement) {
+                    // Scroll to the map element with smooth behavior
+                    mapElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+        }, [isMobile]); // Add isMobile to the dependency array
 
         const buttonText = showAllAccordions || (filter !== 'All' && showAccordions) 
         ? 'Скрии всички' 
@@ -118,7 +128,7 @@ export default function Locations() {
             <div className="mt-10 grid grid-cols-1 3xl:grid-cols-3 justify-items-center min-h-screen p-8 pb-24 gap-0 3xl:gap-4 space-x-0 3xl:space-x-8  font-[family-name:var(--font-geist-sans)]">
                 <div className="col-span-1 flex-col flex mt-8 w-full md:w-auto ml-0 ">
                 <motion.div 
-                    className="sticky top-[120px] justify-center items-center flex lg:flex-row flex-col gap-2 mb-4 p-2 bg-ddblue border border-gray-700 rounded-lg z-[5010]"
+                    className="sticky top-[120px] justify-center items-center flex lg:flex-row flex-col gap-2 mb-4 p-2 bg-ddblue border border-gray-700 rounded-lg z-[5001]"
                     initial={{ opacity: 1, y: 0 }}
                     animate={controls}
                     transition={{ duration: 0.2 }}
@@ -242,7 +252,7 @@ export default function Locations() {
                                 {/* PHONE */}
                                 <div className='flex flex-row border-b border-gray-600 mb-4 pb-4'>
                                 <p ><strong>📞Телефон:</strong></p>
-                                <ul className='flex flex-row '>
+                                <ul className='flex flex-col cst:flex-row '>
                                     {center.phone.map((phone: string, idx: number) => (
                                         <li className='mx-8' key={idx}>{phone}</li>
                                     ))}
@@ -252,7 +262,7 @@ export default function Locations() {
                                 {/* EMAIL */}
                                 <div className='flex flex-row border-b border-gray-600 mb-4 pb-4'>
                                 <p><strong>📧Email:</strong></p>
-                                <ul className='flex flex-row '>
+                                <ul className='flex flex-col cst:flex-row'>
                                     {center.email.map((email: string, idx: number) => (
                                         <li className='mx-8' key={idx}>{email}</li>
                                     ))}
@@ -306,7 +316,7 @@ export default function Locations() {
                     </div>
                 </div> {/* 1/3 width */}
 
-                <TherapyMap className="col-span-2"  filter={filter} selectedCenter={selectedCenter} />
+                <TherapyMap className="col-span-2 relative z-[5001] "  filter={filter} selectedCenter={selectedCenter} />
             </div>
         </div>
     );

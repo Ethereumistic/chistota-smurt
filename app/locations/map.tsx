@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import { therapyCenters, TherapyCenter } from './therapyCenters';
 import 'leaflet/dist/leaflet.css';
 import { Icon } from 'leaflet';
@@ -13,7 +13,24 @@ interface TherapyMapProps {
   selectedCenter: TherapyCenter | null;
 }
 
+function MapInteraction({ selectedCenter }: { selectedCenter: TherapyCenter | null }) {
+  const map = useMap();
 
+  useEffect(() => {
+    if (selectedCenter) {
+      map.setView(selectedCenter.position, 15);
+      
+      // Find the marker for the selected center and open its popup
+      map.eachLayer((layer) => {
+        if (layer instanceof L.Marker && layer.getLatLng().equals(selectedCenter.position)) {
+          layer.openPopup();
+        }
+      });
+    }
+  }, [map, selectedCenter]);
+
+  return null;
+}
 
 export default function TherapyMap({ className, filter, selectedCenter }: TherapyMapProps) {
   const mapRef = useRef<L.Map>(null);
@@ -26,19 +43,19 @@ export default function TherapyMap({ className, filter, selectedCenter }: Therap
 
   const icons = {
     'Терапевтични общности': new Icon({
-      iconUrl: 'https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/pins/therapy.png',
+      iconUrl: 'https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/pins/1.png',
       iconSize: [25, 25],
     }),
     'Програми за непълнолетни': new Icon({
-      iconUrl: 'https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/pins/minor.png',
+      iconUrl: 'https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/pins/2.png',
       iconSize: [25, 25],
     }),
     'Дневни центрове': new Icon({
-      iconUrl: 'https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/pins/day.png',
+      iconUrl: 'https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/pins/3.png',
       iconSize: [25, 25],
     }),
     'Вечерни програми': new Icon({
-      iconUrl: 'https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/pins/night.png',
+      iconUrl: 'https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/pins/4.png',
       iconSize: [25, 25],
     }),
   };
@@ -65,7 +82,7 @@ export default function TherapyMap({ className, filter, selectedCenter }: Therap
     return (
         <>
         
-      <MapContainer className={className} ref={mapRef} center={[42.7339, 25.4858]} zoom={8} style={{ height: '86vh', width: '90%', position: 'sticky', top: '120px' }}>
+      <MapContainer className={className} ref={mapRef} center={[42.7339, 25.4858]} zoom={8} style={{ height: '86vh', width: '90%', position: 'sticky', top: '120px', zIndex: 5001 }}>
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
@@ -112,6 +129,7 @@ export default function TherapyMap({ className, filter, selectedCenter }: Therap
             </Popup>
           </Marker>
         ))}
+        <MapInteraction selectedCenter={selectedCenter} />
       </MapContainer>
       </>
     );

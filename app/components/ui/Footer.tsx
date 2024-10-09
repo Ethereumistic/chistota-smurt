@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { IconBrandInstagram, IconBrandFacebook, IconBrandYoutube } from '@tabler/icons-react';
 import { Logo } from '../cover/Logo';
 import { usePathname } from 'next/navigation'; // Import usePathname
+import Image from 'next/image';
 
 export default function Footer() {
     const pathname = usePathname(); // Get the current pathname
@@ -95,10 +96,23 @@ export default function Footer() {
 
         <div className="text-center sm:text-left flex flex-col items-center">
 
-          <ul className=" space-y-4 text-sm">
-            <IconBrandFacebook className="w-10 h-10 " />
-            <IconBrandInstagram className="w-10 h-10 " />
-            <IconBrandYoutube className="w-10 h-10 " />
+          <ul className=" space-y-16 text-sm flex flex-col items-center text-gray-800">
+          <div className="space-y-4">
+          <IconBrandFacebook className="w-10 h-10 hover:scale-110 transition-all duration-300 " />
+          <IconBrandInstagram className="w-10 h-10 hover:scale-110 transition-all duration-300 " />
+          <IconBrandYoutube className="w-10 h-10 hover:scale-110 transition-all duration-300 " />
+          </div>
+          <div className="mt-12">
+            <Link href="https://aonk.bg" target="_blank" className="">
+              <Image src="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/aonk.png" 
+                      alt="Logo" 
+                      width={150}
+                      height={100}
+                      className="ml-2  hover:scale-110 transition-all duration-700"
+                      />
+            </Link>
+            </div>
+            
           </ul>
         </div>
       </div>
