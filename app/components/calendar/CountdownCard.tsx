@@ -50,7 +50,7 @@ const CountdownCard = ({ id, label, current, previous }: Props): ReactElement =>
           </svg>
         </div>
 
-        <p className="text-xxs lg:text-base text-center text-theme_grayishBlue lg:font-bold tracking-widest pt-3.5 lg:pt-7">
+        <p className="text-xxs lg:text-base text-center text-black/[0.7] lg:font-bold tracking-widest pt-3.5 lg:pt-7">
           {label}
         </p>
 

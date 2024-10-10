@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform, useMotionTemplate } from 'framer-motio
 import ReactLenis from 'lenis/react';
 import React, { useRef } from "react";
 import Countdown from '../calendar/Countdown';
+import Trailer from '@/app/movie/Trailer';
 
 const SECTION_HEIGHT = 0; // Adjusted for mobile
 
@@ -13,6 +14,7 @@ export function MobileCover() {
       <div className="">
         <MobileHero />
         <div className="bg-gradient-to-t from-black/0 to-black/[0.5] w-full h-12"></div>
+        <Trailer />
         <Countdown />
       </div>
     </ReactLenis>

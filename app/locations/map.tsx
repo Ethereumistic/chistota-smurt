@@ -4,6 +4,7 @@ import { therapyCenters, TherapyCenter } from './therapyCenters';
 import 'leaflet/dist/leaflet.css';
 import { Icon } from 'leaflet';
 import L from 'leaflet';
+import Link from 'next/link';
 
 type CenterType = 'Терапевтични общности' | 'Програми за непълнолетни' | 'Дневни центрове' | 'Вечерни програми' | 'All';
 
@@ -82,8 +83,27 @@ export default function TherapyMap({ className, filter, selectedCenter }: Therap
     return (
         <>
         
-      <MapContainer className={className} ref={mapRef} center={[42.7339, 25.4858]} zoom={8} style={{ height: '86vh', width: '90%', position: 'sticky', top: '120px', zIndex: 5001 }}>
-        <TileLayer
+        <MapContainer 
+  className={className} 
+  ref={mapRef} 
+  center={[42.7339, 25.4858]} 
+  zoom={8} 
+  style={{ 
+    height: '86vh', 
+    width: '90%', // Default width for mobile
+    position: 'sticky', 
+    top: '120px', 
+    zIndex: 5001 
+  }}
+>
+  <style jsx>{`
+    @media (min-width: 1780px) {
+      .map-container {
+        width: 99%; // Width for devices wider than 1780px
+      }
+    }
+  `}</style>        
+  <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         {filteredCenters.map((center, index) => (
@@ -92,27 +112,27 @@ export default function TherapyMap({ className, filter, selectedCenter }: Therap
           position={center.position} 
           icon={icons[center.type]}
           >
-            <Popup>
-              <div>
-                <h3>{center.name}</h3>
-                <p><strong>Адрес:</strong> {center.address}</p>
+            <Popup className=' w-56 cst:w-80'>
+              <div className='text-black font-montserrat '>
+                <h3 className='cst:text-xl text-[16px]'>{center.name}</h3>
+                <p><strong className='mr-4'>📌Адрес:</strong> {center.address}</p>
                 
-                <p><strong>Телефон:</strong></p>
+                <p><strong>📞Телефон:</strong></p>
                 <ul>
                   {center.phone.map((phone: string, idx: number) => (
                     <li key={idx}>{phone}</li>
                   ))}
                 </ul>
 
-                <p><strong>Email:</strong></p>
+                <p className='text-xs cst:text-lg'><strong>📧Email:</strong></p>
                 <ul>
                   {center.email.map((email: string, idx: number) => (
-                    <li key={idx}><a href={`mailto:${email}`}>{email}</a></li>
+                    <li key={idx}><Link href={`mailto:${email}`}>{email}</Link></li>
                   ))}
                 </ul>
-                <p><strong>Уебсайт:</strong> <a href={center.website} target="_blank" rel="noopener noreferrer">{center.website}</a></p>
+                <p><strong>🌎Уебсайт:</strong> <Link href={center.website} target="_blank" rel="noopener noreferrer">{center.website}</Link></p>
   
-                <h4>Дейности:</h4>
+                {/* <h4>Дейности:</h4>
                 <ul>
                   {center.activities?.map((activity, idx) => (
                     <li key={idx}>{activity}</li>
@@ -124,7 +144,7 @@ export default function TherapyMap({ className, filter, selectedCenter }: Therap
                   {center.conditions?.map((condition, idx) => (
                     <li key={idx}>{condition}</li>
                   ))}
-                </ul>
+                </ul> */}
               </div>
             </Popup>
           </Marker>

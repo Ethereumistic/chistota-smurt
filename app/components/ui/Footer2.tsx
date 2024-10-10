@@ -52,20 +52,7 @@ const Footer: React.FC = () => {
         
 
         <div className=" border-b border-gray-600   sm:flex sm:items-center sm:justify-between lg:mt-20">
-          {/* <motion.ul
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5, staggerChildren: 0.1 }}
-            className="flex flex-wrap justify-center gap-4 text-xs lg:justify-end"
-          >
-            {['Terms & Conditions', 'Privacy Policy', 'Cookies'].map((item) => (
-              <motion.li key={item} whileHover={{ scale: 1.1 }}>
-                <a href="#" className="text-gray-500 transition hover:opacity-75">
-                  {item}
-                </a>
-              </motion.li>
-            ))}
-          </motion.ul> */}
+
             <div className='flex justify-center items-center mb-4 my-0 cst:my-4'>
           <Link href="https://aonk.bg" target="_blank" className="">
               <Image src="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/aonk.png" 
@@ -85,7 +72,7 @@ const Footer: React.FC = () => {
             
             {socialIcons.map((social) => (
               <motion.li key={social.name} whileHover={{ scale: 1.2, rotate: 5 }}>
-                <a
+                <Link
                   href="#"
                   rel="noreferrer"
                   target="_blank"
@@ -93,7 +80,7 @@ const Footer: React.FC = () => {
                 >
                   <span className="sr-only">{social.name}</span>
                   <social.icon className="size-14 mb-4" />
-                </a>
+                </Link>
               </motion.li>
             ))}
             
@@ -111,9 +98,9 @@ const Footer: React.FC = () => {
             <div className='mb-4 flex flex-row gap-4'>
             {['Terms & Conditions', 'Privacy Policy', 'Cookies'].map((item) => (
               <motion.li key={item} whileHover={{ scale: 1.1 }}>
-                <a href="#" className=" transition hover:opacity-75">
+                <Link href="#" className=" transition hover:opacity-75">
                   {item}
-                </a>
+                </Link>
               </motion.li>
             ))}
             </div>

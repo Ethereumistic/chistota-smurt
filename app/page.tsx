@@ -31,6 +31,8 @@ export default function Home({ params: { lng } }: { params: { lng: string } }) {
       {/* <Cover /> */}
       {!isMobile && <TestScroll />}
       {isMobile && <MobileCover />}
+
+      
     </div>
   );
 }

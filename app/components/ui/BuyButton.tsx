@@ -1,10 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
+import { useCountdownContext } from '../calendar/CountdownProvider';
 
 // Create a reusable Button component
-const Button: React.FC<{ href: string; className: string; onClick?: () => void; children: React.ReactNode }> = ({ href, className, onClick, children }) => {
+const Button: React.FC<{ href?: string; className: string; onClick?: () => void; children: React.ReactNode }> = ({ href, className, onClick, children }) => {
   return (
-    <Link href={href} className={className} onClick={onClick}>
+    <Link href={href || ""} className={className} onClick={onClick}>
       {children}
     </Link>
   );
@@ -12,20 +13,30 @@ const Button: React.FC<{ href: string; className: string; onClick?: () => void; 
 
 // Create the BuyButton component
 export const BuyButton: React.FC<{ onClick?: () => void }> = ({ onClick }) => {
+  const { countdownEnded } = useCountdownContext();
+
+  const buttonText = countdownEnded ? "ГЛЕДАЙ ФИЛМА" : "КУПИ БИЛЕТ";
+  const buttonHref = countdownEnded ? "/movie" : "/buy";
+
   return (
-    <Button href="/buy" className="buyButton" onClick={onClick}>
-        <span className="drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]">КУПИ БИЛЕТ</span>
+    <Button href={buttonHref} className="buyButton" onClick={onClick}>
+        <span className="drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)] text-gray-100">{buttonText}</span>
     </Button>
   );
 };
 
 export const BuyButton2: React.FC<{ onClick?: () => void }> = ({ onClick }) => {
-    return (
-      <Button href="/buy" className="buyButton drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)] scale-150" onClick={onClick}>
-          <span className="drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)] text-gray-100">КУПИ БИЛЕТ</span>
-      </Button>
-    );
-  };
+  const { countdownEnded } = useCountdownContext();
+
+  const buttonText = countdownEnded ? "ГЛЕДАЙ ФИЛМА" : "КУПИ БИЛЕТ";
+  const buttonHref = countdownEnded ? "/movie" : "/buy";
+
+  return (
+    <Button href={buttonHref} className="watchButton  scale-150" onClick={onClick}>
+        <span className="">{buttonText}</span>
+    </Button>
+  );
+};
 
 // Create the LocationsButton component
 export const LocationsButton: React.FC<{ onClick?: () => void }> = ({ onClick }) => {
@@ -35,3 +46,20 @@ export const LocationsButton: React.FC<{ onClick?: () => void }> = ({ onClick })
     </Button>
   );
 };
+
+export const TrailerButton: React.FC<{ onClick?: () => void }> = ({ onClick }) => {
+  return (
+    <button className="watchButton  flex items-center justify-center scale-100 cst:scale-150" onClick={onClick}>
+        <span className="">ТРЕЙЛЪР</span>
+    </button>
+  );
+};
+
+export const WatchButton: React.FC<{ onClick?: () => void }> = ({ onClick }) => {
+  return (
+    <button className="watchButton  flex items-center justify-center scale-100 cst:scale-150" onClick={onClick}>
+        <span className="">ГЛЕДАЙ ФИЛМА</span>
+    </button>
+  );
+};
+

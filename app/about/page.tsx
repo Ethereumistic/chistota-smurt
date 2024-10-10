@@ -13,9 +13,9 @@ export default async function About() {
   });
    
   return (  
-    <div>
+    <div className='mt-32'>
       <h1 className="text-6xl text-llblue font-bold text-center mb-12">Историята на Филма</h1>
-      <div className="w-full mx-auto  text-cream py-16 flex justify-center items-center">
+      <div className="w-full mx-auto  text-cream pb-4 flex justify-center items-center">
 
         {/* Flex Layout */}
         <div className="flex flex-wrap justify-center max-w-6xl mx-auto">

@@ -9,8 +9,7 @@ import { Montserrat } from "next/font/google";
 import Script from "next/script";
 import { NavbarTest2 } from "./components/NavbarTest2";
 import Footer2 from "./components/ui/Footer2";
-
-
+import { CountdownProvider } from "./components/calendar/CountdownProvider";
 
 const montserrat = Montserrat({
   subsets: ['latin', 'cyrillic'],
@@ -69,6 +68,8 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${russo.variable} ${montserrat.variable} antialiased`}
       >
         <Providers>
+        <CountdownProvider>
+
           {/* <div className="bg-dblue text-cream"> */}
           <div className=""
                     style={{
@@ -85,6 +86,7 @@ export default function RootLayout({
 
             <Footer2 />
           </div>
+          </CountdownProvider>
           </Providers>
           <Script
         id="facebook-pixel"

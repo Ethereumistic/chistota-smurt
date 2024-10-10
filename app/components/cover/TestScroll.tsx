@@ -10,6 +10,7 @@ import { useEffect, useRef, useState } from "react";
 import { IconMapPin } from "@tabler/icons-react";
 import Countdown from '../calendar/Countdown';
 import { useRouter, usePathname } from 'next/navigation';
+import Trailer from '@/app/movie/Trailer';
 
 const SECTION_HEIGHT = 1000;
 
@@ -25,6 +26,8 @@ export const TestScroll = () => {
         <Hero />
         
         <div className="bg-gradient-to-t from-black/0 to-black/[0.5] w-full h-12"></div>
+
+        <Trailer />
 
         <Countdown />
         {/* <Schedule /> */}

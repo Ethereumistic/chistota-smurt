@@ -109,3 +109,54 @@ html.dark body {
 .buyButton:hover::after {
     inset: 0px;
 }
+
+
+.watchButton {
+  position: relative;
+  padding: 15px 30px;
+  color: #000;
+  text-decoration: none;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 1.1em;
+  border: 2px solid transparent;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+
+
+
+.watchButton::before {
+  content: '';
+  position: absolute;
+  inset: 0 8px;
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
+  transition: 1s;
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  -ms-transition: 1s;
+  -o-transition: 1s;
+}
+
+.watchButton::after {
+  content: '';
+  position: absolute;
+  inset: 8px 0;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  transition: 1s;
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  -ms-transition: 1s;
+  -o-transition: 1s;
+}
+
+.watchButton:hover::before,
+.watchButton:hover::after {
+    inset: 0px;
+}

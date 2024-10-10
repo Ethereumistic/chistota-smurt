@@ -5,6 +5,8 @@ import { motion } from 'framer-motion';
 import CountdownCard from './CountdownCard'
 import useIsMounted from './hooks/useIsMounted'
 import { IconMapPin } from '@tabler/icons-react';
+import { useCountdownContext } from './CountdownProvider';
+import Link from 'next/link';
 
 
 Settings.defaultLocale = "bg";
@@ -58,19 +60,15 @@ const useCountdown = (endDate: DateTime): CurrentPrevious => {
 const Countdown = (): ReactElement | null => {
   const isMounted = useIsMounted()
   // Define end dates for each premiere location
-  const endDates = [
-      DateTime.fromObject({ year: 2024, month: 12, day: 6, hour: 18 }), // Sofia
-      DateTime.fromObject({ year: 2024, month: 12, day: 11, hour: 18 }), // Plovdiv
-      DateTime.fromObject({ year: 2024, month: 12, day: 12, hour: 18 }),  // Burgas
-      DateTime.fromObject({ year: 2024, month: 12, day: 13, hour: 18 }), // Varna
-  ];
+  const { endDates } = useCountdownContext();
+
 
   const scheduleInfo = [
-    { title: "София", location: "Кино Люмиер" },
-    { title: "Пловдив", location: "Кино Лъки" },
-    { title: "Бургас", location: "Ne se znae" },
-    { title: "Варна", location: "Зала Европа ФКЦ Варна" },
-  ];
+    { title: "София", location: "Кино Люмиер", link: "https://www.google.com/maps?q=Кино+Люмиер" },
+    { title: "Пловдив", location: "Кино Лъки", link: "https://www.google.com/maps?q=Кино+Лъки" },
+    { title: "Бургас", location: "Ne se znae", link: "https://www.google.com/maps?q=Ne+se+znae" },
+    { title: "Варна", location: "Зала Европа ФКЦ Варна", link: "https://www.google.com/maps?q=Зала+Европа+ФКЦ+Варна" },
+];;
 
   const cities = ["София", "Пловдив", "Бургас", "Варна"];
 
@@ -89,24 +87,14 @@ const Countdown = (): ReactElement | null => {
 
   return (
   <div className="flex flex-col items-center justify-center space-y-10">
-    <h2 className="text-3xl font-bold font-montserrat text-center px-6">ТРЕЙЛЪР</h2>
-    <div className="relative aspect-video w-[85%] cst:w-[43%]"> {/* 16:9 Aspect Ratio */}
-        <iframe 
-            className="absolute top-0 left-0 w-full h-full" 
-            src="https://www.youtube.com/embed/c1nYtX-NUsc" 
-            title="YouTube video player" 
-            frameBorder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowFullScreen 
-        ></iframe>
-    </div>
+
     <div className="flex space-x-1 lg:space-x-10 ">
       <CountdownCard id={`days${current.days}-${previous?.days}`} label="ДНИ" key={`days${current.days}-${previous?.days}`} current={current.days} previous={previous?.days} />
       <CountdownCard id={`hours${current.hours}-${previous?.hours}`} label="ЧАСА" key={`hours${current.hours}-${previous?.hours}`} current={current.hours} previous={previous?.hours} />
       <CountdownCard id={`minutes${current.minutes}-${previous?.minutes}`} label="МИНУТИ" key={`minutes${current.minutes}-${previous?.minutes}`} current={current.minutes} previous={previous?.minutes} />
       <CountdownCard id={`seconds${current.seconds}-${previous?.seconds}`} label="СЕКУНДИ" key={`seconds${current.seconds}-${previous?.seconds}`} current={current.seconds} previous={previous?.seconds} />
     </div>
-    <h2 className="text-3xl font-bold font-montserrat text-center px-6">Остават до премиерата ни в {activeCity}</h2> {/* Display the city name */}
+    <h2 className="text-3xl font-bold text-black font-montserrat text-center px-6">Остават до премиерата ни в {activeCity}</h2> {/* Display the city name */}
     <div className="w-full">
     <Schedule endDates={endDates} scheduleInfo={scheduleInfo} />
     </div>
@@ -114,7 +102,7 @@ const Countdown = (): ReactElement | null => {
   )
 }
 
-const Schedule = ({ endDates, scheduleInfo }: { endDates: DateTime[], scheduleInfo: { title: string, location: string }[] }) => {
+const Schedule = ({ endDates, scheduleInfo }: { endDates: DateTime[], scheduleInfo: { title: string, location: string, link: string }[] }) => {
   const currentDateTime = DateTime.local();
 
   const activeScheduleItems = endDates.map((endDate, index) => ({
@@ -144,6 +132,7 @@ const Schedule = ({ endDates, scheduleInfo }: { endDates: DateTime[], scheduleIn
           date={item.date}
           time={item.time}
           location={item.location}
+          link={item.link}
         />
       ))}
     </section>
@@ -155,11 +144,13 @@ const ScheduleItem = ({
   date,
   location,
   time,
+  link
 }: {
   title: string;
   date: string;
   location: string;
   time: string;
+  link: string;
 }) => {
   return (
     <motion.div
@@ -169,14 +160,16 @@ const ScheduleItem = ({
       className="mb-9 flex items-center justify-between border-b border-zinc-800 px-3 pb-9"
     >
       <div>
-        <p className="mb-1.5 text-xl text-gray-900 font-montserrat">{title}</p>
-        <p className="text-sm uppercase text-zinc-500">{date}</p>
-        <p className="text-sm uppercase text-zinc-500">{time}</p>
+        <p className="mb-1.5 text-xl text-black font-montserrat">{title}</p>
+        <p className="text-sm uppercase text-zinc-800">{date}</p>
+        <p className="text-sm uppercase text-zinc-800">{time}</p>
       </div>
-      <div className="flex items-center gap-1.5 text-end text-sm uppercase text-gray-900">
-        <p>{location}</p>
-        <IconMapPin />
+        <Link href={link} target="_blank">
+      <div className="flex items-center gap-1.5 text-end text-sm uppercase text-black hover:scale-110 transition-all duration-300">
+          <p>{location}</p>
+          <IconMapPin />
       </div>
+        </Link>
     </motion.div>
   );
 };

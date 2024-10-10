@@ -166,7 +166,7 @@ function Navbar({
 
 {/* First Section (Icons) */}
 <div className="flex-1 ml-4 cst:flex hidden" ref={firstSectionRef}>
-    <div className="flex mt-0 justify-start space-x-24 items-center">
+    <div className="flex mt-0 justify-start space-x-16 items-center">
 
         <div className="flex flex-col ">
           {/* <h1>Подкрепени от:</h1> */}
