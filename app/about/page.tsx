@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { getPosts } from './getPosts'
 import Link from 'next/link'
+import AboutUs from './AboutUs';
 
 export default async function About() {
   const posts = await getPosts()
@@ -14,6 +15,7 @@ export default async function About() {
    
   return (  
     <div className='mt-32'>
+      <AboutUs />
       <h1 className="text-6xl text-llblue font-bold text-center mb-12">Историята на Филма</h1>
       <div className="w-full mx-auto  text-cream pb-4 flex justify-center items-center">
 
