@@ -1,21 +1,26 @@
 'use client'
-import React, { useState, useEffect, Suspense } from 'react';
-import { useSearchParams } from 'next/navigation';
-import Link from 'next/link';
-import Loader from '../components/ui/Loader';
+import React, { useState, useEffect } from 'react';
+import { useRouter, usePathname } from 'next/navigation';
 
 type TabType = 'terms' | 'privacy' | 'cookies';
 
 const LegalPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<TabType>('terms');
-  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
-    const tab = searchParams.get('tab') as TabType;
-    if (tab && ['terms', 'privacy', 'cookies'].includes(tab)) {
-      setActiveTab(tab);
+    const searchParams = new URLSearchParams(window.location.search);
+    const tabFromUrl = searchParams.get('tab') as TabType;
+    if (tabFromUrl && ['terms', 'privacy', 'cookies'].includes(tabFromUrl)) {
+      setActiveTab(tabFromUrl);
     }
-  }, [searchParams]);
+  }, [pathname]);
+
+  const handleTabChange = (tab: TabType) => {
+    setActiveTab(tab);
+    router.push(`/legal?tab=${tab}`, undefined,);
+  };
 
   const tabContent = {
     terms: `
@@ -139,39 +144,23 @@ const LegalPage: React.FC = () => {
   };
 
   return (
-    <Suspense fallback={<div><Loader /></div>}>
-
     <div className="container mx-auto px-4 py-8 justify-center items-center flex flex-col mt-24">
-        <h1 className="text-4xl font-montserrat text-black mb-8">Правила и условия</h1>
+      <h1 className="text-4xl font-montserrat text-black mb-8">Правила и условия</h1>
       <div className="mb-8">
         <div className="flex space-x-4">
-          <Link
-            href="?tab=terms"
-            className={`px-4 py-2 rounded  ${
-              activeTab === 'terms' ? 'bg-black text-white' : 'bg-gray-400'
-            }`}
-            onClick={() => setActiveTab('terms')}
-          >
-            Правила и условия
-          </Link>
-          <Link
-            href="?tab=privacy"
-            className={`px-4 py-2 rounded ${
-              activeTab === 'privacy' ? 'bg-black text-white' : 'bg-gray-400'
-            }`}
-            onClick={() => setActiveTab('privacy')}
-          >
-            Политика за поверителност
-          </Link>
-          <Link
-            href="?tab=cookies"
-            className={`px-4 py-2 rounded ${
-              activeTab === 'cookies' ? 'bg-black text-white' : 'bg-gray-400'
-            }`}
-            onClick={() => setActiveTab('cookies')}
-          >
-            Бисквитки
-          </Link>
+          {['terms', 'privacy', 'cookies'].map((tab) => (
+            <button
+              key={tab}
+              className={`px-4 py-2 rounded ${
+                activeTab === tab ? 'bg-black text-white' : 'bg-gray-400'
+              }`}
+              onClick={() => handleTabChange(tab as TabType)}
+            >
+              {tab === 'terms' && 'Правила и условия'}
+              {tab === 'privacy' && 'Политика за поверителност'}
+              {tab === 'cookies' && 'Бисквитки'}
+            </button>
+          ))}
         </div>
       </div>
       <div className="prose max-w-6xl">
@@ -186,7 +175,6 @@ const LegalPage: React.FC = () => {
         })}
       </div>
     </div>
-    </Suspense>
   );
 };
 
