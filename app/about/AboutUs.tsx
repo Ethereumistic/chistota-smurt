@@ -36,7 +36,7 @@ const AboutUs = () => {
             Together, Jane and John form a powerhouse duo in the world of cinema. Their collaborative approach and complementary skills have resulted in a string of box office hits and critical darlings. Their latest project promises to be their most ambitious yet, combining heartfelt storytelling with breathtaking visuals.
           </p>
           <p>
-            Stay tuned for more updates on this exciting new film, and dive into the world of cinema crafted by two of the industry's most innovative minds.
+            Stay tuned for more updates on this exciting new film, and dive into the world of cinema crafted by two of the industry&apos;s most innovative minds.
           </p>
         </motion.div>
       </div>
