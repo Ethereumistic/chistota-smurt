@@ -1,7 +1,8 @@
 'use client'
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
+import Loader from '../components/ui/Loader';
 
 type TabType = 'terms' | 'privacy' | 'cookies';
 
@@ -138,6 +139,8 @@ const LegalPage: React.FC = () => {
   };
 
   return (
+    <Suspense fallback={<div><Loader /></div>}>
+
     <div className="container mx-auto px-4 py-8 justify-center items-center flex flex-col mt-24">
         <h1 className="text-4xl font-montserrat text-black mb-8">Правила и условия</h1>
       <div className="mb-8">
@@ -183,6 +186,7 @@ const LegalPage: React.FC = () => {
         })}
       </div>
     </div>
+    </Suspense>
   );
 };
 
