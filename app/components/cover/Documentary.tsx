@@ -1,7 +1,7 @@
 "use client";
 import { TextGenerateEffect } from "./words-gen";
 
-const words = `Документален филм от Даниел Ненов
+const words = `Документален филм на Даниел Ненов
 `;
 
 export function Documentary() {

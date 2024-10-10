@@ -92,14 +92,14 @@ const Footer: React.FC = () => {
             transition={{ delay: 0.5, staggerChildren: 0.1 }}
             className="flex flex-wrap justify-between text-gray-500 gap-4 text-xs mt-4"
           >
-            <div>
+            {/* <div>
                 Created by EchoRay
-            </div>
+            </div> */}
             <div className='mb-4 flex flex-row gap-4'>
-            {['Terms & Conditions', 'Privacy Policy', 'Cookies'].map((item) => (
+            {['terms', 'privacy', 'cookies'].map((item) => (
               <motion.li key={item} whileHover={{ scale: 1.1 }}>
-                <Link href="#" className=" transition hover:opacity-75">
-                  {item}
+                <Link href={`/legal?tab=${item}`} className=" transition hover:opacity-75">
+                  {item === 'terms' ? 'Правила и условия' : item === 'privacy' ? 'Политика за поверителност' : 'Бисквитки'}
                 </Link>
               </motion.li>
             ))}

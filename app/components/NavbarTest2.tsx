@@ -250,13 +250,13 @@ function Navbar({
       </div>
       <div className="flex items-center space-x-12 mx-10"> {/* Keep the other buttons in a flex container */}
         <div className="flex justify-center text-center underline-hover  transition-all duration-900">
-          <Link href="/partners" className="text-2xl px-4">
+          <Link href="/partners" className="text-2xl px-4 drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]">
             Партньори
           </Link>
         </div>
         <div className="flex  justify-center text-center underline-hover mr-4 transition-all duration-900">
-          <Link href="/about" className="text-2xl px-4 ">
-            История
+          <Link href="/about" className="text-2xl px-4 drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]">
+            За Нас
           </Link>
         </div>
       </div>

@@ -1,14 +1,12 @@
 'use client'
 
-import { useTranslation } from 'react-i18next'
 import { useEffect, useState } from 'react'
-import i18next from './i18n'
-import Countdown from './components/calendar/Countdown'
 import { MobileCover } from './components/cover/MobileCover'
 import { TestScroll } from './components/cover/TestScroll'
 
-import { SmoothScrollHero } from './components/cover/SmoothScrollHero'
 import ScrollTracker from './components/cover/ScrollTracker'
+import WrappedScrollButton from './components/ui/ScrollButton'
+
 export default function Home({ params: { lng } }: { params: { lng: string } }) {
   const [isMobile, setIsMobile] = useState(false);
 
@@ -27,12 +25,11 @@ export default function Home({ params: { lng } }: { params: { lng: string } }) {
 
   return (
     <div>
-      {/* <ScrollTracker /> */}
       {/* <Cover /> */}
       {!isMobile && <TestScroll />}
       {isMobile && <MobileCover />}
-
-      
+      {/* <ScrollTracker /> */}
+      <WrappedScrollButton />
     </div>
   );
 }
