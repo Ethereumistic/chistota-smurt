@@ -1,5 +1,5 @@
 "use client";
-import { IconMenu, IconX, IconBrandFacebook, IconBrandInstagram, IconBrandYoutube } from "@tabler/icons-react";
+import { IconMenu, IconX, IconBrandFacebook, IconBrandInstagram, IconBrandYoutube, IconMenu2 } from "@tabler/icons-react";
 import React, { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import ThemeSwitch from "./themeSwitch";
@@ -14,7 +14,7 @@ import { Smur } from "./cover/Smur";
 import { T } from "./cover/T";
 import { usePathname, useRouter } from 'next/navigation'; // Import usePathname
 import Image from "next/image";
-import { BuyButton, LocationsButton } from "./ui/BuyButton";
+import { AboutButton, BuyButton, BuyButton2, LocationsButton, PartnersButton, TestButton, TherapyButton, TherapyButton2, TicketsButton } from "./ui/BuyButton";
 import { Documentary } from "./cover/Documentary";
 
 interface AnimatedLinkProps {
@@ -162,11 +162,11 @@ function Navbar({
 
     return (
       <div className="w-full">
-        <div className={cn("max-w-full mx-auto flex justify-between items-center h-24 bg-gradient-to-b from-black/[0.9] to-white/[0.8] border-b border-white", className)}> {/* Added items-center and set height */}
+        <div className={cn("max-w-full mx-auto flex justify-between items-center h-24 bg-gradient-to-b from-gray-500/[0.9] to-gray-400/[0.8] ", className)}> {/* Added items-center and set height */}
 
 {/* First Section (Icons) */}
 <div className="flex-1 ml-4 cst:flex hidden" ref={firstSectionRef}>
-    <div className="flex mt-0 justify-start space-x-16 items-center">
+    <div className="flex mt-0 justify-start space-x-[105px] items-center">
 
         <div className="flex flex-col ">
           {/* <h1>Подкрепени от:</h1> */}
@@ -185,8 +185,9 @@ function Navbar({
       <IconBrandYoutube className="w-10 h-10 hover:scale-110 transition-all duration-300 drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]" />
       </div>
 
-    <div className="flex justify-center text-center font-montserrat p-2 hover:scale-105 transition-all duration-300 ">
-      <BuyButton  />
+    <div className="flex justify-center text-center font-montserrat p-2  hover:scale-105 transition-all duration-300 ">
+      {/* <BuyButton  /> */}
+      <TicketsButton />
 
       </div>
   </div>
@@ -238,26 +239,37 @@ function Navbar({
         }} 
         className="text-3xl mr-6 z-20"
       >
-        {mobileMenuOpen ? <IconX /> : <IconMenu />}
+        {mobileMenuOpen ? <IconX /> : <IconMenu2 />}
       </button>
     </div>
   ) : (
     <>
-      <div className="flex-1 flex font-montserrat justify-center"> {/* Center the LocationsButton */}
-        <div className="hover:scale-105 ml-12 transition-all duration-300 ">
+      <div className="flex-1 flex font-montserrat font-extrabold justify-center"> {/* Center the LocationsButton */}
+        {/* <div className="hover:scale-105 ml-12 transition-all duration-300 ">
         <LocationsButton />
-        </div>
+        </div> */}
+        
       </div>
+
+      
       <div className="flex items-center space-x-12 mx-10"> {/* Keep the other buttons in a flex container */}
-        <div className="flex justify-center text-center underline-hover  transition-all duration-900">
-          <Link href="/partners" className="text-2xl px-4 drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]">
+      <div className="flex justify-center text-center   transition-all duration-900">
+          {/* <Link href="/partners" className="text-2xl px-4 drop-shadow-[0_4px_4px_rgba(0,0,0,1)] font-extrabold">
             Партньори
-          </Link>
+          </Link> */}
+          <TherapyButton2 />
         </div>
-        <div className="flex  justify-center text-center underline-hover mr-4 transition-all duration-900">
-          <Link href="/about" className="text-2xl px-4 drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]">
+        <div className="flex justify-center text-center   transition-all duration-900">
+          {/* <Link href="/partners" className="text-2xl px-4 drop-shadow-[0_4px_4px_rgba(0,0,0,1)] font-extrabold">
+            Партньори
+          </Link> */}
+          <PartnersButton />
+        </div>
+        <div className="flex  justify-center text-center  mr-4 transition-all duration-900">
+          {/* <Link href="/about" className="text-2xl px-4 drop-shadow-[0_4px_4px_rgba(0,0,0,1)] font-extrabold">
             За Нас
-          </Link>
+          </Link> */}
+          <AboutButton />
         </div>
       </div>
     </>

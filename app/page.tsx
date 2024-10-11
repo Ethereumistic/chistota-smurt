@@ -1,14 +1,15 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { MobileCover } from './components/cover/MobileCover'
 import { TestScroll } from './components/cover/TestScroll'
-
+import Cause from './components/ui/Cause'
 import ScrollTracker from './components/cover/ScrollTracker'
 import WrappedScrollButton from './components/ui/ScrollButton'
 
 export default function Home({ params: { lng } }: { params: { lng: string } }) {
   const [isMobile, setIsMobile] = useState(false);
+  const causeRef = useRef<HTMLDivElement | null>(null); // Create a ref
 
   useEffect(() => {
     const handleResize = () => {
@@ -28,8 +29,11 @@ export default function Home({ params: { lng } }: { params: { lng: string } }) {
       {/* <Cover /> */}
       {!isMobile && <TestScroll />}
       {isMobile && <MobileCover />}
-      {/* <ScrollTracker /> */}
-      <WrappedScrollButton />
+      <div ref={causeRef}>
+        <Cause />
+      </div>
+      <ScrollTracker />
+      <WrappedScrollButton causeRef={causeRef} />
     </div>
   );
 }

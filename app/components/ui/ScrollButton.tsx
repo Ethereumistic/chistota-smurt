@@ -4,7 +4,11 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { ReactLenis, useLenis } from 'lenis/react'
 import { motion, AnimatePresence } from 'framer-motion'; // Add this import
 
-const ScrollButton = () => {
+interface ScrollButtonProps {
+    causeRef: React.RefObject<HTMLDivElement>; // Define the prop type
+}
+
+const ScrollButton: React.FC<ScrollButtonProps> = ({ causeRef }) => {
     const [isScrollingDown, setIsScrollingDown] = useState(true);
     const [isHovering, setIsHovering] = useState(false);
     const [showSpan, setShowSpan] = useState(true);
@@ -21,12 +25,18 @@ const ScrollButton = () => {
 
     const handleClick = useCallback(() => {
         if (!lenis) return;
-        if (isScrollingDown) {
-            lenis.scrollTo(2866, { duration: 1.5 });
-        } else {
-            lenis.scrollTo(0, { duration: 1.5 });
+    
+        const scrollY = lenis.scroll; // Get the current scroll position
+        const maxScrollY = lenis.limit; // Get the maximum scroll position
+        const halfwayPoint = maxScrollY / 2; // Calculate the halfway point
+    
+        if (scrollY > halfwayPoint) { // Check if the user is in the second half
+            lenis.scrollTo(0, { duration: 1.5 }); // Scroll to the top
+        } else if (causeRef.current) { // If in the first half, scroll to the Cause component
+            const targetPosition = causeRef.current.getBoundingClientRect().top + window.scrollY - 82; // Subtract 50px for fine-tuning
+            lenis.scrollTo(targetPosition, { duration: 1.5 }); // Scroll to the adjusted target position
         }
-    }, [lenis, isScrollingDown]);
+    }, [lenis, causeRef]); // Include causeRef in dependencies
 
     useEffect(() => {
         if (!lenis) return;
@@ -41,7 +51,7 @@ const ScrollButton = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             setShowSpan(false);
-        }, 3000);
+        }, 6000);
 
         return () => clearTimeout(timer);
     }, []);
