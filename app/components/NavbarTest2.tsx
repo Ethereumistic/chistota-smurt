@@ -166,7 +166,7 @@ function Navbar({
 
 {/* First Section (Icons) */}
 <div className="flex-1 ml-4 3xl:flex hidden" ref={firstSectionRef}>
-    <div className="flex mt-0 justify-start space-x-[105px] items-center">
+    <div className="flex mt-0 justify-start space-x-[80px] items-center">
 
         <div className="flex flex-col ">
           {/* <h1>Подкрепени от:</h1> */}
@@ -180,9 +180,9 @@ function Navbar({
                     </Link>
           </div>
       <div className="flex justify-center items-center space-x-4">
-      <IconBrandFacebook className="w-10 h-10 hover:scale-110 transition-all duration-300 drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]" />
-      <IconBrandInstagram className="w-10 h-10 hover:scale-110 transition-all duration-300 drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]" />
-      <IconBrandYoutube className="w-10 h-10 hover:scale-110 transition-all duration-300 drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]" />
+      <IconBrandFacebook className="w-10 h-10  hover:scale-110 transition-all duration-300 drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]" />
+      <IconBrandInstagram className="w-10 h-10 text-instagram hover:scale-110 transition-all duration-300 drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]" />
+      <IconBrandYoutube className="w-10 h-10  hover:scale-110 transition-all duration-300 drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]" />
       </div>
 
     <div className="flex justify-center text-center font-montserrat p-2  hover:scale-105 transition-all duration-300 ">

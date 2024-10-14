@@ -88,13 +88,25 @@ const Countdown = (): ReactElement | null => {
   return (
   <div className="flex flex-col items-center justify-center space-y-10">
 
+    <motion.div
+            initial={{ y: 48, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ ease: "easeInOut", duration: 0.75 }}>
     <div className="flex space-x-1 lg:space-x-10 ">
       <CountdownCard id={`days${current.days}-${previous?.days}`} label="ДНИ" key={`days${current.days}-${previous?.days}`} current={current.days} previous={previous?.days} />
       <CountdownCard id={`hours${current.hours}-${previous?.hours}`} label="ЧАСА" key={`hours${current.hours}-${previous?.hours}`} current={current.hours} previous={previous?.hours} />
       <CountdownCard id={`minutes${current.minutes}-${previous?.minutes}`} label="МИНУТИ" key={`minutes${current.minutes}-${previous?.minutes}`} current={current.minutes} previous={previous?.minutes} />
       <CountdownCard id={`seconds${current.seconds}-${previous?.seconds}`} label="СЕКУНДИ" key={`seconds${current.seconds}-${previous?.seconds}`} current={current.seconds} previous={previous?.seconds} />
     </div>
-    <h2 className="text-3xl font-bold text-black font-montserrat text-center px-6">Остават до премиерата ни в {activeCity}</h2> {/* Display the city name */}
+    </motion.div>
+
+    <motion.h2 className="text-3xl font-bold text-black font-montserrat text-center px-6"
+                initial={{ y: 48, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ ease: "easeInOut", duration: 0.75 }}>
+      Остават до премиерата ни в {activeCity}
+      </motion.h2>
+
     <div className="w-full">
     <Schedule endDates={endDates} scheduleInfo={scheduleInfo} />
     </div>

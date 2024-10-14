@@ -36,8 +36,7 @@ const Footer: React.FC = () => {
           </div>
 
           <p className="mx-auto max-w-sm text-gray-500">
-          Представяме документален филм за наркотичната зависимост. Изследваме пътя към възстановяването и въздействието върху обществото. Целим да повишим осведомеността и да вдъхновим промяна.
-
+          Документалният филм проследява живота и пътя на шестима резиденти в терапевтична общност за зависими в България. Въпреки че много хора са чували за такива общности, малцина знаят как всъщност изглеждат и какво се случва в тях.
           </p>
 
           <motion.a
@@ -95,7 +94,7 @@ const Footer: React.FC = () => {
             {/* <div>
                 Created by EchoRay
             </div> */}
-            <div className='mb-4 flex flex-row gap-4'>
+            <div className='mb-12 flex flex-row gap-4'>
             {['terms', 'privacy', 'cookies'].map((item) => (
               <motion.li key={item} whileHover={{ scale: 1.1 }}>
                 <Link href={`/legal?tab=${item}`} className=" transition hover:opacity-75">

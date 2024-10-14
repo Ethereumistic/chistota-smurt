@@ -163,6 +163,36 @@ export const AboutButton: React.FC<{ href?: string; className?: string; onClick?
   );
 };
 
+export const TrailerButton2: React.FC<{ href?: string; className?: string; onClick?: () => void; }> = ({ href, className, onClick }) => {
+  return (
+<button
+  className={`group relative inline-flex items-center overflow-hidden rounded border-2 border-white focus:border-purple-600 focus:bg-purple-600 px-8 py-3 text-white ${className}`}
+  onClick={onClick}
+>
+<span className="absolute -start-full transition-all group-hover:start-4">
+      <IconMovie className="size-7 drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]" />
+  </span>
+
+  <span className="text-lg font-extrabold transition-all group-hover:ms-6 drop-shadow-[0_4px_4px_rgba(0,0,0,1)]  ">ГЛЕДАЙ ТРЕЙЛЪР</span>
+</button>
+  );
+};
+
+export const MovieButton2: React.FC<{ href?: string; className?: string; onClick?: () => void; }> = ({ href, className, onClick }) => {
+  return (
+<button
+  className={`group relative inline-flex items-center overflow-hidden rounded border-2 border-white focus:border-purple-600 focus:bg-purple-600  px-8 py-3 text-white ${className}`}
+  onClick={onClick}
+>
+<span className="absolute -start-full transition-all group-hover:start-4">
+      <IconMovie className="size-7 drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]" />
+  </span>
+
+  <span className="text-lg font-extrabold transition-all group-hover:ms-6 drop-shadow-[0_4px_4px_rgba(0,0,0,1)]  ">ГЛЕДАЙ ФИЛМА</span>
+</button>
+  );
+};
+
 
 
 

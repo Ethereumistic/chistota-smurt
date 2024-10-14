@@ -33,7 +33,7 @@ const ScrollButton: React.FC<ScrollButtonProps> = ({ causeRef }) => {
         if (scrollY > halfwayPoint) { // Check if the user is in the second half
             lenis.scrollTo(0, { duration: 1.5 }); // Scroll to the top
         } else if (causeRef.current) { // If in the first half, scroll to the Cause component
-            const targetPosition = causeRef.current.getBoundingClientRect().top + window.scrollY - 82; // Subtract 50px for fine-tuning
+            const targetPosition = causeRef.current.getBoundingClientRect().top + window.scrollY - 0; // Subtract 50px for fine-tuning
             lenis.scrollTo(targetPosition, { duration: 1.5 }); // Scroll to the adjusted target position
         }
     }, [lenis, causeRef]); // Include causeRef in dependencies

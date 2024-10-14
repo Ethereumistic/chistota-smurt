@@ -1,46 +1,93 @@
-import React, { useState } from 'react'
-import { TrailerButton, WatchButton } from '../components/ui/BuyButton'
+import React, { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
+import { client } from '../../sanity/lib/client'; // Import the Sanity client
+import { IconMovie } from '@tabler/icons-react';
 
 const Trailer = () => {
-  const [activeVideo, setActiveVideo] = useState<'trailer' | 'movie'>('trailer')
+  const [activeVideo, setActiveVideo] = useState<'trailer' | 'movie'>('trailer');
+  const [trailerUrl, setTrailerUrl] = useState<string | null>(null);
+  const [movieUrl, setMovieUrl] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchYoutubeUrls = async () => {
+      const query = '*[_type == "youtubeVideo"]{trailerUrl, movieUrl}'; // Fetch both URLs
+      const data = await client.fetch(query);
+      if (data.length > 0) {
+        setTrailerUrl(data[0].trailerUrl); // Set the trailer URL
+        setMovieUrl(data[0].movieUrl); // Set the movie URL
+      }
+    };
+
+    fetchYoutubeUrls();
+  }, []);
 
   const videoSources = {
-    trailer: "https://www.youtube.com/embed/c1nYtX-NUsc",
-    movie: "https://www.youtube.com/embed/Uala9zAU_Rk" // Replace with actual movie embed URL
+    trailer: trailerUrl || "https://www.youtube.com/embed/c1nYtX-NUsc", // Fallback to a default trailer URL if not set
+    movie: movieUrl || "https://www.youtube.com/embed/Uala9zAU_Rk", // Fallback to a default movie URL if not set
   }
+
+  // Define the TrailerButton2 component
+  const TrailerButton2 = () => (
+    <button
+      className={`group relative inline-flex items-center overflow-hidden rounded border-2 border-white focus:border-purple-600 focus:bg-purple-600 px-8 py-3 text-white ${activeVideo === 'trailer' ? 'bg-purple-600 border-2 border-purple-600' : ''}`}
+      onClick={() => setActiveVideo('trailer')}
+    >
+      <span className="absolute -start-full transition-all group-hover:start-4">
+      <IconMovie className="size-7 drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]" />
+  </span>
+  <span className="text-lg font-extrabold transition-all group-hover:ms-6">ГЛЕДАЙ ТРЕЙЛЪР</span>
+  </button>
+  );
+
+  // Define the MovieButton2 component
+  const MovieButton2 = () => (
+    <button
+      className={`group relative inline-flex items-center overflow-hidden rounded border-2 border-white focus:border-purple-600 focus:bg-purple-600 px-8 py-3 text-white ${activeVideo === 'movie' ? 'bg-purple-600 border-2 border-purple-600' : ''}`}
+      onClick={() => setActiveVideo('movie')}
+    >
+            <span className="absolute -start-full transition-all group-hover:start-4">
+      <IconMovie className="size-7 drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]" />
+  </span>
+  <span className="text-lg font-extrabold transition-all group-hover:ms-6">ГЛЕДАЙ ФИЛМА</span>
+  </button>
+  );
 
   return (
     <div>
       <div className="flex justify-center -space-x-4 cst:space-x-24 mb-6 ">
-        <div
-          className={`px-4 py-2 font-bold font-montserrat rounded ${
-            activeVideo === 'trailer' ? '' : ''
-          }`}
-          onClick={() => setActiveVideo('trailer')}
+        <motion.div
+          className="px-4 py-2 font-bold font-montserrat rounded"
+          initial={{ y: -48, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ ease: "easeInOut", duration: 0.75 }}
         >
-          <TrailerButton />
-        </div>
-        <div
-          className={`px-4 py-2 font-bold font-montserrat rounded ${
-            activeVideo === 'movie' ? '' : ''
-          }`}
-          onClick={() => setActiveVideo('movie')}
+          <TrailerButton2 />
+        </motion.div>
+
+        <motion.div
+          className="px-4 py-2 font-bold font-montserrat rounded"
+          initial={{ y: -48, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ ease: "easeInOut", duration: 0.75 }}
         >
-          <WatchButton />
-        </div>
+          <MovieButton2 />
+        </motion.div>
       </div>
-      <div className="relative aspect-video w-[85%] cst:w-[43%] mx-auto mb-10">
-        <iframe 
-          className="absolute top-0 left-0 w-full h-full" 
+      <motion.div className="relative aspect-video w-[85%] cst:w-[43%] mx-auto mb-10"
+        initial={{ y: 48, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ ease: "easeInOut", duration: 0.75 }}>
+        <iframe
+          className="absolute top-0 left-0 w-full h-full"
           src={videoSources[activeVideo]}
           title={activeVideo === 'trailer' ? "Trailer video player" : "Movie video player"}
-          frameBorder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-          allowFullScreen 
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
         ></iframe>
-      </div>
+      </motion.div>
     </div>
   )
 }
 
-export default Trailer
+export default Trailer;

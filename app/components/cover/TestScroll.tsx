@@ -194,7 +194,7 @@ const ParallaxImages = () => {
         <motion.div
         className="absolute w-full text-center"
         style={{
-          top: '-42%',
+          top: '-45%',
           left: '0%',
           transform: 'translate(-50%, -50%)',
           opacity: centeredTextOpacity,
@@ -208,7 +208,7 @@ const ParallaxImages = () => {
           y: { duration: 3, ease: "easeOut" }
         }}
       >
-        <p className="text-2xl max-w-2xl mx-auto font-montserrat text-black">Представяме документален филм за наркотичната зависимост. Изследваме пътя към възстановяването и въздействието върху обществото. Целим да повишим осведомеността и да вдъхновим промяна.</p>
+        <p className="text-2xl max-w-2xl mx-auto font-montserrat text-black">История за живота и пътя на шестима резиденти в терапевтична общност за зависими в България. Въпреки че много хора са чували за такива общности, малцина знаят как всъщност изглеждат и какво се случва в тях.</p>
       </motion.div>
 
         {/* Parallax Image */}

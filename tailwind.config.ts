@@ -44,8 +44,8 @@ const config: Config = {
       },
       
       colors: {
-        lgreen: " #5ebb46 ", 
-        dgreen: " #172e08 ",
+        facebook: " #106afe ", 
+        youtube: " #FF0000 ",
         lred: " #5ebb46 ",
         lblack: " #1A1A1A ",
         ldark: " #121212 ",

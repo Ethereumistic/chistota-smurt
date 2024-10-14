@@ -1,7 +1,7 @@
 'use client'
 import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { motion, useScroll, useTransform, useInView, useAnimation } from 'framer-motion';
+import { motion, useScroll, useInView, useAnimation } from 'framer-motion';
 
 const AboutUs = () => {
   const containerRef = useRef(null);
@@ -19,7 +19,7 @@ const AboutUs = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          Meet the Visionaries
+          Създателите на Филма
         </motion.h1>
         
         <div className="space-y-24">
@@ -32,12 +32,10 @@ const AboutUs = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 1 }}
         >
-          <p className="mb-4">
-            Together, Jane and John form a powerhouse duo in the world of cinema. Their collaborative approach and complementary skills have resulted in a string of box office hits and critical darlings. Their latest project promises to be their most ambitious yet, combining heartfelt storytelling with breathtaking visuals.
+          <p className="mb-4 text-center text-3xl max-w-4xl mx-auto font-montserrat">
+          Заедно създадохме &quot;db Productions&quot; с мисията да достигнем до хората по въздействащ начин и да разказваме истории, които да оставят следа. Нашата цел е не само да забавляваме, но и да вдъхновяваме промяна
           </p>
-          <p>
-            Stay tuned for more updates on this exciting new film, and dive into the world of cinema crafted by two of the industry&apos;s most innovative minds.
-          </p>
+
         </motion.div>
       </div>
     </div>
@@ -59,23 +57,23 @@ const DirectorsSection: React.FC<{ scrollYProgress: any }> = ({ scrollYProgress 
   
     const directors = [
       {
-        name: "Jane Doe",
-        role: "Director",
+        name: "Даниел Ненов",
+        role: "🎬 Режисьор",
         imageSrc: "https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/dani.png",
-        bio: "Jane Doe is an award-winning director known for her innovative storytelling and visual style. With over 20 years of experience in the film industry, Jane has directed numerous critically acclaimed movies that have captivated audiences worldwide."
+        bio: "Казвам се Даниел Ненов и съм режисьор на филма “Чистота или Смърт”. Документално кино е моята страст и историите, които разказвам, са свързани с мен и възприятието ми към темите, които истински ме вълнуват. Вярвам, че решението на важните социални проблеми е чрез разказването за тях."
       },
       {
-        name: "John Smith",
-        role: "Co-Director",
+        name: "Дилян Калчев",
+        role: "🎞 Продуцент",
         imageSrc: "https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/dido.png",
-        bio: "John Smith is a visionary co-director who brings a unique perspective to every project. His background in visual effects and passion for pushing cinematic boundaries have resulted in groundbreaking films that blend storytelling with cutting-edge technology."
+        bio: "Аз съм Дилян Калчев и съм продуцент на филма Чистота или Смърт. Завърших кино-режисура в Англия, където развих своята страст към разказването на истории, особено тези с дълбок социален смисъл. Вярвам, че чрез киното можем да предизвикаме важни обществени промени и да покажем различни гледни точки."
       }
     ];
   
     return (
         <motion.div 
           ref={sectionRef}
-          className="grid grid-cols-1 md:grid-cols-2 gap-12"
+          className="grid grid-cols-1 md:grid-cols-2 gap-12 "
           initial="hidden"
           animate={controls}
           variants={{
@@ -93,10 +91,11 @@ const DirectorsSection: React.FC<{ scrollYProgress: any }> = ({ scrollYProgress 
     const DirectorCard: React.FC<{ director: any }> = ({ director }) => {
         return (
           <motion.div 
-            className="flex flex-col items-center "
+            className="flex flex-col items-center bg-llblue/[0.5] p-8 rounded-xl"
           >
+            {/* Image */}
             <motion.div 
-              className="relative w-64 h-80 mb-6 overflow-hidden rounded-lg"
+              className="relative w-[400px] h-[500px] mb-6 overflow-hidden rounded-lg  "
               variants={{
                 hidden: { scale: 1.5, opacity: 0 },
                 visible: {
@@ -111,11 +110,12 @@ const DirectorsSection: React.FC<{ scrollYProgress: any }> = ({ scrollYProgress 
                 alt={director.name}
                 layout="fill"
                 objectFit="cover"
-                className="transition-all duration-300 hover:scale-110"
+                className="transition-all duration-300 hover:scale-105"
               />
             </motion.div>
+
             <motion.div 
-              className="text-center"
+              className="text-center "
               variants={{
                 hidden: { opacity: 0, y: 20 },
                 visible: { 
@@ -126,8 +126,8 @@ const DirectorsSection: React.FC<{ scrollYProgress: any }> = ({ scrollYProgress 
               }}
             >
               <h2 className="text-2xl font-semibold mb-2">{director.name}</h2>
-              <h3 className="text-xl text-gray-700 mb-4">{director.role}</h3>
-              <p className="text-black max-w-sm">{director.bio}</p>
+              <h3 className="text-xl text-gray-900 mb-4">{director.role}</h3>
+              <p className="text-black text-lg max-w-xl font-montserrat">{director.bio}</p>
             </motion.div>
           </motion.div>
         );
