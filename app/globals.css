@@ -60,6 +60,12 @@ html.dark body {
   }
 }
 
+@media (min-width: 1780px) {
+  .map-container {
+    width: 99%; 
+  }
+}
+
 .buyButton {
   position: relative;
   padding: 15px 30px;

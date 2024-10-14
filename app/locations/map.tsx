@@ -96,13 +96,7 @@ export default function TherapyMap({ className, filter, selectedCenter }: Therap
     zIndex: 5001 
   }}
 >
-  <style jsx>{`
-    @media (min-width: 1780px) {
-      .map-container {
-        width: 99%; // Width for devices wider than 1780px
-      }
-    }
-  `}</style>        
+      
   <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />

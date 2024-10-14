@@ -7,6 +7,7 @@ import { therapyCenters, TherapyCenter } from './therapyCenters';
 import Accordion from '../components/Accordion';
 import Loader from '../components/ui/Loader';
 import { useRouter } from 'next/navigation'; // Update import
+import Link from 'next/link';
 
 
 type CenterType = 'Терапевтични общности' | 'Програми за непълнолетни' | 'Дневни центрове' | 'Вечерни програми' | 'All';
@@ -119,9 +120,6 @@ export default function Locations() {
             }
         }, [isMobile]); // Add isMobile to the dependency array
 
-        const buttonText = showAllAccordions || (filter !== 'All' && showAccordions) 
-        ? 'Скрии всички' 
-        : 'Покажи всички';
 
     return (
         <div className=" ">
@@ -135,7 +133,7 @@ export default function Locations() {
                     transition={{ duration: 0.2 }}
                 >
         {isMobile ? (
-            <div className="flex  justify-between bg-gradient-to-l from-gray-300/[0.5] to-gray-400/[0.5] rounded-lg p-2 w-56">
+            <div className="flex w-[66%] justify-between bg-gradient-to-l from-gray-400/[0.5] to-gray-500/[0.5] rounded-lg p-2">
                                 
                 <div className="-mt-1">
                 <label
@@ -188,7 +186,7 @@ export default function Locations() {
         ) : (
                         <button 
                             onClick={() => handleButtonClick('All')} // Updated to use the new function
-                            className={`relative flex items-center justify-start pl-1 pr-8 py-2 rounded  ${filter === 'All' ? 'bg-gradient-to-r from-gray-300/[0.5] to-gray-400/[0.5]  text-black border border-gray-600 ' : 'bg-gradient-to-l from-gray-400/[0.5] to-gray-500/[0.5] text-black'}`}
+                            className={`relative flex items-center justify-start pl-1 pr-8 py-2 rounded w-[66%] ${filter === 'All' ? 'bg-gradient-to-r from-gray-300/[0.5] to-gray-400/[0.5]  text-black border border-gray-600 ' : 'bg-gradient-to-l from-gray-400/[0.5] to-gray-500/[0.5] text-black'}`}
                         >
                             <span className="text-left">Всички центрове</span>
                             <span className={`absolute top-0 right-0 inline-flex items-center m-1 justify-center w-5 h-5 text-xs font-bold text-white rounded-full ${filter === 'All' ? 'bg-red-500 text-cream' : 'bg-gray-500'}`}>
@@ -199,7 +197,7 @@ export default function Locations() {
     
                     <button 
                         onClick={() => handleButtonClick('Терапевтични общности')}
-                        className={`relative flex items-center justify-start pl-1 pr-8 py-2 rounded ${filter === 'Терапевтични общности' ? 'bg-gradient-to-r from-gray-300/[0.5] to-gray-400/[0.5]  text-black border border-gray-600 ' : 'bg-gradient-to-l from-gray-400/[0.5] to-gray-500/[0.5] text-black'}`}
+                        className={`relative flex items-center justify-start pl-1 pr-8 py-2 rounded w-[66%] ${filter === 'Терапевтични общности' ? 'bg-gradient-to-r from-gray-300/[0.5] to-gray-400/[0.5]  text-black border border-gray-600 ' : 'bg-gradient-to-l from-gray-400/[0.5] to-gray-500/[0.5] text-black'}`}
                     >
         <span className="text-left">Терапевтична общност</span>
         <span className={`absolute top-0 right-0 inline-flex items-center m-1 justify-center w-5 h-5 text-xs font-bold text-white rounded-full ${filter === 'Терапевтични общности' ? 'bg-red-500 text-cream' : 'bg-gray-500'}`}>
@@ -210,7 +208,7 @@ export default function Locations() {
 
     <button 
         onClick={() => handleButtonClick('Програми за непълнолетни')}
-        className={`relative flex items-center justify-start pl-1 pr-7 py-2 rounded ${filter === 'Програми за непълнолетни' ? 'bg-gradient-to-r from-gray-300/[0.5] to-gray-400/[0.5]  text-black border border-gray-600 ' : 'bg-gradient-to-l from-gray-400/[0.5] to-gray-500/[0.5] text-black'}`}
+        className={`relative flex items-center justify-start pl-1 pr-7 py-2 rounded w-[66%] ${filter === 'Програми за непълнолетни' ? 'bg-gradient-to-r from-gray-300/[0.5] to-gray-400/[0.5]  text-black border border-gray-600 ' : 'bg-gradient-to-l from-gray-400/[0.5] to-gray-500/[0.5] text-black'}`}
     >
         <span className="text-left">Програми за непълнолетни</span>
         <span className={`absolute top-0 right-0 inline-flex items-center m-1 justify-center w-5 h-5 text-xs font-bold text-white rounded-full ${filter === 'Програми за непълнолетни' ? 'bg-red-500 text-cream' : 'bg-gray-500'}`}>
@@ -221,7 +219,7 @@ export default function Locations() {
 
     <button 
         onClick={() => handleButtonClick('Дневни центрове')}
-        className={`relative flex items-center justify-start pl-1 pr-7 py-2 rounded ${filter === 'Дневни центрове' ? 'bg-gradient-to-r from-gray-300/[0.5] to-gray-400/[0.5]  text-black border border-gray-600 ' : 'bg-gradient-to-l from-gray-400/[0.5] to-gray-500/[0.5] text-black'}`}
+        className={`relative flex items-center justify-start pl-1 pr-7 py-2 rounded w-[66%] ${filter === 'Дневни центрове' ? 'bg-gradient-to-r from-gray-300/[0.5] to-gray-400/[0.5]  text-black border border-gray-600 ' : 'bg-gradient-to-l from-gray-400/[0.5] to-gray-500/[0.5] text-black'}`}
     >
         <span className="text-left">Дневни центрове</span>
         <span className={`absolute top-0 right-0 inline-flex items-center m-1 justify-center w-5 h-5 text-xs font-bold text-white rounded-full ${filter === 'Дневни центрове' ? 'bg-red-500 text-cream' : 'bg-gray-500'}`}>
@@ -230,7 +228,7 @@ export default function Locations() {
     </button>
     <button 
         onClick={() => handleButtonClick('Вечерни програми')}
-        className={`relative flex items-center justify-start pl-1 pr-7 py-2 rounded ${filter === 'Вечерни програми' ? 'bg-gradient-to-r from-gray-300/[0.5] to-gray-400/[0.5]  text-black border border-gray-600 ' : 'bg-gradient-to-l from-gray-400/[0.5] to-gray-500/[0.5] text-black'}`}
+        className={`relative flex items-center justify-start pl-1 pr-7 py-2 rounded w-[66%] ${filter === 'Вечерни програми' ? 'bg-gradient-to-r from-gray-300/[0.5] to-gray-400/[0.5]  text-black border border-gray-600 ' : 'bg-gradient-to-l from-gray-400/[0.5] to-gray-500/[0.5] text-black'}`}
     >
         <span className="text-left">Вечерни програми</span>
         <span className={`absolute top-0 right-0 inline-flex items-center m-1 justify-center w-5 h-5 text-xs font-bold text-white rounded-full ${filter === 'Вечерни програми' ? 'bg-red-500 text-cream' : 'bg-gray-500'}`}>
@@ -274,7 +272,7 @@ export default function Locations() {
                                 </div>
               
                                 {/* WEBSITE */}
-                                <p className='border-b border-gray-600 mb-4 pb-4'><strong>🌎Уебсайт:</strong> <a className='text-blue-700 underline cursor-pointer mx-8' href={center.website} target="_blank" rel="noopener noreferrer">{center.website}</a></p>
+                                <p className='border-b border-gray-600 mb-4 pb-4'><strong>🌎Уебсайт:</strong> <Link className='text-blue-700 underline cursor-pointer mx-8' href={center.website} target="_blank" rel="noopener noreferrer">{center.website}</Link></p>
                                 {center.activities && center.activities.length > 0 && (
                                     <>
                                         <h4 className="font-bold mt-2">🏐Дейности:</h4>
@@ -320,7 +318,7 @@ export default function Locations() {
                     </div>
                 </div> {/* 1/3 width */}
 
-                <TherapyMap className="col-span-2 relative z-[5001] map-container"  filter={filter} selectedCenter={selectedCenter} />
+                {/* <TherapyMap className="col-span-2 relative z-[5001] map-container"  filter={filter} selectedCenter={selectedCenter} /> */}
             </div>
         </div>
 
