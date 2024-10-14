@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { client } from '../../sanity/lib/client'; // Import the Sanity client
-import { IconMovie } from '@tabler/icons-react';
+import { IconMovie, IconPlayerPlay } from '@tabler/icons-react';
 
 const Trailer = () => {
   const [activeVideo, setActiveVideo] = useState<'trailer' | 'movie'>('trailer');
@@ -29,26 +29,26 @@ const Trailer = () => {
   // Define the TrailerButton2 component
   const TrailerButton2 = () => (
     <button
-      className={`group relative inline-flex items-center overflow-hidden rounded border-2 border-white focus:border-purple-600 focus:bg-purple-600 px-8 py-3 text-white ${activeVideo === 'trailer' ? 'bg-purple-600 border-2 border-purple-600' : ''}`}
+      className={`group relative inline-flex items-center overflow-hidden rounded border-2 border-white focus:border-purple-600 focus:bg-purple-600 px-10 py-5 text-white ${activeVideo === 'trailer' ? 'bg-purple-600 border-2 border-purple-600' : ''}`}
       onClick={() => setActiveVideo('trailer')}
     >
       <span className="absolute -start-full transition-all group-hover:start-4">
       <IconMovie className="size-7 drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]" />
   </span>
-  <span className="text-lg font-extrabold transition-all group-hover:ms-6">ГЛЕДАЙ ТРЕЙЛЪР</span>
+  <span className="text-xl font-extrabold transition-all group-hover:ms-6 drop-shadow-[0_3px_3px_rgba(0,0,0,1)]">ГЛЕДАЙ ТРЕЙЛЪР</span>
   </button>
   );
 
   // Define the MovieButton2 component
   const MovieButton2 = () => (
     <button
-      className={`group relative inline-flex items-center overflow-hidden rounded border-2 border-white focus:border-purple-600 focus:bg-purple-600 px-8 py-3 text-white ${activeVideo === 'movie' ? 'bg-purple-600 border-2 border-purple-600' : ''}`}
+      className={`group relative inline-flex items-center overflow-hidden rounded border-2 border-white focus:border-purple-600 focus:bg-purple-600 px-10 py-5 text-white ${activeVideo === 'movie' ? 'bg-purple-600 border-2 border-purple-600' : ''}`}
       onClick={() => setActiveVideo('movie')}
     >
             <span className="absolute -start-full transition-all group-hover:start-4">
-      <IconMovie className="size-7 drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]" />
+      <IconPlayerPlay className="size-7 drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]" />
   </span>
-  <span className="text-lg font-extrabold transition-all group-hover:ms-6">ГЛЕДАЙ ФИЛМА</span>
+  <span className="text-xl font-extrabold transition-all group-hover:ms-6 drop-shadow-[0_3px_3px_rgba(0,0,0,1)]">ГЛЕДАЙ ФИЛМА</span>
   </button>
   );
 

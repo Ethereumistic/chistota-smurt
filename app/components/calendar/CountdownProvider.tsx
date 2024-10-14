@@ -11,10 +11,10 @@ const CountdownContext = createContext<CountdownContextType>({ countdownEnded: f
 
 export const CountdownProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const endDates = [
-    DateTime.fromObject({ year: 2024, month: 12, day: 1, hour: 18 }), // Sofia
-    DateTime.fromObject({ year: 2024, month: 12, day: 11, hour: 18 }), // Plovdiv
-    DateTime.fromObject({ year: 2024, month: 12, day: 12, hour: 18 }),  // Burgas
-    DateTime.fromObject({ year: 2024, month: 12, day: 13, hour: 18 }), // Varna
+    DateTime.fromObject({ year: 2024, month: 10, day: 15, hour: 9 }), // Sofia
+    DateTime.fromObject({ year: 2024, month: 10, day: 15, hour: 9 }), // Plovdiv
+    DateTime.fromObject({ year: 2024, month: 10, day: 15, hour: 9 }),  // Burgas
+    DateTime.fromObject({ year: 2024, month: 10, day: 15, hour: 9 }), // Varna
   ];
 
   const [countdownEnded, setCountdownEnded] = useState(false);

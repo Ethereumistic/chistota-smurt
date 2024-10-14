@@ -16,7 +16,7 @@ export default async function About() {
   return (  
     <div className='mt-32'>
       <AboutUs />
-      <h1 className="text-6xl text-llblue font-bold text-center mb-12">Историята на Филма</h1>
+      <h1 className="text-6xl text-black font-bold text-center mb-12">Историята на Филма</h1>
       <div className="w-full mx-auto  text-cream pb-4 flex justify-center items-center">
 
         {/* Flex Layout */}
@@ -28,7 +28,7 @@ export default async function About() {
               className="flex flex-col items-center overflow-hidden transition-all duration-300 w-full sm:w-1/2 lg:w-1/3 p-4"
             >
               {/* Content */}
-              <div className="flex flex-col justify-between h-full w-full bg-dblue p-6 rounded-lg border-2 border-llblue">
+              <div className="flex flex-col justify-between h-full w-full bg-llblue/[0.5] p-6 rounded-lg border-2 border-llblue">
 
                             {/* Image */}
                             {post.mainImage && (
