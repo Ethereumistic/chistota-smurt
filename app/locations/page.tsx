@@ -67,7 +67,7 @@ export default function Locations() {
 
         useEffect(() => {
             const handleResize = () => {
-                setIsMobile(window.innerWidth < 932);
+                setIsMobile(window.innerWidth < 1780);
             };
     
             handleResize(); // Check on mount
@@ -125,7 +125,7 @@ export default function Locations() {
         <div className=" ">
         <div className="flex flex-col ">
             <div className="mt-10 grid grid-cols-1 3xl:grid-cols-3 justify-items-center min-h-screen p-8 pb-24 gap-0 3xl:gap-4 space-x-0 3xl:space-x-8  font-[family-name:var(--font-geist-sans)]">
-                <div className="col-span-1 flex-col flex mt-8 w-full md:w-auto ml-0 ">
+                <div className="col-span-1 flex-col flex mt-8 w-full 3xl:w-auto ml-0 ">
                 <motion.div 
                     className="sticky top-[120px] justify-center items-center flex lg:flex-row flex-col gap-2 mb-4 p-2 bg-zinc-300  rounded-lg z-[5001]"
                     initial={{ opacity: 1, y: 0 }}
@@ -189,7 +189,7 @@ export default function Locations() {
                             className={`relative flex items-center justify-start pl-1 pr-8 py-2 rounded w-[66%] ${filter === 'All' ? 'bg-gradient-to-r from-gray-300/[0.5] to-gray-400/[0.5]  text-black border border-gray-600 ' : 'bg-gradient-to-l from-gray-400/[0.5] to-gray-500/[0.5] text-black'}`}
                         >
                             <span className="text-left">Всички центрове</span>
-                            <span className={`absolute top-0 right-0 inline-flex items-center m-1 justify-center w-5 h-5 text-xs font-bold text-white rounded-full ${filter === 'All' ? 'bg-red-500 text-cream' : 'bg-gray-500'}`}>
+                            <span className={`absolute top-0 right-0 inline-flex items-center m-1 justify-center w-5 h-5 text-xs font-bold text-white rounded-full ${filter === 'All' ? 'bg-purple-500 text-cream' : 'bg-gray-500'}`}>
                                 {countCenters('All')}
                             </span>
                         </button>
@@ -200,7 +200,7 @@ export default function Locations() {
                         className={`relative flex items-center justify-start pl-1 pr-8 py-2 rounded w-[66%] ${filter === 'Терапевтични общности' ? 'bg-gradient-to-r from-gray-300/[0.5] to-gray-400/[0.5]  text-black border border-gray-600 ' : 'bg-gradient-to-l from-gray-400/[0.5] to-gray-500/[0.5] text-black'}`}
                     >
         <span className="text-left">Терапевтична общност</span>
-        <span className={`absolute top-0 right-0 inline-flex items-center m-1 justify-center w-5 h-5 text-xs font-bold text-white rounded-full ${filter === 'Терапевтични общности' ? 'bg-red-500 text-cream' : 'bg-gray-500'}`}>
+        <span className={`absolute top-0 right-0 inline-flex items-center m-1 justify-center w-5 h-5 text-xs font-bold text-white rounded-full ${filter === 'Терапевтични общности' ? 'bg-purple-500 text-cream' : 'bg-gray-500'}`}>
             {countCenters('Терапевтични общности')}
         </span>
     </button>
@@ -211,7 +211,7 @@ export default function Locations() {
         className={`relative flex items-center justify-start pl-1 pr-7 py-2 rounded w-[66%] ${filter === 'Програми за непълнолетни' ? 'bg-gradient-to-r from-gray-300/[0.5] to-gray-400/[0.5]  text-black border border-gray-600 ' : 'bg-gradient-to-l from-gray-400/[0.5] to-gray-500/[0.5] text-black'}`}
     >
         <span className="text-left">Програми за непълнолетни</span>
-        <span className={`absolute top-0 right-0 inline-flex items-center m-1 justify-center w-5 h-5 text-xs font-bold text-white rounded-full ${filter === 'Програми за непълнолетни' ? 'bg-red-500 text-cream' : 'bg-gray-500'}`}>
+        <span className={`absolute top-0 right-0 inline-flex items-center m-1 justify-center w-5 h-5 text-xs font-bold text-white rounded-full ${filter === 'Програми за непълнолетни' ? 'bg-purple-500 text-cream' : 'bg-gray-500'}`}>
             {countCenters('Програми за непълнолетни')}
         </span>
     </button>
@@ -222,7 +222,7 @@ export default function Locations() {
         className={`relative flex items-center justify-start pl-1 pr-7 py-2 rounded w-[66%] ${filter === 'Дневни центрове' ? 'bg-gradient-to-r from-gray-300/[0.5] to-gray-400/[0.5]  text-black border border-gray-600 ' : 'bg-gradient-to-l from-gray-400/[0.5] to-gray-500/[0.5] text-black'}`}
     >
         <span className="text-left">Дневни центрове</span>
-        <span className={`absolute top-0 right-0 inline-flex items-center m-1 justify-center w-5 h-5 text-xs font-bold text-white rounded-full ${filter === 'Дневни центрове' ? 'bg-red-500 text-cream' : 'bg-gray-500'}`}>
+        <span className={`absolute top-0 right-0 inline-flex items-center m-1 justify-center w-5 h-5 text-xs font-bold text-white rounded-full ${filter === 'Дневни центрове' ? 'bg-purple-500 text-cream' : 'bg-gray-500'}`}>
             {countCenters('Дневни центрове')}
         </span>
     </button>
@@ -231,7 +231,7 @@ export default function Locations() {
         className={`relative flex items-center justify-start pl-1 pr-7 py-2 rounded w-[66%] ${filter === 'Вечерни програми' ? 'bg-gradient-to-r from-gray-300/[0.5] to-gray-400/[0.5]  text-black border border-gray-600 ' : 'bg-gradient-to-l from-gray-400/[0.5] to-gray-500/[0.5] text-black'}`}
     >
         <span className="text-left">Вечерни програми</span>
-        <span className={`absolute top-0 right-0 inline-flex items-center m-1 justify-center w-5 h-5 text-xs font-bold text-white rounded-full ${filter === 'Вечерни програми' ? 'bg-red-500 text-cream' : 'bg-gray-500'}`}>
+        <span className={`absolute top-0 right-0 inline-flex items-center m-1 justify-center w-5 h-5 text-xs font-bold text-white rounded-full ${filter === 'Вечерни програми' ? 'bg-purple-500 text-cream' : 'bg-gray-500'}`}>
             {countCenters('Вечерни програми')}
         </span>
     </button>

@@ -38,7 +38,7 @@ export function NavbarTest2({ className }: { className?: string }) {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 932);
+      setIsMobile(window.innerWidth < 1780);
     };
 
     const handleScroll = () => {
@@ -165,7 +165,7 @@ function Navbar({
         <div className={cn("max-w-full mx-auto flex justify-between items-center h-24 bg-gradient-to-b from-gray-500/[0.9] to-gray-400/[0.8] ", className)}> {/* Added items-center and set height */}
 
 {/* First Section (Icons) */}
-<div className="flex-1 ml-4 cst:flex hidden" ref={firstSectionRef}>
+<div className="flex-1 ml-4 3xl:flex hidden" ref={firstSectionRef}>
     <div className="flex mt-0 justify-start space-x-[105px] items-center">
 
         <div className="flex flex-col ">
