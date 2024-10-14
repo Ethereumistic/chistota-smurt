@@ -12,6 +12,14 @@ const Button: React.FC<{ href?: string; className: string; onClick?: () => void;
   );
 };
 
+const ButtonStructure: React.FC<{ href?: string; className?: string; onClick?: () => void; children: React.ReactNode }> = ({ href, className, onClick, children }) => {
+  return (
+    <Link href={href || ""} className={`w-full ${className}`} onClick={onClick}> {/* Added w-full */}
+      {children}
+    </Link>
+  );
+};
+
 // Create the BuyButton component
 export const BuyButton: React.FC<{ onClick?: () => void }> = ({ onClick }) => {
   const { countdownEnded } = useCountdownContext();
@@ -78,49 +86,38 @@ export const TestButton: React.FC<{ onClick?: () => void }> = ({ onClick }) => {
   );
 };
 
-export const TicketsButton: React.FC<{ onClick?: () => void }> = ({ onClick }) => {
+export const TicketsButton: React.FC<{ href?: string; className?: string; onClick?: () => void; }> = ({ href, className, onClick }) => {
   const { countdownEnded } = useCountdownContext();
   const buttonText = countdownEnded ? "ГЛЕДАЙ ФИЛМА" : "КУПИ БИЛЕТ";
   const buttonHref = countdownEnded ? "/movie" : "/buy";
 
   return (
 <Link
-  className="group relative inline-flex items-center overflow-hidden rounded bg-purple-600 px-8 py-3 text-white focus:outline-none focus:ring active:bg-orange-500"
+  className={`group relative inline-flex items-center overflow-hidden rounded bg-purple-600 px-8 py-3 text-white ${className}`}
   href={buttonHref}
   onClick={onClick}
 >
-<span className="absolute -end-full transition-all group-hover:end-2">
-    {countdownEnded ? (
+<span className="absolute -start-full transition-all group-hover:start-4">
+{countdownEnded ? (
       <IconMovie className="size-7 drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]" />
     ) : (
       <IconTicket className="size-7 drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]" />
     )}
   </span>
 
-  <span className="text-lg font-extrabold transition-all group-hover:me-4 drop-shadow-[0_4px_4px_rgba(0,0,0,1)]  ">{buttonText}</span>
+  <span className="text-lg font-extrabold transition-all group-hover:ms-6 drop-shadow-[0_4px_4px_rgba(0,0,0,1)]  ">{buttonText}</span>
 </Link>
   );
 };
 
 
-export const TherapyButton: React.FC<{ onClick?: () => void }> = ({ onClick }) => {
+export const TherapyButton: React.FC<{ href?: string; className?: string; onClick?: () => void; }> = ({ href, className, onClick }) => {
+
   return (
 <Link
-  className="group relative inline-flex items-center overflow-hidden rounded bg-purple-600 px-8 py-3 text-white focus:outline-none focus:ring active:bg-indigo-500"
-  href="#"
->
-  <span className="absolute -start-full transition-all group-hover:start-4">
-<IconMap2 className="size-7  text-white drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]" />
-  </span>
-  <span className="text-lg font-extrabold transition-all group-hover:ms-4 drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]">ТЕРАПЕВТИЧНИ ЦЕНТРОВЕ</span>
-</Link>
-  );
-};
-export const TherapyButton2: React.FC<{ onClick?: () => void }> = ({ onClick }) => {
-  return (
-<Link
-  className="group relative inline-flex items-center overflow-hidden rounded border-[3px] border-white px-8 py-3 text-white focus:outline-none  "
-  href="/locations"
+  className={`group relative inline-flex items-center overflow-hidden rounded border-[3px] border-white px-8 py-3 text-white focus:outline-none  ${className}`}
+  href={href || "/locations"}
+  onClick={onClick}
 >
   <span className="absolute -start-full transition-all group-hover:start-4">
   <IconMap2 className="size-7  text-white drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]" />
@@ -133,11 +130,12 @@ export const TherapyButton2: React.FC<{ onClick?: () => void }> = ({ onClick }) 
 
 
 
-export const PartnersButton: React.FC<{ onClick?: () => void }> = ({ onClick }) => {
+export const PartnersButton: React.FC<{ href?: string; className?: string; onClick?: () => void; }> = ({ href, className, onClick }) => {
   return (
 <Link
-  className="group relative inline-flex items-center overflow-hidden rounded border-2 border-white px-8 py-3 text-white focus:outline-none  "
+  className={`group relative inline-flex items-center overflow-hidden rounded border-2 border-white px-8 py-3 text-white ${className}`}
   href="/partners"
+  onClick={onClick}
 >
   <span className="absolute -start-full transition-all group-hover:start-4">
   <IconHeartHandshake className="size-7  text-white drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]" />
@@ -149,11 +147,12 @@ export const PartnersButton: React.FC<{ onClick?: () => void }> = ({ onClick }) 
 };
 
 
-export const AboutButton: React.FC<{ onClick?: () => void }> = ({ onClick }) => {
+export const AboutButton: React.FC<{ href?: string; className?: string; onClick?: () => void; }> = ({ href, className, onClick }) => {
   return (
 <Link
-  className="group relative inline-flex items-center overflow-hidden rounded border-2 border-white px-8 py-3 text-white "
+  className={`group relative inline-flex items-center overflow-hidden rounded border-2 border-white px-8 py-3 text-white ${className}`}
   href="/about"
+  onClick={onClick}
 >
   <span className="absolute -start-full transition-all group-hover:start-4">
   <IconUsers className="size-7  text-white drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]" />

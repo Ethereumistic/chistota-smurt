@@ -12,22 +12,22 @@ const Trailer = () => {
   return (
     <div>
       <div className="flex justify-center -space-x-4 cst:space-x-24 mb-6 ">
-        <button
+        <div
           className={`px-4 py-2 font-bold font-montserrat rounded ${
             activeVideo === 'trailer' ? '' : ''
           }`}
           onClick={() => setActiveVideo('trailer')}
         >
           <TrailerButton />
-        </button>
-        <button
+        </div>
+        <div
           className={`px-4 py-2 font-bold font-montserrat rounded ${
             activeVideo === 'movie' ? '' : ''
           }`}
           onClick={() => setActiveVideo('movie')}
         >
           <WatchButton />
-        </button>
+        </div>
       </div>
       <div className="relative aspect-video w-[85%] cst:w-[43%] mx-auto mb-10">
         <iframe 

@@ -320,7 +320,7 @@ export default function Locations() {
                     </div>
                 </div> {/* 1/3 width */}
 
-                <TherapyMap className="col-span-2 relative z-[5001] "  filter={filter} selectedCenter={selectedCenter} />
+                <TherapyMap className="col-span-2 relative z-[5001] map-container"  filter={filter} selectedCenter={selectedCenter} />
             </div>
         </div>
 

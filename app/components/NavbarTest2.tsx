@@ -14,7 +14,7 @@ import { Smur } from "./cover/Smur";
 import { T } from "./cover/T";
 import { usePathname, useRouter } from 'next/navigation'; // Import usePathname
 import Image from "next/image";
-import { AboutButton, BuyButton, BuyButton2, LocationsButton, PartnersButton, TestButton, TherapyButton, TherapyButton2, TicketsButton } from "./ui/BuyButton";
+import { AboutButton, BuyButton, BuyButton2, LocationsButton, PartnersButton, TestButton, TherapyButton, TicketsButton } from "./ui/BuyButton";
 import { Documentary } from "./cover/Documentary";
 
 interface AnimatedLinkProps {
@@ -244,34 +244,18 @@ function Navbar({
     </div>
   ) : (
     <>
-      <div className="flex-1 flex font-montserrat font-extrabold justify-center"> {/* Center the LocationsButton */}
-        {/* <div className="hover:scale-105 ml-12 transition-all duration-300 ">
-        <LocationsButton />
-        </div> */}
-        
+      <div className="flex-1 flex font-montserrat font-extrabold justify-center">
+
       </div>
 
       
-      <div className="flex items-center space-x-12 mx-10"> {/* Keep the other buttons in a flex container */}
-      <div className="flex justify-center text-center   transition-all duration-900">
-          {/* <Link href="/partners" className="text-2xl px-4 drop-shadow-[0_4px_4px_rgba(0,0,0,1)] font-extrabold">
-            Партньори
-          </Link> */}
-          <TherapyButton2 />
-        </div>
-        <div className="flex justify-center text-center   transition-all duration-900">
-          {/* <Link href="/partners" className="text-2xl px-4 drop-shadow-[0_4px_4px_rgba(0,0,0,1)] font-extrabold">
-            Партньори
-          </Link> */}
+      <div className="flex items-center space-x-6 mx-4">
+          <TherapyButton className="" href="/locations" />
           <PartnersButton />
-        </div>
-        <div className="flex  justify-center text-center  mr-4 transition-all duration-900">
-          {/* <Link href="/about" className="text-2xl px-4 drop-shadow-[0_4px_4px_rgba(0,0,0,1)] font-extrabold">
-            За Нас
-          </Link> */}
+
           <AboutButton />
-        </div>
       </div>
+      
     </>
   )}
 </div>

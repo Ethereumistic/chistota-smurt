@@ -112,25 +112,25 @@ export default function TherapyMap({ className, filter, selectedCenter }: Therap
           position={center.position} 
           icon={icons[center.type]}
           >
-            <Popup className=' w-56 cst:w-80'>
+            <Popup className=' w-56 cst:w-96'>
               <div className='text-black font-montserrat '>
-                <h3 className='cst:text-xl text-[16px]'>{center.name}</h3>
-                <p><strong className='mr-4'>📌Адрес:</strong> {center.address}</p>
+                <h3 className='cst:text-xl text-[16px] border-b border-gray-300 pb-1'>{center.name}</h3>
+                <p className='border-b border-gray-300 pb-1'><strong className='mr-4 text-xs cst:text-lg '>📌Адрес:</strong> <span className='text-xs cst:text-base'>{center.address}</span></p>
                 
-                <p><strong>📞Телефон:</strong></p>
-                <ul>
+                <p className=''><strong className='mr-4 text-xs cst:text-lg'>📞Телефон:</strong></p>
+                <ul className='border-b border-gray-300 pb-2'>
                   {center.phone.map((phone: string, idx: number) => (
-                    <li key={idx}>{phone}</li>
+                    <li className='text-xs cst:text-base' key={idx}>{phone}</li>
                   ))}
                 </ul>
 
                 <p className='text-xs cst:text-lg'><strong>📧Email:</strong></p>
-                <ul>
+                <ul className='border-b border-gray-300 pb-1 '>
                   {center.email.map((email: string, idx: number) => (
-                    <li key={idx}><Link href={`mailto:${email}`}>{email}</Link></li>
+                    <li key={idx}><Link href={`mailto:${email}`} className='text-xs cst:text-base'>{email}</Link></li>
                   ))}
                 </ul>
-                <p><strong>🌎Уебсайт:</strong> <Link href={center.website} target="_blank" rel="noopener noreferrer">{center.website}</Link></p>
+                <p className='mr-4 text-xs cst:text-lg'><strong>🌎Уебсайт:</strong> <Link className='text-xs cst:text-base' href={center.website} target="_blank" rel="noopener noreferrer">{center.website}</Link></p>
   
                 {/* <h4>Дейности:</h4>
                 <ul>

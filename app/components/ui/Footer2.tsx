@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { IconBrandFacebook, IconBrandInstagram, IconBrandYoutube} from '@tabler/icons-react';
 import { usePathname } from 'next/navigation';
 import { Logo } from '../cover/Logo';
-import { BuyButton, BuyButton2 } from '../ui/BuyButton';
+import { BuyButton, BuyButton2, TicketsButton } from '../ui/BuyButton';
 import Link from 'next/link';
 import Image from 'next/image';
 const socialIcons = [
@@ -46,7 +46,7 @@ const Footer: React.FC = () => {
             href="#"
             className="my-8 inline-block rounded-full   px-12  text-sm font-medium   transition duration-300"
           >
-            <BuyButton2 />
+            <TicketsButton />
           </motion.a>
         </motion.div>
         
