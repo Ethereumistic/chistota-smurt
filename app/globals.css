@@ -60,9 +60,14 @@ html.dark body {
   }
 }
 
-@media (min-width: 1780px) {
+/* styles.css or your CSS module */
+.map-container {
+  width: 90%; /* Default for mobile */
+}
+
+@media (min-width: 768px) { /* Adjust the breakpoint as needed */
   .map-container {
-    width: 99%; 
+    width: 99%; /* Width for desktop */
   }
 }
 

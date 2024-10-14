@@ -84,13 +84,12 @@ export default function TherapyMap({ className, filter, selectedCenter }: Therap
         <>
         
         <MapContainer 
-  className={className} 
+  className={`${className} map-container`} // Add the new class here
   ref={mapRef} 
   center={[42.7339, 25.4858]} 
   zoom={8} 
   style={{ 
     height: '86vh', 
-    width: '90%', // Default width for mobile
     position: 'sticky', 
     top: '120px', 
     zIndex: 5001 
