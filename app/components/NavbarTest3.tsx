@@ -210,16 +210,17 @@ function Navbar({
       ? isMobile
         ? Math.max(0.5 - (scrollY / 200) * 0.35, 0.35)
         : Math.max(1 - (scrollY / 200) * 0.6, 
-            window.innerWidth >= 1780 ? 0.4 :  // 3xl
-            window.innerWidth >= 1536 ? 0.3 :  // 2xl
-            window.innerWidth >= 1280 ? 0.3 :  // xl
+        typeof window !== 'undefined' && window.innerWidth >= 1780 ? 0.4 :  // 3xl
+        typeof window !== 'undefined' && window.innerWidth >= 1536 ? 0.3 :  // 2xl
+        typeof window !== 'undefined' && window.innerWidth >= 1280 ? 0.3 :  // xl
             0.2  // lg
           )
       : isMobile
         ? 0.35
-        : window.innerWidth >= 1780 ? 0.4 :  // 3xl
-          window.innerWidth >= 1536 ? 0.3 :  // 2xl
-          window.innerWidth >= 1280 ? 0.3 :  // xl
+        : 
+        typeof window !== 'undefined' && window.innerWidth >= 1780 ? 0.4 :  // 3xl
+        typeof window !== 'undefined' && window.innerWidth >= 1536 ? 0.3 :  // 2xl
+        typeof window !== 'undefined' && window.innerWidth >= 1280 ? 0.3 :  // xl
           0.2,  // lg
 
   }} 
