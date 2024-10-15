@@ -35,13 +35,18 @@ export default function Locations() {
         setSelectedCenter(center);
         setOpenAccordion(center.name);
         setShowAccordions(true);
-        setFilter('All');
         setIsToggled(true);
         
         setTimeout(() => {
             const accordionElement = accordionRefs.current[center.name];
             if (accordionElement) {
-                accordionElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                const elementPosition = accordionElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - 204;
+                
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
             }
         }, 300);
     }, []);
@@ -94,24 +99,24 @@ export default function Locations() {
         }, []);
 
 
-    useEffect(() => {
-        const handleScroll = () => {
+    // useEffect(() => {
+    //     const handleScroll = () => {
 
             
-            const st = window.pageYOffset || document.documentElement.scrollTop;
-            if (st > lastScrollTop.current) {
-                // Scrolling down
-                controls.start({ opacity: 0, y: -150 });
-            } else {
-                // Scrolling up
-                controls.start({ opacity: 1, y: 0 });
-            }
-            lastScrollTop.current = st <= 0 ? 0 : st;
-        };
+    //         const st = window.pageYOffset || document.documentElement.scrollTop;
+    //         if (st > lastScrollTop.current) {
+    //             // Scrolling down
+    //             controls.start({ opacity: 0, y: -150 });
+    //         } else {
+    //             // Scrolling up
+    //             controls.start({ opacity: 1, y: 0 });
+    //         }
+    //         lastScrollTop.current = st <= 0 ? 0 : st;
+    //     };
 
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, [controls]);
+    //     window.addEventListener('scroll', handleScroll, { passive: true });
+    //     return () => window.removeEventListener('scroll', handleScroll);
+    // }, [controls]);
 
     
     useEffect(() => {
@@ -144,7 +149,7 @@ export default function Locations() {
             <div className="mt-10 grid grid-cols-1 3xl:grid-cols-3 justify-items-center min-h-screen p-8 pb-24 gap-0 3xl:gap-4 space-x-0 3xl:space-x-8  font-[family-name:var(--font-geist-sans)]">
                 <div className="col-span-1 flex-col flex mt-8 w-full 3xl:w-auto ml-0 ">
                 <motion.div 
-                    className="sticky top-[120px] justify-center items-center flex lg:flex-row flex-col gap-2 mb-4 p-2 bg-zinc-300  rounded-lg z-[5001]"
+                    className="gg:sticky relative top-0 gg:top-[120px] justify-center items-center flex lg:flex-row flex-col gap-2 mb-4 p-2 bg-zinc-300  rounded-lg z-[5001]"
                     initial={{ opacity: 1, y: 0 }}
                     animate={controls}
                     transition={{ duration: 0.2 }}
@@ -155,7 +160,7 @@ export default function Locations() {
                 <div className="-mt-1">
                 <label
                     htmlFor="toggleAccordions"
-                    className="absolute  border border-gray-600 inline-block h-8 w-14 cursor-pointer rounded-full bg-gray-300 transition [-webkit-tap-highlight-color:_transparent] has-[:checked]:bg-lgreen"
+                    className="absolute  border border-gray-600 inline-block h-8 w-14 cursor-pointer rounded-full bg-gray-300 transition [-webkit-tap-highlight-color:_transparent] has-[:checked]:bg-green-400"
                 >
                     <input
                         type="checkbox"
@@ -166,7 +171,7 @@ export default function Locations() {
                     />
 
                     <span
-                        className="absolute inset-y-0 start-0 z-10 m-1 inline-flex size-6 items-center justify-center rounded-full bg-white text-gray-400 transition-all peer-checked:start-6 peer-checked:text-lgreen"
+                        className="absolute inset-y-0 start-0 z-10 m-1 inline-flex size-6 items-center justify-center rounded-full bg-white text-gray-400 transition-all peer-checked:start-6 peer-checked:text-green-400"
                     >
                         <svg
                             data-unchecked-icon
