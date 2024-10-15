@@ -128,6 +128,9 @@ const ParallaxImages = () => {
     [1, 0.5]
   );
 
+  const [topPosition, setTopPosition] = useState('-45%');
+
+
   useEffect(() => {
     const handleRouteChange = () => {
       setAnimationDelay(1);
@@ -146,6 +149,12 @@ const ParallaxImages = () => {
 
     // We don't need to return a cleanup function here
   }, [pathname]);  // Add pathname as a dependency
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setTopPosition(window.innerHeight <= 900 ? '-30%' : '-45%');
+    }
+  }, []);
 
   return (
       <motion.div 
@@ -194,7 +203,7 @@ const ParallaxImages = () => {
         <motion.div
         className="absolute w-full text-center"
         style={{
-          top: '-45%',
+          top: topPosition,
           left: '0%',
           transform: 'translate(-50%, -50%)',
           opacity: centeredTextOpacity,
