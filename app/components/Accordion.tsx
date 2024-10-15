@@ -17,10 +17,16 @@ const Accordion: React.FC<AccordionProps> = ({ title, children, isOpen, onToggle
     return (
         <div className="mb-0.5 mx-auto max-w-full ">
             <div 
-                className="flex items-center justify-between p-4 cursor-pointer bg-gradient-to-r from-gray-400/[0.5] to-gray-500/[0.5] rounded-lg "
+                className={`flex items-center justify-between p-4 cursor-pointer rounded-lg transition-colors duration-300 ${
+                    isOpen 
+                    ? 'bg-gradient-to-r from-purple-400/[0.5] to-purple-500/[0.5] text-white' 
+                    : 'bg-gradient-to-r from-gray-400/[0.5] to-gray-500/[0.5] text-black'
+                }`}
                 onClick={onToggle}
             >
-                <h3 className="text-lg font-bold text-black font-montserrat ">{title}</h3>
+                <h3 className={`text-lg font-bold font-montserrat ${isOpen ? 'text-white drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]' : 'text-black'}`}>
+                    {title}
+                </h3>                
                 <IconChevronDown className={`transition-transform ${isOpen ? 'rotate-180' : ''}`} />
             </div>
             <motion.div

@@ -1,3 +1,4 @@
+"use client"
 import React, { useState, useEffect } from 'react';
 
 const ScrollTracker: React.FC = () => {
@@ -31,7 +32,7 @@ const ScrollTracker: React.FC = () => {
   }, []);
 
   return (
-    <div className="fixed top-32 left-4 bg-black bg-opacity-50 text-white p-2 rounded-md z-[6666]">
+    <div className="fixed bottom-4 left-4 bg-black bg-opacity-50 text-white p-2 rounded-md z-[6666]">
       Scrolled: {scrollY.toFixed(2)}px | Width: {windowWidth}px | Height: {windowHeight}px {/* Display window height */}
       </div>
   );

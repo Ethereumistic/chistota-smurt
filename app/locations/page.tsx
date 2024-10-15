@@ -31,17 +31,42 @@ export default function Locations() {
     const [openAccordion, setOpenAccordion] = useState<string | null>(null);
     const accordionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
+    
     const handleMarkerClick = useCallback((center: TherapyCenter) => {
+        setSelectedCenter(center);
+        
+        if (!isMobile) {
+            setOpenAccordion(center.name);
+            setShowAccordions(true);
+            setIsToggled(true);
+            
+            setTimeout(() => {
+                const accordionElement = accordionRefs.current[center.name];
+                if (accordionElement) {
+                    const elementPosition = accordionElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - 180;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            }, 300);
+        }
+        // On mobile, we don't open the accordion or scroll
+    }, [isMobile]);
+
+    const handleViewMoreInfo = useCallback((center: TherapyCenter) => {
         setSelectedCenter(center);
         setOpenAccordion(center.name);
         setShowAccordions(true);
         setIsToggled(true);
-        
+    
         setTimeout(() => {
             const accordionElement = accordionRefs.current[center.name];
             if (accordionElement) {
                 const elementPosition = accordionElement.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - 204;
+                const offsetPosition = elementPosition + window.pageYOffset - 98;
                 
                 window.scrollTo({
                     top: offsetPosition,
@@ -50,6 +75,7 @@ export default function Locations() {
             }
         }, 300);
     }, []);
+
     // Function to handle button clicks and show accordions
     const handleButtonClick = (filterType: CenterType) => {
         setFilter(filterType);
@@ -136,8 +162,13 @@ export default function Locations() {
                 // Find the map element
                 const mapElement = document.querySelector('.col-span-2');
                 if (mapElement) {
-                    // Scroll to the map element with smooth behavior
-                    mapElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // Calculate the position with an offset
+                    const elementPosition = mapElement.getBoundingClientRect().top + window.pageYOffset - 100; // Adjust the offset as needed
+                    
+                    window.scrollTo({
+                        top: elementPosition,
+                        behavior: 'smooth'
+                    });
                 }
             }
         }, [isMobile]); // Add isMobile to the dependency array
@@ -147,9 +178,9 @@ export default function Locations() {
         <div className=" ">
         <div className="flex flex-col ">
             <div className="mt-10 grid grid-cols-1 3xl:grid-cols-3 justify-items-center min-h-screen p-8 pb-24 gap-0 3xl:gap-4 space-x-0 3xl:space-x-8  font-[family-name:var(--font-geist-sans)]">
-                <div className="col-span-1 flex-col flex mt-8 w-full 3xl:w-auto ml-0 ">
+                <div className="col-span-1 flex-col flex w-full 3xl:w-auto ml-0 ">
                 <motion.div 
-                    className="gg:sticky relative top-0 gg:top-[120px] justify-center items-center flex lg:flex-row flex-col gap-2 mb-4 p-2 bg-zinc-300  rounded-lg z-[5001]"
+                    className="relative 3xl:sticky top-[40px] 3xl:top-[96px] justify-center items-center flex lg:flex-row flex-col gap-2 mb-4 p-2  bg-zinc-300 z-[5001]"
                     initial={{ opacity: 1, y: 0 }}
                     animate={controls}
                     transition={{ duration: 0.2 }}
@@ -259,7 +290,7 @@ export default function Locations() {
     </button>
 </motion.div>
 
-                    <div className="mt-4 w-full">
+                    <div className="mt-8 w-full">
                     {(!isMobile || showAccordions) && filteredCenters.map((center, index) => ( // Conditional rendering based on isMobile
                     <div 
                     key={index} 
@@ -352,10 +383,12 @@ export default function Locations() {
                 </div> {/* 1/3 width */}
 
                 <TherapyMap 
-        className="col-span-2 relative z-[5001]"  
+        className="col-span-2 mt-10 relative z-[5001]"  
         filter={filter} 
         selectedCenter={selectedCenter} 
         onMarkerClick={handleMarkerClick}
+        onViewMoreInfo={handleViewMoreInfo}
+        isMobile={isMobile}
       />
             </div>
         </div>

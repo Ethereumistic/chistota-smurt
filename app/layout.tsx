@@ -11,6 +11,7 @@ import { NavbarTest2 } from "./components/NavbarTest2";
 import { NavbarTest3 } from "./components/NavbarTest3";
 import Footer2 from "./components/ui/Footer2";
 import { CountdownProvider } from "./components/calendar/CountdownProvider";
+import ScrollTracker from "./components/cover/ScrollTracker";
 
 const montserrat = Montserrat({
   subsets: ['latin', 'cyrillic'],
@@ -82,6 +83,7 @@ export default function RootLayout({
                     }}>
           
             <NavbarTest3 />
+            <ScrollTracker />
             {children}
             <div className="bg-gradient-to-b from-black/0 to-black/[0.5] w-full h-5"></div>
 

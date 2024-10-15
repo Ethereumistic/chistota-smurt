@@ -13,14 +13,19 @@ interface TherapyMapProps {
   filter: CenterType;
   selectedCenter: TherapyCenter | null;
   onMarkerClick: (center: TherapyCenter) => void; // Add this line
+  onViewMoreInfo: (center: TherapyCenter) => void;
+  isMobile: boolean;
 }
 
-function MapInteraction({ selectedCenter }: { selectedCenter: TherapyCenter | null }) {
+function MapInteraction({ selectedCenter, isMobile }: { selectedCenter: TherapyCenter | null, isMobile: boolean }) {
   const map = useMap();
 
   useEffect(() => {
     if (selectedCenter) {
-      map.setView(selectedCenter.position, 15);
+      const [lat, lng] = selectedCenter.position;
+      
+      // Set the new view
+      map.setView([lat, lng], isMobile ? 13 : 15, { animate: true });
       
       // Find the marker for the selected center and open its popup
       map.eachLayer((layer) => {
@@ -29,12 +34,12 @@ function MapInteraction({ selectedCenter }: { selectedCenter: TherapyCenter | nu
         }
       });
     }
-  }, [map, selectedCenter]);
+  }, [map, selectedCenter, isMobile]);
 
   return null;
 }
 
-export default function TherapyMap({ className, filter, selectedCenter, onMarkerClick }: TherapyMapProps) {
+export default function TherapyMap({ className, filter, selectedCenter, onMarkerClick, onViewMoreInfo, isMobile }: TherapyMapProps) {
   const mapRef = useRef<L.Map>(null);
   const [isMounted, setIsMounted] = useState(false);
 
@@ -64,7 +69,7 @@ export default function TherapyMap({ className, filter, selectedCenter, onMarker
 
   useEffect(() => {
     if (selectedCenter && mapRef.current) {
-        mapRef.current.setView(selectedCenter.position, 15);
+        mapRef.current.setView(selectedCenter.position, 12);
     }
 }, [selectedCenter]);
   
@@ -92,7 +97,7 @@ export default function TherapyMap({ className, filter, selectedCenter, onMarker
   style={{ 
     height: '86vh', 
     position: 'sticky', 
-    top: '120px', 
+    top: '112px', 
     zIndex: 5001 
   }}
 >
@@ -101,15 +106,18 @@ export default function TherapyMap({ className, filter, selectedCenter, onMarker
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         {filteredCenters.map((center, index) => (
-          <Marker 
-          key={index} 
-          position={center.position} 
-          icon={icons[center.type]}
-          eventHandlers={{
-            click: () => onMarkerClick(center)
-          }}
+        <Marker 
+        key={index} 
+        position={center.position} 
+        icon={icons[center.type]}
+        eventHandlers={{
+          click: () => {
+            // Always call onMarkerClick, but it will only open accordion on desktop
+            onMarkerClick(center);
+          }
+        }}
           >
-            <Popup className=' w-56 cst:w-96'>
+            <Popup className=' w-56 cst:w-96' keepInView={true} >
               <div className='text-black font-montserrat '>
                 <h3 className='cst:text-xl text-[16px] border-b border-gray-300 pb-1'>{center.name}</h3>
                 <p className='border-b border-gray-300 pb-1'><strong className='mr-4 text-xs cst:text-lg '>📌Адрес:</strong> <span className='text-xs cst:text-base'>{center.address}</span></p>
@@ -142,12 +150,21 @@ export default function TherapyMap({ className, filter, selectedCenter, onMarker
                     <li key={idx}>{condition}</li>
                   ))}
                 </ul> */}
+
+                {isMobile && (
+                  <button 
+                    className="mt-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    onClick={() => onViewMoreInfo(center)}
+                  >
+                    Виж повече информация
+                  </button>
+                )}
               </div>
             </Popup>
           </Marker>
         ))}
-        <MapInteraction selectedCenter={selectedCenter} />
-      </MapContainer>
+        <MapInteraction selectedCenter={selectedCenter} isMobile={isMobile} />
+        </MapContainer>
       </>
     );
   };
