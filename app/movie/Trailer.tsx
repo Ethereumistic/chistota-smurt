@@ -35,7 +35,7 @@ const Trailer = () => {
       <span className="absolute -start-full transition-all group-hover:start-4">
       <IconMovie className="size-7 drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]" />
   </span>
-  <span className="text-xl font-extrabold transition-all group-hover:ms-6 drop-shadow-[0_3px_3px_rgba(0,0,0,1)]">ГЛЕДАЙ ТРЕЙЛЪР</span>
+  <span className="3xl:text-xl 2xl:text-lg xl:text-base font-extrabold transition-all group-hover:ms-6 drop-shadow-[0_3px_3px_rgba(0,0,0,1)]">ГЛЕДАЙ ТРЕЙЛЪР</span>
   </button>
   );
 
@@ -48,7 +48,7 @@ const Trailer = () => {
             <span className="absolute -start-full transition-all group-hover:start-4">
       <IconPlayerPlay className="size-7 drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]" />
   </span>
-  <span className="text-xl font-extrabold transition-all group-hover:ms-6 drop-shadow-[0_3px_3px_rgba(0,0,0,1)]">ГЛЕДАЙ ФИЛМА</span>
+  <span className="3xl:text-xl 2xl:text-lg xl:text-base font-extrabold transition-all group-hover:ms-6 drop-shadow-[0_3px_3px_rgba(0,0,0,1)]">ГЛЕДАЙ ФИЛМА</span>
   </button>
   );
 

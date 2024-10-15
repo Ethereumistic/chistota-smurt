@@ -205,7 +205,7 @@ function Navbar({
     scale: isHome ? (isMobile ? 0.5 : 1) : 1 
   }} 
   animate={{ 
-    y: isHome ? Math.max((isMobile ? 160 : 250) - scrollY, (isMobile ? -34 : -12)) : -12,
+    y: isHome ? Math.max((isMobile ? 130 : 250) - scrollY, (isMobile ? -34 : -12)) : (isMobile ? -34 : -12),
     scale: isHome 
       ? isMobile
         ? Math.max(0.5 - (scrollY / 200) * 0.35, 0.35)

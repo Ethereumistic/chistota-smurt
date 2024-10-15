@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 const ScrollTracker: React.FC = () => {
   const [scrollY, setScrollY] = useState(0);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth); // State for window width
+  const [windowHeight, setWindowHeight] = useState(window.innerHeight); // State for window height
 
   useEffect(() => {
     const handleScroll = () => {
@@ -11,6 +12,7 @@ const ScrollTracker: React.FC = () => {
 
     const handleResize = () => {
       setWindowWidth(window.innerWidth); // Update window width on resize
+      setWindowHeight(window.innerHeight); // Update window height on resize
     };
 
     // Add scroll and resize event listeners
@@ -30,8 +32,8 @@ const ScrollTracker: React.FC = () => {
 
   return (
     <div className="fixed top-32 left-4 bg-black bg-opacity-50 text-white p-2 rounded-md z-[6666]">
-      Scrolled: {scrollY.toFixed(2)}px | Width: {windowWidth}px {/* Display window width */}
-    </div>
+      Scrolled: {scrollY.toFixed(2)}px | Width: {windowWidth}px | Height: {windowHeight}px {/* Display window height */}
+      </div>
   );
 };
 

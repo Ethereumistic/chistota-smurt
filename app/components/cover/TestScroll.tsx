@@ -129,6 +129,7 @@ const ParallaxImages = () => {
   );
 
   const [topPosition, setTopPosition] = useState('-45%');
+  const [titleScale, setTitleScale] = useState(1); // Add state for title scale
 
 
   useEffect(() => {
@@ -152,7 +153,8 @@ const ParallaxImages = () => {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      setTopPosition(window.innerHeight <= 900 ? '-30%' : '-45%');
+      setTopPosition(window.innerHeight <= 932 ? '-36%' : '-45%');
+      setTitleScale(window.innerHeight <= 932 ? 0.7 : 1); // Set scale based on height
     }
   }, []);
 
@@ -166,7 +168,7 @@ const ParallaxImages = () => {
           className="absolute w-1/4"
           style={{
             top: '30%', // Exact Y coordinate for Left Title
-            left: '5%', // Exact X coordinate for Left Title
+            left: '15%', // Exact X coordinate for Left Title
             opacity: sideElementOpacity,
             scale: sideElementScale,
             y: initialYPosition, // Set initial Y position
@@ -185,7 +187,7 @@ const ParallaxImages = () => {
           className="absolute w-1/4"
           style={{
             top: '50%', // Exact Y coordinate for Additional Left Title
-            left: '-15%', // Exact X coordinate for Additional Left Title
+            left: '-10%', // Exact X coordinate for Additional Left Title
             opacity: additionalElementOpacity,
             scale: sideElementScale,
             y: initialYPosition, // Set initial Y position
@@ -201,24 +203,24 @@ const ParallaxImages = () => {
 
         {/* Centered Title */}
         <motion.div
-        className="absolute w-full text-center"
-        style={{
-          top: topPosition,
-          left: '0%',
-          transform: 'translate(-50%, -50%)',
-          opacity: centeredTextOpacity,
-          y: centeredTextY,
-          scale: centeredTextScale,
-        }}
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ 
-          opacity: { delay: animationDelay, duration: 2, ease: "easeOut" },
-          y: { duration: 3, ease: "easeOut" }
-        }}
-      >
+          className="absolute w-full text-center"
+          style={{
+            top: topPosition,
+            left: '0%',
+            transform: 'translate(-50%, -50%)',
+            opacity: centeredTextOpacity,
+            y: centeredTextY,
+            scale: centeredTextScale.get() * titleScale, // Use .get() to access the current value
+          }}
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ 
+            opacity: { delay: animationDelay, duration: 2, ease: "easeOut" },
+            y: { duration: 3, ease: "easeOut" }
+          }}
+        >
         <p className="text-2xl max-w-2xl mx-auto font-montserrat text-black">История за живота и пътя на шестима резиденти в терапевтична общност за зависими в България. Въпреки че много хора са чували за такива общности, малцина знаят как всъщност изглеждат и какво се случва в тях.</p>
-      </motion.div>
+      </motion.div> 
 
         {/* Parallax Image */}
         <ParallaxImg
@@ -237,7 +239,7 @@ const ParallaxImages = () => {
           className="absolute w-1/4"
           style={{
             top: '50%', // Exact Y coordinate for Additional Right Title
-            right: '-15%', // Exact X coordinate for Additional Right Title
+            right: '-10%', // Exact X coordinate for Additional Right Title
             opacity: additionalElementOpacity,
             scale: sideElementScale,
             y: initialYPosition, // Set initial Y position
@@ -256,7 +258,7 @@ const ParallaxImages = () => {
           className="absolute w-1/4"
           style={{
             top: '30%', // Exact Y coordinate for Right Title
-            right: '5%', // Exact X coordinate for Right Title
+            right: '15%', // Exact X coordinate for Right Title
             opacity: sideElementOpacity,
             scale: sideElementScale,
             y: initialYPosition, // Set initial Y position

@@ -7,16 +7,18 @@ import { IconChevronDown } from '@tabler/icons-react'; // Import the icon from T
 interface AccordionProps {
     title: string;
     children: React.ReactNode;
-}
+    isOpen: boolean;
+    onToggle: () => void;
+    id?: string;
+  }
 
-const Accordion: React.FC<AccordionProps> = ({ title, children }) => {
-    const [isOpen, setIsOpen] = useState(false);
+const Accordion: React.FC<AccordionProps> = ({ title, children, isOpen, onToggle, id }) => {
 
     return (
         <div className="mb-0.5 mx-auto max-w-full ">
             <div 
                 className="flex items-center justify-between p-4 cursor-pointer bg-gradient-to-r from-gray-400/[0.5] to-gray-500/[0.5] rounded-lg "
-                onClick={() => setIsOpen(!isOpen)}
+                onClick={onToggle}
             >
                 <h3 className="text-lg font-bold text-black font-montserrat ">{title}</h3>
                 <IconChevronDown className={`transition-transform ${isOpen ? 'rotate-180' : ''}`} />

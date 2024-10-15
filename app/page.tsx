@@ -13,7 +13,7 @@ export default function Home({ params: { lng } }: { params: { lng: string } }) {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 932);
+      setIsMobile(window.innerWidth < 1080);
     };
 
     handleResize(); // Initial check
@@ -29,8 +29,9 @@ export default function Home({ params: { lng } }: { params: { lng: string } }) {
       {/* <Cover /> */}
       {!isMobile && <TestScroll />}
       {isMobile && <MobileCover />}
+      {/* <TestScroll /> */}
       <div ref={causeRef}>
-        <Cause />
+        <Cause causeRef={causeRef} />
       </div>
       {/* <ScrollTracker /> */}
       <WrappedScrollButton causeRef={causeRef} />

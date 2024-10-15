@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
-const Cause: React.FC = () => {
+const Cause: React.FC<{ causeRef: React.RefObject<HTMLDivElement> }> = ({ causeRef }) => {
+    const router = useRouter(); // Use the router
+
+    const handleScrollToPartners = () => {
+        // Navigate to the /partners page
+        router.push('/partners#solidarnost'); // Add the hash directly to the URL
+    };
+
     const title = "КАУЗАТА";
     const text = (
         <>
@@ -12,7 +21,10 @@ const Cause: React.FC = () => {
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ ease: "easeInOut", duration: 0.75 }}
                 className="mb-8">
-                Каузата която подкрепяме е насочена към <Link className='underline-hover text-purple-600' href="https://www.drugsinfo-bg.org/" target="_blank">&quot;Национална информационна линия за наркотиците, алкохола и хазарта&quot;</Link> – инициатива, поддържана от<Link className='underline-hover text-purple-600' href="https://www.solidarnost-bg.org/" target="_blank"> Асоциация &quot;Солидарност&quot;</Link>. Тази линия е спасителен пояс за хората, които се нуждаят от подкрепа и информация в борбата със зависимостите.
+                Каузата която подкрепяме е насочена към <Link className='underline-hover font-semibold' href="https://www.drugsinfo-bg.org/" target="_blank">&quot;
+                Национална информационна линия за наркотиците, алкохола и хазарта&quot;</Link> 
+                – инициатива, поддържана от<button className='underline-hover font-semibold' onClick={handleScrollToPartners}> Асоциация &quot;Солидарност&quot;</button>
+                . Тази линия е спасителен пояс за хората, които се нуждаят от подкрепа и информация в борбата със зависимостите.
             </motion.p>
             <motion.p       
                 initial={{ y: 48, opacity: 0 }}
@@ -49,10 +61,20 @@ const Cause: React.FC = () => {
         initial={{ y: 48, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ ease: "easeInOut", duration: 0.75 }}
-        className="my-20 text-4xl text-center font-black uppercase text-black"
+        className="mt-20 mb-4 text-5xl text-center font-black uppercase text-black"
       >
         {title}
-      </motion.h1>            
+      </motion.h1>
+      <Link href="https://www.solidarnost-bg.org/" target="_blank" className="">
+      <Image 
+        src="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/solidarnost-association-BG.png" 
+        alt="Partner logo" 
+        width={400} 
+        height={200} 
+        className="mx-auto mb-4 hover:scale-105 transition-all" 
+        style={{ width: '60%', height: 'auto' }}
+      />
+      </Link>  
       <div className="text-base md:text-xl">{text}</div>
         </motion.div>
     );

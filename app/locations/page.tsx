@@ -28,6 +28,23 @@ export default function Locations() {
     const [isMobile, setIsMobile] = useState(false); 
     const [isToggled, setIsToggled] = useState(false);
 
+    const [openAccordion, setOpenAccordion] = useState<string | null>(null);
+    const accordionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
+
+    const handleMarkerClick = useCallback((center: TherapyCenter) => {
+        setSelectedCenter(center);
+        setOpenAccordion(center.name);
+        setShowAccordions(true);
+        setFilter('All');
+        setIsToggled(true);
+        
+        setTimeout(() => {
+            const accordionElement = accordionRefs.current[center.name];
+            if (accordionElement) {
+                accordionElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }, 300);
+    }, []);
     // Function to handle button clicks and show accordions
     const handleButtonClick = (filterType: CenterType) => {
         setFilter(filterType);
@@ -84,7 +101,7 @@ export default function Locations() {
             const st = window.pageYOffset || document.documentElement.scrollTop;
             if (st > lastScrollTop.current) {
                 // Scrolling down
-                controls.start({ opacity: 0, y: -50 });
+                controls.start({ opacity: 0, y: -150 });
             } else {
                 // Scrolling up
                 controls.start({ opacity: 1, y: 0 });
@@ -239,7 +256,18 @@ export default function Locations() {
 
                     <div className="mt-4 w-full">
                     {(!isMobile || showAccordions) && filteredCenters.map((center, index) => ( // Conditional rendering based on isMobile
-                        <Accordion key={index} title={center.name}>
+                    <div 
+                    key={index} 
+                    ref={(el) => {
+                        if (el) accordionRefs.current[center.name] = el;
+                    }}
+                >
+                    <Accordion 
+                        title={center.name}
+                        isOpen={openAccordion === center.name}
+                        onToggle={() => setOpenAccordion(prev => prev === center.name ? null : center.name)}
+                        id={`accordion-${center.name}`}
+                    >
                                 {/* ADDRESS */}
                                 <p className='border-b border-gray-600 mb-4 pb-4 '>
                                     <strong className='mr-8'>📌Адрес:</strong> 
@@ -310,7 +338,7 @@ export default function Locations() {
                                 )}
 
                             </Accordion>
-                                
+                                </div>
 
                             
                         ))}
@@ -318,7 +346,12 @@ export default function Locations() {
                     </div>
                 </div> {/* 1/3 width */}
 
-                <TherapyMap className="col-span-2 relative z-[5001]"  filter={filter} selectedCenter={selectedCenter} />
+                <TherapyMap 
+        className="col-span-2 relative z-[5001]"  
+        filter={filter} 
+        selectedCenter={selectedCenter} 
+        onMarkerClick={handleMarkerClick}
+      />
             </div>
         </div>
 

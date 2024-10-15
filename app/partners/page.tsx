@@ -1,11 +1,11 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Image from "next/image";
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
-const PartnerSection = ({ logo, description, isMainSponsor, className, link }: { logo: string, description: React.ReactNode, isMainSponsor: boolean, className: string, link: string }) => (
+const PartnerSection = ({ logo, description, isMainSponsor, className, link }: { logo: string, description: React.ReactNode, isMainSponsor: boolean, className: string, link: string}) => (
   <motion.div
     className={`flex flex-col w-[90%] cst:w-[80%] mx-auto ${isMainSponsor ? 'md:flex-row' : 'md:flex-row-reverse'} items-center justify-between mb-16 gap-8 ${className}`}
     initial={{ opacity: 0, y: 50 }}
@@ -42,6 +42,26 @@ const PartnerSection = ({ logo, description, isMainSponsor, className, link }: {
 );
 
 export default function Partners() {
+  const solidarnostRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash === '#solidarnost' && solidarnostRef.current) {
+      // Scroll to the element
+      solidarnostRef.current.scrollIntoView({ behavior: 'smooth' });
+
+      // Adjust the scroll position by a specific number of pixels
+      const offset = 120; // Adjust this value as needed
+      const elementPosition = solidarnostRef.current.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  }, []);
+
   return (
     <div className="max-w-full mx-auto px-4 py-12 font-montserrat text-black">
       <motion.h1
@@ -103,7 +123,7 @@ export default function Partners() {
         className="mb-32 bg-lblue/[0.5] p-8 rounded-xl"
         link="https://aonk.bg" // Add the actual link here
       />
-      
+      <div ref={solidarnostRef}>
       <PartnerSection
         logo="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/solidarnost-association-BG.png"
         description={          
@@ -121,6 +141,52 @@ export default function Partners() {
         className="mb-36 bg-orange-100/[0.5] p-8 rounded-xl"
         link="https://www.solidarnost-bg.org/" // Add the actual link here
       />
+      </div>
+
+      <PartnerSection
+        logo="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/steam-pr.png"
+        description={          
+        <>
+            <motion.p       
+              initial={{ y: 32, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ ease: "easeInOut", duration: 0.75 }}
+              className="">
+                STEAM Net Bulgaria е консултантска PR и комуникационна агенция, която вярва, че
+                смислената комуникация може да оформя възприятията, да вдъхновява действия и да
+                насърчава положителната промяна. Агенцията се стреми да създава ангажиращи и
+                устойчиви комуникационни решения, които подкрепят както организации, така и различни
+                инициативи и каузи.
+          </motion.p>
+        </>
+        }
+        isMainSponsor={true}
+        className="mb-36 bg-lblue/[0.5] p-8 rounded-xl"
+        link="https://steam.bg/" // Add the actual link here
+      />
+
+      <PartnerSection
+        logo="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/bumbul-con.png"
+        description={          
+        <>
+            <motion.p       
+              initial={{ y: 32, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ ease: "easeInOut", duration: 0.75 }}
+              className="">
+                  BUMBUL STUDIO е консултантска и комуникационна агенция, която помага на бизнеси,
+                  брандове, експертни лица, инициативи и каузи в полето на маркетинга, рекламата и
+                  събития. Знаем, че ключът към ефективното позициониране е в комуникацията, затова
+                  от BUMBUL STUDIO ще Ви подкрепим от идеята до реализацията, като обръщаме внимание
+                  на всяка подробност по трасето.
+          </motion.p>
+        </>
+        }
+        isMainSponsor={false}
+        className="mb-36 bg-orange-100/[0.5] p-8 rounded-xl"
+        link="https://bumbulstudio.bg/" // Add the actual link here
+      />
+      
     </div>
   );
 }

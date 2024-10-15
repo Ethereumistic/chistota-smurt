@@ -12,6 +12,7 @@ interface TherapyMapProps {
   className: string;
   filter: CenterType;
   selectedCenter: TherapyCenter | null;
+  onMarkerClick: (center: TherapyCenter) => void; // Add this line
 }
 
 function MapInteraction({ selectedCenter }: { selectedCenter: TherapyCenter | null }) {
@@ -33,7 +34,7 @@ function MapInteraction({ selectedCenter }: { selectedCenter: TherapyCenter | nu
   return null;
 }
 
-export default function TherapyMap({ className, filter, selectedCenter }: TherapyMapProps) {
+export default function TherapyMap({ className, filter, selectedCenter, onMarkerClick }: TherapyMapProps) {
   const mapRef = useRef<L.Map>(null);
   const [isMounted, setIsMounted] = useState(false);
 
@@ -104,6 +105,9 @@ export default function TherapyMap({ className, filter, selectedCenter }: Therap
           key={index} 
           position={center.position} 
           icon={icons[center.type]}
+          eventHandlers={{
+            click: () => onMarkerClick(center)
+          }}
           >
             <Popup className=' w-56 cst:w-96'>
               <div className='text-black font-montserrat '>
