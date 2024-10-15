@@ -83,7 +83,7 @@ export default function RootLayout({
                     }}>
           
             <NavbarTest3 />
-            <ScrollTracker />
+            {/* <ScrollTracker /> */}
             {children}
             <div className="bg-gradient-to-b from-black/0 to-black/[0.5] w-full h-5"></div>
 
