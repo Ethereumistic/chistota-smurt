@@ -8,6 +8,7 @@ import { Russo_One } from "next/font/google";
 import { Montserrat } from "next/font/google";
 import Script from "next/script";
 import { NavbarTest2 } from "./components/NavbarTest2";
+import { NavbarTest3 } from "./components/NavbarTest3";
 import Footer2 from "./components/ui/Footer2";
 import { CountdownProvider } from "./components/calendar/CountdownProvider";
 
@@ -80,7 +81,7 @@ export default function RootLayout({
                       backgroundRepeat: "no-repeat",
                     }}>
           
-            <NavbarTest2 />
+            <NavbarTest3 />
             {children}
             <div className="bg-gradient-to-b from-black/0 to-black/[0.5] w-full h-5"></div>
 

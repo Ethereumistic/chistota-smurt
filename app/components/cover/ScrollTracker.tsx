@@ -29,7 +29,7 @@ const ScrollTracker: React.FC = () => {
   }, []);
 
   return (
-    <div className="fixed top-4 left-4 bg-black bg-opacity-50 text-white p-2 rounded-md z-[6666]">
+    <div className="fixed top-32 left-4 bg-black bg-opacity-50 text-white p-2 rounded-md z-[6666]">
       Scrolled: {scrollY.toFixed(2)}px | Width: {windowWidth}px {/* Display window width */}
     </div>
   );

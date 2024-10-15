@@ -176,7 +176,7 @@ const ParallaxImages = () => {
           className="absolute w-1/4"
           style={{
             top: '50%', // Exact Y coordinate for Additional Left Title
-            left: '-20%', // Exact X coordinate for Additional Left Title
+            left: '-15%', // Exact X coordinate for Additional Left Title
             opacity: additionalElementOpacity,
             scale: sideElementScale,
             y: initialYPosition, // Set initial Y position
@@ -228,7 +228,7 @@ const ParallaxImages = () => {
           className="absolute w-1/4"
           style={{
             top: '50%', // Exact Y coordinate for Additional Right Title
-            right: '-20%', // Exact X coordinate for Additional Right Title
+            right: '-15%', // Exact X coordinate for Additional Right Title
             opacity: additionalElementOpacity,
             scale: sideElementScale,
             y: initialYPosition, // Set initial Y position
