@@ -3,7 +3,6 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Providers } from "./providers";
 import { languages } from '../i18n/settings'
-import Footer from "./components/ui/Footer";
 import { Russo_One } from "next/font/google";
 import { Montserrat } from "next/font/google";
 import Script from "next/script";
@@ -18,14 +17,11 @@ const montserrat = Montserrat({
   variable: "--font-montserrat",
   weight: ["300", "400", "500", "600", "700", "800", "900"]
 });
-
-
 const russo = Russo_One({
   subsets: ['latin', 'cyrillic'],
   variable: "--font-russo",
   weight: ["400"]
 });
-
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
