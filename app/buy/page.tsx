@@ -1,21 +1,28 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 
 const tabs = ['София', 'Пловдив', 'Бургас', 'Варна'];
 
 export default function Buy() {
     const [activeTab, setActiveTab] = useState(tabs[0]);
     const router = useRouter();
-    const searchParams = useSearchParams();
+    const pathname = usePathname();
 
     useEffect(() => {
-        const tab = searchParams.get('tab');
-        if (tab && tabs.includes(tab)) {
-            setActiveTab(tab);
+        const searchParams = new URLSearchParams(window.location.search);
+        const cityFromUrl = searchParams.get('tab');
+        if (cityFromUrl && tabs.includes(cityFromUrl)) {
+            setActiveTab(cityFromUrl);
         }
-    }, [searchParams]);
+
+        // Smooth scroll to top
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }, [pathname]);
 
     const handleTabChange = (tab: string) => {
         setActiveTab(tab);
@@ -38,31 +45,30 @@ export default function Buy() {
     };
 
     return (
-        <div className="w-full min-h-screen p-8 items-center mt-32 mx-auto flex flex-col">
+        <div className="w-full min-h-screen p-8 items-center mt-24 mx-auto flex flex-col">
             <h1 className="text-3xl text-black font-bold mb-6">Купи билети</h1>
-            <div className="flex mb-6">
-                {tabs.map((tab) => (
-                    <button
-                        key={tab}
-                        className={`px-6 py-3 mx-8 mr-2 rounded ${
-                            activeTab === tab
-                                ? 'bg-purple-600 text-white text-2xl font-semibold'
-                                : 'bg-gray-200 text-black text-2xl'
-                        }`}
-                        onClick={() => handleTabChange(tab)}
-                    >
-                        <span                         key={tab}
-                        className={` ${
-                            activeTab === tab
-                                ? 'drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]'
-                                : ''
-                        }`}>
-                            {tab}
-                        </span>
-                    </button>
-                ))}
+            <div className="flex flex-wrap mb-6 w-full justify-center items-center">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full max-w-2xl">
+                    {tabs.map((tab) => (
+                        <button
+                            key={tab}
+                            className={`px-4 py-2 rounded text-xl sm:text-2xl ${
+                                activeTab === tab
+                                    ? 'bg-purple-600 text-white font-semibold'
+                                    : 'bg-gray-200 text-black'
+                            }`}
+                            onClick={() => handleTabChange(tab)}
+                        >
+                            <span
+                                className={activeTab === tab ? 'drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]' : ''}
+                            >
+                                {tab}
+                            </span>
+                        </button>
+                    ))}
+                </div>
             </div>
-            <div className="bg-white w-[80%] p-6 rounded shadow text-black text-center">
+            <div className="bg-white w-full p-6 rounded shadow text-black text-center">
                 {renderTabContent()}
             </div>
         </div>
