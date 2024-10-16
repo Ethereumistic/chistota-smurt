@@ -4,8 +4,16 @@ import React, { useEffect, useRef } from 'react';
 import Image from "next/image";
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { ReactLenis } from 'lenis/react'
+
 
 const PartnerSection = ({ logo, description, isMainSponsor, className, link }: { logo: string, description: React.ReactNode, isMainSponsor: boolean, className: string, link: string}) => (
+  <ReactLenis
+  root
+  options={{
+    lerp: 0.025,
+  }}
+>
   <motion.div
     className={`flex flex-col w-[90%] cst:w-[80%] mx-auto ${isMainSponsor ? 'md:flex-row' : 'md:flex-row-reverse'} items-center justify-between mb-16 gap-8 ${className}`}
     initial={{ opacity: 0, y: 50 }}
@@ -39,6 +47,7 @@ const PartnerSection = ({ logo, description, isMainSponsor, className, link }: {
       </p>
     </motion.div>
   </motion.div>
+  </ReactLenis>
 );
 
 export default function Partners() {

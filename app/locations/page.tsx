@@ -242,7 +242,7 @@ export default function Locations() {
                             className={`relative flex items-center justify-start pl-1 pr-8 py-2 rounded w-[66%] ${filter === 'All' ? 'bg-purple-600  text-white' : 'bg-gray-400 text-black'}`}
                         >
                             <span className="text-left">Всички центрове</span>
-                            <span className={`absolute top-0 right-0 inline-flex items-center m-1 justify-center w-5 h-5 text-xs font-bold text-white rounded-full ${filter === 'All' ? 'bg-purple-300 text-purple-900' : 'bg-gray-500'}`}>
+                            <span className={`absolute top-0 right-0 inline-flex items-center m-1 justify-center w-5 h-5 text-xs font-bold text-white rounded-full ${filter === 'All' ? 'bg-purple-900' : 'bg-gray-500'}`}>
                                 {countCenters('All')}
                             </span>
                         </button>
@@ -253,7 +253,7 @@ export default function Locations() {
                         className={`relative flex items-center justify-start pl-1 pr-8 py-2 rounded w-[66%] ${filter === 'Терапевтични общности' ? 'bg-purple-600  text-white' : 'bg-gray-400 text-black'}`}
                     >
         <span className="text-left">Терапевтична общност</span>
-        <span className={`absolute top-0 right-0 inline-flex items-center m-1 justify-center w-5 h-5 text-xs font-bold text-white rounded-full ${filter === 'Терапевтични общности' ? 'bg-purple-300 text-purple-900' : 'bg-gray-500'}`}>
+        <span className={`absolute top-0 right-0 inline-flex items-center m-1 justify-center w-5 h-5 text-xs font-bold text-white rounded-full ${filter === 'Терапевтични общности' ? 'bg-purple-900' : 'bg-gray-500'}`}>
             {countCenters('Терапевтични общности')}
         </span>
     </button>
@@ -264,7 +264,7 @@ export default function Locations() {
         className={`relative flex items-center justify-start pl-1 pr-7 py-2 rounded w-[66%] ${filter === 'Програми за непълнолетни' ? 'bg-purple-600  text-white' : 'bg-gray-400 text-black'}`}
     >
         <span className="text-left">Програми за непълнолетни</span>
-        <span className={`absolute top-0 right-0 inline-flex items-center m-1 justify-center w-5 h-5 text-xs font-bold text-white rounded-full ${filter === 'Програми за непълнолетни' ? 'bg-purple-300 text-purple-900' : 'bg-gray-500'}`}>
+        <span className={`absolute top-0 right-0 inline-flex items-center m-1 justify-center w-5 h-5 text-xs font-bold text-white rounded-full ${filter === 'Програми за непълнолетни' ? 'bg-purple-900' : 'bg-gray-500'}`}>
             {countCenters('Програми за непълнолетни')}
         </span>
     </button>
@@ -275,7 +275,7 @@ export default function Locations() {
         className={`relative flex items-center justify-start pl-1 pr-7 py-2 rounded w-[66%] ${filter === 'Дневни центрове' ? 'bg-purple-600  text-white' : 'bg-gray-400 text-black'}`}
     >
         <span className="text-left">Дневни центрове</span>
-        <span className={`absolute top-0 right-0 inline-flex items-center m-1 justify-center w-5 h-5 text-xs font-bold text-white rounded-full ${filter === 'Дневни центрове' ? 'bg-purple-300 text-purple-900' : 'bg-gray-500'}`}>
+        <span className={`absolute top-0 right-0 inline-flex items-center m-1 justify-center w-5 h-5 text-xs font-bold text-white rounded-full ${filter === 'Дневни центрове' ? 'bg-purple-900' : 'bg-gray-500'}`}>
             {countCenters('Дневни центрове')}
         </span>
     </button>
@@ -284,7 +284,7 @@ export default function Locations() {
         className={`relative flex items-center justify-start pl-1 pr-7 py-2 rounded w-[66%] ${filter === 'Вечерни програми' ? 'bg-purple-600  text-white' : 'bg-gray-400 text-black'}`}
     >
         <span className="text-left">Вечерни програми</span>
-        <span className={`absolute top-0 right-0 inline-flex items-center m-1 justify-center w-5 h-5 text-xs font-bold text-white rounded-full ${filter === 'Вечерни програми' ? 'bg-purple-300 text-purple-900' : 'bg-gray-500'}`}>
+        <span className={`absolute top-0 right-0 inline-flex items-center m-1 justify-center w-5 h-5 text-xs font-bold text-white rounded-full ${filter === 'Вечерни програми' ? 'bg-purple-900' : 'bg-gray-500'}`}>
             {countCenters('Вечерни програми')}
         </span>
     </button>

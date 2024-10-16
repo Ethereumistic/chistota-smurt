@@ -2,7 +2,11 @@ import Image from 'next/image'
 import { getPosts } from './getPosts'
 import Link from 'next/link'
 import AboutUs from './AboutUs';
+import dynamic from 'next/dynamic'
 
+const ReactLenis = dynamic(() => import('lenis/react').then((mod) => mod.ReactLenis), {
+  ssr: false
+})
 export default async function About() {
   const posts = await getPosts()
 
@@ -14,6 +18,12 @@ export default async function About() {
   });
    
   return (  
+    <ReactLenis
+    root
+    options={{
+      lerp: 0.025,
+    }}
+  >
     <div className='mt-32'>
       <AboutUs />
       <h1 className="text-5xl px-4 text-black font-bold text-center mb-12">Историята на Филма</h1>
@@ -75,5 +85,6 @@ export default async function About() {
         </div>
       </div>
     </div>
+    </ReactLenis>
   )
 }

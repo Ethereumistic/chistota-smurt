@@ -4,6 +4,11 @@ import { useState, useEffect, useMemo } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import { useCountdownContext } from '../components/calendar/CountdownProvider';
 import { DateTime } from 'luxon';
+import dynamic from 'next/dynamic'
+
+const ReactLenis = dynamic(() => import('lenis/react').then((mod) => mod.ReactLenis), {
+  ssr: false
+})
 
 const cityNames = ['София', 'Пловдив', 'Бургас', 'Варна'];
 
@@ -67,6 +72,12 @@ export default function Buy() {
     }
 
     return (
+        <ReactLenis
+        root
+        options={{
+          lerp: 0.025,
+        }}
+      >
         <div className="w-full min-h-screen p-8 items-center mt-24 mx-auto flex flex-col">
             <h1 className="text-3xl text-black font-bold mb-6">Купи билети</h1>
             <div className="w-full max-w-2xl mx-auto">
@@ -92,5 +103,6 @@ export default function Buy() {
                 {renderTabContent()}
             </div>
         </div>
+        </ReactLenis>
     );
 }

@@ -33,6 +33,8 @@ export default function Home({ params: { lng } }: { params: { lng: string } }) {
       <div ref={causeRef}>
         <Cause causeRef={causeRef} />
       </div>
+
+
       {/* <ScrollTracker /> */}
       <WrappedScrollButton causeRef={causeRef} />
     </div>

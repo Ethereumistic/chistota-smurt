@@ -9,7 +9,11 @@ import { NavbarTest3 } from "./components/NavbarTest3";
 import Footer2 from "./components/ui/Footer2";
 import { CountdownProvider } from "./components/calendar/CountdownProvider";
 import ScrollTracker from "./components/cover/ScrollTracker";
+import dynamic from 'next/dynamic'
 
+const ReactLenis = dynamic(() => import('lenis/react').then((mod) => mod.ReactLenis), {
+  ssr: false
+})
 const montserrat = Montserrat({
   subsets: ['latin', 'cyrillic'],
   variable: "--font-montserrat",
@@ -50,11 +54,16 @@ export default function RootLayout({
   return (
       <html>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${russo.variable} ${montserrat.variable} antialiased`}
-      >
+        className={`${geistSans.variable} ${geistMono.variable} ${russo.variable} ${montserrat.variable} antialiased`}>
+
         <Providers>
         <CountdownProvider>
-
+        <ReactLenis
+          root
+          options={{
+            lerp: 0.025,
+            }}
+          >
           {/* <div className="bg-dblue text-cream"> */}
           <div className=""
                     style={{
@@ -72,8 +81,10 @@ export default function RootLayout({
 
             <Footer2 />
           </div>
+          </ReactLenis>
           </CountdownProvider>
           </Providers>
+          
           <Script
         id="facebook-pixel"
         strategy="afterInteractive"

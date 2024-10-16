@@ -1,5 +1,5 @@
 'use client';
-import React, { ReactElement, useEffect, useState } from 'react'
+import React, { ReactElement, useEffect, useState, useRef } from 'react'
 import { DateTime, Settings } from 'luxon'
 import { motion } from 'framer-motion';
 import CountdownCard from './CountdownCard'
@@ -60,7 +60,16 @@ const Countdown = (): ReactElement | null => {
   const isMounted = useIsMounted()
   // Define end dates for each premiere location
   const { endDates } = useCountdownContext();
+  const scheduleRef = useRef<HTMLDivElement>(null);
 
+  const scrollToSchedule = (city: string) => {
+    scheduleRef.current?.scrollIntoView({ behavior: 'smooth' });
+    // Find the corresponding ScheduleItem and focus it
+    const scheduleItem = document.querySelector(`[data-city="${city}"]`) as HTMLElement;
+    if (scheduleItem) {
+      scheduleItem.focus();
+    }
+  };
 
   const scheduleInfo = [
     { title: "София", location: "Кино Люмиер", link: "https://www.google.com/maps?q=Кино+Люмиер"},
@@ -171,18 +180,19 @@ const ScheduleItem = ({
       initial={{ y: 48, opacity: 0 }}
       whileInView={{ y: 0, opacity: 1 }}
       transition={{ ease: "easeInOut", duration: 0.75 }}
-      className="mb-9 flex items-center justify-between border-b border-zinc-800 px-3 pb-9"
+      className="mb-9 flex items-center justify-between border-b border-zinc-800 px-3 pb-9 "
     >
-      <Link href={`/buy?tab=${title}`}>
-      <div>
-        <p className="mb-1.5 text-xl text-black font-montserrat">{title}</p>
-        <p className="text-sm uppercase text-zinc-800">{date}</p>
-        <p className="text-sm uppercase text-zinc-800">{time}</p>
-      </div>
-      </Link>
+  
+<Link href={`/buy?tab=${title}`} className='hover-highlight-link hover:scale-125 transition-all duration-700'>
+  <div className='hover-highlight-container'>
+    <p className="mb-1.5 text-2xl font-semibold text-black font-montserrat">{title}</p>
+    <p className="text-base text-nowrap uppercase text-zinc-800">{date}</p>
+    <p className="text-base uppercase text-zinc-800 ">{time}</p>
+  </div>
+</Link>
 
-        <Link href={link} target="_blank">
-      <div className="flex items-center gap-1.5 text-end text-sm uppercase text-black hover:scale-110 transition-all duration-300">
+        <Link href={link} target="_blank" className='hover-highlight-link'>
+      <div className="hover-highlight-container flex items-center gap-1.5 text-end text-base uppercase text-black hover:scale-125 transition-all duration-700">
           <p>{location}</p>
           <IconMapPin />
       </div>

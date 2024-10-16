@@ -15,6 +15,7 @@ import Trailer from '@/app/movie/Trailer';
 const SECTION_HEIGHT = 1000;
 
 export const TestScroll = () => {
+
   return (
     <div className="">
       <ReactLenis
@@ -29,7 +30,7 @@ export const TestScroll = () => {
 
         <Trailer />
 
-        <Countdown />
+          <Countdown />
         {/* <Schedule /> */}
       </ReactLenis>
     </div>
@@ -88,6 +89,9 @@ const ParallaxImages = () => {
   const [animationDelay, setAnimationDelay] = useState(4);
   const pathname = usePathname();
   const { scrollY } = useScroll();
+
+
+
   const centerImageHeight = useTransform(
       scrollY,
       [0, SECTION_HEIGHT],
