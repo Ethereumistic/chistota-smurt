@@ -1,20 +1,14 @@
 "use client";
-import { IconMenu, IconX, IconBrandFacebook, IconBrandInstagram, IconBrandYoutube, IconMenu2 } from "@tabler/icons-react";
+import { IconX, IconBrandFacebook, IconBrandInstagram, IconBrandYoutube, IconMenu2 } from "@tabler/icons-react";
 import React, { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
-import ThemeSwitch from "./themeSwitch";
 import Link from "next/link";
 import MobileMenu from "./MobileMenu";
 import { motion, AnimatePresence } from "framer-motion";
-import { useTranslation } from 'next-i18next';
 import { Logo } from "./cover/Logo";
-import { Chistota } from "./cover/Chistota";
-import { Ili } from "./cover/Ili";
-import { Smur } from "./cover/Smur";
-import { T } from "./cover/T";
-import { usePathname, useRouter } from 'next/navigation'; // Import usePathname
+import { usePathname, useRouter } from 'next/navigation';
 import Image from "next/image";
-import { AboutButton, BuyButton, BuyButton2, LocationsButton, PartnersButton, TestButton, TherapyButton, TicketsButton } from "./ui/BuyButton";
+import { AboutButton, PartnersButton, TherapyButton, TicketsButton } from "./ui/BuyButton";
 import { Documentary } from "./cover/Documentary";
 
 interface AnimatedLinkProps {
@@ -116,7 +110,6 @@ function Navbar({
   
   }) {  
     const [active, setActive] = useState<string | null>(null);
-    const { t } = useTranslation();
     const firstSectionRef = useRef<HTMLDivElement>(null); // Create a ref for the first section
     const pathname = usePathname();
     const router = useRouter();

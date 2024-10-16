@@ -2,11 +2,9 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { Providers } from "./providers";
-import { languages } from '../i18n/settings'
 import { Russo_One } from "next/font/google";
 import { Montserrat } from "next/font/google";
 import Script from "next/script";
-import { NavbarTest2 } from "./components/NavbarTest2";
 import { NavbarTest3 } from "./components/NavbarTest3";
 import Footer2 from "./components/ui/Footer2";
 import { CountdownProvider } from "./components/calendar/CountdownProvider";
@@ -33,34 +31,23 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-function isRTL(lang: string) {
-  const rtlLanguages = ['ar', 'he', 'fa', 'ur']; // Add other RTL languages as needed
-  return rtlLanguages.includes(lang);
-}
-
 export const metadata: Metadata = {
   title: "Чистота или Смърт",
   description: "Чистота или Смърт - филм за зависимостта",
 };
 
-export async function generateStaticParams() {
-  return languages.map((lng) => ({ lng }))
-}
+
 
 export default function RootLayout({
   children,
-  params: {
-    lng
-  }
+
 }: {
+
   children: React.ReactNode
-  params: {
-    lng: string
-  }
+
 }) {
 
   return (
-    // <html lang={lng} dir={isRTL(lng) ? 'rtl' : 'ltr'}>
       <html>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${russo.variable} ${montserrat.variable} antialiased`}

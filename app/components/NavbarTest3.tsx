@@ -5,10 +5,8 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import MobileMenu from "./MobileMenu";
 import { motion, AnimatePresence } from "framer-motion";
-import { useTranslation } from 'next-i18next';
 import { Logo } from "./cover/Logo";
-
-import { usePathname, useRouter } from 'next/navigation'; // Import usePathname
+import { usePathname, useRouter } from 'next/navigation';
 import Image from "next/image";
 import { AboutButton, PartnersButton, TherapyButton, TicketsButton } from "./ui/BuyButton";
 import { Documentary } from "./cover/Documentary";
@@ -113,7 +111,6 @@ function Navbar({
   
   }) {  
     const [active, setActive] = useState<string | null>(null);
-    const { t } = useTranslation();
     const firstSectionRef = useRef<HTMLDivElement>(null); // Create a ref for the first section
     const pathname = usePathname();
     const router = useRouter();
