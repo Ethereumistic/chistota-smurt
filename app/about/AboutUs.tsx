@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { motion, useScroll, useInView, useAnimation } from 'framer-motion';
+import Link from 'next/link';
 
 const AboutUs = () => {
   const containerRef = useRef(null);
@@ -25,15 +26,26 @@ const AboutUs = () => {
         <div className="space-y-24">
           <DirectorsSection scrollYProgress={scrollYProgress} />
         </div>
-
+      <Link href='https://www.instagram.com/dbproductions.bg/' target='_blank' >
+        <Image 
+        src='https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/DB.png'
+        alt="dbProductions Logo" 
+        width={400} 
+        height={200} 
+        className="mx-auto my-8 transition-all duration-300 hover:scale-105" 
+      />
+      </Link>
         <motion.div 
-          className="mt-24 text-lg text-black"
+          className=" text-lg text-black"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 1 }}
         >
-          <p className="mb-4 text-center text-3xl max-w-4xl cst:max-w-6xl mx-auto font-montserrat">
-          Заедно създадохме&quot;<strong>db Productions</strong>&quot; с мисията да достигнем до хората по въздействащ начин и да разказваме истории, които да оставят следа. Нашата цел е не само да забавляваме, но и да вдъхновяваме промяна
+
+
+
+          <p className="mb-4 text-center text-2xl max-w-4xl cst:max-w-6xl mx-auto font-montserrat">
+          Заедно създадохме<br className='gg:hidden flex'></br> &quot;<strong>db Productions</strong>&quot; с мисията да достигнем до хората по въздействащ начин и да разказваме истории, които да оставят следа. Нашата цел е не само да забавляваме, но и да вдъхновяваме промяна
           </p>
 
         </motion.div>

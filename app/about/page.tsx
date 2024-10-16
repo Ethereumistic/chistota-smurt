@@ -16,11 +16,11 @@ export default async function About() {
   return (  
     <div className='mt-32'>
       <AboutUs />
-      <h1 className="text-6xl text-black font-bold text-center mb-12">Историята на Филма</h1>
-      <div className="w-full mx-auto  text-cream pb-4 flex justify-center items-center">
+      <h1 className="text-5xl px-4 text-black font-bold text-center mb-12">Историята на Филма</h1>
+      <div className="w-full mx-auto  pb-4 flex justify-center items-center">
 
         {/* Flex Layout */}
-        <div className="flex flex-wrap justify-center max-w-6xl mx-auto">
+        <div className="flex flex-wrap justify-center max-w-6xl bg-gradient-to-b from-orange-100/[0.5] to-transparent mx-auto rounded-xl">
         {sortedPosts.map((post) => (
             <Link
               href={`/about/${post.slug.current}`}
@@ -28,11 +28,11 @@ export default async function About() {
               className="flex flex-col items-center overflow-hidden transition-all duration-300 w-full sm:w-1/2 lg:w-1/3 p-4"
             >
               {/* Content */}
-              <div className="flex flex-col justify-between h-full w-full bg-llblue/[0.5] p-6 rounded-lg border-2 border-llblue">
+              <div className="flex flex-col justify-between h-full w-full  p-6 ">
 
                             {/* Image */}
                             {post.mainImage && (
-              <div className="relative w-full h-64 mb-4 rounded-xl overflow-hidden"> {/* Set a fixed height for the square */}
+              <div className="relative w-full h-64 mb-1 rounded-xl overflow-hidden"> {/* Set a fixed height for the square */}
                 <Image
                   src={post.mainImage.asset.url}
                   alt={post.mainImage.alt || post.title}
@@ -43,22 +43,32 @@ export default async function About() {
               </div>
             )}
 
-                {/* Categories - Render all categories if there are multiple */}
-                <div className="text-llblue uppercase text-xs mb-2">
-                  {post.categories.length > 1 
-                    ? post.categories.map(category => category.title).join(' ') 
-                    : post.categories[0]?.title || 'Category'}
-                </div>
-
-                {/* Title */}
-                <h2 className="text-2xl font-semibold mb-4 text-cream flex-1">{post.title}</h2>
-
-                {/* Meta Information */}
-                <div className="text-llblue text-sm flex items-center space-x-2 mt-auto">
+                  {/* Meta Information */}
+                  <div className="text-gray-900 text-sm flex justify-end items-center space-x-2 my-2">
                   <span>{post.author.name || 'Author'}</span>
                   <span>&bull;</span>
                   <span>{new Date(post.publishedAt).toLocaleDateString()}</span>
                 </div>
+
+                {/* Categories - Render all categories if there are multiple */}
+                <div className="mb-2">
+                  {post.categories.length > 1 ? (
+                    <ul className="flex justify-between text-purple-600 uppercase text-xs">
+                      {post.categories.map((category) => (
+                        <li key={category._id}>{category.title}</li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <span className="text-purple-600 uppercase text-xs">
+                      {post.categories[0]?.title || 'Category'}
+                    </span>
+                  )}
+                </div>
+
+                {/* Title */}
+                <h2 className="text-2xl font-semibold mb-4 text-black flex-1">{post.title}</h2>
+
+
               </div>
             </Link>
           ))}

@@ -153,7 +153,7 @@ export default function TherapyMap({ className, filter, selectedCenter, onMarker
 
                 {isMobile && (
                   <button 
-                    className="mt-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    className="flex justify-center items-center mx-auto mt-2 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
                     onClick={() => onViewMoreInfo(center)}
                   >
                     Виж повече информация

@@ -191,7 +191,7 @@ export default function Locations() {
                 <div className="-mt-1">
                 <label
                     htmlFor="toggleAccordions"
-                    className="absolute  border border-gray-600 inline-block h-8 w-14 cursor-pointer rounded-full bg-gray-300 transition [-webkit-tap-highlight-color:_transparent] has-[:checked]:bg-green-400"
+                    className="absolute  border border-gray-600 inline-block h-8 w-14 cursor-pointer rounded-full bg-gray-300 transition [-webkit-tap-highlight-color:_transparent] has-[:checked]:bg-purple-600"
                 >
                     <input
                         type="checkbox"
@@ -202,7 +202,7 @@ export default function Locations() {
                     />
 
                     <span
-                        className="absolute inset-y-0 start-0 z-10 m-1 inline-flex size-6 items-center justify-center rounded-full bg-white text-gray-400 transition-all peer-checked:start-6 peer-checked:text-green-400"
+                        className="absolute inset-y-0 start-0 z-10 m-1 inline-flex size-6 items-center justify-center rounded-full bg-white text-gray-400 transition-all peer-checked:start-6 peer-checked:text-purple-600"
                     >
                         <svg
                             data-unchecked-icon
@@ -239,10 +239,10 @@ export default function Locations() {
         ) : (
                         <button 
                             onClick={() => handleButtonClick('All')} // Updated to use the new function
-                            className={`relative flex items-center justify-start pl-1 pr-8 py-2 rounded w-[66%] ${filter === 'All' ? 'bg-gradient-to-r from-gray-300/[0.5] to-gray-400/[0.5]  text-black border border-gray-600 ' : 'bg-gradient-to-l from-gray-400/[0.5] to-gray-500/[0.5] text-black'}`}
+                            className={`relative flex items-center justify-start pl-1 pr-8 py-2 rounded w-[66%] ${filter === 'All' ? 'bg-purple-600  text-white' : 'bg-gray-400 text-black'}`}
                         >
                             <span className="text-left">Всички центрове</span>
-                            <span className={`absolute top-0 right-0 inline-flex items-center m-1 justify-center w-5 h-5 text-xs font-bold text-white rounded-full ${filter === 'All' ? 'bg-purple-600 text-cream' : 'bg-gray-500'}`}>
+                            <span className={`absolute top-0 right-0 inline-flex items-center m-1 justify-center w-5 h-5 text-xs font-bold text-white rounded-full ${filter === 'All' ? 'bg-purple-300 text-purple-900' : 'bg-gray-500'}`}>
                                 {countCenters('All')}
                             </span>
                         </button>
@@ -250,10 +250,10 @@ export default function Locations() {
     
                     <button 
                         onClick={() => handleButtonClick('Терапевтични общности')}
-                        className={`relative flex items-center justify-start pl-1 pr-8 py-2 rounded w-[66%] ${filter === 'Терапевтични общности' ? 'bg-gradient-to-r from-gray-300/[0.5] to-gray-400/[0.5]  text-black border border-gray-600 ' : 'bg-gradient-to-l from-gray-400/[0.5] to-gray-500/[0.5] text-black'}`}
+                        className={`relative flex items-center justify-start pl-1 pr-8 py-2 rounded w-[66%] ${filter === 'Терапевтични общности' ? 'bg-purple-600  text-white' : 'bg-gray-400 text-black'}`}
                     >
         <span className="text-left">Терапевтична общност</span>
-        <span className={`absolute top-0 right-0 inline-flex items-center m-1 justify-center w-5 h-5 text-xs font-bold text-white rounded-full ${filter === 'Терапевтични общности' ? 'bg-purple-600 text-cream' : 'bg-gray-500'}`}>
+        <span className={`absolute top-0 right-0 inline-flex items-center m-1 justify-center w-5 h-5 text-xs font-bold text-white rounded-full ${filter === 'Терапевтични общности' ? 'bg-purple-300 text-purple-900' : 'bg-gray-500'}`}>
             {countCenters('Терапевтични общности')}
         </span>
     </button>
@@ -261,10 +261,10 @@ export default function Locations() {
 
     <button 
         onClick={() => handleButtonClick('Програми за непълнолетни')}
-        className={`relative flex items-center justify-start pl-1 pr-7 py-2 rounded w-[66%] ${filter === 'Програми за непълнолетни' ? 'bg-gradient-to-r from-gray-300/[0.5] to-gray-400/[0.5]  text-black border border-gray-600 ' : 'bg-gradient-to-l from-gray-400/[0.5] to-gray-500/[0.5] text-black'}`}
+        className={`relative flex items-center justify-start pl-1 pr-7 py-2 rounded w-[66%] ${filter === 'Програми за непълнолетни' ? 'bg-purple-600  text-white' : 'bg-gray-400 text-black'}`}
     >
         <span className="text-left">Програми за непълнолетни</span>
-        <span className={`absolute top-0 right-0 inline-flex items-center m-1 justify-center w-5 h-5 text-xs font-bold text-white rounded-full ${filter === 'Програми за непълнолетни' ? 'bg-purple-600 text-cream' : 'bg-gray-500'}`}>
+        <span className={`absolute top-0 right-0 inline-flex items-center m-1 justify-center w-5 h-5 text-xs font-bold text-white rounded-full ${filter === 'Програми за непълнолетни' ? 'bg-purple-300 text-purple-900' : 'bg-gray-500'}`}>
             {countCenters('Програми за непълнолетни')}
         </span>
     </button>
@@ -272,19 +272,19 @@ export default function Locations() {
 
     <button 
         onClick={() => handleButtonClick('Дневни центрове')}
-        className={`relative flex items-center justify-start pl-1 pr-7 py-2 rounded w-[66%] ${filter === 'Дневни центрове' ? 'bg-gradient-to-r from-gray-300/[0.5] to-gray-400/[0.5]  text-black border border-gray-600 ' : 'bg-gradient-to-l from-gray-400/[0.5] to-gray-500/[0.5] text-black'}`}
+        className={`relative flex items-center justify-start pl-1 pr-7 py-2 rounded w-[66%] ${filter === 'Дневни центрове' ? 'bg-purple-600  text-white' : 'bg-gray-400 text-black'}`}
     >
         <span className="text-left">Дневни центрове</span>
-        <span className={`absolute top-0 right-0 inline-flex items-center m-1 justify-center w-5 h-5 text-xs font-bold text-white rounded-full ${filter === 'Дневни центрове' ? 'bg-purple-600 text-cream' : 'bg-gray-500'}`}>
+        <span className={`absolute top-0 right-0 inline-flex items-center m-1 justify-center w-5 h-5 text-xs font-bold text-white rounded-full ${filter === 'Дневни центрове' ? 'bg-purple-300 text-purple-900' : 'bg-gray-500'}`}>
             {countCenters('Дневни центрове')}
         </span>
     </button>
     <button 
         onClick={() => handleButtonClick('Вечерни програми')}
-        className={`relative flex items-center justify-start pl-1 pr-7 py-2 rounded w-[66%] ${filter === 'Вечерни програми' ? 'bg-gradient-to-r from-gray-300/[0.5] to-gray-400/[0.5]  text-black border border-gray-600 ' : 'bg-gradient-to-l from-gray-400/[0.5] to-gray-500/[0.5] text-black'}`}
+        className={`relative flex items-center justify-start pl-1 pr-7 py-2 rounded w-[66%] ${filter === 'Вечерни програми' ? 'bg-purple-600  text-white' : 'bg-gray-400 text-black'}`}
     >
         <span className="text-left">Вечерни програми</span>
-        <span className={`absolute top-0 right-0 inline-flex items-center m-1 justify-center w-5 h-5 text-xs font-bold text-white rounded-full ${filter === 'Вечерни програми' ? 'bg-purple-600 text-cream' : 'bg-gray-500'}`}>
+        <span className={`absolute top-0 right-0 inline-flex items-center m-1 justify-center w-5 h-5 text-xs font-bold text-white rounded-full ${filter === 'Вечерни програми' ? 'bg-purple-300 text-purple-900' : 'bg-gray-500'}`}>
             {countCenters('Вечерни програми')}
         </span>
     </button>

@@ -7,7 +7,7 @@ import useIsMounted from './hooks/useIsMounted'
 import { IconMapPin } from '@tabler/icons-react';
 import { useCountdownContext } from './CountdownProvider';
 import Link from 'next/link';
-
+import { useRouter } from 'next/navigation';
 
 Settings.defaultLocale = "bg";
 
@@ -64,10 +64,10 @@ const Countdown = (): ReactElement | null => {
 
 
   const scheduleInfo = [
-    { title: "София", location: "Кино Люмиер", link: "https://www.google.com/maps?q=Кино+Люмиер" },
-    { title: "Пловдив", location: "Кино Лъки", link: "https://www.google.com/maps?q=Кино+Лъки" },
-    { title: "Бургас", location: "Ne se znae", link: "https://www.google.com/maps?q=Ne+se+znae" },
-    { title: "Варна", location: "Зала Европа ФКЦ Варна", link: "https://www.google.com/maps?q=Зала+Европа+ФКЦ+Варна" },
+    { title: "София", location: "Кино Люмиер", link: "https://www.google.com/maps?q=Кино+Люмиер"},
+    { title: "Пловдив", location: "Кино Лъки", link: "https://www.google.com/maps?q=Кино+Лъки"},
+    { title: "Бургас", location: "Ne se znae", link: "https://www.google.com/maps?q=Ne+se+znae"},
+    { title: "Варна", location: "Зала Европа ФКЦ Варна", link: "https://www.google.com/maps?q=Зала+Европа+ФКЦ+Варна"},
 ];;
 
   const cities = ["София", "Пловдив", "Бургас", "Варна"];
@@ -156,7 +156,7 @@ const ScheduleItem = ({
   date,
   location,
   time,
-  link
+  link,
 }: {
   title: string;
   date: string;
@@ -164,6 +164,13 @@ const ScheduleItem = ({
   time: string;
   link: string;
 }) => {
+  const router = useRouter();
+
+  const handleBuyClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    router.push(`/buy?tab=${title}`);
+  };
+
   return (
     <motion.div
       initial={{ y: 48, opacity: 0 }}
@@ -171,11 +178,14 @@ const ScheduleItem = ({
       transition={{ ease: "easeInOut", duration: 0.75 }}
       className="mb-9 flex items-center justify-between border-b border-zinc-800 px-3 pb-9"
     >
+      <button onClick={handleBuyClick}>
       <div>
         <p className="mb-1.5 text-xl text-black font-montserrat">{title}</p>
         <p className="text-sm uppercase text-zinc-800">{date}</p>
         <p className="text-sm uppercase text-zinc-800">{time}</p>
       </div>
+      </button>
+
         <Link href={link} target="_blank">
       <div className="flex items-center gap-1.5 text-end text-sm uppercase text-black hover:scale-110 transition-all duration-300">
           <p>{location}</p>
