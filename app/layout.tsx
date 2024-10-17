@@ -11,6 +11,7 @@ import { CountdownProvider } from "./components/calendar/CountdownProvider";
 import ScrollTracker from "./components/cover/ScrollTracker";
 import dynamic from 'next/dynamic'
 
+
 const ReactLenis = dynamic(() => import('lenis/react').then((mod) => mod.ReactLenis), {
   ssr: false
 })
