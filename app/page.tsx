@@ -34,7 +34,9 @@ export default function Home({ params: { lng } }: { params: { lng: string } }) {
         <Cause causeRef={causeRef} />
       </div>
 
-
+      <div><h1 className="text-3xl text-black font-bold mb-6">ЗА ПЛОВДИВ</h1>
+                <iframe style={{ width: '100%', height: '100vh' }} src="https://bilet.bg/bg/promoters/aura-by-bamboo-146547?noframe=true" ></iframe>
+                <a href="https:///bilet.bg" target="_blank">Модул за продажба на билети от Билет точка бг</a></div>
       {/* <ScrollTracker /> */}
       <WrappedScrollButton causeRef={causeRef} />
     </div>

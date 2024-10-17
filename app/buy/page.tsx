@@ -56,7 +56,9 @@ export default function Buy() {
         switch (activeTab) {
             case 'София':
                 return <div><h1 className="text-3xl text-black font-bold mb-6">ЗА СОФИЯ</h1>
-                <iframe style={{ width: '100%', height: '100vh' }} src="https://bilet.bg/bg/cart/cenata-na-svobodata-bezplatna-blagotvoritelna-lekciia-na-rozmari-de-meo-5543-5543?noframe=true" ></iframe>
+                <iframe style={{ width: '100%', height: '100vh' }} 
+                src="https://bilet.bg/bg/cart/cenata-na-svobodata-bezplatna-blagotvoritelna-lekciia-na-rozmari-de-meo-5543-5543?noframe=true"
+                ></iframe>
                 <a href="https:///bilet.bg" target="_blank">Модул за продажба на билети от Билет точка бг</a>
                 </div>;
             case 'Пловдив':
