@@ -48,7 +48,7 @@ export default function Home({ params: { lng } }: { params: { lng: string } }) {
                 ></iframe>
                 <a href="https:///bilet.bg" target="_blank">Модул за продажба на билети от Билет точка бг</a>
                 </div>
-      <WrappedShareButton />
+      <WrappedShareButton causeRef={causeRef} />
       <WrappedScrollButton causeRef={causeRef} />
     </div>
   );
