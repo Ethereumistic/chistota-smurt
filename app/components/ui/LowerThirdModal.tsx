@@ -39,7 +39,7 @@ const LowerThirdModal: React.FC<LowerThirdModalProps> = ({ onClose }) => {
               </svg>
             </button>
           </div>
-          <p className="mb-4 text-black">Don't miss out on this amazing event. Get your tickets now!</p>
+          <p className="mb-4 text-black">Don&lsquo;t miss out on this amazing event. Get your tickets now!</p>
           <div className="mx-auto justify-center items-center flex">
           <TicketsButton className=" mx-auto" />
           </div>
