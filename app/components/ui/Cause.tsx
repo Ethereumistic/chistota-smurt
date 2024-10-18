@@ -2,15 +2,9 @@ import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
 
 const Cause: React.FC<{ causeRef: React.RefObject<HTMLDivElement> }> = ({ causeRef }) => {
-    const router = useRouter(); // Use the router
 
-    const handleScrollToPartners = () => {
-        // Navigate to the /partners page
-        router.push('/partners#solidarnost'); // Add the hash directly to the URL
-    };
 
     const title = "КАУЗАТА";
     const text = (
@@ -23,7 +17,7 @@ const Cause: React.FC<{ causeRef: React.RefObject<HTMLDivElement> }> = ({ causeR
                 className="mb-8">
                 Каузата която подкрепяме е насочена към <Link className='underline-hover font-semibold' href="https://www.drugsinfo-bg.org/" target="_blank">&quot;
                 Национална информационна линия за наркотиците, алкохола и хазарта&quot;</Link> 
-                – инициатива, поддържана от<button className='underline-hover font-semibold' onClick={handleScrollToPartners}> Асоциация &quot;Солидарност&quot;</button>
+                – инициатива, поддържана от<Link className='underline-hover font-semibold' href="/partners#solidarnost"> Асоциация &quot;Солидарност&quot;</Link>
                 . Тази линия е спасителен пояс за хората, които се нуждаят от подкрепа и информация в борбата със зависимостите.
             </motion.p>
             <motion.p       

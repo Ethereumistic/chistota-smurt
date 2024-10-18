@@ -7,6 +7,7 @@ import Cause from './components/ui/Cause'
 import ScrollTracker from './components/cover/ScrollTracker'
 import WrappedScrollButton from './components/ui/ScrollButton'
 import WrappedShareButton from './components/ui/ShareButton'
+import { ReactLenis } from 'lenis/react'
 
 export default function Home({ params: { lng } }: { params: { lng: string } }) {
   const [isMobile, setIsMobile] = useState(false);
@@ -28,26 +29,15 @@ export default function Home({ params: { lng } }: { params: { lng: string } }) {
   return (
     <div>
       {/* <Cover /> */}
+      <ReactLenis root options={{ lerp: 0.05 }}>
       {!isMobile && <TestScroll />}
       {isMobile && <MobileCover />}
+      </ReactLenis>
       {/* <TestScroll /> */}
       <div ref={causeRef}>
         <Cause causeRef={causeRef} />
       </div>
 
-      <h1 className="text-3xl text-black font-bold mb-6">ВСИЧКИ СЪБИТИЯ НА СЪЗДАТЕЛЯ</h1>
-      <div><h1 className="text-3xl text-black font-bold mb-6">ЗА ПЛОВДИВ</h1>
-                <iframe style={{ width: '100%', height: '100vh' }} src="https://bilet.bg/bg/promoters/aura-by-bamboo-146547?noframe=true" ></iframe>
-                <a href="https:///bilet.bg" target="_blank">Модул за продажба на билети от Билет точка бг</a></div>
-      {/* <ScrollTracker /> */}
-
-
-      <div><h1 className="text-3xl text-black font-bold mb-6">ЗА СОФИЯ</h1>
-                <iframe style={{ width: '100%', height: '100vh' }} 
-                src="https://bilet.bg/bg/events/terra-x-yoyaku-satoshi-tomie-roger-gerressen-5586-5586?noframe=true"
-                ></iframe>
-                <a href="https:///bilet.bg" target="_blank">Модул за продажба на билети от Билет точка бг</a>
-                </div>
       <WrappedShareButton causeRef={causeRef} />
       <WrappedScrollButton causeRef={causeRef} />
     </div>

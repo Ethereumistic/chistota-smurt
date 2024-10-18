@@ -21,7 +21,7 @@ export default async function About() {
     <ReactLenis
     root
     options={{
-      lerp: 0.025,
+      lerp: 0.05,
     }}
   >
     <div className='mt-32'>

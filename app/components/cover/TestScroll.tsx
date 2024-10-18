@@ -18,21 +18,24 @@ export const TestScroll = () => {
 
   return (
     <div className="">
-      <ReactLenis
+      {/* <ReactLenis
         root
         options={{
           lerp: 0.025,
         }}
-      >
+      > */}
         <Hero />
-        
+
+
         <div className="bg-gradient-to-t from-black/0 to-black/[0.5] w-full h-12"></div>
+          <p className="text-2xl max-w-2xl mx-auto font-montserrat text-black my-8 text-center fallback-title">
+            История за живота и пътя на шестима резиденти в терапевтична общност за зависими в България. Въпреки че много хора са чували за такива общности, малцина знаят как всъщност изглеждат и какво се случва в тях.
+          </p>
 
         <Trailer />
 
           <Countdown />
         {/* <Schedule /> */}
-      </ReactLenis>
     </div>
   );
 };
@@ -207,14 +210,14 @@ const ParallaxImages = () => {
 
         {/* Centered Title */}
         <motion.div
-          className="absolute w-full text-center"
+          className="absolute w-full text-center centered-title"
           style={{
             top: topPosition,
             left: '0%',
             transform: 'translate(-50%, -50%)',
             opacity: centeredTextOpacity,
             y: centeredTextY,
-            scale: centeredTextScale.get() * titleScale, // Use .get() to access the current value
+            scale: centeredTextScale.get() * titleScale,
           }}
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -223,8 +226,10 @@ const ParallaxImages = () => {
             y: { duration: 3, ease: "easeOut" }
           }}
         >
-        <p className="text-2xl max-w-2xl mx-auto font-montserrat text-black">История за живота и пътя на шестима резиденти в терапевтична общност за зависими в България. Въпреки че много хора са чували за такива общности, малцина знаят как всъщност изглеждат и какво се случва в тях.</p>
-      </motion.div> 
+          <p className="text-2xl max-w-2xl mx-auto font-montserrat text-black">
+            История за живота и пътя на шестима резиденти в терапевтична общност за зависими в България. Въпреки че много хора са чували за такива общности, малцина знаят как всъщност изглеждат и какво се случва в тях.
+          </p>
+        </motion.div>
 
         {/* Parallax Image */}
         <ParallaxImg

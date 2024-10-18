@@ -59,12 +59,12 @@ export default function RootLayout({
 
         <Providers>
         <CountdownProvider>
-        <ReactLenis
+        {/* <ReactLenis
           root
           options={{
-            lerp: 0.025,
+            lerp: 0.05,
             }}
-          >
+          > */}
           {/* <div className="bg-dblue text-cream"> */}
           <div className=""
                     style={{
@@ -82,7 +82,7 @@ export default function RootLayout({
 
             <Footer2 />
           </div>
-          </ReactLenis>
+          {/* </ReactLenis> */}
           </CountdownProvider>
           </Providers>
           

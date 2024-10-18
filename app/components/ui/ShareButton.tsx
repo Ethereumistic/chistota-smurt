@@ -31,14 +31,13 @@ const ShareButton: React.FC<ShareButtonProps> = ({ causeRef }) => {
         const shareUrl = 'https://chist.bg'; // URL to share
         const quote = 'Check out this amazing site!';
 
-        const webShareUrl = `https://www.facebook.com/dialog/share?app_id=292328347636860&href=${encodeURIComponent(shareUrl)}&quote=${encodeURIComponent(quote)}`;    
         if (isMobile) {
             // Use the Facebook app URL scheme for mobile
             const fbAppUrl = `fb://share.php?u=${encodeURIComponent(shareUrl)}`;
             window.open(fbAppUrl, '_blank'); // Try to open the Facebook app
         } else {
             // Fallback to the web version for desktop
-            const webShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
+            const webShareUrl = `https://www.facebook.com/dialog/share?app_id=292328347636860&href=${encodeURIComponent(shareUrl)}&quote=${encodeURIComponent(quote)}`;    
             window.open(webShareUrl, '_blank'); // Open in a new tab
         }
     }, []);
@@ -88,7 +87,7 @@ const ShareButton: React.FC<ShareButtonProps> = ({ causeRef }) => {
                     )}
                 </AnimatePresence>
                 <button
-                    className="cst:w-16 cst:h-16 w-10 h-10 flex items-center justify-center bg-[#0866ff] rounded-full text-white border-none cursor-pointer transition-transform duration-300 ease-in-out z-10"
+                    className="cst:w-16 cst:h-16 w-10 h-10 flex items-center justify-center bg-[#3b5998] rounded-full text-white border-none cursor-pointer transition-transform duration-300 ease-in-out z-10"
                     onClick={handleShareClick}
                     onMouseEnter={() => setIsHovering(true)}
                     onMouseLeave={() => setIsHovering(false)}
@@ -96,7 +95,7 @@ const ShareButton: React.FC<ShareButtonProps> = ({ causeRef }) => {
                         transform: isScrollingDown ? 'scale(1.001)' : 'scale(1)'
                     }}
                 >
-                    <IconBrandFacebook />   
+                    <IconBrandFacebook className=' size-6 md:size-9' />
                 </button>
             </div>
         </div>

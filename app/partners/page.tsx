@@ -11,7 +11,7 @@ const PartnerSection = ({ logo, description, isMainSponsor, className, link }: {
   <ReactLenis
   root
   options={{
-    lerp: 0.025,
+    lerp: 0.05,
   }}
 >
   <motion.div
@@ -47,7 +47,7 @@ const PartnerSection = ({ logo, description, isMainSponsor, className, link }: {
       </p>
     </motion.div>
   </motion.div>
-  </ReactLenis>
+ </ReactLenis>
 );
 
 export default function Partners() {

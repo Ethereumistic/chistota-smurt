@@ -8,6 +8,7 @@ import Accordion from '../components/Accordion';
 import Loader from '../components/ui/Loader';
 import { useRouter } from 'next/navigation'; // Update import
 import Link from 'next/link';
+import { IconExternalLink } from '@tabler/icons-react';
 
 
 type CenterType = 'Терапевтични общности' | 'Програми за непълнолетни' | 'Дневни центрове' | 'Вечерни програми' | 'All';
@@ -305,15 +306,18 @@ export default function Locations() {
                         id={`accordion-${center.name}`}
                     >
                                 {/* ADDRESS */}
-                                <p className='border-b border-gray-600 mb-4 pb-4 '>
+                                <div className='flex flex-row justify-between border-b border-gray-600 mb-4 '>
+                                    <p className=' pb-4 '>
                                     <strong className='mr-8'>📌Адрес:</strong> 
                                     <button 
-                                        className='text-blue-700 underline cursor-pointer'
+                                        className='text-blue-700 underline cursor-pointer text-start'
                                         onClick={() => handleAddressClick(center)}
                                     >
                                         {center.address}
                                     </button>
-                                </p>
+                                    </p>
+                                    <Link className='text-blue-700' href={center.mapLink} target="_blank" rel="noopener noreferrer"><IconExternalLink /></Link>
+                                </div>
 
                                 {/* PHONE */}
                                 <div className='flex flex-row border-b border-gray-600 mb-4 pb-4'>
@@ -326,17 +330,18 @@ export default function Locations() {
                                 </div>
 
                                 {/* EMAIL */}
-                                <div className='flex flex-row border-b border-gray-600 mb-4 pb-4'>
-                                <p><strong>📧Email:</strong></p>
+                                <div className='flex flex-row border-b border-gray-600 mb-4 pb-4 '>
+                                <p><strong className=''>📧Email:</strong></p>
                                 <ul className='flex flex-col cst:flex-row'>
                                     {center.email.map((email: string, idx: number) => (
-                                        <li className='mx-8' key={idx}>{email}</li>
+                                        <li className=' mx-8' key={idx}>{email}</li>
                                     ))}
                                 </ul>
                                 </div>
               
                                 {/* WEBSITE */}
-                                <p className='border-b border-gray-600 mb-4 pb-4'><strong>🌎Уебсайт:</strong> <Link className='text-blue-700 underline cursor-pointer mx-8' href={center.website} target="_blank" rel="noopener noreferrer">{center.website}</Link></p>
+                                <p className='border-b border-gray-600 mb-4 pb-4'><strong>🌎Уебсайт:</strong> 
+                                <Link className='text-blue-700 underline cursor-pointer mx-8' href={center.website} target="_blank" rel="noopener noreferrer">{center.website}</Link></p>
                                 {center.activities && center.activities.length > 0 && (
                                     <>
                                         <h4 className="font-bold mt-2">🏐Дейности:</h4>

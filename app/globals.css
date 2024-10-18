@@ -18,6 +18,18 @@ html.dark body {
   height: 100vh;
 }
 
+@media (max-height: 779px) {
+  .centered-title {
+    display: none;
+  }
+}
+
+@media (min-height: 780px) {
+  .fallback-title {
+    display: none;
+  }
+}
+
 
 /* Ensure the link takes up the full width of its container */
 .hover-highlight-link {

@@ -10,14 +10,14 @@ const SECTION_HEIGHT = 0; // Adjusted for mobile
 
 export function MobileCover() {
   return (
-    <ReactLenis root options={{ lerp: 0.05 }}>
-      <div className="">
+    <div className="">
+        {/* <ReactLenis root options={{ lerp: 0.05 }}> */}
         <MobileHero />
         <div className="bg-gradient-to-t from-black/0 to-black/[0.5] w-full h-12"></div>
         <Trailer />
         <Countdown />
+    {/* </ReactLenis> */}
       </div>
-    </ReactLenis>
   );
 }
 
