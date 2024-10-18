@@ -95,7 +95,7 @@ export const TicketsButton: React.FC<{ href?: string; className?: string; onClic
 <Link
   className={`group relative inline-flex items-center 
     overflow-hidden rounded bg-purple-600 
-    3xl:px-8 3xl:py-3 2xl:px-6 2xl:py-2 xl:px-4 xl:py-2 lg:px-3 lg:py-2 px-8 py-3 text-white ${className}`}
+    3xl:px-8 3xl:py-3 2xl:px-6 2xl:py-2 xl:px-4 xl:py-2 lg:px-3 lg:py-2 px-8 py-3 text-white  ${className}`}
   href={buttonHref}
   onClick={onClick}
 >

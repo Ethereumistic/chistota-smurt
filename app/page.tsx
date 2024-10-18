@@ -8,10 +8,12 @@ import ScrollTracker from './components/cover/ScrollTracker'
 import WrappedScrollButton from './components/ui/ScrollButton'
 import WrappedShareButton from './components/ui/ShareButton'
 import { ReactLenis } from 'lenis/react'
+import LowerThirdModal from './components/ui/LowerThirdModal'
 
 export default function Home({ params: { lng } }: { params: { lng: string } }) {
   const [isMobile, setIsMobile] = useState(false);
   const causeRef = useRef<HTMLDivElement | null>(null); // Create a ref
+  const [isModalOpen, setIsModalOpen] = useState(true);
 
   useEffect(() => {
     const handleResize = () => {
@@ -37,8 +39,10 @@ export default function Home({ params: { lng } }: { params: { lng: string } }) {
       <div ref={causeRef}>
         <Cause causeRef={causeRef} />
       </div>
-
-      <WrappedShareButton causeRef={causeRef} />
+      <LowerThirdModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />      <WrappedShareButton causeRef={causeRef} />
       <WrappedScrollButton causeRef={causeRef} />
     </div>
   );
