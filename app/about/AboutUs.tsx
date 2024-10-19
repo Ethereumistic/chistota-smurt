@@ -1,8 +1,9 @@
 'use client'
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { motion, useScroll, useInView, useAnimation } from 'framer-motion';
 import Link from 'next/link';
+import Loader from '../components/ui/Loader';
 
 const AboutUs = () => {
   const containerRef = useRef(null);
@@ -101,6 +102,8 @@ const DirectorsSection: React.FC<{ scrollYProgress: any }> = ({ scrollYProgress 
     };
     
     const DirectorCard: React.FC<{ director: any }> = ({ director }) => {
+      const [imageLoaded, setImageLoaded] = useState(false);
+
         return (
           <motion.div 
             className="flex flex-col items-center bg-llblue/[0.5] p-8 rounded-xl"
@@ -117,12 +120,18 @@ const DirectorsSection: React.FC<{ scrollYProgress: any }> = ({ scrollYProgress 
                 }
               }}
             >
+              {!imageLoaded && (
+              <div className=" flex items-center justify-center mt-32">
+                <Loader />
+              </div>
+            )}
               <Image
                 src={director.imageSrc}
                 alt={director.name}
                 layout="fill"
                 objectFit="cover"
-                className="transition-all duration-300 hover:scale-105"
+                className={`transition-all duration-300 hover:scale-105 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+                onLoad={() => setImageLoaded(true)}
               />
             </motion.div>
 

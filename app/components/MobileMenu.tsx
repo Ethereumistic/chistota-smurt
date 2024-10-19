@@ -3,6 +3,8 @@ import Link from "next/link";
 
 import Image from "next/image";
 import { AboutButton, PartnersButton, TherapyButton, TicketsButton } from "./ui/BuyButton";
+import { useState } from "react";
+import Loader from "./ui/Loader";
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -10,6 +12,8 @@ interface MobileMenuProps {
 }
 
 const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -43,14 +47,20 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
 
 
   </div>
-  <div className="flex flex-col bg-lblue/[0.8] w-1/2 mx-auto rounded-xl mb-10">
+  <div className="flex flex-col bg-lblue/[0.8] w-1/2 mx-auto rounded-xl mb-10 items-center justify-center">
     <h1 className="text-center font-montserrat text-xl mt-2 text-black">Подкрепени от:</h1>
     <Link href="https://aonk.bg" target="_blank">
+    {!imageLoaded && (
+              <div className="absolute flex items-center justify-center ">
+                <Loader />
+              </div>
+            )}
       <Image src="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/aonk.png" 
              alt="Logo" 
              width={150}
              height={100}
-             className="flex justify-center mx-auto my-4 hover:scale-110 transition-all duration-700"
+             className={`flex justify-center mx-auto my-4 hover:scale-110 transition-all duration-700 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+             onLoad={() => setImageLoaded(true)}
       />
     </Link>
   </div>

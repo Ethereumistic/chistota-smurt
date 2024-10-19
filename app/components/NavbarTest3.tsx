@@ -11,6 +11,7 @@ import Image from "next/image";
 import { AboutButton, PartnersButton, TherapyButton, TicketsButton } from "./ui/BuyButton";
 import { Documentary } from "./cover/Documentary";
 import { Aonk } from "./cover/Aonk";
+import Loader from "./ui/Loader";
 
 interface AnimatedLinkProps {
     href: string;
@@ -118,6 +119,7 @@ function Navbar({
     const [textVisible, setTextVisible] = useState(true); // New state for text visibility
 
     const prevScrollY = useRef(0); // Track previous scroll position
+    const [imageLoaded, setImageLoaded] = useState(false);
 
         
     useEffect(() => {
@@ -165,16 +167,23 @@ function Navbar({
         <div className="flex flex-col ">
           {/* <h1>Подкрепени от:</h1> */}
           <Link href="https://aonk.bg" target="_blank">
+          {!imageLoaded && (
+              <div className="absolute  flex items-center justify-center ml-6">
+                <Loader />
+              </div>
+            )}
                   <Image src="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/aonk.png" 
                           alt="Logo" 
                           width={150}
                           height={100}
-                    className="ml-2 hover:scale-110 transition-all duration-700
+                          className={`ml-2 hover:scale-110 transition-all duration-700
                                 3xl:w-[150px] 3xl:h-[48px]
                                 2xl:w-[120px] 2xl:h-[38px]
                                 xl:w-[100px] xl:h-[32px]
                                 lg:w-[80px] lg:h-[26px]
-                                w-[60px] h-[20px]"
+                                w-[60px] h-[20px] ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+                                onLoad={() => setImageLoaded(true)} // Removed delay
+
                      />
                     </Link>
           </div>
@@ -230,6 +239,7 @@ function Navbar({
       animate={{ opacity: (textVisible && isHome) ? 1 : 0 }} // Ensure it appears when scrolling up on home page
       transition={{ duration: 0.5 }} // Adjust duration as needed
     >
+      
         <Aonk />
       <Documentary />
 </motion.div>

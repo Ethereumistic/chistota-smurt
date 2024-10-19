@@ -27,7 +27,7 @@ const Loader = () => {
       }}
       initial="initial"
       animate="animate"
-      className="flex gap-1 mx-auto "
+      className="flex gap-1 mx-auto bg-transparent"
     >
       <motion.div variants={variants} className="h-12 w-2 bg-slate-500" />
       <motion.div variants={variants} className="h-12 w-2 bg-slate-500" />
