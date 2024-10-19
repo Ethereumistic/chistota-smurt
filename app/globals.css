@@ -18,6 +18,12 @@ html.dark body {
   height: 100vh;
 }
 
+@media (min-height: 899px) {
+  .lower-third-modal {
+    display: none;
+  }
+}
+
 @media (max-height: 779px) {
   .centered-title {
     display: none;

@@ -140,59 +140,6 @@ export default function Partners() {
 
     if (currentFilter === 'Всички' || currentFilter === 'Други') {
       sections.push(
-        <PartnerSection
-          key="aonk"
-          logo="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/aonk-full.png"
-          description={
-            <>
-              <motion.h2 
-              className='text-2xl font-bold mb-4 text-dblue'
-              initial={{ y: 48, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ ease: "easeInOut", duration: 0.75 }}>
-                Защо избрахме да подкрепим филма
-                </motion.h2>
-  
-                <motion.p       
-                  initial={{ y: 32, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  transition={{ ease: "easeInOut", duration: 0.75 }}
-                  className="">
-                    АОНК застава зад проекта Чистота или смърт, като част от социалната и дейност. За компаниите-членове на АОНК, повдигането на вниманието върху реалните причини за зависимост сред уязвимите лица в обществото, е много важна стъпка. Не само с цел превенция, но и адекватно разбиране на проблема и избягване на популистка употреба.
-              </motion.p>
-  
-              <br />
-              <motion.h2 
-              className='text-2xl font-bold mb-4 text-dblue'
-              initial={{ y: 32, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ ease: "easeInOut", duration: 0.75 }}>
-                История на Асоциацията
-                </motion.h2>
-  
-                <motion.p       
-                  initial={{ y: 32, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  transition={{ ease: "easeInOut", duration: 0.75 }}
-                  className="">
-                    Асоциацията за отговорно небанково кредитиране (АОНК) започва дейността си през 2014 година. Всички членове на АОНК са водещи финансови институции, регулирани от Българска народна банка, които стриктно изпълняват законодателните изисквания. Компаниите в АОНК са обединени от стремежа си да превърнат най-добрите европейски практики в областта на небанковото финансиране в стандарт за сектора, с което потребителите да получават наистина качествени и модерни финансови услуги.
-              </motion.p>
-  
-              <br />
-              <motion.p       
-                  initial={{ y: 32, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  transition={{ ease: "easeInOut", duration: 0.75 }}
-                  className="">
-                    АОНК активно работи с най – уязвимите групи в обществото. АОНК редовно провежда обучения и благотворителни инициативи, които насърчават повишаването на грамотността сред общностите и стимулират отговорното финансово поведение на всички участници в сектора.
-              </motion.p>
-            </>
-          }
-          isMainSponsor={true}
-          className="mb-32 bg-lblue/[0.5] p-8 rounded-xl"
-          link="https://aonk.bg"
-          type="Други"
-        />,
         <div key="solidarnost" ref={solidarnostRef}>
           <PartnerSection
             logo="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/solidarnost-association-BG.png"
@@ -212,7 +159,7 @@ export default function Partners() {
             link="https://www.solidarnost-bg.org/"
             type="Други"
           />
-        </div>
+        </div>,
       );
     }
 
@@ -283,13 +230,13 @@ export default function Partners() {
       </motion.h1>
 
       {/* Add filter buttons */}
-      <div className="flex justify-center mb-8 gap-4">
+      <div className="flex flex-wrap justify-center mb-8 gap-2 sm:gap-4">
         {filterCategories.map((category) => (
           <button
             key={category}
             onClick={() => setCurrentFilter(category)}
-            className={`px-4 py-2 font-bold rounded ${
-              currentFilter === category ? 'bg-purple-600 text-white' : 'bg-gray-200'
+            className={`px-3 py-2 text-sm sm:text-base font-bold rounded mb-2 sm:mb-0 ${
+              currentFilter === category ? 'bg-purple-600 text-white' : 'bg-gray-200 border border-gray-400'
             }`}
           >
             {category}
