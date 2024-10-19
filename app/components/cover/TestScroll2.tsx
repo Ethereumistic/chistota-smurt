@@ -200,8 +200,8 @@ const ParallaxImages = () => {
           animate={{ y: 0 }} // Animate to current position
         >
           <div>
-            <h2 className="text-5xl text-black font-bold mb-2">София</h2>
-            <p className="text-black text-2xl">6 ДЕКЕМВРИ</p>
+            <h2 className="md:text-5xl text-3xl text-black font-bold mb-2">София</h2>
+            <p className="text-black md:text-2xl text-xl">6 ДЕКЕМВРИ</p>
           </div>
         </motion.div>
 
@@ -219,8 +219,8 @@ const ParallaxImages = () => {
           animate={{ y: 0 }} // Animate to current position
         >
           <div>
-            <h2 className="text-5xl text-black font-bold mb-2">Бургас</h2>
-            <p className="text-black text-2xl">12 ДЕКЕМВРИ</p>
+            <h2 className="md:text-5xl text-3xl text-black font-bold mb-2">Бургас</h2>
+            <p className="text-black md:text-2xl text-xl text-nowrap">12 ДЕКЕМВРИ</p>
           </div>
         </motion.div>
 
@@ -273,8 +273,8 @@ const ParallaxImages = () => {
           animate={{ y: 0 }} // Animate to current position
         >
           <div>
-            <h2 className="text-5xl text-black font-bold mb-2">Варна</h2>
-            <p className="text-black text-2xl">13 ДЕКЕМВРИ</p>
+            <h2 className="md:text-5xl text-3xl text-black font-bold mb-2">Варна</h2>
+            <p className="text-black md:text-2xl text-xl text-nowrap">13 ДЕКЕМВРИ</p>
           </div>
         </motion.div>
 
@@ -292,8 +292,8 @@ const ParallaxImages = () => {
           animate={{ y: 0 }} // Animate to current position
         >
           <div>
-            <h2 className="text-5xl text-black font-bold mb-2">Пловдив</h2>
-            <p className="text-black text-2xl">11 ДЕКЕМВРИ</p>
+            <h2 className="md:text-5xl text-3xl text-black font-bold mb-2">Пловдив</h2>
+            <p className="text-black md:text-2xl text-xl text-nowrap">11 ДЕКЕМВРИ</p>
           </div>
         </motion.div>
       </motion.div>

@@ -38,8 +38,8 @@ export default function Home({ params: { lng } }: { params: { lng: string } }) {
       {isMobile && <MobileCover />} */}
       <TestScroll2 />
       </ReactLenis>
-      
-      <ScrollTracker />
+
+      {/* <ScrollTracker /> */}
       <div ref={causeRef}>
         <Cause causeRef={causeRef} />
       </div>
