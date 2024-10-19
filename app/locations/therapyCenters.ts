@@ -275,7 +275,7 @@ export interface TherapyCenter {
           'Подписване на договор от родител.',
           'Тестове: ЕВРО-АСИ, ЛЮШЕР, “КЪЩА, ЧОВЕК, ДЪРВО“, тест на Кетел, тест на Купър.'
         ],
-        mapLink: 'https://maps.app.goo.gl/fQ2hU5hLX3JusFsA7',
+        mapLink: 'https://maps.app.goo.gl/4xk6NsWwtAURwKCA6',
       },
       {
         position: [42.65563493185881, 27.703489626981497], // Approximate coordinates for the address in Несебър, кв. "Черно море"

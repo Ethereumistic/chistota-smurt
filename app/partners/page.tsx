@@ -2,12 +2,16 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import Image from "next/image";
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { ReactLenis } from 'lenis/react'
+import Loader from '../components/ui/Loader';
 
 
-const PartnerSection = ({ logo, description, isMainSponsor, className, link, type }: { logo: string, description: React.ReactNode, isMainSponsor: boolean, className: string, link: string, type: string}) => (
+
+
+const PartnerSection = ({ logo, description, isMainSponsor, className, link, type, isLoading, setIsLoading }: { logo: string, description: React.ReactNode, isMainSponsor: boolean, className: string, link: string, type: string, isLoading: boolean, setIsLoading: (isLoading: boolean) => void}) => (
+  
   <ReactLenis
   root
   options={{
@@ -26,14 +30,40 @@ const PartnerSection = ({ logo, description, isMainSponsor, className, link, typ
       transition={{ type: "spring", stiffness: 300 }}
     >
       <Link href={link} target="_blank" rel="noopener noreferrer">
-      <Image 
+
+      <AnimatePresence>
+        {isLoading && (
+          <motion.div
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="absolute inset-0 flex items-center justify-center"
+          >
+            <Loader />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        <Image 
+          src={logo} 
+          alt="Partner logo" 
+          width={400} 
+          height={200} 
+          style={{ width: "100%", height: "auto" }}
+          className="mx-auto"
+          onLoad={() => setIsLoading(false)}
+        />
+      </AnimatePresence>
+
+      {/* <Image 
         src={logo} 
         alt="Partner logo" 
         width={400} 
         height={200} 
         className="mx-auto" 
         style={{ width: '100%', height: 'auto' }}
-      />
+      /> */}
       </Link>
     </motion.div>
     <motion.div
@@ -56,7 +86,11 @@ const filterCategories = ['Всички', 'Главен Спонсор', 'ПР &
 export default function Partners() {
   const solidarnostRef = useRef<HTMLDivElement | null>(null);
   const [currentFilter, setCurrentFilter] = useState('Всички');
+  const [isLoading, setIsLoading] = useState(true); // Moved to Partners component
 
+  useEffect(() => {
+    setIsLoading(true);
+  }, []); // Added dependency array to useEffect
 
 
   useEffect(() => {
@@ -134,6 +168,8 @@ export default function Partners() {
           className="mb-32 bg-lblue/[0.5] p-8 rounded-xl"
           link="https://aonk.bg"
           type="Други"
+          isLoading={isLoading} // Pass isLoading as prop
+          setIsLoading={setIsLoading} // Pass setIsLoading as prop
         />,
       );
     }
@@ -158,6 +194,8 @@ export default function Partners() {
             className="mb-36 bg-orange-100/[0.5] p-8 rounded-xl"
             link="https://www.solidarnost-bg.org/"
             type="Други"
+            isLoading={isLoading} // Pass isLoading as prop
+            setIsLoading={setIsLoading} // Pass setIsLoading as prop
           />
         </div>,
       );
@@ -187,6 +225,8 @@ export default function Partners() {
           className="mb-36 bg-lblue/[0.5] p-8 rounded-xl"
           link="https://steam.bg/"
           type="ПР & Маркетинг"
+          isLoading={isLoading}
+          setIsLoading={setIsLoading}
         />,
         <PartnerSection
           key="bumbul"
@@ -210,6 +250,8 @@ export default function Partners() {
           className="mb-36 bg-orange-100/[0.5] p-8 rounded-xl"
           link="https://bumbulstudio.bg/"
           type="ПР & Маркетинг"
+          isLoading={isLoading} 
+          setIsLoading={setIsLoading} 
         />
       );
     }
@@ -249,3 +291,4 @@ export default function Partners() {
     </div>
   );
 }
+
