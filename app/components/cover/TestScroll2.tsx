@@ -14,7 +14,7 @@ import Trailer from '@/app/movie/Trailer';
 
 const SECTION_HEIGHT = 1000;
 
-export const TestScroll = () => {
+export const TestScroll2 = () => {
 
   return (
     <div className="">
@@ -138,6 +138,9 @@ const ParallaxImages = () => {
   const [topPosition, setTopPosition] = useState('-45%');
   const [titleScale, setTitleScale] = useState(1); // Add state for title scale
 
+  const [isMobile, setIsMobile] = useState(false);
+
+
 
   useEffect(() => {
     const handleRouteChange = () => {
@@ -163,6 +166,19 @@ const ParallaxImages = () => {
       setTopPosition(window.innerHeight <= 932 ? '-36%' : '-45%');
       setTitleScale(window.innerHeight <= 932 ? 0.7 : 1); // Set scale based on height
     }
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 950);
+    };
+
+    // Initial check
+    handleResize();
+
+    // Add event listener for resize
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   return (
@@ -194,7 +210,7 @@ const ParallaxImages = () => {
           className="absolute w-1/4"
           style={{
             top: '50%', // Exact Y coordinate for Additional Left Title
-            left: '-10%', // Exact X coordinate for Additional Left Title
+            left: isMobile ? '10%' : '-10%', // Adjust position based on screen width
             opacity: additionalElementOpacity,
             scale: sideElementScale,
             y: initialYPosition, // Set initial Y position
@@ -248,7 +264,7 @@ const ParallaxImages = () => {
           className="absolute w-1/4"
           style={{
             top: '50%', // Exact Y coordinate for Additional Right Title
-            right: '-10%', // Exact X coordinate for Additional Right Title
+            right: isMobile ? '10%' : '-10%', // Adjust position based on screen width
             opacity: additionalElementOpacity,
             scale: sideElementScale,
             y: initialYPosition, // Set initial Y position

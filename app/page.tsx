@@ -9,6 +9,7 @@ import WrappedScrollButton from './components/ui/ScrollButton'
 import WrappedShareButton from './components/ui/ShareButton'
 import { ReactLenis } from 'lenis/react'
 import LowerThirdModal from './components/ui/LowerThirdModal'
+import { TestScroll2 } from './components/cover/TestScroll2'
 
 export default function Home({ params: { lng } }: { params: { lng: string } }) {
   const [isMobile, setIsMobile] = useState(false);
@@ -18,6 +19,7 @@ export default function Home({ params: { lng } }: { params: { lng: string } }) {
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 1080);
+      setIsMobile(window.innerHeight > 768);
     };
 
     handleResize(); // Initial check
@@ -32,10 +34,12 @@ export default function Home({ params: { lng } }: { params: { lng: string } }) {
     <div>
       {/* <Cover /> */}
       <ReactLenis root options={{ lerp: 0.05 }}>
-      {!isMobile && <TestScroll />}
-      {isMobile && <MobileCover />}
+      {/* {!isMobile && <TestScroll2 />}
+      {isMobile && <MobileCover />} */}
+      <TestScroll2 />
       </ReactLenis>
-      {/* <TestScroll /> */}
+      
+      <ScrollTracker />
       <div ref={causeRef}>
         <Cause causeRef={causeRef} />
       </div>
