@@ -10,75 +10,55 @@ import Loader from '../components/ui/Loader';
 
 
 
-const PartnerSection = ({ logo, description, isMainSponsor, className, link, type, isLoading, setIsLoading }: { logo: string, description: React.ReactNode, isMainSponsor: boolean, className: string, link: string, type: string, isLoading: boolean, setIsLoading: (isLoading: boolean) => void}) => (
+const PartnerSection = ({ logo, description, isMainSponsor, className, link, type }: { logo: string, description: React.ReactNode, isMainSponsor: boolean, className: string, link: string, type: string }) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   
-  <ReactLenis
-  root
-  options={{
-    lerp: 0.05,
-  }}
->
-  <motion.div
-    className={`flex flex-col w-[90%] cst:w-[80%] mx-auto ${isMainSponsor ? 'md:flex-row' : 'md:flex-row-reverse'} items-center justify-between mb-16 gap-8 ${className}`}
-    initial={{ opacity: 0, y: 50 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5 }}
-  >
-    <motion.div
-      className={`w-full md:w-1/3 ${isMainSponsor ? 'md:mr-8' : 'md:ml-8'}`}
-      whileHover={{ scale: 1.05 }}
-      transition={{ type: "spring", stiffness: 300 }}
-    >
-      <Link href={link} target="_blank" rel="noopener noreferrer">
 
-      <AnimatePresence>
-        {isLoading && (
-          <motion.div
-            initial={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="absolute inset-0 flex items-center justify-center"
-          >
-            <Loader />
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      <AnimatePresence>
-        <Image 
-          src={logo} 
-          alt="Partner logo" 
-          width={400} 
-          height={200} 
-          style={{ width: "100%", height: "auto" }}
-          className="mx-auto"
-          onLoad={() => setIsLoading(false)}
-        />
-      </AnimatePresence>
-
-      {/* <Image 
-        src={logo} 
-        alt="Partner logo" 
-        width={400} 
-        height={200} 
-        className="mx-auto" 
-        style={{ width: '100%', height: 'auto' }}
-      /> */}
-      </Link>
-    </motion.div>
-    <motion.div
-      className="w-full md:w-2/3"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 0.3, duration: 0.5 }}
-    >
-      <p className={`text-black font-montserrat  ${isMainSponsor ? 'text-lg' : 'text-base'}`}>
-        {description}
-      </p>
-    </motion.div>
-  </motion.div>
- </ReactLenis>
-);
+  return (
+    <ReactLenis root options={{ lerp: 0.05 }}>
+      <motion.div
+        className={`flex flex-col w-[90%] cst:w-[80%] mx-auto ${isMainSponsor ? 'md:flex-row' : 'md:flex-row-reverse'} items-center justify-between mb-16 gap-8 ${className}`}
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <motion.div
+          className={`w-full md:w-1/3 ${isMainSponsor ? 'md:mr-8' : 'md:ml-8'} relative`}
+          whileHover={{ scale: 1.05 }}
+          transition={{ type: "spring", stiffness: 300 }}
+        >
+          <Link href={link} target="_blank" rel="noopener noreferrer">
+            {!imageLoaded && (
+              <div className="absolute inset-0 flex items-center justify-center">
+                <Loader />
+              </div>
+            )}
+            <Image 
+              src={logo} 
+              alt="Partner logo" 
+              width={400} 
+              height={200} 
+              className={`mx-auto ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+              style={{ width: '100%', height: 'auto' }}
+              onLoad={() => setImageLoaded(true)}
+            />
+          </Link>
+        </motion.div>
+        <motion.div
+          className="w-full md:w-2/3"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3, duration: 0.5 }}
+        >
+          <p className={`text-black font-montserrat ${isMainSponsor ? 'text-lg' : 'text-base'}`}>
+            {description}
+          </p>
+        </motion.div>
+      </motion.div>
+    </ReactLenis>
+  );
+};
 
 const filterCategories = ['Всички', 'Главен Спонсор', 'ПР & Маркетинг', 'Бюрократщина', 'Sailors', 'Други'];
 
@@ -168,8 +148,7 @@ export default function Partners() {
           className="mb-32 bg-lblue/[0.5] p-8 rounded-xl"
           link="https://aonk.bg"
           type="Други"
-          isLoading={isLoading} // Pass isLoading as prop
-          setIsLoading={setIsLoading} // Pass setIsLoading as prop
+
         />,
       );
     }
@@ -194,8 +173,7 @@ export default function Partners() {
             className="mb-36 bg-orange-100/[0.5] p-8 rounded-xl"
             link="https://www.solidarnost-bg.org/"
             type="Други"
-            isLoading={isLoading} // Pass isLoading as prop
-            setIsLoading={setIsLoading} // Pass setIsLoading as prop
+
           />
         </div>,
       );
@@ -225,8 +203,7 @@ export default function Partners() {
           className="mb-36 bg-lblue/[0.5] p-8 rounded-xl"
           link="https://steam.bg/"
           type="ПР & Маркетинг"
-          isLoading={isLoading}
-          setIsLoading={setIsLoading}
+
         />,
         <PartnerSection
           key="bumbul"
@@ -250,8 +227,7 @@ export default function Partners() {
           className="mb-36 bg-orange-100/[0.5] p-8 rounded-xl"
           link="https://bumbulstudio.bg/"
           type="ПР & Маркетинг"
-          isLoading={isLoading} 
-          setIsLoading={setIsLoading} 
+
         />
       );
     }
