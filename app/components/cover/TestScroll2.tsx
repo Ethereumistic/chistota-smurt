@@ -28,9 +28,9 @@ export const TestScroll2 = () => {
 
 
         <div className="bg-gradient-to-t from-black/0 to-black/[0.5] w-full h-12"></div>
-          <p className="text-2xl max-w-2xl mx-auto font-montserrat text-black my-8 text-center fallback-title">
+          {/* <p className="text-2xl max-w-2xl mx-auto font-montserrat text-black my-8 text-center fallback-title">
             История за живота и пътя на шестима резиденти в терапевтична общност за зависими в България. Въпреки че много хора са чували за такива общности, малцина знаят как всъщност изглеждат и какво се случва в тях.
-          </p>
+          </p> */}
 
         <Trailer />
 
@@ -102,12 +102,12 @@ const ParallaxImages = () => {
   );
   const sideElementOpacity = useTransform(
       scrollY,
-      [0, 1000],
+      [0, 500],
       [0, 1]
   );
   const additionalElementOpacity = useTransform(
       scrollY,
-      [0, 1000],
+      [0, 500],
       [0, 1]
   );
   const sideElementScale = useTransform(
@@ -163,7 +163,7 @@ const ParallaxImages = () => {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      setTopPosition(window.innerHeight <= 932 ? '-36%' : '-45%');
+      setTopPosition(window.innerHeight <= 932 ? '-33%' : '-36%');
       setTitleScale(window.innerHeight <= 932 ? 0.7 : 1); // Set scale based on height
     }
   }, []);
@@ -183,15 +183,15 @@ const ParallaxImages = () => {
 
   return (
       <motion.div 
-        className="mx-auto max-w-3xl xl:max-w-5xl px-4 pt-[0px] sticky top-0 h-screen flex items-end"
+        className="mx-auto max-w-3xl xl:max-w-5xl px-4 pt-[0px] sticky top-0 h-screen flex items-end "
         style={{ height: centerImageHeight }}
       >
         {/* Left Title */}
         <motion.div
           className="absolute w-1/4"
           style={{
-            top: '30%', // Exact Y coordinate for Left Title
-            left: '15%', // Exact X coordinate for Left Title
+            top: isMobile ? '10%' : '30%', // Exact Y coordinate for Left Title
+            left: isMobile ? '15%' : '10%', // Adjust position based on screen width
             opacity: sideElementOpacity,
             scale: sideElementScale,
             y: initialYPosition, // Set initial Y position
@@ -209,8 +209,8 @@ const ParallaxImages = () => {
         <motion.div
           className="absolute w-1/4"
           style={{
-            top: '50%', // Exact Y coordinate for Additional Left Title
-            left: isMobile ? '10%' : '-10%', // Adjust position based on screen width
+            top: isMobile ? '40%' : '50%', // Exact Y coordinate for Additional Left Title
+            left: isMobile ? '15%' : '-10%', // Adjust position based on screen width
             opacity: additionalElementOpacity,
             scale: sideElementScale,
             y: initialYPosition, // Set initial Y position
@@ -226,7 +226,7 @@ const ParallaxImages = () => {
 
         {/* Centered Title */}
         <motion.div
-          className="absolute w-full text-center "
+          className="absolute w-full text-center"
           style={{
             top: topPosition,
             left: '0%',
@@ -254,7 +254,7 @@ const ParallaxImages = () => {
           start={0}
           end={0}
           stopAt={2000}
-          initialScale={1.2}
+          initialScale={1}
           finalScale={0.3}
           className="w-full"
         />
@@ -263,8 +263,8 @@ const ParallaxImages = () => {
         <motion.div
           className="absolute w-1/4"
           style={{
-            top: '50%', // Exact Y coordinate for Additional Right Title
-            right: isMobile ? '10%' : '-10%', // Adjust position based on screen width
+            top: isMobile ? '55%' : '50%', // Exact Y coordinate for Additional Right Title
+            right: isMobile ? '15%' : '-10%', // Adjust position based on screen width
             opacity: additionalElementOpacity,
             scale: sideElementScale,
             y: initialYPosition, // Set initial Y position
@@ -282,8 +282,8 @@ const ParallaxImages = () => {
         <motion.div
           className="absolute w-1/4"
           style={{
-            top: '30%', // Exact Y coordinate for Right Title
-            right: '15%', // Exact X coordinate for Right Title
+            top: isMobile ? '25%' : '30%', // Exact Y coordinate for Right Title
+            right: isMobile ? '15%' : '10%', // Adjust position based on screen width
             opacity: sideElementOpacity,
             scale: sideElementScale,
             y: initialYPosition, // Set initial Y position

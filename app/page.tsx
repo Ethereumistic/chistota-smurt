@@ -31,7 +31,7 @@ export default function Home({ params: { lng } }: { params: { lng: string } }) {
   }, []);
 
   return (
-    <div>
+    <div >
       {/* <Cover /> */}
       <ReactLenis root options={{ lerp: 0.05 }}>
       {/* {!isMobile && <TestScroll2 />}
