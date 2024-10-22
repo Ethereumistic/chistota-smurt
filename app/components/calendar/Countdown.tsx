@@ -141,7 +141,7 @@ const Schedule = ({ endDates, scheduleInfo }: { endDates: DateTime[], scheduleIn
         initial={{ y: 48, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ ease: "easeInOut", duration: 0.75 }}
-        className="my-20 text-4xl text-center font-black uppercase text-black"
+        className="my-20 text-5xl text-center font-black uppercase text-black"
       >
         ПРЕМИЕРИ
       </motion.h1>

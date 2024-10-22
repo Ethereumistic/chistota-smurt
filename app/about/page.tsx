@@ -3,6 +3,7 @@ import { getPosts } from './getPosts'
 import Link from 'next/link'
 import AboutUs from './AboutUs';
 import dynamic from 'next/dynamic'
+import AboutMov from './AboutMov';
 
 const ReactLenis = dynamic(() => import('lenis/react').then((mod) => mod.ReactLenis), {
   ssr: false
@@ -24,13 +25,14 @@ export default async function About() {
       lerp: 0.05,
     }}
   >
-    <div className='mt-32'>
+    <div className='mt-8'>
+      <AboutMov />
       <AboutUs />
-      <h1 className="text-5xl px-4 text-black font-bold text-center mb-12">Историята на Филма</h1>
+      <h1 className="text-5xl px-4 text-black uppercase font-bold text-center mb-12">Блог</h1>
       <div className="w-full mx-auto  pb-4 flex justify-center items-center">
 
         {/* Flex Layout */}
-        <div className="flex flex-wrap justify-center max-w-6xl bg-gradient-to-b from-orange-100/[0.5] to-transparent mx-auto rounded-xl">
+        <div className="flex flex-wrap justify-center max-w-[90%] sm:max-w-6xl bg-transparent mx-4 rounded-xl">
         {sortedPosts.map((post) => (
             <Link
               href={`/about/${post.slug.current}`}

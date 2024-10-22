@@ -188,9 +188,15 @@ function Navbar({
                     </Link>
           </div>
       <div className="flex justify-center items-center space-x-4">
+      <Link href="https://www.facebook.com/chistotailismurt" target='_blank'>
       <IconBrandFacebook className="3xl:size-10 2xl:size-9 xl:size-8 lg:size-7 size-6  hover:scale-110 transition-all duration-300 drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]" />
+      </Link>
+      <Link href="https://www.instagram.com/chistotailismurt/" target='_blank'>
       <IconBrandInstagram className="3xl:size-10 2xl:size-9 xl:size-8 lg:size-7 size-6 text-instagram hover:scale-110 transition-all duration-300 drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]" />
+      </Link>
+      <Link href="https://www.youtube.com/@dbproductionsbg" target='_blank'>
       <IconBrandYoutube className="3xl:size-10 2xl:size-9 xl:size-8 lg:size-7 size-6  hover:scale-110 transition-all duration-300 drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]" />
+      </Link>
       </div>
 
     <div className="flex justify-center text-center font-montserrat p-2  hover:scale-105 transition-all duration-300 ">
@@ -266,12 +272,12 @@ function Navbar({
     </div>
   ) : (
     <>
-      <div className="flex-1 flex font-montserrat font-extrabold justify-center">
+      <div className="flex-0 flex font-montserrat font-extrabold justify-center">
 
       </div>
 
       
-      <div className="flex items-center space-x-1 lg:space-x-1 xl:space-x-2 2xl:space-x-3 3xl:space-x-6 mx-4">
+      <div className="flex items-center space-x-[0.2] lg:space-x-[0.3] xl:space-x-0.5 2xl:space-x-1 3xl:space-x-2 mx-4">
           <TherapyButton className=""  />
           <PartnersButton className="" />
 

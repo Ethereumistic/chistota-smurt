@@ -8,9 +8,9 @@ import { BuyButton, BuyButton2, TicketsButton } from '../ui/BuyButton';
 import Link from 'next/link';
 import Image from 'next/image';
 const socialIcons = [
-  { name: 'Facebook', icon: IconBrandFacebook },
-  { name: 'Instagram', icon: IconBrandInstagram },
-  { name: 'Youtube', icon: IconBrandYoutube },
+  { name: 'Facebook', icon: IconBrandFacebook, href: 'https://www.facebook.com/chistotailismurt' },
+  { name: 'Instagram', icon: IconBrandInstagram, href: 'https://www.instagram.com/chistotailismurt/' },
+  { name: 'Youtube', icon: IconBrandYoutube, href: 'https://www.youtube.com/@dbproductionsbg' },
 ];
 
 
@@ -72,10 +72,10 @@ const Footer: React.FC = () => {
             {socialIcons.map((social) => (
               <motion.li key={social.name} whileHover={{ scale: 1.2, rotate: 5 }}>
                 <Link
-                  href="#"
+                  href={social.href}
                   rel="noreferrer"
                   target="_blank"
-                  className="text-gray-700 transition hover:opacity-75 space-x-4"
+                  className="text-gray-900 transition hover:opacity-75 space-x-4"
                 >
                   <span className="sr-only">{social.name}</span>
                   <social.icon className="size-14 mb-4" />
@@ -89,7 +89,7 @@ const Footer: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, staggerChildren: 0.1 }}
-            className="flex flex-wrap justify-between text-gray-500 gap-4 text-xs mt-4"
+            className="flex flex-wrap justify-between text-gray-700 gap-4 text-xs mt-4"
           >
             {/* <div>
                 Created by EchoRay

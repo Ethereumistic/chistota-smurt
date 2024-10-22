@@ -13,10 +13,10 @@ const AboutUs = () => {
   });
 
   return (
-    <div ref={containerRef} className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 text-black">
+    <div ref={containerRef} className="min-h-screen mb-8 py-12 px-4 sm:px-6 lg:px-8 text-black overflow-x-hidden">
       <div className="max-w-7xl mx-auto">
         <motion.h1 
-          className="text-5xl font-bold text-center mb-16"
+          className="text-5xl font-black text-center mb-16 font-montserrat uppercase"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -33,7 +33,7 @@ const AboutUs = () => {
         alt="dbProductions Logo" 
         width={400} 
         height={200} 
-        className="mx-auto my-8 transition-all duration-300 hover:scale-105" 
+        className="mx-auto my-4 transition-all duration-300 hover:scale-105" 
       />
       </Link>
         <motion.div 

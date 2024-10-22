@@ -170,12 +170,12 @@ export const AboutButton: React.FC<{ href?: string; className?: string; onClick?
   onClick={onClick}
 >
   <span className="absolute -start-full transition-all group-hover:start-4">
-  <IconUsers className="3xl:size-7 2xl:size-6 xl:size-6 lg:size-5 size-7  text-white drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]" />
+  <IconMovie className="3xl:size-7 2xl:size-6 xl:size-6 lg:size-5 size-7  text-white drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]" />
   </span>
 
   <span className="text-lg lg:text-xs xl:text-sm 2xl:text-base 3xl:text-lg 
   text-nowrap font-extrabold transition-all 
-  3xl:group-hover:ms-4 2xl:group-hover:ms-5 xl:group-hover:ms-8 lg:group-hover:ms-10 group-hover:ms-4  drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]">ЗА НАС</span>
+  3xl:group-hover:ms-4 2xl:group-hover:ms-5 xl:group-hover:ms-8 lg:group-hover:ms-10 group-hover:ms-4  drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]">ЗА ФИЛМА</span>
 </Link>
   );
 };

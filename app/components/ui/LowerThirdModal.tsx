@@ -28,7 +28,7 @@ const LowerThirdModal: React.FC<LowerThirdModalProps> = ({ onClose }) => {
       <div className="fixed inset-x-0 bottom-12 z-50 pb-4 px-4 sm:px-6 lg:px-8 lower-third-modal">
         <div className="bg-white rounded-lg shadow-lg p-6 max-w-lg mx-auto">
           <div className="flex justify-between items-center mb-4">
-            <h2 className="text-xl font-bold text-black">Get Your Tickets Now!</h2>
+            <h2 className="text-xl font-bold text-black">Купете билет за филма!</h2>
             <button
               onClick={handleClose}
               className="text-gray-400 hover:text-gray-600"
@@ -39,7 +39,7 @@ const LowerThirdModal: React.FC<LowerThirdModalProps> = ({ onClose }) => {
               </svg>
             </button>
           </div>
-          <p className="mb-4 text-black">Don&lsquo;t miss out on this amazing event. Get your tickets now!</p>
+          <p className="mb-4 text-black">Не пропускайте премиерата на филма &quot;Чистота или Смърт&quot;.</p>
           <div className="mx-auto justify-center items-center flex">
           <TicketsButton className=" mx-auto" />
           </div>
