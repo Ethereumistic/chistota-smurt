@@ -9,7 +9,7 @@ export function MobileCoverT() {
 
 
   return (
-    <div>
+    <div className="mt-24">
     <div className="relative h-screen overflow-hidden">
       <Image 
         src={bg} 
