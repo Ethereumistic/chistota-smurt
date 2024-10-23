@@ -74,7 +74,7 @@ const Countdown = (): ReactElement | null => {
   const scheduleInfo = [
     { title: "София", location: "Кино Люмиер", link: "https://www.google.com/maps?q=Кино+Люмиер"},
     { title: "Пловдив", location: "Кино Лъки", link: "https://www.google.com/maps?q=Кино+Лъки"},
-    { title: "Бургас", location: "Ne se znae", link: "https://www.google.com/maps?q=Ne+se+znae"},
+    { title: "Бургас", location: "зала Черноморие на Конгресен център Бургас", link: "https://www.google.com/maps?q=зала+&quot;Черноморие&quot;+на+Конгресен+център+Бургас"},
     { title: "Варна", location: "Зала Европа ФКЦ Варна", link: "https://www.google.com/maps?q=Зала+Европа+ФКЦ+Варна"},
 ];;
 

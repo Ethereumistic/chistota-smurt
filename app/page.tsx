@@ -39,7 +39,7 @@ export default function Home() {
       {isMobile && <MobileCover2 />}
       </ReactLenis>
 
-      <ScrollTracker />
+      {/* <ScrollTracker /> */}
       <div ref={causeRef}>
         <Cause causeRef={causeRef} />
       </div>
