@@ -75,7 +75,7 @@ const Footer: React.FC = () => {
                   href={social.href}
                   rel="noreferrer"
                   target="_blank"
-                  className="text-gray-900 transition hover:opacity-75 space-x-4"
+                  className="text-gray-900 transition hover:opacity-80 space-x-4"
                 >
                   <span className="sr-only">{social.name}</span>
                   <social.icon className="size-14 mb-4" />
@@ -89,7 +89,7 @@ const Footer: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, staggerChildren: 0.1 }}
-            className="flex flex-wrap justify-between text-gray-700 gap-4 text-xs mt-4"
+            className="flex flex-wrap justify-between text-black gap-4 text-xs mt-4"
           >
             {/* <div>
                 Created by EchoRay

@@ -6,9 +6,23 @@ import React, { useRef } from "react";
 import Countdown from '../calendar/Countdown';
 import Trailer from '@/app/movie/Trailer';
 
-const SECTION_HEIGHT = 800; // Adjusted for mobile
+const SECTION_HEIGHT = window.innerWidth < 660 ? 0 : 
+  (keyframes => {
+    if (keyframes) {
+      return keyframes[0].height; // Use the first keyframe height as default
+    }
+    return 800; // Fallback height
+  })([
+    { width: 1080, height: 800 },
+    { width: 1020, height: 400 },
+    { width: 960, height: 200 },
+    { width: 900, height: 100 },
+    { width: 830, height: 0 },
+    { width: 763, height: -100 },
+    { width: 700, height: -150 },
+  ]);
 
-export function MobileCover() {
+export function MobileCover2() {
   return (
     <div className="">
         {/* <ReactLenis root options={{ lerp: 0.05 }}> */}
@@ -32,7 +46,7 @@ const MobileHero = () => {
 
   return (
     <div
-      style={{ height: `calc(${dynamicSectionHeight}px + 100vh)` }}
+      style={{ height: `calc(${dynamicSectionHeight}px + 50vh)` }}
       className="relative w-full"
     >
       <MobileCenterImage />
@@ -72,7 +86,7 @@ const MobileParallaxImages = () => {
   
   const centerImageHeight = useTransform(
     scrollY,
-    [0, SECTION_HEIGHT],
+    [300, SECTION_HEIGHT],
     [SECTION_HEIGHT, SECTION_HEIGHT]
   );
 
