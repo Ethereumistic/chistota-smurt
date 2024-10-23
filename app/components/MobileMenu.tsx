@@ -37,12 +37,12 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
             <nav className="flex flex-col space-y-4 text-center ">
   <div className="space-y-16 mb-10">
     <div className="flex flex-col justify-center items-center text-center space-y-10 w-full">
-        <TicketsButton className="w-[95%] justify-center" onClick={onClose} />
-        <TherapyButton className="w-[95%] justify-center" onClick={onClose}  />
+        <TicketsButton className="w-[65%] justify-center" onClick={onClose} />
+        <TherapyButton className="w-[65%] justify-center" onClick={onClose}  />
     {/* </div>
     <div className="space-y-8 mb-10"> */}
-        <PartnersButton className="w-[95%] justify-center" onClick={onClose} />
-        <AboutButton className="w-[95%] justify-center" onClick={onClose} />
+        <PartnersButton className="w-[65%] justify-center" onClick={onClose} />
+        <AboutButton className="w-[65%] justify-center" onClick={onClose} />
     </div>
 
 
