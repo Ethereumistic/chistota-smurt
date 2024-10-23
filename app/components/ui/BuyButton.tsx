@@ -151,7 +151,6 @@ export const TherapyButton2: React.FC<{ href?: string; className?: string; onCli
 
   <span className="text-sm lg:text-xs xl:text-sm 2xl:text-base 3xl:text-lg 
   text-nowrap font-extrabold transition-all 
-  3xl:group-hover:ms-4 2xl:group-hover:ms-5 xl:group-hover:ms-8 lg:group-hover:ms-10 group-hover:ms-0 
   drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]">ТЕРАПЕВТИЧНИ ЦЕНТРОВЕ</span>
 </Link>
   );

@@ -21,7 +21,7 @@ export default function Home() {
   useEffect(() => {
     const handleResize = () => {
       // Update logic to check width and height
-      setIsMobile(window.innerWidth < 1080 || window.innerHeight < 780);
+      setIsMobile(window.innerWidth < 1080 || window.innerHeight < 767);
     };
 
     handleResize(); // Initial check
@@ -40,7 +40,7 @@ export default function Home() {
       {isMobile && <MobileCoverT /> }
       </ReactLenis>
 
-      {/* <ScrollTracker /> */}
+      <ScrollTracker />
       <div ref={causeRef}>
         <Cause causeRef={causeRef} />
       </div>
