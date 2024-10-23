@@ -163,8 +163,8 @@ const ParallaxImages = () => {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      setTopPosition(window.innerHeight <= 899 ? '-24%' : '-36%');
-      setTitleScale(window.innerHeight <= 899 ? 0.7 : 1); // Set scale based on height
+      setTopPosition(window.innerHeight <= 899 ? '-30%' : '-36%');
+      setTitleScale(window.innerHeight <= 899 ? 0.7 : 1);
     }
   }, []);
 
