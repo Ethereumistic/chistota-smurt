@@ -2,25 +2,11 @@
 
 import { motion, useScroll, useTransform, useMotionTemplate } from 'framer-motion';
 import ReactLenis from 'lenis/react';
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Countdown from '../calendar/Countdown';
 import Trailer from '@/app/movie/Trailer';
 
-const SECTION_HEIGHT = window.innerWidth < 660 ? 0 : 
-  (keyframes => {
-    if (keyframes) {
-      return keyframes[0].height; // Use the first keyframe height as default
-    }
-    return 800; // Fallback height
-  })([
-    { width: 1080, height: 800 },
-    { width: 1020, height: 400 },
-    { width: 960, height: 200 },
-    { width: 900, height: 100 },
-    { width: 830, height: 0 },
-    { width: 763, height: -100 },
-    { width: 700, height: -150 },
-  ]);
+
 
 export function MobileCover2() {
   return (
@@ -37,11 +23,40 @@ export function MobileCover2() {
 
 const MobileHero = () => {
   const { scrollY } = useScroll();
+  const [sectionHeight, setSectionHeight] = useState(800); // Default height
+
+  useEffect(() => {
+    const updateSectionHeight = () => {
+      const height = window.innerWidth < 660 ? 0 : 
+        (keyframes => {
+          if (keyframes) {
+            return keyframes[0].height; // Use the first keyframe height as default
+          }
+          return 800; // Fallback height
+        })([
+          { width: 1080, height: 800 },
+          { width: 1020, height: 400 },
+          { width: 960, height: 200 },
+          { width: 900, height: 100 },
+          { width: 830, height: 0 },
+          { width: 763, height: -100 },
+          { width: 700, height: -150 },
+        ]);
+      setSectionHeight(height);
+    };
+
+    updateSectionHeight(); // Set initial height
+    window.addEventListener('resize', updateSectionHeight); // Update on resize
+
+    return () => {
+      window.removeEventListener('resize', updateSectionHeight); // Cleanup
+    };
+  }, []);
   
   const dynamicSectionHeight = useTransform(
     scrollY,
-    [0, SECTION_HEIGHT + 800],
-    [SECTION_HEIGHT, SECTION_HEIGHT + 800]
+    [0, sectionHeight + 800], // Updated to use sectionHeight state
+    [sectionHeight, sectionHeight + 800] // Updated to use sectionHeight state
   );
 
   return (
@@ -83,11 +98,41 @@ const MobileCenterImage = () => {
 
 const MobileParallaxImages = () => {
   const { scrollY } = useScroll();
+
+  const [sectionHeight, setSectionHeight] = useState(800); // Default height
+
+  useEffect(() => {
+    const updateSectionHeight = () => {
+      const height = window.innerWidth < 660 ? 0 : 
+        (keyframes => {
+          if (keyframes) {
+            return keyframes[0].height; // Use the first keyframe height as default
+          }
+          return 800; // Fallback height
+        })([
+          { width: 1080, height: 800 },
+          { width: 1020, height: 400 },
+          { width: 960, height: 200 },
+          { width: 900, height: 100 },
+          { width: 830, height: 0 },
+          { width: 763, height: -100 },
+          { width: 700, height: -150 },
+        ]);
+      setSectionHeight(height);
+    };
+
+    updateSectionHeight(); // Set initial height
+    window.addEventListener('resize', updateSectionHeight); // Update on resize
+
+    return () => {
+      window.removeEventListener('resize', updateSectionHeight); // Cleanup
+    };
+  }, []);
   
   const centerImageHeight = useTransform(
     scrollY,
-    [300, SECTION_HEIGHT],
-    [SECTION_HEIGHT, SECTION_HEIGHT]
+    [0, sectionHeight + 800], // Updated to use sectionHeight state
+    [sectionHeight, sectionHeight + 800] // Updated to use sectionHeight state
   );
 
   return (
