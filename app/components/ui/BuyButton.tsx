@@ -137,6 +137,27 @@ export const TherapyButton: React.FC<{ href?: string; className?: string; onClic
   );
 };
 
+export const TherapyButton2: React.FC<{ href?: string; className?: string; onClick?: () => void; }> = ({ href, className, onClick }) => {
+
+  return (
+<Link
+  className={`group relative inline-flex items-center 
+    overflow-hidden rounded border-[3px] border-white 
+    3xl:px-8 3xl:py-3 2xl:px-6 2xl:py-2 xl:px-4 xl:py-2 lg:px-3 lg:py-2 px-8 py-3 text-white focus:outline-none  ${className}`}
+  href={href || "/locations"}
+  onClick={onClick}
+>
+
+
+  <span className="text-sm lg:text-xs xl:text-sm 2xl:text-base 3xl:text-lg 
+  text-nowrap font-extrabold transition-all 
+  3xl:group-hover:ms-4 2xl:group-hover:ms-5 xl:group-hover:ms-8 lg:group-hover:ms-10 group-hover:ms-0 
+  drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]">ТЕРАПЕВТИЧНИ ЦЕНТРОВЕ</span>
+</Link>
+  );
+};
+
+
 
 
 export const PartnersButton: React.FC<{ href?: string; className?: string; onClick?: () => void; }> = ({ href, className, onClick }) => {

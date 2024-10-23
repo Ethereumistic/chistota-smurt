@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 
 import Image from "next/image";
-import { AboutButton, PartnersButton, TherapyButton, TicketsButton } from "./ui/BuyButton";
+import { AboutButton, PartnersButton, TherapyButton, TherapyButton2, TicketsButton } from "./ui/BuyButton";
 import { useState } from "react";
 import Loader from "./ui/Loader";
 
@@ -38,7 +38,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
   <div className="space-y-16 mb-10">
     <div className="flex flex-col justify-center items-center text-center space-y-10 w-full">
         <TicketsButton className="w-[65%] justify-center" onClick={onClose} />
-        <TherapyButton className="w-[65%] justify-center" onClick={onClose}  />
+        <TherapyButton2 className="w-[65%] justify-center" onClick={onClose}  />
     {/* </div>
     <div className="space-y-8 mb-10"> */}
         <PartnersButton className="w-[65%] justify-center" onClick={onClose} />
