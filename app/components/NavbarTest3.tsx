@@ -234,6 +234,8 @@ function Navbar({
         typeof window !== 'undefined' && window.innerWidth >= 1780 ? 0.4 :  // 3xl
         typeof window !== 'undefined' && window.innerWidth >= 1536 ? 0.3 :  // 2xl
         typeof window !== 'undefined' && window.innerWidth >= 1280 ? 0.3 :  // xl
+        typeof window !== 'undefined' && window.innerWidth <= 380 ? 0.1 :  // lg
+
           0.2,  // lg
 
   }} 
