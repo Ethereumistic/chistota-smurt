@@ -163,23 +163,14 @@ const ParallaxImages = () => {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      setTopPosition(window.innerHeight <= 932 ? '-33%' : '-36%');
+      setTopPosition(window.innerHeight <= 932 ? '-24%' : '-36%');
       setTitleScale(window.innerHeight <= 932 ? 0.7 : 1); // Set scale based on height
     }
   }, []);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 950);
-    };
 
-    // Initial check
-    handleResize();
 
-    // Add event listener for resize
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+
 
   return (
       <motion.div 
@@ -190,8 +181,8 @@ const ParallaxImages = () => {
         <motion.div
           className="absolute w-1/4"
           style={{
-            top: isMobile ? '10%' : '30%', // Exact Y coordinate for Left Title
-            left: isMobile ? '15%' : '10%', // Adjust position based on screen width
+            top:'30%', // Exact Y coordinate for Left Title
+            left:'10%', // Adjust position based on screen width
             opacity: sideElementOpacity,
             scale: sideElementScale,
             y: initialYPosition, // Set initial Y position
@@ -209,8 +200,8 @@ const ParallaxImages = () => {
         <motion.div
           className="absolute w-1/4"
           style={{
-            top: isMobile ? '40%' : '50%', // Exact Y coordinate for Additional Left Title
-            left: isMobile ? '15%' : '-10%', // Adjust position based on screen width
+            top:'50%', // Exact Y coordinate for Additional Left Title
+            left:'-10%', // Adjust position based on screen width
             opacity: additionalElementOpacity,
             scale: sideElementScale,
             y: initialYPosition, // Set initial Y position
@@ -263,8 +254,8 @@ const ParallaxImages = () => {
         <motion.div
           className="absolute w-1/4"
           style={{
-            top: isMobile ? '55%' : '50%', // Exact Y coordinate for Additional Right Title
-            right: isMobile ? '15%' : '-10%', // Adjust position based on screen width
+            top:'50%', // Exact Y coordinate for Additional Right Title
+            right:'-10%', // Adjust position based on screen width
             opacity: additionalElementOpacity,
             scale: sideElementScale,
             y: initialYPosition, // Set initial Y position
@@ -282,8 +273,8 @@ const ParallaxImages = () => {
         <motion.div
           className="absolute w-1/4"
           style={{
-            top: isMobile ? '25%' : '30%', // Exact Y coordinate for Right Title
-            right: isMobile ? '15%' : '10%', // Adjust position based on screen width
+            top:'30%', // Exact Y coordinate for Right Title
+            right:'10%', // Adjust position based on screen width
             opacity: sideElementOpacity,
             scale: sideElementScale,
             y: initialYPosition, // Set initial Y position

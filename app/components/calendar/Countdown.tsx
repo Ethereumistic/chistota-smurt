@@ -74,7 +74,7 @@ const Countdown = (): ReactElement | null => {
   const scheduleInfo = [
     { title: "София", location: "Кино Люмиер", link: "https://www.google.com/maps?q=Кино+Люмиер"},
     { title: "Пловдив", location: "Кино Лъки", link: "https://www.google.com/maps?q=Кино+Лъки"},
-    { title: "Бургас", location: "зала Черноморие на Конгресен център Бургас", link: "https://www.google.com/maps?q=зала+&quot;Черноморие&quot;+на+Конгресен+център+Бургас"},
+    { title: "Бургас", location: "Конгресен център Бургас, зала Черноморие", link: "https://www.google.com/maps?q=зала+&quot;Черноморие&quot;+на+Конгресен+център+Бургас"},
     { title: "Варна", location: "Зала Европа ФКЦ Варна", link: "https://www.google.com/maps?q=Зала+Европа+ФКЦ+Варна"},
 ];;
 
@@ -191,8 +191,8 @@ const ScheduleItem = ({
   </div>
 </Link>
 
-        <Link href={link} target="_blank" className='hover-highlight-link'>
-      <div className="hover-highlight-container flex items-center gap-1.5 text-end text-base uppercase text-black hover:scale-125 transition-all duration-700">
+        <Link href={link} target="_blank" className=''>
+      <div className=" flex items-center gap-1.5 text-end text-base uppercase  text-black hover:scale-110 transition-all duration-700">
           <p>{location}</p>
           <IconMapPin />
       </div>

@@ -38,7 +38,6 @@ export default function Home() {
       <ReactLenis root options={{ lerp: 0.05 }}>
       {!isMobile && <TestScroll2 />}
       {isMobile && <MobileCoverT /> }
-      <div className="bg-gradient-to-t from-black/0 to-black/[0.5] w-full h-12"></div>
       </ReactLenis>
 
       {/* <ScrollTracker /> */}
