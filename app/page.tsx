@@ -11,6 +11,7 @@ import { ReactLenis } from 'lenis/react'
 import LowerThirdModal from './components/ui/LowerThirdModal'
 import { TestScroll2 } from './components/cover/TestScroll2'
 import { MobileCover2 } from './components/cover/MobileCover2'
+import { MobileCoverT } from './components/cover/MobileCoverT'
 
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
@@ -36,10 +37,11 @@ export default function Home() {
       {/* <Cover /> */}
       <ReactLenis root options={{ lerp: 0.05 }}>
       {!isMobile && <TestScroll2 />}
-      {isMobile && <MobileCover2 />}
+      {isMobile && <MobileCoverT /> }
+      <div className="bg-gradient-to-t from-black/0 to-black/[0.5] w-full h-12"></div>
       </ReactLenis>
 
-      {/* <ScrollTracker /> */}
+      <ScrollTracker />
       <div ref={causeRef}>
         <Cause causeRef={causeRef} />
       </div>
