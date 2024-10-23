@@ -41,7 +41,7 @@ export default function Home() {
       <div className="bg-gradient-to-t from-black/0 to-black/[0.5] w-full h-12"></div>
       </ReactLenis>
 
-      <ScrollTracker />
+      {/* <ScrollTracker /> */}
       <div ref={causeRef}>
         <Cause causeRef={causeRef} />
       </div>
