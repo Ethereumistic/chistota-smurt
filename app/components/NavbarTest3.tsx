@@ -209,7 +209,7 @@ function Navbar({
 </div>
   
 {/* Second Section (Logo) */}
-<div className="absolute left-1/2 transform -translate-x-1/2  h-1 w-1"> {/* Center the logo */}
+<div className="absolute left-1/2 transform -translate-x-1/2  h-1 w-1" > {/* Center the logo */}
 <motion.div
   initial={{ 
     x: isHome ? (isMobile ? -100 : 0) : 0, 
@@ -223,9 +223,9 @@ function Navbar({
         ? Math.max(0.5 - (scrollY / 200) * 0.35, 0.35)
         : Math.max(1 - (scrollY / 200) * 0.6, 
         typeof window !== 'undefined' && window.innerWidth >= 1780 ? 0.4 :  // 3xl
-        typeof window !== 'undefined' && window.innerWidth >= 1536 ? 0.3 :  // 2xl
+        typeof window !== 'undefined' && window.innerWidth >= 1536 ? 0.35 :  // 2xl
         typeof window !== 'undefined' && window.innerWidth >= 1280 ? 0.3 :  // xl
-        typeof window !== 'undefined' && window.innerWidth >= 1080 ? 0.2 :  // lg
+        typeof window !== 'undefined' && window.innerWidth >= 1080 ? 0.25 :  // lg
         typeof window !== 'undefined' && window.innerWidth >= 768 ? 0.35 :  // mid
         typeof window !== 'undefined' && window.innerWidth >= 380 ? 0.35 :  // sm
             0.2  // lg
@@ -234,9 +234,9 @@ function Navbar({
         ? 0.35
         : 
         typeof window !== 'undefined' && window.innerWidth >= 1780 ? 0.4 :  // 3xl
-        typeof window !== 'undefined' && window.innerWidth >= 1536 ? 0.3 :  // 2xl
+        typeof window !== 'undefined' && window.innerWidth >= 1536 ? 0.4 :  // 2xl
         typeof window !== 'undefined' && window.innerWidth >= 1280 ? 0.3 :  // xl
-        typeof window !== 'undefined' && window.innerWidth >= 1080 ? 0.2 :  // lg
+        typeof window !== 'undefined' && window.innerWidth >= 1080 ? 0.25 :  // lg
         typeof window !== 'undefined' && window.innerWidth >= 768 ? 0.35 :  // mid
         typeof window !== 'undefined' && window.innerWidth >= 380 ? 0.35 :  // sm
 
