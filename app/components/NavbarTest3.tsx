@@ -158,7 +158,7 @@ function Navbar({
 
     return (
       <div className="w-full">
-        <div className={cn("max-w-full mx-auto flex justify-between items-center h-24 bg-gradient-to-b from-gray-500/[0.9] to-gray-400/[0.8] ", className)}> {/* Added items-center and set height */}
+        <div className={cn("max-w-full mx-auto flex justify-between items-center h-24  bg-gradient-to-b from-gray-500/[0.9] to-gray-400/[0.8] ", className)}> {/* Added items-center and set height */}
 
 {/* First Section (Icons) */}
 <div className="flex-1 ml-4 gg:flex hidden" ref={firstSectionRef}>
@@ -225,7 +225,9 @@ function Navbar({
         typeof window !== 'undefined' && window.innerWidth >= 1780 ? 0.4 :  // 3xl
         typeof window !== 'undefined' && window.innerWidth >= 1536 ? 0.3 :  // 2xl
         typeof window !== 'undefined' && window.innerWidth >= 1280 ? 0.3 :  // xl
-        typeof window !== 'undefined' && window.innerWidth <= 380 ? 0.1 :  // lg
+        typeof window !== 'undefined' && window.innerWidth >= 1080 ? 0.2 :  // lg
+        typeof window !== 'undefined' && window.innerWidth >= 768 ? 0.35 :  // mid
+        typeof window !== 'undefined' && window.innerWidth >= 380 ? 0.35 :  // sm
             0.2  // lg
           )
       : !isMobile
@@ -234,7 +236,9 @@ function Navbar({
         typeof window !== 'undefined' && window.innerWidth >= 1780 ? 0.4 :  // 3xl
         typeof window !== 'undefined' && window.innerWidth >= 1536 ? 0.3 :  // 2xl
         typeof window !== 'undefined' && window.innerWidth >= 1280 ? 0.3 :  // xl
-        typeof window !== 'undefined' && window.innerWidth <= 380 ? 0.1 :  // lg
+        typeof window !== 'undefined' && window.innerWidth >= 1080 ? 0.2 :  // lg
+        typeof window !== 'undefined' && window.innerWidth >= 768 ? 0.35 :  // mid
+        typeof window !== 'undefined' && window.innerWidth >= 380 ? 0.35 :  // sm
 
           0.2,  // lg
 
