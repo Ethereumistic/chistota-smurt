@@ -78,7 +78,7 @@ const MobileParallaxImages = () => {
 
   return (
     <motion.div 
-      className="mx-auto max-w-full px-4 pt-[0px] sticky top-0 h-screen flex items-end"
+      className="mx-auto max-w-full px-3 pt-[0px] sticky top-0 h-screen flex items-end"
       style={{ height: centerImageHeight }}
     >
 
