@@ -28,7 +28,7 @@ export default async function About() {
     <div className='mt-8'>
       <AboutMov />
       <AboutUs />
-      <h1 className="text-5xl px-4 text-black uppercase font-bold text-center mb-12">Блог</h1>
+      <h1 className="text-5xl px-4 text-black uppercase font-black text-center mb-12">Блог</h1>
       <div className="w-full mx-auto  pb-4 flex justify-center items-center">
 
         {/* Flex Layout */}
