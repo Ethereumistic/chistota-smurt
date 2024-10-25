@@ -162,10 +162,21 @@ const ParallaxImages = () => {
   }, [pathname]);  // Add pathname as a dependency
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    const handleResize = () => {
       setTopPosition(window.innerHeight <= 899 ? '-30%' : '-36%');
       setTitleScale(window.innerHeight <= 899 ? 0.7 : 1);
-    }
+    };
+
+    // Initial call to set the correct values
+    handleResize();
+
+    // Add event listener for window resize
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
 
