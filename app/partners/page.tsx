@@ -60,7 +60,7 @@ const PartnerSection = ({ logo, description, isMainSponsor, className, link, typ
   );
 };
 
-const filterCategories = ['Всички', 'Главен Спонсор', 'ПР & Маркетинг', 'Бюрократщина', 'Sailors', 'Други'];
+const filterCategories = ['Всички', 'Главен Спонсор', 'ПР & Маркетинг', 'Криейтив', 'Други'];
 
 
 export default function Partners() {

@@ -119,8 +119,8 @@ const ParallaxImages = () => {
 
   const centeredTextOpacity = useTransform(
     scrollY,
-    [0, 200, 400, 600],
-    [1, 1, 0.5, 0]
+    [0, 200, 400, 800],
+    [1, 1, 1, 0]
   );
 
   const centeredTextY = useTransform(

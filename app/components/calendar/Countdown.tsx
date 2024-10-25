@@ -74,7 +74,7 @@ const Countdown = (): ReactElement | null => {
   const scheduleInfo = [
     { title: "София", location: "Кино Люмиер", link: "https://www.google.com/maps?q=Кино+Люмиер"},
     { title: "Пловдив", location: "Кино Лъки", link: "https://www.google.com/maps?q=Кино+Лъки"},
-    { title: "Бургас", location: "Конгресен център Бургас, зала Черноморие", link: "https://www.google.com/maps?q=зала+&quot;Черноморие&quot;+на+Конгресен+център+Бургас"},
+    { title: "Бургас", location: "Конгресен център Бургас, зала Черноморие", link: "https://maps.app.goo.gl/dqkDR8AcfieDaz4H9"},
     { title: "Варна", location: "Зала Европа ФКЦ Варна", link: "https://www.google.com/maps?q=Зала+Европа+ФКЦ+Варна"},
 ];;
 
@@ -183,7 +183,7 @@ const ScheduleItem = ({
       className="mb-9 flex items-center justify-between border-b border-zinc-800 px-3 pb-9 "
     >
   
-<Link href={`/buy?tab=${title}`} className='hover-highlight-link hover:scale-125 transition-all duration-700'>
+<Link href={`/buy?tab=${title}`} className='hover-highlight-link hover:scale-110 transition-all duration-700'>
   <div className='hover-highlight-container'>
     <p className="mb-1.5 text-2xl font-semibold text-black font-montserrat">{title}</p>
     <p className="text-base text-nowrap uppercase text-zinc-800">{date}</p>
