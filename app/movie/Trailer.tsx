@@ -29,26 +29,26 @@ const Trailer = () => {
   // Define the TrailerButton2 component
   const TrailerButton2 = () => (
     <button
-      className={`group relative inline-flex items-center overflow-hidden rounded border-2 border-white focus:border-purple-600 focus:bg-purple-600 px-10 py-5 text-white ${activeVideo === 'trailer' ? 'bg-purple-600 border-2 border-purple-600' : ''}`}
+      className={`group relative inline-flex items-center overflow-hidden rounded border-2 border-white focus:border-purple-600 focus:bg-purple-600 px-4 py-2 text-white ${activeVideo === 'trailer' ? 'bg-purple-600 border-2 border-purple-600' : ''}`}
       onClick={() => setActiveVideo('trailer')}
     >
       <span className="absolute -start-full transition-all group-hover:start-4">
       <IconMovie className="size-7 drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]" />
   </span>
-  <span className="3xl:text-xl 2xl:text-lg xl:text-base font-extrabold transition-all group-hover:ms-6 drop-shadow-[0_3px_3px_rgba(0,0,0,1)]">ГЛЕДАЙ ТРЕЙЛЪР</span>
+  <span className="3xl:text-xl 2xl:text-lg xl:text-base font-extrabold transition-all group-hover:ms-11 drop-shadow-[0_3px_3px_rgba(0,0,0,1)]">ГЛЕДАЙ <br className='xs:hidden flex'></br>ТРЕЙЛЪР</span>
   </button>
   );
 
   // Define the MovieButton2 component
   const MovieButton2 = () => (
     <button
-      className={`group relative inline-flex items-center overflow-hidden rounded border-2 border-white focus:border-purple-600 focus:bg-purple-600 px-10 py-5 text-white ${activeVideo === 'movie' ? 'bg-purple-600 border-2 border-purple-600' : ''}`}
+      className={`group relative inline-flex items-center overflow-hidden rounded border-2 border-white focus:border-purple-600 focus:bg-purple-600 px-4 py-2 text-white ${activeVideo === 'movie' ? 'bg-purple-600 border-2 border-purple-600' : ''}`}
       onClick={() => setActiveVideo('movie')}
     >
             <span className="absolute -start-full transition-all group-hover:start-4">
       <IconPlayerPlay className="size-7 drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]" />
   </span>
-  <span className="3xl:text-xl 2xl:text-lg xl:text-base font-extrabold transition-all group-hover:ms-6 drop-shadow-[0_3px_3px_rgba(0,0,0,1)]">ГЛЕДАЙ ФИЛМА</span>
+  <span className="3xl:text-xl 2xl:text-lg xl:text-base font-extrabold transition-all group-hover:ms-11 drop-shadow-[0_3px_3px_rgba(0,0,0,1)]">ГЛЕДАЙ <br className='xs:hidden flex'></br> ФИЛМА</span>
   </button>
   );
 

@@ -100,7 +100,7 @@ const Countdown = (): ReactElement | null => {
             initial={{ y: 48, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ ease: "easeInOut", duration: 0.75 }}>
-    <div className="flex space-x-1 lg:space-x-10 ">
+    <div className="flex space-x-1 lg:space-x-10 xxs:scale-100 scale-75">
       <CountdownCard id={`days${current.days}-${previous?.days}`} label="ДНИ" key={`days${current.days}-${previous?.days}`} current={current.days} previous={previous?.days} />
       <CountdownCard id={`hours${current.hours}-${previous?.hours}`} label="ЧАСА" key={`hours${current.hours}-${previous?.hours}`} current={current.hours} previous={previous?.hours} />
       <CountdownCard id={`minutes${current.minutes}-${previous?.minutes}`} label="МИНУТИ" key={`minutes${current.minutes}-${previous?.minutes}`} current={current.minutes} previous={previous?.minutes} />

@@ -240,7 +240,7 @@ function Navbar({
         typeof window !== 'undefined' && window.innerWidth >= 768 ? 0.35 :  // mid
         typeof window !== 'undefined' && window.innerWidth >= 380 ? 0.35 :  // sm
 
-          0.2,  // lg
+          0.35,  // lg
 
   }} 
   transition={{ duration: 0.5 }}
@@ -254,9 +254,14 @@ function Navbar({
     >
       
         <Aonk />
+        <div className="text-nowrap">
       <Documentary />
+      </div>
+
 </motion.div>
+  <div className="scale-[0.8] xs:scale-100">
     <Logo />
+    </div>
   </motion.div>
 </div>
   
