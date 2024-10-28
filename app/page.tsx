@@ -24,6 +24,14 @@ export default function Home() {
       setIsMobile(window.innerWidth < 1080 || window.innerHeight < 767);
     };
 
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     // Update logic to check width and height
+  //     const widthCondition = window.innerWidth < 1080;
+  //     const heightCondition = window.innerHeight < 767;
+  //     setIsMobile((widthCondition && !heightCondition) || (!widthCondition && heightCondition));
+  //   };
+
     handleResize(); // Initial check
     window.addEventListener("resize", handleResize);
 
