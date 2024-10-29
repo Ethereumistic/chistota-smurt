@@ -6,12 +6,12 @@ import { ImagesSlider } from "../ui/images-slider";
 export function ImagesSliderDemo() {
   const images = [
     "https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/photos/2.jpg",
-    "https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/photos/3.jpg",
-    "https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/photos/1.jpg",
-    "https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/photos/4.jpg",
+    "https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/photos/3nn.jpg",
+    "https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/photos/1nn.jpg",
+    "https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/photos/4nn.jpg",
   ];
   return (
-    <ImagesSlider className="h-[38rem]" images={images}>
+    <ImagesSlider className="aspect-[16/9] " images={images}>
       <motion.div
         initial={{
           opacity: 0,

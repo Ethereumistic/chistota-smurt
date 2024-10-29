@@ -3,6 +3,8 @@ import Image from 'next/image'
 import { PortableText } from '@portabletext/react'
 import { urlForImage } from '@/sanity/lib/image'
 import { PostType } from '@/types/postType'
+import { IconArrowLeft } from '@tabler/icons-react'
+import Link from 'next/link'
 
 const components = {
     types: {
@@ -42,7 +44,14 @@ export default async function Post({ params }: { params: { slug: string } }) {
 
   return (
     <article className="max-w-5xl mx-auto mt-32 p-6  rounded-lg">
+      <div className='flex flex-row justify-start items-center'>
+      <div className='absolute top-28 left-4'>
+        <Link href="/about">
+        <IconArrowLeft className='size-11 text-black' />
+        </Link>
+      </div>
       <h1 className="text-4xl text-center text-black font-bold mb-8 px-2">{post.title}</h1>
+      </div>
       {post.mainImage && (
         <div className="flex  w-full justify-center mx-auto mb-8 rounded-xl overflow-hidden">
           <Image
