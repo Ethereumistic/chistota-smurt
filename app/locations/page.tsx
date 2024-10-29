@@ -154,6 +154,12 @@ export default function Locations() {
         }
     }, []); // Run once on mount
 
+    useEffect(() => {
+
+        window.scrollTo(0, 0); // Scroll to top when the post is fetched
+    }, []);
+        
+
         // Function to handle address click
         const handleAddressClick = useCallback((center: TherapyCenter) => {
             setSelectedCenter(center);
