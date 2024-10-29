@@ -160,6 +160,13 @@ export default function Partners() {
             logo="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/solidarnost-association-BG.png"
             description={          
               <>
+              <motion.h2 
+              className='text-2xl font-bold mb-4 text-dblue'
+              initial={{ y: 48, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ ease: "easeInOut", duration: 0.75 }}>
+                Сдружение &quot;АРЗ Солидарност&quot;
+                </motion.h2>
                   <motion.p       
                     initial={{ y: 32, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
@@ -186,12 +193,19 @@ export default function Partners() {
           logo="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/steam-pr.png"
           description={          
             <>
+            <motion.h2 
+              className='text-2xl font-bold mb-4 text-dblue'
+              initial={{ y: 48, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ ease: "easeInOut", duration: 0.75 }}>
+                Steam Net Bulgaria
+                </motion.h2>
                 <motion.p       
                   initial={{ y: 32, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   transition={{ ease: "easeInOut", duration: 0.75 }}
                   className="">
-                    STEAM Net Bulgaria е консултантска PR и комуникационна агенция, която вярва, че
+                    Ние сме консултантска PR и комуникационна агенция, която вярва, че
                     смислената комуникация може да оформя възприятията, да вдъхновява действия и да
                     насърчава положителната промяна. Агенцията се стреми да създава ангажиращи и
                     устойчиви комуникационни решения, които подкрепят както организации, така и различни
@@ -210,6 +224,13 @@ export default function Partners() {
           logo="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/bumbul-con.png"
           description={          
             <>
+            <motion.h2 
+              className='text-2xl font-bold mb-4 text-dblue'
+              initial={{ y: 48, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ ease: "easeInOut", duration: 0.75 }}>
+                BUMBUL STUDIO
+                </motion.h2>
                 <motion.p       
                   initial={{ y: 32, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
@@ -229,6 +250,88 @@ export default function Partners() {
           type="ПР & Маркетинг"
 
         />
+      );
+    }
+
+    if (currentFilter === 'Всички' || currentFilter === 'Криейтив') {
+      sections.push(
+          <PartnerSection
+            logo="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/compositor.png"
+            description={          
+              <>
+                                        <motion.h2 
+              className='text-2xl font-bold mb-4 text-dblue'
+              initial={{ y: 48, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ ease: "easeInOut", duration: 0.75 }}>
+                Мария Каракушева
+                </motion.h2>
+                <motion.p       
+                  initial={{ y: 32, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  transition={{ ease: "easeInOut", duration: 0.75 }}
+                  className="mb-4">
+                      Аз съм композитор и пианист, посветила живота си на сценичната музика още от петгодишна възраст. 
+                      В последните години се развивам и в областта на филмовата музика – страст, 
+                      която ми дава възможност да създавам дълбоки и въздействащи музикални картини.
+              </motion.p>
+                <motion.p       
+                  initial={{ y: 32, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  transition={{ ease: "easeInOut", duration: 0.75 }}
+                  className="">
+                      Защо подкрепям този филм – защото вярвам, че никой не е застрахован да се отклони от пътя си и да загуби връзка със своето семейство, 
+                      близки или сам. Силата на волята и намирането на опора – било то в нас самите, в близък човек или в случайно срещнат, 
+                      който подава ръка – е безценен пример. В този филм преминаваме през всички емоции, но най-важното е да подходим с разбиране и състрадание, 
+                      защото това може да се случи на всеки. Всеки може да е “ти”.
+              </motion.p>
+
+              </>
+              }
+            isMainSponsor={true}
+            className="mb-36 bg-lblue/[0.5] p-8 rounded-xl"
+            link="https://www.karakusheva.com/"
+            type="Криейтив"
+          />,
+          <PartnerSection
+          key="music"
+          logo="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/addminimal-logo.png"
+          description={          
+            <>
+            <motion.h2 
+              className='text-2xl font-bold mb-4 text-dblue'
+              initial={{ y: 48, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ ease: "easeInOut", duration: 0.75 }}>
+                ADDMINIMAL CREATIVE STUDIO
+                </motion.h2>
+                  <motion.p       
+                    initial={{ y: 32, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    transition={{ ease: "easeInOut", duration: 0.75 }}
+                    className="">
+                      Зависимостите са наши лични слабости и уроци, те са плод на наши избори. От тях можем да излезнем
+                      победители над себе си, или с провал. Зависимостите са и признак на счупено общество.
+                      И ако изместим фокуса от различията ни, а го насочим към важни за всички ни каузи,
+                      то организмът ще заработи отново.
+                </motion.p>
+                <br />
+                  <motion.p       
+                    initial={{ y: 32, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    transition={{ ease: "easeInOut", duration: 0.75 }}
+                    className="">
+                      Каузата на този филм си заслужава. Заставам зад нея.
+                </motion.p>
+            </>
+            }
+          isMainSponsor={false}
+          className="mb-36 bg-orange-100/[0.5] p-8 rounded-xl"
+          link="https://bumbulstudio.bg/"
+          type="Криейтив"
+
+        />
+          
       );
     }
 

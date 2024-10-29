@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { motion, useScroll, useInView, useAnimation } from 'framer-motion';
 import Link from 'next/link';
 import Loader from '../components/ui/Loader';
+import { IconBrandInstagram } from '@tabler/icons-react';
 
 const AboutUs = () => {
   const containerRef = useRef(null);
@@ -73,13 +74,15 @@ const DirectorsSection: React.FC<{ scrollYProgress: any }> = ({ scrollYProgress 
         name: "Даниел Ненов",
         role: "Режисьор",
         imageSrc: "https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/dani.png",
-        bio: "Казвам се Даниел Ненов и съм режисьор на филма “Чистота или Смърт”. Документално кино е моята страст и историите, които разказвам, са свързани с мен и възприятието ми към темите, които истински ме вълнуват. Вярвам, че решението на важните социални проблеми е чрез разказването за тях."
+        bio: "Казвам се Даниел Ненов и съм режисьор на филма “Чистота или Смърт”. Документално кино е моята страст и историите, които разказвам, са свързани с мен и възприятието ми към темите, които истински ме вълнуват. Вярвам, че решението на важните социални проблеми е чрез разказването за тях.",
+        insta: "https://www.instagram.com/dnenov/"
       },
       {
         name: "Дилян Калчев",
         role: "Продуцент",
         imageSrc: "https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/dido.png",
-        bio: "Аз съм Дилян Калчев и съм продуцент на филма “Чистота или Смърт”. Завърших кино-режисура в Англия, където развих своята страст към разказването на истории, особено тези с дълбок социален смисъл. Вярвам, че чрез киното можем да предизвикаме важни обществени промени и да покажем различни гледни точки."
+        bio: "Аз съм Дилян Калчев и съм продуцент на филма “Чистота или Смърт”. Завърших кино-режисура в Англия, където развих своята страст към разказването на истории, особено тези с дълбок социален смисъл. Вярвам, че чрез киното можем да предизвикаме важни обществени промени и да покажем различни гледни точки.",
+        insta: "https://www.instagram.com/dilyankalchev/"
       }
     ];
   
@@ -146,8 +149,14 @@ const DirectorsSection: React.FC<{ scrollYProgress: any }> = ({ scrollYProgress 
                 }
               }}
             >
+              
+              <div className='flex items-center justify-center ml-12 gap-4'>
+              <div >
               <h2 className="text-2xl font-semibold mb-2">{director.name}</h2>
               <h3 className="text-xl text-gray-900 mb-4">{director.role}</h3>
+              </div>
+              <Link href={director.insta} target='_blank'><IconBrandInstagram className='size-16 hover:scale-105 transition-all duration-300' /></Link>
+              </div>
               <p className="text-black text-lg max-w-xl font-montserrat">{director.bio}</p>
             </motion.div>
           </motion.div>
