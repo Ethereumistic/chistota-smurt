@@ -59,13 +59,6 @@ export default function RootLayout({
 
         <Providers>
         <CountdownProvider>
-        {/* <ReactLenis
-          root
-          options={{
-            lerp: 0.05,
-            }}
-          > */}
-          {/* <div className="bg-dblue text-cream"> */}
           <div className=""
                     style={{
                       backgroundSize: "cover",
