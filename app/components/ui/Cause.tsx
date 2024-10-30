@@ -6,11 +6,11 @@ import Image from 'next/image';
 const Cause: React.FC<{ causeRef: React.RefObject<HTMLDivElement> }> = ({ causeRef }) => {
 
 
-    const title = "КАУЗАТА";
+    const title = "Да спасим Линията за подкрепа на зависими и техните близки";
     const text = (
         <>
             {/* Wrap each paragraph in a motion.div for animation */}
-            <motion.p       
+            {/* <motion.p       
                 initial={{ y: 48, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ ease: "easeInOut", duration: 0.75 }}
@@ -18,6 +18,15 @@ const Cause: React.FC<{ causeRef: React.RefObject<HTMLDivElement> }> = ({ causeR
                 Каузата която подкрепяме е насочена към <Link className='underline-hover font-semibold' href="https://www.drugsinfo-bg.org/" target="_blank">&quot;
                 Национална информационна линия за наркотиците, алкохола и хазарта&quot;</Link> 
                 – инициатива, поддържана от<Link className='underline-hover font-semibold' href="/partners#solidarnost"> Асоциация &quot;Солидарност&quot;</Link>
+                . Тази линия е спасителен пояс за хората, които се нуждаят от подкрепа и информация в борбата със зависимостите.
+            </motion.p> */}
+            <motion.p       
+                initial={{ y: 48, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ ease: "easeInOut", duration: 0.75 }}
+                className="mb-8">
+                Каузата която подкрепяме е насочена към <Link className='underline-hover font-semibold' href="https://www.drugsinfo-bg.org/" target="_blank">&quot;
+                Национална информационна линия за наркотиците, алкохола и хазарта&quot;</Link> 
                 . Тази линия е спасителен пояс за хората, които се нуждаят от подкрепа и информация в борбата със зависимостите.
             </motion.p>
             <motion.p       
@@ -46,7 +55,7 @@ const Cause: React.FC<{ causeRef: React.RefObject<HTMLDivElement> }> = ({ causeR
 
     return (
         <motion.div 
-            className="p-4 md:p-8 w-[90%] cst:w-[40%] text-black mx-auto text-center"
+            className="p-4 md:p-8 w-[90%] xs:w-[90%] sm:w-[80%] md:w-[80%] lg:w-[70%] xl:w-[60%] 2xl:w-[45%] 3xl:w-[40%] text-black mx-auto text-center"
             initial={{ opacity: 0 }} 
             animate={{ opacity: 1 }} 
             transition={{ duration: 0.5 }}
@@ -55,18 +64,18 @@ const Cause: React.FC<{ causeRef: React.RefObject<HTMLDivElement> }> = ({ causeR
         initial={{ y: 48, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ ease: "easeInOut", duration: 0.75 }}
-        className="mt-20 mb-4 text-5xl text-center font-black uppercase text-black"
+        className="mt-20 mb-4 text-3xl md:text-5xl text-center font-black uppercase text-black"
       >
         {title}
       </motion.h1>
-      <Link href="https://www.solidarnost-bg.org/" target="_blank" className="">
+      <Link href="https://www.drugsinfo-bg.org/" target="_blank" className="">
       <Image 
-        src="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/solidarnost-association-BG.png" 
+        src="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/drugs-info.png" 
         alt="Partner logo" 
         width={400} 
         height={200} 
         className="mx-auto mb-4 hover:scale-105 transition-all" 
-        style={{ width: '60%', height: 'auto' }}
+        style={{ width: '90%', height: 'auto' }}
       />
       </Link>  
       <div className="text-base md:text-xl">{text}</div>

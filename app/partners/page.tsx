@@ -157,7 +157,7 @@ export default function Partners() {
       sections.push(
         <div key="solidarnost" ref={solidarnostRef}>
           <PartnerSection
-            logo="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/solidarnost-association-BG.png"
+            logo="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/drugs-info.png"
             description={          
               <>
               <motion.h2 
@@ -165,20 +165,62 @@ export default function Partners() {
               initial={{ y: 48, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ ease: "easeInOut", duration: 0.75 }}>
-                Сдружение &quot;АРЗ Солидарност&quot;
+                Да спасим Линията за подкрепа на зависими и техните близки
                 </motion.h2>
                   <motion.p       
                     initial={{ y: 32, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
                     transition={{ ease: "easeInOut", duration: 0.75 }}
                     className="">
-                      Сдружение &quot;АРЗ Солидарност&quot; е неправителствена организация в обществена полза. Ние създадохме програма &quot;Солидарност&quot;, за да отговорим на нуждите на зависимите към алкохол, наркотици и хазарт хора и техните семейства и близки. Нашата програма има за мисия: Рехабилитация и социална реинтеграция на зависимите с цел автономен живот. Подкрепа и консултация на родителите и близките на зависимите. Информационно-консултативна работа, популяризиране на каузата на &quot;Солидарност&quot;.
+                      Националната информационна линия за наркотиците, алкохола и хазарта (НИЛНАХ или
+                      Линията) е създадена през 2008 г. и е първата и единствена по рода си служба в България.
                 </motion.p>
+                <br/>
+                  <motion.p       
+                    initial={{ y: 32, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    transition={{ ease: "easeInOut", duration: 0.75 }}
+                    className="">
+                      Линията предоставя на цялото общество обширна и достоверна информация и консултация
+                      относно видовете психоактивни вещества, ефектите и рисковете от употребата на наркотици и
+                      алкохол, проблемната игра на хазарт, зависимостите и методите за тяхното лечение, местата за
+                      помощ в страната, както и насоки за родители, близки и учители.
+                </motion.p>
+                <br/>
+                <motion.h2 
+              className='text-xl font-semibold mb-4 text-dblue'
+              initial={{ y: 48, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ ease: "easeInOut", duration: 0.75 }}>
+                      Услугите на Линията са <span className="font-black">безплатни</span> и анонимни на национално ниво и от чужбина през
+                      следните канали:
+                </motion.h2>
+                  <motion.ul       
+                    initial={{ y: 32, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    transition={{ ease: "easeInOut", duration: 0.75 }}
+                    className="list-disc list-inside ms-4">
+                      <li className="mb-1">Телефонна линия за помощ: <span className="font-semibold">0888 99 18 66;</span></li>
+                      <li className="mb-1">онлайн чат консултации;</li>
+                      <li className="mb-1">консултации по електронна поща;</li>
+                      <li className="mb-1">информационен портал: <Link href="https://www.drugsinfo-bg.org/" target="_blank" rel="noopener noreferrer" className="underline-hover font-semibold">www.drugsinfo-bg.org</Link></li>
+                </motion.ul>
+                <br/>
+                <motion.p       
+                    initial={{ y: 32, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    transition={{ ease: "easeInOut", duration: 0.75 }}
+                    className="">
+                      Стотици хора от цяла България, както и българи, живеещи в чужбина, всяка година получават
+                      безплатна, анонимна консултация и подкрепа от експерт, а над 200 000 достъпват съвети и
+                      полезна информация онлайн през портала. Не позволявайте Линията да бъде закрита!
+                </motion.p>
+                
               </>
               }
             isMainSponsor={false}
             className="mb-36 bg-orange-100/[0.5] p-8 rounded-xl"
-            link="https://www.solidarnost-bg.org/"
+            link="https://www.drugsinfo-bg.org/"
             type="Кауза"
 
           />
@@ -188,65 +230,68 @@ export default function Partners() {
 
     if (currentFilter === 'Всички' || currentFilter === 'Благодарности') {
       sections.push(
-          <PartnerSection
-            logo="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/law.png"
-            description={          
-              <>
-              <motion.h2 
-              className='text-2xl font-bold mb-4 text-dblue'
-              initial={{ y: 48, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ ease: "easeInOut", duration: 0.75 }}>
-                Сдружение &quot;АРЗ Солидарност&quot;
-                </motion.h2>
-                  <motion.p       
-                    initial={{ y: 32, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    transition={{ ease: "easeInOut", duration: 0.75 }}
-                    className="">
-                      Сдружение &quot;АРЗ Солидарност&quot; е неправителствена организация в обществена полза. Ние създадохме програма &quot;Солидарност&quot;, за да отговорим на нуждите на зависимите към алкохол, наркотици и хазарт хора и техните семейства и близки. Нашата програма има за мисия: Рехабилитация и социална реинтеграция на зависимите с цел автономен живот. Подкрепа и консултация на родителите и близките на зависимите. Информационно-консултативна работа, популяризиране на каузата на &quot;Солидарност&quot;.
-                </motion.p>
-              </>
-              }
-            isMainSponsor={true}
-            className="mb-36 bg-lblue/[0.5] p-8 rounded-xl"
-            link="https://www.solidarnost-bg.org/"
-            type="Благодарности"
+        <PartnerSection
+        logo="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/rent-a-car.png"
+        description={          
+          <>
+          <motion.h2 
+          className='text-2xl font-bold mb-4 text-dblue'
+          initial={{ y: 48, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ ease: "easeInOut", duration: 0.75 }}>
+            Top Rent A Car
+            </motion.h2>
+              <motion.p       
+                initial={{ y: 32, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ ease: "easeInOut", duration: 0.75 }}
+                className="">
+                  В своята адвокатска практика винаги сме били ангажирани в подкрепа на хора, 
+                  които, бидейки жертва на обстоятелствата, страдат от някаква форма на зависимост. 
+                  Щастливи сме от възможността да участваме като партньори на кампанията, 
+                  в което виждаме възможност още веднъж да протегнем ръка към тези хора и да бъдем обществено полезни.
+            </motion.p>
+          </>
+          }
+        isMainSponsor={false}
+        className="mb-36 bg-orange-100/[0.5] p-8 rounded-xl"
+        link="https://www.facebook.com/profile.php?id=100065667963898"
+        type="Юристи"
 
-          />
+      />
       );
     }
     if (currentFilter === 'Всички' || currentFilter === 'Юристи') {
       sections.push(
-          <PartnerSection
-            logo="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/law.png"
-            description={          
-              <>
-              <motion.h2 
-              className='text-2xl font-bold mb-4 text-dblue'
-              initial={{ y: 48, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ ease: "easeInOut", duration: 0.75 }}>
-                Адвокатско дружество &quot;Петров и Тенев&quot;
-                </motion.h2>
-                  <motion.p       
-                    initial={{ y: 32, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    transition={{ ease: "easeInOut", duration: 0.75 }}
-                    className="">
-                      В своята адвокатска практика винаги сме били ангажирани в подкрепа на хора, 
-                      които, бидейки жертва на обстоятелствата, страдат от някаква форма на зависимост. 
-                      Щастливи сме от възможността да участваме като партньори на кампанията, 
-                      в което виждаме възможност още веднъж да протегнем ръка към тези хора и да бъдем обществено полезни.
-                </motion.p>
-              </>
-              }
-            isMainSponsor={false}
-            className="mb-36 bg-orange-100/[0.5] p-8 rounded-xl"
-            link="https://www.facebook.com/profile.php?id=100065667963898"
-            type="Юристи"
+        <PartnerSection
+        logo="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/law.png"
+        description={          
+          <>
+          <motion.h2 
+          className='text-2xl font-bold mb-4 text-dblue'
+          initial={{ y: 48, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ ease: "easeInOut", duration: 0.75 }}>
+            Адвокатско дружество &quot;Петров и Тенев&quot;
+            </motion.h2>
+            <motion.p       
+                initial={{ y: 32, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ ease: "easeInOut", duration: 0.75 }}
+                className="">
+                  В своята адвокатска практика винаги сме били ангажирани в подкрепа на хора, 
+                  които, бидейки жертва на обстоятелствата, страдат от някаква форма на зависимост. 
+                  Щастливи сме от възможността да участваме като партньори на кампанията, 
+                  в което виждаме възможност още веднъж да протегнем ръка към тези хора и да бъдем обществено полезни.
+            </motion.p>
+          </>
+          }
+        isMainSponsor={true}
+        className="mb-36 bg-lblue/[0.5] p-8 rounded-xl"
+        link="https://www.solidarnost-bg.org/"
+        type="Благодарности"
 
-          />
+      />
       );
     }
 
@@ -313,12 +358,81 @@ export default function Partners() {
           link="https://bumbulstudio.bg/"
           type="ПР & Маркетинг"
 
-        />
+        />,
+        <PartnerSection
+        key="zashev"
+        logo="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/zashev.png"
+        description={          
+          <>
+          <motion.h2 
+            className='text-2xl font-bold mb-4 text-dblue'
+            initial={{ y: 48, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ ease: "easeInOut", duration: 0.75 }}>
+              Zashev Design
+              </motion.h2>
+              <motion.p       
+                initial={{ y: 32, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ ease: "easeInOut", duration: 0.75 }}
+                className="">
+                  Zashev Design е студио за уеб дизайн с 19 години опит. Студиото е специализирано в създаване на
+                  индивидуални и цялостни решения за уеб, което включва – изработка на интернет сайтове,
+                  електронни магазини, уеб базиран софтуер, Google реклама, Facebook &amp; Instagram реклама, SEO
+                  оптимизация.
+            </motion.p>
+          </>
+          }
+        isMainSponsor={true}
+        className="mb-36 bg-lblue/[0.5] p-8 rounded-xl"
+        link="https://bumbulstudio.bg/"
+        type="ПР & Маркетинг"
+
+      />,
       );
     }
 
     if (currentFilter === 'Всички' || currentFilter === 'Криейтив') {
       sections.push(
+
+        
+        <PartnerSection
+        logo="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/addminimal-logo.png"
+        description={          
+          <>
+          <motion.h2 
+            className='text-2xl font-bold mb-4 text-dblue'
+            initial={{ y: 48, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ ease: "easeInOut", duration: 0.75 }}>
+              ADDMINIMAL CREATIVE STUDIO
+              </motion.h2>
+                <motion.p       
+                  initial={{ y: 32, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  transition={{ ease: "easeInOut", duration: 0.75 }}
+                  className="">
+                    Зависимостите са наши лични слабости и уроци, те са плод на наши избори. От тях можем да излезнем
+                    победители над себе си, или с провал. Зависимостите са и признак на счупено общество.
+                    И ако изместим фокуса от различията ни, а го насочим към важни за всички ни каузи,
+                    то организмът ще заработи отново.
+              </motion.p>
+              <br />
+                <motion.p       
+                  initial={{ y: 32, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  transition={{ ease: "easeInOut", duration: 0.75 }}
+                  className="">
+                    Каузата на този филм си заслужава. Заставам зад нея.
+              </motion.p>
+          </>
+          }
+        isMainSponsor={false}
+        className="mb-36 bg-orange-100/[0.5] p-8 rounded-xl"
+        link="https://bumbulstudio.bg/"
+        type="Криейтив"
+
+      />,
           <PartnerSection
             logo="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/compositor.png"
             description={          
@@ -364,44 +478,8 @@ export default function Partners() {
             link="https://www.karakusheva.com/"
             type="Криейтив"
           />,
-          <PartnerSection
-          key="music"
-          logo="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/addminimal-logo.png"
-          description={          
-            <>
-            <motion.h2 
-              className='text-2xl font-bold mb-4 text-dblue'
-              initial={{ y: 48, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ ease: "easeInOut", duration: 0.75 }}>
-                ADDMINIMAL CREATIVE STUDIO
-                </motion.h2>
-                  <motion.p       
-                    initial={{ y: 32, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    transition={{ ease: "easeInOut", duration: 0.75 }}
-                    className="">
-                      Зависимостите са наши лични слабости и уроци, те са плод на наши избори. От тях можем да излезнем
-                      победители над себе си, или с провал. Зависимостите са и признак на счупено общество.
-                      И ако изместим фокуса от различията ни, а го насочим към важни за всички ни каузи,
-                      то организмът ще заработи отново.
-                </motion.p>
-                <br />
-                  <motion.p       
-                    initial={{ y: 32, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    transition={{ ease: "easeInOut", duration: 0.75 }}
-                    className="">
-                      Каузата на този филм си заслужава. Заставам зад нея.
-                </motion.p>
-            </>
-            }
-          isMainSponsor={false}
-          className="mb-36 bg-orange-100/[0.5] p-8 rounded-xl"
-          link="https://bumbulstudio.bg/"
-          type="Криейтив"
 
-        />
+        
           
       );
     }
