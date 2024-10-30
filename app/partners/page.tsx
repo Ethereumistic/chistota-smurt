@@ -60,7 +60,7 @@ const PartnerSection = ({ logo, description, isMainSponsor, className, link, typ
   );
 };
 
-const filterCategories = ['Всички', 'Главен Спонсор', 'ПР & Маркетинг', 'Криейтив', 'Други'];
+const filterCategories = ['Всички', 'Главен Спонсор', 'Кауза', 'ПР & Маркетинг', 'Криейтив', 'Юристи', 'Благодарности'];
 
 
 export default function Partners() {
@@ -153,7 +153,7 @@ export default function Partners() {
       );
     }
 
-    if (currentFilter === 'Всички' || currentFilter === 'Други') {
+    if (currentFilter === 'Всички' || currentFilter === 'Кауза') {
       sections.push(
         <div key="solidarnost" ref={solidarnostRef}>
           <PartnerSection
@@ -179,10 +179,74 @@ export default function Partners() {
             isMainSponsor={false}
             className="mb-36 bg-orange-100/[0.5] p-8 rounded-xl"
             link="https://www.solidarnost-bg.org/"
-            type="Други"
+            type="Кауза"
 
           />
         </div>,
+      );
+    }
+
+    if (currentFilter === 'Всички' || currentFilter === 'Благодарности') {
+      sections.push(
+          <PartnerSection
+            logo="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/law.png"
+            description={          
+              <>
+              <motion.h2 
+              className='text-2xl font-bold mb-4 text-dblue'
+              initial={{ y: 48, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ ease: "easeInOut", duration: 0.75 }}>
+                Сдружение &quot;АРЗ Солидарност&quot;
+                </motion.h2>
+                  <motion.p       
+                    initial={{ y: 32, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    transition={{ ease: "easeInOut", duration: 0.75 }}
+                    className="">
+                      Сдружение &quot;АРЗ Солидарност&quot; е неправителствена организация в обществена полза. Ние създадохме програма &quot;Солидарност&quot;, за да отговорим на нуждите на зависимите към алкохол, наркотици и хазарт хора и техните семейства и близки. Нашата програма има за мисия: Рехабилитация и социална реинтеграция на зависимите с цел автономен живот. Подкрепа и консултация на родителите и близките на зависимите. Информационно-консултативна работа, популяризиране на каузата на &quot;Солидарност&quot;.
+                </motion.p>
+              </>
+              }
+            isMainSponsor={true}
+            className="mb-36 bg-lblue/[0.5] p-8 rounded-xl"
+            link="https://www.solidarnost-bg.org/"
+            type="Благодарности"
+
+          />
+      );
+    }
+    if (currentFilter === 'Всички' || currentFilter === 'Юристи') {
+      sections.push(
+          <PartnerSection
+            logo="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/law.png"
+            description={          
+              <>
+              <motion.h2 
+              className='text-2xl font-bold mb-4 text-dblue'
+              initial={{ y: 48, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ ease: "easeInOut", duration: 0.75 }}>
+                Адвокатско дружество &quot;Петров и Тенев&quot;
+                </motion.h2>
+                  <motion.p       
+                    initial={{ y: 32, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    transition={{ ease: "easeInOut", duration: 0.75 }}
+                    className="">
+                      В своята адвокатска практика винаги сме били ангажирани в подкрепа на хора, 
+                      които, бидейки жертва на обстоятелствата, страдат от някаква форма на зависимост. 
+                      Щастливи сме от възможността да участваме като партньори на кампанията, 
+                      в което виждаме възможност още веднъж да протегнем ръка към тези хора и да бъдем обществено полезни.
+                </motion.p>
+              </>
+              }
+            isMainSponsor={false}
+            className="mb-36 bg-orange-100/[0.5] p-8 rounded-xl"
+            link="https://www.facebook.com/profile.php?id=100065667963898"
+            type="Юристи"
+
+          />
       );
     }
 
