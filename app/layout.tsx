@@ -12,6 +12,7 @@ import ScrollTracker from "./components/cover/ScrollTracker";
 import dynamic from 'next/dynamic'
 import BuyTicketButton from "./components/ui/BuyTicketButton";
 import ConditionalBuyTicketButton from "./components/ui/ConditionalBuyTicketButton";
+import { LoadingManager } from "./components/ui/LoadingManager";
 
 
 const ReactLenis = dynamic(() => import('lenis/react').then((mod) => mod.ReactLenis), {
@@ -61,6 +62,8 @@ export default function RootLayout({
 
         <Providers>
         <CountdownProvider>
+        <LoadingManager>
+
           <div className=""
                     style={{
                       backgroundSize: "cover",
@@ -78,6 +81,7 @@ export default function RootLayout({
             <Footer2 />
           </div>
           {/* </ReactLenis> */}
+          </LoadingManager>
           </CountdownProvider>
           </Providers>
           
