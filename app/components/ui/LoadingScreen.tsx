@@ -16,17 +16,17 @@ export function LoadingScreen({ progress, onComplete }: { progress: number; onCo
           animate={{ scale: 0.8, opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <h1 className="text-white text-[120px] font-montserrat drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]">ЧИСТОТА</h1>
+          <h1 className="text-white text-[60px]  md:text-[120px] font-montserrat drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]">ЧИСТОТА</h1>
           <div className="flex flex-row justify-center">
-          <h1 className="text-black mr-4 text-[60px] font-montserrat drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]">ИЛИ</h1>
-          <h1 className="text-black text-[60px] font-montserrat drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]">СМЪР</h1>
+          <h1 className="text-black mr-4 text-[30px]  md:text-[60px] font-montserrat drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]">ИЛИ</h1>
+          <h1 className="text-black text-[30px]  md:text-[60px] font-montserrat drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]">СМЪР</h1>
           <motion.div
         initial={{ rotate: 0, translateY: 0 }} // Initial state
         animate={{ rotate: 50, translateY: 6 }} // Final state
         transition={{ delay: 0.3, duration: 0.5 }} // Delay and duration for the animation
       >
         <motion.h1
-          className="text-black text-[60px] font-montserrat drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]"
+          className="text-black text-[30px]  md:text-[60px] font-montserrat drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]"
         >
           Т
         </motion.h1>

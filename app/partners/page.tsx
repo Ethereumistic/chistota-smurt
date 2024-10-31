@@ -638,7 +638,7 @@ export default function Partners() {
     if (currentFilter === 'Всички' || currentFilter === 'Благодарности') {
       sections.push(
         <PartnerSection
-        logo="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/obshtina.png"
+        logo="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/pic-gabrovo.svg"
         description={          
           <>
           <motion.h2 
@@ -646,34 +646,34 @@ export default function Partners() {
           initial={{ y: 48, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ ease: "easeInOut", duration: 0.75 }}>
-            Превантивно информационен център – Бургас
+            Превантивно информационен център – Габрово
             </motion.h2>
               <motion.p       
                 initial={{ y: 32, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ ease: "easeInOut", duration: 0.75 }}
                 className="">
-                Общински съвет по наркотични вещества и Превантивно информационен център – Бургас, са активно свързани със страданията на употребяващите и техните семейства. 
-                Борбата която те водят за своя живот и този  на близките си е трудна и изпълнена с разочарования и неуспехи. Това все повече се превръща в социално значим проблем, 
-                който ангажира институции и общество. 
+                  <strong>&quot;Чистота или смърт&quot;</strong> е филм за живота. За избори, за грешките и най-вече за силата на човека да промени пътя си. 
+                  Филмът носи усещането, че няма невъзможни неща, когато откриеш себе си, намериш подкрепата и последваш вярата и надежата за <strong>&quot;чист живот&quot;</strong>. 
             </motion.p>
             <br/>
+            <motion.h2 
+          className='text-2xl font-bold mb-4 text-dblue'
+          initial={{ y: 48, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ ease: "easeInOut", duration: 0.75 }}>
+            Защо подкрепямe този филм?
+            </motion.h2>
               <motion.p       
                 initial={{ y: 32, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ ease: "easeInOut", duration: 0.75 }}
                 className="">
-                Филмът „Чистота или Смърт“, предоставя реалистична картина за пътя на зависимостта но и дава надежда за изход. Показва работещи терапевтични модели, без да залъгва публиката, 
-                че те са панацея независеща от волята и характера на всеки влязъл в кръговрата на употребата. 
+                  Превантивно-информационният център към Община Габрово застава изцяло зад каузата на<br/> <strong>&quot;Чистота или смърт&quot;</strong>, 
+                  защото сме убедени, че само докосвайки се до искрените човешки истории, може да променяме стигмата и негативното 
+                  отношение към засегнатите от тази тежка болест <strong>&quot;зависимостта&quot;</strong>.
             </motion.p>
-            <br/>
-              <motion.p       
-                initial={{ y: 32, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ ease: "easeInOut", duration: 0.75 }}
-                className="">
-                Ние от Съвета по наркотични вещества смятаме, че първата крачка към излекуването е възможността всеки да си даде сметка за реалността в която живее. 
-                Благодарим на организаторите на филма и целия снимачен екип за тяхната креативност, професионализъм и оптимистичен поглед, към този отчайващо тежък проблем.            </motion.p>
+
           </>
           }
         isMainSponsor={false}
@@ -721,12 +721,13 @@ export default function Partners() {
                 Благодарим на организаторите на филма и целия снимачен екип за тяхната креативност, професионализъм и оптимистичен поглед, към този отчайващо тежък проблем.            </motion.p>
           </>
           }
-        isMainSponsor={false}
-        className="mb-36 bg-orange-100/[0.5] p-8 rounded-xl"
+        isMainSponsor={true}
+        className="mb-36 bg-lblue/[0.5] p-8 rounded-xl"
         link="https://www.nfp-drugs.bg/%D0%B1%D1%83%D1%80%D0%B3%D0%B0%D1%81/"
         type="Благодарности"
 
-      />
+      />,
+
       );
     }
 
