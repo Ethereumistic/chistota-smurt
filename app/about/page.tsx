@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic'
 import AboutMov from './AboutMov';
 import Posts from './Posts';
 import { useEffect, useRef } from 'react';
+import ToTopButton from '../components/ui/ToTopButton';
 
 const ReactLenis = dynamic(() => import('lenis/react').then((mod) => mod.ReactLenis), {
   ssr: false
@@ -47,7 +48,7 @@ export default function About() {
       <div className='flex justify-center items-center'>
       <Posts />
       </div>
-
+      <ToTopButton />
     </div>
     </ReactLenis>
   )

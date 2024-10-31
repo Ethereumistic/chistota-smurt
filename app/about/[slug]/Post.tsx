@@ -7,6 +7,7 @@ import { urlForImage } from '@/sanity/lib/image';
 import { PostType } from '@/types/postType';
 import { IconArrowLeft } from '@tabler/icons-react';
 import Link from 'next/link';
+import ToTopButton from '@/app/components/ui/ToTopButton';
 
 interface PostProps {
   slug: string;
@@ -74,6 +75,7 @@ const Post: React.FC<PostProps> = ({ slug }) => {
       <div className="prose text-lg max-w-none text-gray-900">
         <PortableText value={post.body} components={{}} />
       </div>
+      <ToTopButton />
     </article>
   );
 };

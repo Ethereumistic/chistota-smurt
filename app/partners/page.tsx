@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { ReactLenis } from 'lenis/react'
 import Loader from '../components/ui/Loader';
+import ToTopButton from '../components/ui/ToTopButton';
 
 
 
@@ -55,7 +56,9 @@ const PartnerSection = ({ logo, description, isMainSponsor, className, link, typ
             {description}
           </p>
         </motion.div>
+        
       </motion.div>
+      <ToTopButton />
     </ReactLenis>
   );
 };
