@@ -7,6 +7,7 @@ import Cause from './components/ui/Cause'
 import ScrollTracker from './components/cover/ScrollTracker'
 import WrappedScrollButton from './components/ui/ScrollButton'
 import WrappedShareButton from './components/ui/ShareButton'
+import WrappedBuyTicketButton from './components/ui/BuyTicketButton'
 import { ReactLenis } from 'lenis/react'
 import LowerThirdModal from './components/ui/LowerThirdModal'
 import { TestScroll2 } from './components/cover/TestScroll2'
@@ -48,14 +49,16 @@ export default function Home() {
       {isMobile && <MobileCoverT /> }
       </ReactLenis>
 
-      <ScrollTracker />
+      {/* <ScrollTracker /> */}
       <div ref={causeRef}>
         <Cause causeRef={causeRef} />
       </div>
       <LowerThirdModal 
         isOpen={isModalOpen} 
         onClose={() => setIsModalOpen(false)} 
-      />      <WrappedShareButton causeRef={causeRef} />
+      />      
+            {!isMobile && <WrappedShareButton causeRef={causeRef} />}
+            {isMobile && <WrappedBuyTicketButton causeRef={causeRef} /> }
       <WrappedScrollButton causeRef={causeRef} />
     </div>
   );

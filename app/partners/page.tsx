@@ -256,8 +256,8 @@ export default function Partners() {
           }
         isMainSponsor={true}
         className="mb-36 bg-lblue/[0.5] p-8 rounded-xl"
-        link="https://www.solidarnost-bg.org/"
-        type="Благодарности"
+        link="https://www.facebook.com/people/%D0%90%D0%B4%D0%B2%D0%BE%D0%BA%D0%B0%D1%82%D1%81%D0%BA%D0%BE-%D0%B4%D1%80%D1%83%D0%B6%D0%B5%D1%81%D1%82%D0%B2%D0%BE-%D0%9F%D0%B5%D1%82%D1%80%D0%BE%D0%B2-%D0%A2%D0%B5%D0%BD%D0%B5%D0%B2-CO/100065667963898/"
+        type="Юристи"
 
       />
       );
@@ -282,17 +282,33 @@ export default function Partners() {
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ ease: "easeInOut", duration: 0.75 }}
                 className="">
-                  В своята адвокатска практика винаги сме били ангажирани в подкрепа на хора, 
-                  които, бидейки жертва на обстоятелствата, страдат от някаква форма на зависимост. 
-                  Щастливи сме от възможността да участваме като партньори на кампанията, 
-                  в което виждаме възможност още веднъж да протегнем ръка към тези хора и да бъдем обществено полезни.
+                  Top Rent A Car участва в тази кампания с желание да допринесе и покаже добрият пример за социална ангажираност. 
+                  Осъзнаваме сериозността на проблема със зависимостите и вярваме, че подкрепата на инициативи като тази помага на хората, 
+                  нуждаещи се от информация и помощ, да намерят път към възстановяване.
+            </motion.p>
+            <br/>
+              <motion.p       
+                initial={{ y: 32, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ ease: "easeInOut", duration: 0.75 }}
+                className="">
+                  С включването си в инициативата зад филма <strong>&quot;Чистота или Смърт&quot;</strong> и благотворителното събитие за &quot;Националната информационна линия за наркотиците, 
+                  алкохола и хазарта&quot; се стремим не само да подпомогнем пряко каузата, но и да вдъхновим други компании и хора да се ангажират с важни социални цели.
+            </motion.p>
+            <br/>
+              <motion.p       
+                initial={{ y: 32, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ ease: "easeInOut", duration: 0.75 }}
+                className="">
+                  Нашият екип вярва, че бизнесът има роля отвъд икономическото развитие – той трябва да служи като пример за отговорност и ангажираност към обществото.
             </motion.p>
           </>
           }
         isMainSponsor={false}
         className="mb-36 bg-orange-100/[0.5] p-8 rounded-xl"
-        link="https://www.facebook.com/profile.php?id=100065667963898"
-        type="Юристи"
+        link="https://toprentacar.bg/"
+        type="Благодарности"
 
       />
       );
@@ -523,14 +539,14 @@ export default function Partners() {
                 Защото вярвам, че никой не е застрахован да се отклони от пътя си и да загуби връзка със своето семейство, 
                 близки или сам. Силата на волята и намирането на опора – било то в нас самите, в близък човек или в случайно срещнат, 
                 който подава ръка – е безценен пример. В този филм преминаваме през всички емоции, но най-важното е да подходим с разбиране и състрадание, 
-                защото това може да се случи на всеки. Всеки може да е “ти”.
+                защото това може да се случи на всеки. Всеки може да е &quot;ти&quot;.
         </motion.p>
 
         </>
         }
       isMainSponsor={false}
       className="mb-36 bg-orange-100/[0.5] p-8 rounded-xl"
-      link="https://www.karakusheva.com/"
+      link="/"
       type="Криейтив"
     />,
       );
@@ -598,6 +614,56 @@ export default function Partners() {
   type="Кауза"
 
 />
+      );
+    }
+
+    if (currentFilter === 'Всички' || currentFilter === 'Благодарности') {
+      sections.push(
+        <PartnerSection
+        logo="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/obshtina.png"
+        description={          
+          <>
+          <motion.h2 
+          className='text-2xl font-bold mb-4 text-dblue'
+          initial={{ y: 48, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ ease: "easeInOut", duration: 0.75 }}>
+            Превантивно информационен център – Бургас
+            </motion.h2>
+              <motion.p       
+                initial={{ y: 32, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ ease: "easeInOut", duration: 0.75 }}
+                className="">
+                Общински съвет по наркотични вещества и Превантивно информационен център – Бургас, са активно свързани със страданията на употребяващите и техните семейства. 
+                Борбата която те водят за своя живот и този  на близките си е трудна и изпълнена с разочарования и неуспехи. Това все повече се превръща в социално значим проблем, 
+                който ангажира институции и общество. 
+            </motion.p>
+            <br/>
+              <motion.p       
+                initial={{ y: 32, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ ease: "easeInOut", duration: 0.75 }}
+                className="">
+                Филмът „Чистота или Смърт“, предоставя реалистична картина за пътя на зависимостта но и дава надежда за изход. Показва работещи терапевтични модели, без да залъгва публиката, 
+                че те са панацея независеща от волята и характера на всеки влязъл в кръговрата на употребата. 
+            </motion.p>
+            <br/>
+              <motion.p       
+                initial={{ y: 32, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ ease: "easeInOut", duration: 0.75 }}
+                className="">
+                Ние от Съвета по наркотични вещества смятаме, че първата крачка към излекуването е възможността всеки да си даде сметка за реалността в която живее. 
+                Благодарим на организаторите на филма и целия снимачен екип за тяхната креативност, професионализъм и оптимистичен поглед, към този отчайващо тежък проблем.            </motion.p>
+          </>
+          }
+        isMainSponsor={false}
+        className="mb-36 bg-orange-100/[0.5] p-8 rounded-xl"
+        link="https://www.nfp-drugs.bg/%D0%B1%D1%83%D1%80%D0%B3%D0%B0%D1%81/"
+        type="Благодарности"
+
+      />
       );
     }
 

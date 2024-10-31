@@ -10,6 +10,8 @@ import Footer2 from "./components/ui/Footer2";
 import { CountdownProvider } from "./components/calendar/CountdownProvider";
 import ScrollTracker from "./components/cover/ScrollTracker";
 import dynamic from 'next/dynamic'
+import BuyTicketButton from "./components/ui/BuyTicketButton";
+import ConditionalBuyTicketButton from "./components/ui/ConditionalBuyTicketButton";
 
 
 const ReactLenis = dynamic(() => import('lenis/react').then((mod) => mod.ReactLenis), {
@@ -72,7 +74,7 @@ export default function RootLayout({
             {/* <ScrollTracker /> */}
             {children}
             <div className="bg-gradient-to-b from-black/0 to-black/[0.5] w-full h-5"></div>
-
+            <ConditionalBuyTicketButton />
             <Footer2 />
           </div>
           {/* </ReactLenis> */}

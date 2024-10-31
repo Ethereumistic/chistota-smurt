@@ -2,8 +2,11 @@ import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { client } from '../../sanity/lib/client'; // Import the Sanity client
 import { IconMovie, IconPlayerPlay } from '@tabler/icons-react';
+import Link from 'next/link';
+import { useCountdownContext } from '../components/calendar/CountdownProvider';
 
 const Trailer = () => {
+  const { countdownEnded } = useCountdownContext();
   const [activeVideo, setActiveVideo] = useState<'trailer' | 'movie'>('trailer');
   const [trailerUrl, setTrailerUrl] = useState<string | null>(null);
   const [movieUrl, setMovieUrl] = useState<string | null>(null);
@@ -52,6 +55,20 @@ const Trailer = () => {
   </button>
   );
 
+  // Define the MovieButton2 component
+  const MovieButtontoBuy = () => (
+    <Link
+      href="/buy"
+      className={`group relative inline-flex items-center overflow-hidden rounded border-2 border-white focus:border-purple-600 focus:bg-purple-600 px-4 py-2 text-white ${activeVideo === 'movie' ? 'bg-purple-600 border-2 border-purple-600' : ''}`}
+      
+    >
+            <span className="absolute -start-full transition-all group-hover:start-4">
+      <IconPlayerPlay className="size-7 drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]" />
+  </span>
+  <span className="3xl:text-xl 2xl:text-lg xl:text-base font-extrabold transition-all group-hover:ms-11 drop-shadow-[0_3px_3px_rgba(0,0,0,1)]">ГЛЕДАЙ <br className='xs:hidden flex'></br> ФИЛМА</span>
+  </Link>
+  );
+
   return (
     <div>
       <div className="flex justify-center -space-x-4 cst:space-x-24 mb-6 ">
@@ -70,7 +87,7 @@ const Trailer = () => {
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ ease: "easeInOut", duration: 0.75 }}
         >
-          <MovieButton2 />
+          {countdownEnded ? <MovieButton2 /> : <MovieButtontoBuy />}
         </motion.div>
       </div>
       <motion.div className="relative aspect-video w-[85%] cst:w-[43%] mx-auto mb-10"
