@@ -457,7 +457,7 @@ export default function Partners() {
           }
         isMainSponsor={false}
         className="mb-36 bg-orange-100/[0.5] p-8 rounded-xl"
-        link="/"
+        link="http://behance.net/addminimal"
         type="Криейтив"
 
       />,
@@ -678,7 +678,7 @@ export default function Partners() {
           }
         isMainSponsor={false}
         className="mb-36 bg-orange-100/[0.5] p-8 rounded-xl"
-        link="https://www.nfp-drugs.bg/%D0%B1%D1%83%D1%80%D0%B3%D0%B0%D1%81/"
+        link="https://prevention.gabrovo.bg/"
         type="Благодарности"
 
       />,
