@@ -58,7 +58,7 @@ export default function Home() {
         onClose={() => setIsModalOpen(false)} 
       />      
             {!isMobile && <WrappedShareButton causeRef={causeRef} />}
-            {isMobile && <WrappedBuyTicketButton causeRef={causeRef} /> }
+            {isMobile && <WrappedBuyTicketButton /> }
       <WrappedScrollButton causeRef={causeRef} />
     </div>
   );
