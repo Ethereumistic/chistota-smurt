@@ -225,8 +225,67 @@ export default function Partners() {
 
           />
         </div>,
+
+<div key="solidarnost" ref={solidarnostRef}>
+<PartnerSection
+  logo="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/drugs-info.png"
+  description={          
+    <>
+    <motion.h2 
+    className='text-2xl font-bold mb-4 text-dblue'
+    initial={{ y: 48, opacity: 0 }}
+    whileInView={{ y: 0, opacity: 1 }}
+    transition={{ ease: "easeInOut", duration: 0.75 }}>
+      АСОЦИАЦИЯ В ПОМОЩ НА ЗАВИСИМИТЕ
+      </motion.h2>
+        <motion.p       
+          initial={{ y: 32, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ ease: "easeInOut", duration: 0.75 }}
+          className="">
+            Асоциацията в е инициирана от три организации с Терапевтични общности за работа със зависими през октомври 2023г. с цел да се обединят всички места за лечение на зависими около общата идея да се популяризира и информира сред обществото проблема със зависимостите, стигмата сред обществото свързана с темите и хората с такива проблеми. 
+            Една от основните цели е и промяната на законодателната система в полза на хората със зависимости.
+      </motion.p>
+      <br/>
+        <motion.p       
+          initial={{ y: 32, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ ease: "easeInOut", duration: 0.75 }}
+          className="">
+            Това става чрез провеждане на информационни кампании, обучения, публични дискусии, организиране на спортни мероприятия с участието на лекуващи се или преминали през лечение зависими.
+      </motion.p>
+      <br/>
+      <motion.h2 
+    className='text-xl font-semibold mb-4 text-dblue'
+    initial={{ y: 48, opacity: 0 }}
+    whileInView={{ y: 0, opacity: 1 }}
+    transition={{ ease: "easeInOut", duration: 0.75 }}>
+             Oт създателите на <span className="font-black">ЧИСТОТА ИЛИ СМЪРТ</span>:
+      </motion.h2>
+      <motion.p       
+          initial={{ y: 32, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ ease: "easeInOut", duration: 0.75 }}
+          className="">
+            Част от събраните средства ще бъдат предоставени на „АСОЦИАЦИЯ В ПОМОЩ НА ЗАВИСИМИТЕ“ 
+            с цел организиране на поредно спортно мероприятие „12:0“ с участието на зависими с цел сваляне на стигмата, 
+            че зависимите са опасни хора и те не могат да се променят, както и информирането на обществеността за това какво представлява зависимостта.  
+            Предвижда се и участието и подкрепата на известни спортисти и политици.
+      </motion.p>
+      
+    </>
+    }
+  isMainSponsor={false}
+  className="mb-36 bg-orange-100/[0.5] p-8 rounded-xl"
+  link="https://www.drugsinfo-bg.org/"
+  type="Кауза"
+
+/>
+</div>,
       );
     }
+
+
 
     if (currentFilter === 'Всички' || currentFilter === 'Благодарности') {
       sections.push(
@@ -429,7 +488,7 @@ export default function Partners() {
           }
         isMainSponsor={false}
         className="mb-36 bg-orange-100/[0.5] p-8 rounded-xl"
-        link="https://bumbulstudio.bg/"
+        link="/"
         type="Криейтив"
 
       />,
