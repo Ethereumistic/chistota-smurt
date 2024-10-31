@@ -16,6 +16,7 @@ export function Aonk() {
                 <Loader />
               </div>
             )}
+            <Link href="https://aonk.bg" target="_blank">
         <Image src="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/aonk.png" 
                alt="Aonk" 
                width={400} 
@@ -23,6 +24,7 @@ export function Aonk() {
                onLoad={() => setImageLoaded(true)}
                className={`${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
                 />
+                </Link>
     </div>
   );
 
