@@ -1,11 +1,21 @@
 'use client'
 import React, { useEffect, useState } from 'react'; // Import useEffect and useState
 import { client } from '../../sanity/lib/client'; // Import the Sanity client
-
+import { useCountdownContext } from '../components/calendar/CountdownProvider'; // Import the context
+import { useRouter } from 'next/navigation'; // Import useRouter for navigation
 
 
 export default function Movie() {
   const [movieUrl, setMovieUrl] = useState<string | null>(null); // State for movie URL
+  const { countdownEnded } = useCountdownContext(); // Get countdown status
+  const router = useRouter(); // Initialize router
+
+  useEffect(() => {
+    // Redirect if countdown has not ended
+    if (!countdownEnded) {
+      router.push('/buy');
+    }
+  }, [countdownEnded, router]);
 
   useEffect(() => {
     const fetchMovieUrl = async () => {

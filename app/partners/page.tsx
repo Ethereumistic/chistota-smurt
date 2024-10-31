@@ -508,7 +508,7 @@ export default function Partners() {
         type="Криейтив"
       />,
       <PartnerSection
-      logo="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/compositor.png"
+      logo="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/echoray-dark.png"
       description={          
         <>
                                   <motion.h2 
@@ -523,33 +523,48 @@ export default function Partners() {
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ ease: "easeInOut", duration: 0.75 }}
             className="mb-4">
-                Аз съм композитор и пианист, посветила живота си на сценичната музика още от петгодишна възраст. 
-                В последните години се развивам и в областта на филмовата музика – страст, 
-                която ми дава възможност да създавам дълбоки и въздействащи музикални картини.
+              EchoRay е стартъп, създаващ иновативни уеб решения, 
+              които отговарят на разнообразни нужди – от корпоративни уебсайтове и блогове, 
+              до продуктови и информационни страници, платформи с карти, форуми, 
+              системи за управление на документи и онлайн магазини. 
+              Стремим се да създаваме функционални и ефективни уеб проекти, 
+              които предоставят стойност на клиентите и техните аудитории.
         </motion.p>
-                                  <motion.h2 
-        className='text-2xl font-bold mb-4 text-dblue'
-        initial={{ y: 48, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        transition={{ ease: "easeInOut", duration: 0.75 }}>
-          Защо подкрепям този филм?
-          </motion.h2>
+        <motion.h2 
+          className='text-2xl font-bold mb-4 text-dblue'
+          initial={{ y: 48, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ ease: "easeInOut", duration: 0.75 }}>
+            Защо подкрепямe този филм?
+            </motion.h2>
           <motion.p       
             initial={{ y: 32, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ ease: "easeInOut", duration: 0.75 }}
-            className="">
-                Защото вярвам, че никой не е застрахован да се отклони от пътя си и да загуби връзка със своето семейство, 
-                близки или сам. Силата на волята и намирането на опора – било то в нас самите, в близък човек или в случайно срещнат, 
-                който подава ръка – е безценен пример. В този филм преминаваме през всички емоции, но най-важното е да подходим с разбиране и състрадание, 
-                защото това може да се случи на всеки. Всеки може да е &quot;ти&quot;.
+            className="mb-4">
+              Ние вярваме, че технологиите могат да бъдат двигател за значими каузи. 
+              За нас е чест да подкрепим проекта <strong>&quot;Чистота или Смърт&quot;</strong> – документален филм, 
+              който показва истината за живота в терапевтичните общности за зависими в България 
+              и тяхната роля в процеса на възстановяване.
         </motion.p>
+          <motion.p       
+            initial={{ y: 32, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ ease: "easeInOut", duration: 0.75 }}
+            className="mb-4">
+              Създаването на специална страница с локациите 
+              на всички терапевтични центрове в страната според нас е допълнителната стойност 
+              към този важен филм и проект. Смятаме, че тази информация може да достигне до повече 
+              хора и да помогне на онези, които се нуждаят от подкрепа, да намерят пътя си към 
+              възстановяване.
+        </motion.p>
+
 
         </>
         }
       isMainSponsor={false}
       className="mb-36 bg-orange-100/[0.5] p-8 rounded-xl"
-      link="/"
+      link="https://x.com/ECHORAYxyz"
       type="Криейтив"
     />,
       );
@@ -622,6 +637,51 @@ export default function Partners() {
 
     if (currentFilter === 'Всички' || currentFilter === 'Благодарности') {
       sections.push(
+        <PartnerSection
+        logo="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/obshtina.png"
+        description={          
+          <>
+          <motion.h2 
+          className='text-2xl font-bold mb-4 text-dblue'
+          initial={{ y: 48, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ ease: "easeInOut", duration: 0.75 }}>
+            Превантивно информационен център – Бургас
+            </motion.h2>
+              <motion.p       
+                initial={{ y: 32, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ ease: "easeInOut", duration: 0.75 }}
+                className="">
+                Общински съвет по наркотични вещества и Превантивно информационен център – Бургас, са активно свързани със страданията на употребяващите и техните семейства. 
+                Борбата която те водят за своя живот и този  на близките си е трудна и изпълнена с разочарования и неуспехи. Това все повече се превръща в социално значим проблем, 
+                който ангажира институции и общество. 
+            </motion.p>
+            <br/>
+              <motion.p       
+                initial={{ y: 32, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ ease: "easeInOut", duration: 0.75 }}
+                className="">
+                Филмът „Чистота или Смърт“, предоставя реалистична картина за пътя на зависимостта но и дава надежда за изход. Показва работещи терапевтични модели, без да залъгва публиката, 
+                че те са панацея независеща от волята и характера на всеки влязъл в кръговрата на употребата. 
+            </motion.p>
+            <br/>
+              <motion.p       
+                initial={{ y: 32, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ ease: "easeInOut", duration: 0.75 }}
+                className="">
+                Ние от Съвета по наркотични вещества смятаме, че първата крачка към излекуването е възможността всеки да си даде сметка за реалността в която живее. 
+                Благодарим на организаторите на филма и целия снимачен екип за тяхната креативност, професионализъм и оптимистичен поглед, към този отчайващо тежък проблем.            </motion.p>
+          </>
+          }
+        isMainSponsor={false}
+        className="mb-36 bg-orange-100/[0.5] p-8 rounded-xl"
+        link="https://www.nfp-drugs.bg/%D0%B1%D1%83%D1%80%D0%B3%D0%B0%D1%81/"
+        type="Благодарности"
+
+      />,
         <PartnerSection
         logo="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/obshtina.png"
         description={          
