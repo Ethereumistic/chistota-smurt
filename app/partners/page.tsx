@@ -226,65 +226,42 @@ export default function Partners() {
           />
         </div>,
 
-<div key="solidarnost" ref={solidarnostRef}>
-<PartnerSection
-  logo="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/drugs-info.png"
-  description={          
-    <>
-    <motion.h2 
-    className='text-2xl font-bold mb-4 text-dblue'
-    initial={{ y: 48, opacity: 0 }}
-    whileInView={{ y: 0, opacity: 1 }}
-    transition={{ ease: "easeInOut", duration: 0.75 }}>
-      АСОЦИАЦИЯ В ПОМОЩ НА ЗАВИСИМИТЕ
-      </motion.h2>
-        <motion.p       
-          initial={{ y: 32, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ ease: "easeInOut", duration: 0.75 }}
-          className="">
-            Асоциацията в е инициирана от три организации с Терапевтични общности за работа със зависими през октомври 2023г. с цел да се обединят всички места за лечение на зависими около общата идея да се популяризира и информира сред обществото проблема със зависимостите, стигмата сред обществото свързана с темите и хората с такива проблеми. 
-            Една от основните цели е и промяната на законодателната система в полза на хората със зависимости.
-      </motion.p>
-      <br/>
-        <motion.p       
-          initial={{ y: 32, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ ease: "easeInOut", duration: 0.75 }}
-          className="">
-            Това става чрез провеждане на информационни кампании, обучения, публични дискусии, организиране на спортни мероприятия с участието на лекуващи се или преминали през лечение зависими.
-      </motion.p>
-      <br/>
-      <motion.h2 
-    className='text-xl font-semibold mb-4 text-dblue'
-    initial={{ y: 48, opacity: 0 }}
-    whileInView={{ y: 0, opacity: 1 }}
-    transition={{ ease: "easeInOut", duration: 0.75 }}>
-             Oт създателите на <span className="font-black">ЧИСТОТА ИЛИ СМЪРТ</span>:
-      </motion.h2>
-      <motion.p       
-          initial={{ y: 32, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ ease: "easeInOut", duration: 0.75 }}
-          className="">
-            Част от събраните средства ще бъдат предоставени на „АСОЦИАЦИЯ В ПОМОЩ НА ЗАВИСИМИТЕ“ 
-            с цел организиране на поредно спортно мероприятие „12:0“ с участието на зависими с цел сваляне на стигмата, 
-            че зависимите са опасни хора и те не могат да се променят, както и информирането на обществеността за това какво представлява зависимостта.  
-            Предвижда се и участието и подкрепата на известни спортисти и политици.
-      </motion.p>
-      
-    </>
-    }
-  isMainSponsor={false}
-  className="mb-36 bg-orange-100/[0.5] p-8 rounded-xl"
-  link="https://www.drugsinfo-bg.org/"
-  type="Кауза"
-
-/>
-</div>,
       );
     }
 
+    if (currentFilter === 'Всички' || currentFilter === 'Юристи') {
+      sections.push(
+        <PartnerSection
+        logo="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/law.png"
+        description={          
+          <>
+          <motion.h2 
+          className='text-2xl font-bold mb-4 text-dblue'
+          initial={{ y: 48, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ ease: "easeInOut", duration: 0.75 }}>
+            Адвокатско дружество &quot;Петров и Тенев&quot;
+            </motion.h2>
+            <motion.p       
+                initial={{ y: 32, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ ease: "easeInOut", duration: 0.75 }}
+                className="">
+                  В своята адвокатска практика винаги сме били ангажирани в подкрепа на хора, 
+                  които, бидейки жертва на обстоятелствата, страдат от някаква форма на зависимост. 
+                  Щастливи сме от възможността да участваме като партньори на кампанията, 
+                  в което виждаме възможност още веднъж да протегнем ръка към тези хора и да бъдем обществено полезни.
+            </motion.p>
+          </>
+          }
+        isMainSponsor={true}
+        className="mb-36 bg-lblue/[0.5] p-8 rounded-xl"
+        link="https://www.solidarnost-bg.org/"
+        type="Благодарности"
+
+      />
+      );
+    }
 
 
     if (currentFilter === 'Всички' || currentFilter === 'Благодарности') {
@@ -316,39 +293,6 @@ export default function Partners() {
         className="mb-36 bg-orange-100/[0.5] p-8 rounded-xl"
         link="https://www.facebook.com/profile.php?id=100065667963898"
         type="Юристи"
-
-      />
-      );
-    }
-    if (currentFilter === 'Всички' || currentFilter === 'Юристи') {
-      sections.push(
-        <PartnerSection
-        logo="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/law.png"
-        description={          
-          <>
-          <motion.h2 
-          className='text-2xl font-bold mb-4 text-dblue'
-          initial={{ y: 48, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ ease: "easeInOut", duration: 0.75 }}>
-            Адвокатско дружество &quot;Петров и Тенев&quot;
-            </motion.h2>
-            <motion.p       
-                initial={{ y: 32, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ ease: "easeInOut", duration: 0.75 }}
-                className="">
-                  В своята адвокатска практика винаги сме били ангажирани в подкрепа на хора, 
-                  които, бидейки жертва на обстоятелствата, страдат от някаква форма на зависимост. 
-                  Щастливи сме от възможността да участваме като партньори на кампанията, 
-                  в което виждаме възможност още веднъж да протегнем ръка към тези хора и да бъдем обществено полезни.
-            </motion.p>
-          </>
-          }
-        isMainSponsor={true}
-        className="mb-36 bg-lblue/[0.5] p-8 rounded-xl"
-        link="https://www.solidarnost-bg.org/"
-        type="Благодарности"
 
       />
       );
@@ -440,11 +384,19 @@ export default function Partners() {
                   електронни магазини, уеб базиран софтуер, Google реклама, Facebook &amp; Instagram реклама, SEO
                   оптимизация.
             </motion.p>
+            <br/>
+              <motion.p       
+                initial={{ y: 32, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ ease: "easeInOut", duration: 0.75 }}
+                className="">
+В благотворителната кампания <strong>&quot;Чистота или Смърт&quot;</strong> ние ще отговаряме за популяризирането и маркетинг стратегията за успеха на каузата.
+            </motion.p>
           </>
           }
         isMainSponsor={true}
         className="mb-36 bg-lblue/[0.5] p-8 rounded-xl"
-        link="https://bumbulstudio.bg/"
+        link="https://zashev.com/"
         type="ПР & Маркетинг"
 
       />,
@@ -453,8 +405,6 @@ export default function Partners() {
 
     if (currentFilter === 'Всички' || currentFilter === 'Криейтив') {
       sections.push(
-
-        
         <PartnerSection
         logo="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/addminimal-logo.png"
         description={          
@@ -492,54 +442,162 @@ export default function Partners() {
         type="Криейтив"
 
       />,
-          <PartnerSection
-            logo="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/compositor.png"
-            description={          
-              <>
-                                        <motion.h2 
-              className='text-2xl font-bold mb-4 text-dblue'
-              initial={{ y: 48, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ ease: "easeInOut", duration: 0.75 }}>
-                Мария Каракушева
-                </motion.h2>
-                <motion.p       
-                  initial={{ y: 32, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  transition={{ ease: "easeInOut", duration: 0.75 }}
-                  className="mb-4">
-                      Аз съм композитор и пианист, посветила живота си на сценичната музика още от петгодишна възраст. 
-                      В последните години се развивам и в областта на филмовата музика – страст, 
-                      която ми дава възможност да създавам дълбоки и въздействащи музикални картини.
-              </motion.p>
-                                        <motion.h2 
-              className='text-2xl font-bold mb-4 text-dblue'
-              initial={{ y: 48, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ ease: "easeInOut", duration: 0.75 }}>
-                Защо подкрепям този филм?
-                </motion.h2>
-                <motion.p       
-                  initial={{ y: 32, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  transition={{ ease: "easeInOut", duration: 0.75 }}
-                  className="">
-                      Защото вярвам, че никой не е застрахован да се отклони от пътя си и да загуби връзка със своето семейство, 
-                      близки или сам. Силата на волята и намирането на опора – било то в нас самите, в близък човек или в случайно срещнат, 
-                      който подава ръка – е безценен пример. В този филм преминаваме през всички емоции, но най-важното е да подходим с разбиране и състрадание, 
-                      защото това може да се случи на всеки. Всеки може да е “ти”.
-              </motion.p>
 
-              </>
-              }
-            isMainSponsor={true}
-            className="mb-36 bg-lblue/[0.5] p-8 rounded-xl"
-            link="https://www.karakusheva.com/"
-            type="Криейтив"
-          />,
+        <PartnerSection
+        logo="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/compositor.png"
+        description={          
+          <>
+                                    <motion.h2 
+          className='text-2xl font-bold mb-4 text-dblue'
+          initial={{ y: 48, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ ease: "easeInOut", duration: 0.75 }}>
+            Мария Каракушева
+            </motion.h2>
+            <motion.p       
+              initial={{ y: 32, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ ease: "easeInOut", duration: 0.75 }}
+              className="mb-4">
+                  Аз съм композитор и пианист, посветила живота си на сценичната музика още от петгодишна възраст. 
+                  В последните години се развивам и в областта на филмовата музика – страст, 
+                  която ми дава възможност да създавам дълбоки и въздействащи музикални картини.
+          </motion.p>
+                                    <motion.h2 
+          className='text-2xl font-bold mb-4 text-dblue'
+          initial={{ y: 48, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ ease: "easeInOut", duration: 0.75 }}>
+            Защо подкрепям този филм?
+            </motion.h2>
+            <motion.p       
+              initial={{ y: 32, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ ease: "easeInOut", duration: 0.75 }}
+              className="">
+                  Защото вярвам, че никой не е застрахован да се отклони от пътя си и да загуби връзка със своето семейство, 
+                  близки или сам. Силата на волята и намирането на опора – било то в нас самите, в близък човек или в случайно срещнат, 
+                  който подава ръка – е безценен пример. В този филм преминаваме през всички емоции, но най-важното е да подходим с разбиране и състрадание, 
+                  защото това може да се случи на всеки. Всеки може да е “ти”.
+          </motion.p>
 
-        
-          
+          </>
+          }
+        isMainSponsor={true}
+        className="mb-36 bg-lblue/[0.5] p-8 rounded-xl"
+        link="https://www.karakusheva.com/"
+        type="Криейтив"
+      />,
+      <PartnerSection
+      logo="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/compositor.png"
+      description={          
+        <>
+                                  <motion.h2 
+        className='text-2xl font-bold mb-4 text-dblue'
+        initial={{ y: 48, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ ease: "easeInOut", duration: 0.75 }}>
+          EchoRay
+          </motion.h2>
+          <motion.p       
+            initial={{ y: 32, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ ease: "easeInOut", duration: 0.75 }}
+            className="mb-4">
+                Аз съм композитор и пианист, посветила живота си на сценичната музика още от петгодишна възраст. 
+                В последните години се развивам и в областта на филмовата музика – страст, 
+                която ми дава възможност да създавам дълбоки и въздействащи музикални картини.
+        </motion.p>
+                                  <motion.h2 
+        className='text-2xl font-bold mb-4 text-dblue'
+        initial={{ y: 48, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ ease: "easeInOut", duration: 0.75 }}>
+          Защо подкрепям този филм?
+          </motion.h2>
+          <motion.p       
+            initial={{ y: 32, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ ease: "easeInOut", duration: 0.75 }}
+            className="">
+                Защото вярвам, че никой не е застрахован да се отклони от пътя си и да загуби връзка със своето семейство, 
+                близки или сам. Силата на волята и намирането на опора – било то в нас самите, в близък човек или в случайно срещнат, 
+                който подава ръка – е безценен пример. В този филм преминаваме през всички емоции, но най-важното е да подходим с разбиране и състрадание, 
+                защото това може да се случи на всеки. Всеки може да е “ти”.
+        </motion.p>
+
+        </>
+        }
+      isMainSponsor={false}
+      className="mb-36 bg-orange-100/[0.5] p-8 rounded-xl"
+      link="https://www.karakusheva.com/"
+      type="Криейтив"
+    />,
+      );
+    }
+
+    if (currentFilter === 'Всички' || currentFilter === 'Кауза') {
+      sections.push(
+
+<PartnerSection
+  logo="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/association.png"
+  description={          
+    <>
+    <motion.h2 
+    className='text-2xl font-bold mb-4 text-dblue'
+    initial={{ y: 48, opacity: 0 }}
+    whileInView={{ y: 0, opacity: 1 }}
+    transition={{ ease: "easeInOut", duration: 0.75 }}>
+      АСОЦИАЦИЯ В ПОМОЩ НА ЗАВИСИМИТЕ
+      </motion.h2>
+        <motion.p       
+          initial={{ y: 32, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ ease: "easeInOut", duration: 0.75 }}
+          className="">
+            Асоциацията е основана от три организации с терапевтични общности за работа със зависими през октомври 2023 г. 
+            Тя е плод на обединение, водено от една мисия: да събере всички центрове за лечение на зависими в България 
+            около общата идея за изграждане на осведоменост и разбиване на обществената стигма, която обгръща темите за 
+            зависимостта и хората, които се борят с нея. Асоциацията си поставя амбициозната цел да съдейства за промени в 
+            законодателната система и да работи за по-голямо разбиране и подкрепа на хората, нуждаещи се от помощ.
+      </motion.p>
+      <br/>
+        <motion.p       
+          initial={{ y: 32, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ ease: "easeInOut", duration: 0.75 }}
+          className="">
+            Дейностите на асоциацията включват провеждане на информационни кампании, организиране на публични дискусии и обучения, 
+            както и събития като спортни мероприятия, в които участват хора в процес на лечение или вече преминали през него. 
+            Това са моменти на истинска трансформация и показват, че промяната е възможна.
+            </motion.p>
+      <br/>
+      <motion.h2 
+    className='text-xl font-semibold mb-4 text-dblue'
+    initial={{ y: 48, opacity: 0 }}
+    whileInView={{ y: 0, opacity: 1 }}
+    transition={{ ease: "easeInOut", duration: 0.75 }}>
+             ОТ СЪЗДАТЕЛИТЕ НА <span className="font-black">&quot;Чистота или Смърт&quot;</span>:
+      </motion.h2>
+      <motion.p       
+          initial={{ y: 32, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ ease: "easeInOut", duration: 0.75 }}
+          className="">
+            Част от събраните средства ще бъдат предоставени на "АСОЦИАЦИЯ В ПОМОЩ НА ЗАВИСИМИТЕ," за да се реализира поредното спортно събитие "12:0." 
+            То ще бъде уникална възможност за зависими хора да покажат, че тяхната стойност е неоспорима, че те могат да се променят и преодолеят трудностите си. 
+            Целта е да разчупим стереотипите и да вдъхновим обществеността, като покажем, че хората, борещи се със зависимост, не са опасни, а заслужават подкрепа и уважение. 
+            На събитието ще участват известни спортисти и политици, които ще окажат своята подкрепа за каузата и ще помогнат за разширяване на обществената ангажираност към темата.
+      </motion.p>
+      
+    </>
+    }
+  isMainSponsor={true}
+  className="mb-36 bg-lblue/[0.5] p-8 rounded-xl"
+  link="/partners"
+  type="Кауза"
+
+/>
       );
     }
 
