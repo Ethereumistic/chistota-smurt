@@ -2,6 +2,8 @@
 import { motion } from "framer-motion";
 import React from "react";
 import { ImagesSlider } from "../ui/images-slider";
+import Trailer from "@/app/movie/Trailer";
+import Countdown from "../calendar/Countdown";
 
 export function MobileCoverS() {
   const images = [
@@ -9,6 +11,8 @@ export function MobileCoverS() {
 
   ];
   return (
+    <div>
+        <div className="mt-24"/>
     <ImagesSlider className="aspect-[9/16] " images={images}>
       <motion.div
         initial={{
@@ -24,14 +28,21 @@ export function MobileCoverS() {
         }}
         className="z-50 flex flex-col justify-center items-center"
       >
-        {/* <motion.p className="font-bold text-xl md:text-6xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4">
-          The hero section slideshow <br /> nobody asked for
-        </motion.p>
-        <button className="px-4 py-2 backdrop-blur-sm border bg-emerald-300/10 border-emerald-500/20 text-white mx-auto text-center rounded-full relative mt-4">
-          <span>Join now →</span>
-          <div className="absolute inset-x-0  h-px -bottom-px bg-gradient-to-r w-3/4 mx-auto from-transparent via-emerald-500 to-transparent" />
-        </button> */}
+
       </motion.div>
     </ImagesSlider>
+
+    <div className="-translate-y-12">
+    <div className="bg-gradient-to-b from-black/0 to-black/[0.5] w-full h-12"></div>
+    <div className="bg-gradient-to-t from-black/0 to-black/[0.5] w-full h-12"></div>
+    </div>
+
+              <p className="px-12 text-2xl max-w-3xl mx-auto font-montserrat text-black mb-16 text-center ">
+            История за живота и пътя на шестима резиденти в терапевтична общност за зависими в България. Въпреки че много хора са чували за такива общности, малцина знаят как всъщност изглеждат и какво се случва в тях.
+          </p>
+
+    <Trailer />
+    <Countdown />
+    </div>
   );
 }

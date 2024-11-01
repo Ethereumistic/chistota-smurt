@@ -19,13 +19,13 @@ const PartnerSection = ({ logo, description, isMainSponsor, className, link, typ
   return (
     <ReactLenis root options={{ lerp: 0.05 }}>
       <motion.div
-        className={`flex flex-col w-[90%] cst:w-[80%] mx-auto ${isMainSponsor ? 'md:flex-row' : 'md:flex-row-reverse'} items-center justify-between mb-16 gap-8 ${className}`}
+        className={`flex flex-col w-[90%] cst:w-[80%] mx-auto ${isMainSponsor ? 'xl:flex-row' : 'xl:flex-row-reverse'} items-center justify-between mb-16 gap-8 ${className}`}
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
         <motion.div
-          className={`w-full md:w-1/3 ${isMainSponsor ? 'md:mr-8' : 'md:ml-8'} relative`}
+          className={`w-full xl:w-1/3 ${isMainSponsor ? 'xl:mr-8' : 'xl:ml-8'} relative`}
           whileHover={{ scale: 1.05 }}
           transition={{ type: "spring", stiffness: 300 }}
         >
@@ -47,7 +47,7 @@ const PartnerSection = ({ logo, description, isMainSponsor, className, link, typ
           </Link>
         </motion.div>
         <motion.div
-          className="w-full md:w-2/3"
+          className="w-full xl:w-2/3"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.5 }}

@@ -39,7 +39,7 @@ const LowerThirdModal: React.FC<LowerThirdModalProps> = ({ onClose }) => {
   return (
     <>
       {isVisible && (
-        <div className="fixed inset-x-0 bottom-12 z-50 pb-4 px-4 sm:px-6 lg:px-8 lower-third-modal">
+        <div className="fixed inset-x-0 bottom-12  pb-4 px-4 sm:px-6 lg:px-8 lower-third-modal z-[5002]">
           <div className="bg-white rounded-lg shadow-lg p-6 max-w-lg mx-auto">
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-xl font-bold text-black">
