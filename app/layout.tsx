@@ -36,8 +36,6 @@ export default function RootLayout({
       <html>
       <body
         className={`${montserrat.variable} antialiased`}>
-
-        {/* <Providers> */}
         <CountdownProvider>
         <LoadingManager>
                     <div 
@@ -58,10 +56,6 @@ export default function RootLayout({
           </div>
           </LoadingManager>
           </CountdownProvider>
-          {/* </Providers> */}
-          
-
-
       </body>
       </html>
   );

@@ -422,6 +422,74 @@ export default function Partners() {
       );
     }
 
+    if (currentFilter === 'Всички' || currentFilter === 'Благодарности') {
+      sections.push(
+        <PartnerSection
+        key="biletbg"
+        logo="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/biletbg.svg"
+        description={          
+          <>
+          <motion.h2 
+            className='text-2xl font-bold mb-4 text-dblue'
+            initial={{ y: 48, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ ease: "easeInOut", duration: 0.75 }}>
+              Bilet.BG
+              </motion.h2>
+              <motion.p       
+                initial={{ y: 32, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ ease: "easeInOut", duration: 0.75 }}
+                className="">
+                    BUMBUL STUDIO е консултантска и комуникационна агенция, която помага на бизнеси,
+                    брандове, експертни лица, инициативи и каузи в полето на маркетинга, рекламата и
+                    събития. Знаем, че ключът към ефективното позициониране е в комуникацията, затова
+                    от BUMBUL STUDIO ще Ви подкрепим от идеята до реализацията, като обръщаме внимание
+                    на всяка подробност по трасето.
+            </motion.p>
+          </>
+          }
+        isMainSponsor={false}
+        className="mb-36 bg-orange-100/[0.5] p-8 rounded-xl"
+        link="https://bumbulstudio.bg/"
+        type="Благодарности"
+
+      />,
+        <PartnerSection
+          key="biletbg"
+          logo="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/securityy.png"
+          description={          
+            <>
+            <motion.h2 
+              className='text-2xl font-bold mb-4 text-dblue'
+              initial={{ y: 48, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ ease: "easeInOut", duration: 0.75 }}>
+                Security GSM
+                </motion.h2>
+                <motion.p       
+                  initial={{ y: 32, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  transition={{ ease: "easeInOut", duration: 0.75 }}
+                  className="">
+                    Ние сме консултантска PR и комуникационна агенция, която вярва, че
+                    смислената комуникация може да оформя възприятията, да вдъхновява действия и да
+                    насърчава положителната промяна. Агенцията се стреми да създава ангажиращи и
+                    устойчиви комуникационни решения, които подкрепят както организации, така и различни
+                    инициативи и каузи.
+              </motion.p>
+            </>
+            }
+          isMainSponsor={true}
+          className="mb-36 bg-lblue/[0.5] p-8 rounded-xl"
+          link="https://steam.bg/"
+          type="Благодарности"
+        />,
+      );
+    }
+
+    
+
     if (currentFilter === 'Всички' || currentFilter === 'Криейтив') {
       sections.push(
         <PartnerSection
