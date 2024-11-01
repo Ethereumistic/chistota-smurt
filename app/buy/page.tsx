@@ -59,12 +59,22 @@ export default function Buy() {
                 </div>;
             case 'Пловдив':
                 return <div><h1 className="text-3xl text-black font-bold mb-6">ЗА ПЛОВДИВ</h1>
-                <iframe style={{ width: '100%', height: '100vh' }} src="https://bilet.bg/bg/promoters/aura-by-bamboo-146547?noframe=true" ></iframe>
+                <iframe style={{ width: '100%', height: '100vh' }} src="https://bilet.bg/bg/events/cistota-ili-smiert-premiera-plovdiv-5636-5636" ></iframe>
                 <a href="https:///bilet.bg" target="_blank">Модул за продажба на билети от Билет точка бг</a></div>;
             case 'Бургас':
-                return <div>ЗА БУРГАС</div>;
+                return <div><h1 className="text-3xl text-black font-bold mb-6">ЗА БУРГАС</h1>
+                <iframe style={{ width: '100%', height: '100vh' }} 
+                src="https://bilet.bg/bg/events/cistota-ili-smiert-premiera-burgas-5637-5637"
+                ></iframe>
+                <a href="https:///bilet.bg" target="_blank">Модул за продажба на билети от Билет точка бг</a>
+                </div>;
             case 'Варна':
-                return <div>ЗА ВАРНА</div>;
+                return <div><h1 className="text-3xl text-black font-bold mb-6">ЗА ВАРНА</h1>
+                <iframe style={{ width: '100%', height: '100vh' }} 
+                src="https://bilet.bg/bg/events/cistota-ili-smiert-premiera-varna-5638-5638"
+                ></iframe>
+                <a href="https:///bilet.bg" target="_blank">Модул за продажба на билети от Билет точка бг</a>
+                </div>;
             default:
                 return <div>Избери град за премиерата.</div>;
         }

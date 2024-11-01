@@ -8,11 +8,10 @@ import Script from "next/script";
 import { NavbarTest3 } from "./components/NavbarTest3";
 import Footer2 from "./components/ui/Footer2";
 import { CountdownProvider } from "./components/calendar/CountdownProvider";
-import ScrollTracker from "./components/cover/ScrollTracker";
 import dynamic from 'next/dynamic'
-import BuyTicketButton from "./components/ui/BuyTicketButton";
 import ConditionalBuyTicketButton from "./components/ui/ConditionalBuyTicketButton";
 import { LoadingManager } from "./components/ui/LoadingManager";
+import Image from "next/image";
 
 
 const ReactLenis = dynamic(() => import('lenis/react').then((mod) => mod.ReactLenis), {
@@ -64,17 +63,25 @@ export default function RootLayout({
         <CountdownProvider>
         <LoadingManager>
 
-          <div className=""
+          {/* <div className=""
                     style={{
                       backgroundSize: "cover",
                       backgroundImage:
                         "url(https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/cover/bg-s.png)",
                       backgroundPosition: "center",
                       backgroundRepeat: "no-repeat",
-                    }}>
-          
+                    }}> */}
+                    <div className="relative">
+            <Image 
+              src="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/cover/bg-s.webp" // moved to public folder
+              alt="Background"
+              fill
+              priority
+              quality={100}
+              className="object-cover -z-10"
+              sizes="100vw"
+            />
             <NavbarTest3 />
-            {/* <ScrollTracker /> */}
             {children}
             <div className="bg-gradient-to-b from-black/0 to-black/[0.5] w-full h-5"></div>
             <ConditionalBuyTicketButton />

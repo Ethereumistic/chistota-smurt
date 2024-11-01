@@ -79,7 +79,7 @@ const CenterImage = () => {
         clipPath,
         backgroundSize: "cover",
         backgroundImage:
-          "url(https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/cover/bg-s.png)",
+          "url(https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/cover/bg-s.webp)",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
       }}

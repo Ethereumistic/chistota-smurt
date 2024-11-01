@@ -7,8 +7,8 @@ import BuyTicketButton from './BuyTicketButton';
 const ConditionalBuyTicketButton = () => {
   const pathname = usePathname(); // Get the current pathname
 
-  // Only render the button if the pathname is not '/' or '/movie' or '/locations'
-  if (pathname === '/' || pathname === '/movie' || pathname === '/locations' || pathname === '/buy') {
+  // Only render the button if the pathname is not '/' or '/movie' or '/locations' or '/buy'
+  if (pathname === '/' || pathname === '/movie' || pathname === '/locations' || pathname === '/buy' || pathname === '/studio') {
     return null; // Skip rendering
   }
 
