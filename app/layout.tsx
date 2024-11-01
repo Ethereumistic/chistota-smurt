@@ -6,6 +6,7 @@ import Footer2 from "./components/ui/Footer2";
 import { CountdownProvider } from "./components/calendar/CountdownProvider";
 import ConditionalBuyTicketButton from "./components/ui/ConditionalBuyTicketButton";
 import { LoadingManager } from "./components/ui/LoadingManager";
+import ScrollTracker from "./components/cover/ScrollTracker";
 
 
 
@@ -52,6 +53,7 @@ export default function RootLayout({
             {children}
             <div className="bg-gradient-to-b from-black/0 to-black/[0.5] w-full h-5"></div>
             <ConditionalBuyTicketButton />
+            <ScrollTracker />
             <Footer2 />
           </div>
           </LoadingManager>
