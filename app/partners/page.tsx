@@ -341,7 +341,7 @@ export default function Partners() {
         }
       isMainSponsor={true}
       className="mb-36 bg-lblue/[0.5] p-8 rounded-xl"
-      link="https://bumbulstudio.bg/"
+      link="https://bilet.bg/"
       type="Благодарности"
 
     />,
@@ -363,7 +363,7 @@ export default function Partners() {
                 transition={{ ease: "easeInOut", duration: 0.75 }}
                 className="">
                   &quot;Глобално Управление на Сигурност&quot; (Globul Security Management) е създадена от група експерти с дългогодишен опит в охранителния бизнес. 
-                  Ние развиваме и усъвършенстваме най-добрите практики, с амбицията да предлагаме &quot;Сигурност от последно поколение&quot;.
+                  Ние развиваме и усъвършенстваме най-добрите практики, с амбицията да предлагаме <strong>&quot;Сигурност от последно поколение&quot;</strong>.
             </motion.p>
             <br/>
               <motion.p       
@@ -379,14 +379,14 @@ export default function Partners() {
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ ease: "easeInOut", duration: 0.75 }}
                 className="">
-                  Вярваме, че социалната отговорност е неразделна част от нашата дейност и затова с гордост подкрепяме благотворителната кампания &quot;Чистота или Смърт&quot;. 
+                  Вярваме, че социалната отговорност е неразделна част от нашата дейност и затова с гордост подкрепяме благотворителната кампания <strong>&quot;Чистота или Смърт&quot;</strong>. 
                   За нас е важно да обръщаме внимание на значими социални каузи и да допринасяме за положителна промяна в обществото.
             </motion.p>
           </>
           }
         isMainSponsor={false}
         className="mb-36 bg-orange-100/[0.5] p-8 rounded-xl"
-        link="https://steam.bg/"
+        link="https://www.gsmsecurity.bg/"
         type="Благодарности"
       />,
       );
