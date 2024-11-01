@@ -4,6 +4,7 @@ import { useState, useEffect, useMemo } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import { useCountdownContext } from '../components/calendar/CountdownProvider';
 import { DateTime } from 'luxon';
+import Link from 'next/link';
 
 
 const cityNames = ['София', 'Пловдив', 'Бургас', 'Варна'];
@@ -55,25 +56,29 @@ export default function Buy() {
                 <iframe style={{ width: '100%', height: '100vh' }} 
                 src="https://bilet.bg/bg/events/cistota-ili-smiert-premiera-sofiia-5634-5634?noframe=true"
                 ></iframe>
-                <a href="https:///bilet.bg" target="_blank">Модул за продажба на билети от Билет точка бг</a>
+                <Link href="https://bilet.bg/bg/events/cistota-ili-smiert-premiera-sofiia-5634-5634" target="_blank"><span className="underline">Ако имате проблем при покупка на билети, използвайте този линк</span></Link>
                 </div>;
             case 'Пловдив':
                 return <div><h1 className="text-3xl text-black font-bold mb-6">ЗА ПЛОВДИВ</h1>
-                <iframe style={{ width: '100%', height: '100vh' }} src="https://bilet.bg/bg/events/cistota-ili-smiert-premiera-plovdiv-5636-5636" ></iframe>
-                <a href="https:///bilet.bg" target="_blank">Модул за продажба на билети от Билет точка бг</a></div>;
+                <iframe style={{ width: '100%', height: '100vh' }} 
+                src="https://bilet.bg/bg/events/cistota-ili-smiert-premiera-plovdiv-5636-5636?noframe=true" >
+
+                </iframe>
+                <Link href="https://bilet.bg/bg/events/cistota-ili-smiert-premiera-plovdiv-5636-5636" target="_blank"><span className="underline">Ако имате проблем при покупка на билети, използвайте този линк</span></Link>
+                </div>;
             case 'Бургас':
                 return <div><h1 className="text-3xl text-black font-bold mb-6">ЗА БУРГАС</h1>
                 <iframe style={{ width: '100%', height: '100vh' }} 
-                src="https://bilet.bg/bg/events/cistota-ili-smiert-premiera-burgas-5637-5637"
+                src="https://bilet.bg/bg/events/cistota-ili-smiert-premiera-burgas-5637-5637?noframe=true"
                 ></iframe>
-                <a href="https:///bilet.bg" target="_blank">Модул за продажба на билети от Билет точка бг</a>
+                <Link href="https://bilet.bg/bg/events/cistota-ili-smiert-premiera-burgas-5637-5637" target="_blank"><span className="underline">Ако имате проблем при покупка на билети, използвайте този линк</span></Link>
                 </div>;
             case 'Варна':
                 return <div><h1 className="text-3xl text-black font-bold mb-6">ЗА ВАРНА</h1>
                 <iframe style={{ width: '100%', height: '100vh' }} 
-                src="https://bilet.bg/bg/events/cistota-ili-smiert-premiera-varna-5638-5638"
+                src="https://bilet.bg/bg/events/cistota-ili-smiert-premiera-varna-5638-5638?noframe=true"
                 ></iframe>
-                <a href="https:///bilet.bg" target="_blank">Модул за продажба на билети от Билет точка бг</a>
+                <Link href="https://bilet.bg/bg/events/cistota-ili-smiert-premiera-varna-5638-5638" target="_blank"><span className="underline">Ако имате проблем при покупка на билети, използвайте този линк</span></Link>
                 </div>;
             default:
                 return <div>Избери град за премиерата.</div>;

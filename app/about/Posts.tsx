@@ -27,49 +27,43 @@ const Posts = () => {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>; // You can customize the loading state
+    return <div>Зареждане...</div>; // You can customize the loading state
   }
 
   return (
-    <div className="w-full mx-auto pb-4 flex justify-center items-center">
-      {/* Flex Layout */}
-      <div className="flex flex-wrap justify-center max-w-[90%] sm:max-w-6xl bg-transparent mx-4 rounded-xl">
+    <div className="container mx-auto px-4 py-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-4 max-w-6xl mx-auto">
         {posts.map((post) => (
           <Link
             href={`/about/${post.slug.current}`}
             key={post._id}
-            className="flex flex-col items-center overflow-hidden transition-all duration-300 w-full sm:w-1/2 lg:w-1/3 p-4"
+            className="flex flex-col bg-white rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300"
           >
-            {/* Content */}
-            <div className="flex flex-col justify-between h-full w-full p-6">
-              {/* Image */}
-              {post.mainImage && (
-                <div className="relative w-full h-64 mb-1 rounded-xl overflow-hidden">
-                  <Image
-                    src={post.mainImage.asset.url}
-                    alt={post.mainImage.alt || post.title}
-                    layout="fill" // Use layout fill to cover the parent div
-                    objectFit="cover" // Maintain aspect ratio
-                    className="rounded-xl" // Keep rounded corners
-                  />
-                </div>
-              )}
-
-              {/* Meta Information */}
-              <div className="text-gray-900 text-sm flex justify-end items-center space-x-2 my-2">
-                <span>{post.author.name || 'Author'}</span>
-                <span>&bull;</span>
-                <span>{new Date(post.publishedAt).toLocaleDateString()}</span>
+            {/* Image Container */}
+            {post.mainImage && (
+              <div className="relative w-full aspect-square">
+                <Image
+                  src={post.mainImage.asset.url}
+                  alt={post.mainImage.alt || post.title}
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-t-xl"
+                />
               </div>
+            )}
 
-              {/* Categories - Render all categories if there are multiple */}
+            {/* Content Container */}
+            <div className="p-6 flex flex-col flex-grow">
+              {/* Categories */}
               <div className="mb-2">
                 {post.categories.length > 1 ? (
-                  <ul className="flex justify-between text-purple-600 uppercase text-xs">
+                  <div className="flex flex-wrap gap-2">
                     {post.categories.map((category: any) => (
-                      <li key={category._id}>{category.title}</li>
+                      <span key={category._id} className="text-purple-600 uppercase text-xs">
+                        {category.title}
+                      </span>
                     ))}
-                  </ul>
+                  </div>
                 ) : (
                   <span className="text-purple-600 uppercase text-xs">
                     {post.categories[0]?.title || 'Category'}
@@ -78,13 +72,20 @@ const Posts = () => {
               </div>
 
               {/* Title */}
-              <h2 className="text-2xl font-semibold mb-4 text-black flex-1">{post.title}</h2>
+              <h2 className="text-2xl font-semibold mb-4 text-black">{post.title}</h2>
+
+              {/* Meta Information */}
+              <div className="text-gray-900 text-sm flex items-center space-x-2 mt-auto">
+                <span>{post.author.name || 'Author'}</span>
+                <span>&bull;</span>
+                <span>{new Date(post.publishedAt).toLocaleDateString()}</span>
+              </div>
             </div>
           </Link>
         ))}
       </div>
     </div>
   );
-};
+}
 
 export default Posts;
