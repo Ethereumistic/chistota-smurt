@@ -9,6 +9,7 @@ import { ReactLenis } from 'lenis/react'
 import LowerThirdModal from './components/ui/LowerThirdModal'
 import { TestScroll2 } from './components/cover/TestScroll2'
 import { MobileCoverT } from './components/cover/MobileCoverT'
+import { MobileCoverS } from './components/cover/MobileCoverS'
 
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
@@ -32,7 +33,7 @@ export default function Home() {
       <ReactLenis root options={{ lerp: 0.05 }}>
         <div >
           {!isMobile && <TestScroll2 />}
-          {isMobile && <MobileCoverT /> }
+          {isMobile && <MobileCoverS /> }
 
       <div ref={causeRef}>
         <Cause causeRef={causeRef} />
