@@ -19,13 +19,13 @@ const PartnerSection = ({ logo, description, isMainSponsor, className, link, typ
   return (
     <ReactLenis root options={{ lerp: 0.05 }}>
       <motion.div
-        className={`flex flex-col w-[90%] cst:w-[80%] mx-auto ${isMainSponsor ? 'xl:flex-row' : 'xl:flex-row-reverse'} items-center justify-between mb-16 gap-8 ${className}`}
+        className={`flex flex-col w-[90%] cst:w-[80%] mx-auto ${isMainSponsor ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center justify-between mb-16 gap-8 ${className}`}
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
         <motion.div
-          className={`w-full xl:w-1/3 ${isMainSponsor ? 'xl:mr-8' : 'xl:ml-8'} relative`}
+          className={`w-full lg:w-1/3 ${isMainSponsor ? 'lg:mr-8' : 'lg:ml-8'} relative`}
           whileHover={{ scale: 1.05 }}
           transition={{ type: "spring", stiffness: 300 }}
         >
@@ -40,19 +40,19 @@ const PartnerSection = ({ logo, description, isMainSponsor, className, link, typ
               alt="Partner logo" 
               width={400} 
               height={200} 
-              className={`mx-auto ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
-              style={{ width: '100%', height: 'auto' }}
+              className={`mx-auto  ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+              style={{ width: '100%', height: 'auto'  }}
               onLoad={() => setImageLoaded(true)}
             />
           </Link>
         </motion.div>
         <motion.div
-          className="w-full xl:w-2/3"
+          className="w-full lg:w-2/3"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.5 }}
         >
-          <p className={`text-black font-montserrat ${isMainSponsor ? 'text-lg' : 'text-base'}`}>
+          <p className={`text-black font-montserrat ${isMainSponsor ? 'text-base' : 'text-base'}`}>
             {description}
           </p>
         </motion.div>
