@@ -99,7 +99,7 @@ export const TicketsButton: React.FC<{ href?: string; className?: string; onClic
     )}
   </span>
 
-  <span className="text-sm lg:text-xs xl:text-sm 2xl:text-base 3xl:text-lg 
+  <span className="text-sm lg:text-xs xl:text-xs 2xl:text-base 3xl:text-lg 
   font-extrabold transition-all 
   3xl:group-hover:ms-4 2xl:group-hover:ms-5 xl:group-hover:ms-8 lg:group-hover:ms-10 group-hover:ms-4 drop-shadow-[0_4px_4px_rgba(0,0,0,1)]  ">{buttonText}</span>
 </Link>
@@ -121,7 +121,7 @@ export const TherapyButton: React.FC<{ href?: string; className?: string; onClic
   <IconMap2 className="3xl:size-7 2xl:size-6 xl:size-6 lg:size-5 size-7 text-white drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]" />
   </span>
 
-  <span className="text-sm lg:text-xs xl:text-sm 2xl:text-base 3xl:text-lg 
+  <span className="text-sm lg:text-xs xl:text-xs 2xl:text-base 3xl:text-lg 
   text-nowrap font-extrabold transition-all 
   3xl:group-hover:ms-4 2xl:group-hover:ms-5 xl:group-hover:ms-8 lg:group-hover:ms-10 group-hover:ms-4 
   drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]">ТЕРАПЕВТИЧНИ ЦЕНТРОВЕ</span>
@@ -164,7 +164,7 @@ export const PartnersButton: React.FC<{ href?: string; className?: string; onCli
   <IconHeartHandshake className="3xl:size-7 2xl:size-6 xl:size-6 lg:size-5 size-7  text-white drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]" />
   </span>
 
-  <span className="text-sm lg:text-xs xl:text-sm 2xl:text-base 3xl:text-lg 
+  <span className="text-sm lg:text-xs xl:text-xs 2xl:text-base 3xl:text-lg 
   text-nowrap font-extrabold transition-all 
   3xl:group-hover:ms-4 2xl:group-hover:ms-5 xl:group-hover:ms-8 lg:group-hover:ms-10 group-hover:ms-4  drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]">ПАРТНЬОРИ</span>
 </Link>
@@ -185,7 +185,7 @@ export const AboutButton: React.FC<{ href?: string; className?: string; onClick?
   <IconMovie className="3xl:size-7 2xl:size-6 xl:size-6 lg:size-5 size-7  text-white drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]" />
   </span>
 
-  <span className="text-sm lg:text-xs xl:text-sm 2xl:text-base 3xl:text-lg 
+  <span className="text-sm lg:text-xs xl:text-xs 2xl:text-base 3xl:text-lg 
   text-nowrap font-extrabold transition-all 
   3xl:group-hover:ms-4 2xl:group-hover:ms-5 xl:group-hover:ms-8 lg:group-hover:ms-10 group-hover:ms-4  drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,1)]">ЗА ФИЛМА</span>
 </Link>
