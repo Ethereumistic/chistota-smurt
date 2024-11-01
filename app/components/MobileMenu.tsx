@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 
 import Image from "next/image";
-import { AboutButton, PartnersButton, TherapyButton, TherapyButton2, TicketsButton } from "./ui/BuyButton";
+import { AboutButton, PartnersButton, TherapyButton2, TicketsButton } from "./ui/BuyButton";
 import { useState, useEffect } from "react";
 import Loader from "./ui/Loader";
 import { usePathname } from "next/navigation";

@@ -48,14 +48,7 @@ const config: Config = {
       },
       
       colors: {
-        facebook: " #106afe ", 
-        youtube: " #FF0000 ",
-        lred: " #5ebb46 ",
-        lblack: " #1A1A1A ",
-        ldark: " #121212 ",
-        dred: " #4C0414 ",
-        lyellow: " #FFDE59 ",
-        dyellow: " #60562E ",
+
 
         lblue: " #58779F",
         llblue: " #8CB2E4",
@@ -74,13 +67,7 @@ const config: Config = {
       },
 
       fontFamily: {
-        // to change, update font in _document.js
-        russo: ["var(--font-russo)"],
-        osw: ["var(--font-osw)"],
-        pacifico: ["var(--font-pacifico)"],
-        paci: ["var(--font-paci)"],
-        geistSans: ["var(--font-geist-sans)"],
-        geistMono: ["var(--font-geist-mono)"],
+
         montserrat: ["var(--font-montserrat)"],
       },
       keyframes: {

@@ -12,14 +12,6 @@ const Button: React.FC<{ href?: string; className: string; onClick?: () => void;
   );
 };
 
-const ButtonStructure: React.FC<{ href?: string; className?: string; onClick?: () => void; children: React.ReactNode }> = ({ href, className, onClick, children }) => {
-  return (
-    <Link href={href || ""} className={`w-full ${className}`} onClick={onClick}> {/* Added w-full */}
-      {children}
-    </Link>
-  );
-};
-
 // Create the BuyButton component
 export const BuyButton: React.FC<{ onClick?: () => void }> = ({ onClick }) => {
   const { countdownEnded } = useCountdownContext();

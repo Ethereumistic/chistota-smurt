@@ -1,42 +1,22 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
 import { Providers } from "./providers";
-import { Russo_One } from "next/font/google";
 import { Montserrat } from "next/font/google";
 import Script from "next/script";
 import { NavbarTest3 } from "./components/NavbarTest3";
 import Footer2 from "./components/ui/Footer2";
 import { CountdownProvider } from "./components/calendar/CountdownProvider";
-import dynamic from 'next/dynamic'
 import ConditionalBuyTicketButton from "./components/ui/ConditionalBuyTicketButton";
 import { LoadingManager } from "./components/ui/LoadingManager";
-import Image from "next/image";
 
 
-const ReactLenis = dynamic(() => import('lenis/react').then((mod) => mod.ReactLenis), {
-  ssr: false
-})
+
 const montserrat = Montserrat({
   subsets: ['latin', 'cyrillic'],
   variable: "--font-montserrat",
   weight: ["300", "400", "500", "600", "700", "800", "900"]
 });
-const russo = Russo_One({
-  subsets: ['latin', 'cyrillic'],
-  variable: "--font-russo",
-  weight: ["400"]
-});
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+
 
 export const metadata: Metadata = {
   title: "Чистота или Смърт",
@@ -57,40 +37,30 @@ export default function RootLayout({
   return (
       <html>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${russo.variable} ${montserrat.variable} antialiased`}>
+        className={`${montserrat.variable} antialiased`}>
 
-        <Providers>
+        {/* <Providers> */}
         <CountdownProvider>
         <LoadingManager>
-
-          {/* <div className=""
-                    style={{
-                      backgroundSize: "cover",
-                      backgroundImage:
-                        "url(https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/cover/bg-s.png)",
-                      backgroundPosition: "center",
-                      backgroundRepeat: "no-repeat",
-                    }}> */}
-                    <div className="relative">
-            <Image 
-              src="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/cover/bg-s.webp" // moved to public folder
-              alt="Background"
-              fill
-              priority
-              quality={100}
-              className="object-cover -z-10"
-              sizes="100vw"
-            />
+                    <div 
+                      className="relative" 
+                      style={{ 
+                        backgroundImage: 'url(https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/cover/bg-s.webp)', 
+                        backgroundRepeat: 'repeat', // Set to repeat
+                        backgroundSize: 'contain', // Ensure the image is contained
+                        minHeight: '100%', // Allow it to grow with content
+                        width: '100%' 
+                      }}
+                    >
             <NavbarTest3 />
             {children}
             <div className="bg-gradient-to-b from-black/0 to-black/[0.5] w-full h-5"></div>
             <ConditionalBuyTicketButton />
             <Footer2 />
           </div>
-          {/* </ReactLenis> */}
           </LoadingManager>
           </CountdownProvider>
-          </Providers>
+          {/* </Providers> */}
           
           <Script
         id="facebook-pixel"

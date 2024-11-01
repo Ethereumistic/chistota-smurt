@@ -4,8 +4,7 @@ import Trailer from "@/app/movie/Trailer";
 import Countdown from "../calendar/Countdown";
 
 export function MobileCoverT() {
-  const bg = "https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/cover/mobilecover.png";
-  const overlayImage = "https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/cover/montain.png"; // New overlay image
+  const bg = "https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/cover/mobilecover.webp";
 
 
 
