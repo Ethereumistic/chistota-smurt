@@ -15,9 +15,9 @@ const AboutUs = () => {
 
   return (
     <div ref={containerRef} className="min-h-screen mb-8 py-12 px-4 sm:px-6 lg:px-8 text-black overflow-x-hidden">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <motion.h1 
-          className="text-3xl md:text-5xl max-w-2xl mx-auto font-black text-center mb-16 font-montserrat uppercase text-black"
+          className="text-3xl md:text-5xl max-w-3xl mx-auto font-black text-center mb-16 font-montserrat uppercase text-black"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -25,7 +25,7 @@ const AboutUs = () => {
           Създателите на Филма
         </motion.h1>
         
-        <div className="space-y-24">
+        <div className="space-y-24 ">
           <DirectorsSection scrollYProgress={scrollYProgress} />
         </div>
       <Link href='https://www.instagram.com/dbproductions.bg/' target='_blank' >
@@ -89,7 +89,7 @@ const DirectorsSection: React.FC<{ scrollYProgress: any }> = ({ scrollYProgress 
     return (
         <motion.div 
           ref={sectionRef}
-          className="grid grid-cols-1 md:grid-cols-2 gap-12 "
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 "
           initial="hidden"
           animate={controls}
           variants={{
@@ -109,10 +109,10 @@ const DirectorsSection: React.FC<{ scrollYProgress: any }> = ({ scrollYProgress 
     
       return (
         <motion.div 
-          className="flex flex-col items-center bg-llblue/[0.5] p-4 sm:p-8 rounded-xl " // Added responsive padding
+          className="flex flex-col items-center bg-llblue/[0.5] pb-4 px-4 rounded-xl " // Added responsive padding
         >
           <motion.div 
-            className="relative w-[350px] h-[450px] mb-4 sm:mb-6 overflow-hidden rounded-lg" // Made dimensions responsive
+            className="relative w-[300px] h-[400px]  mb-4 overflow-hidden rounded-lg" // Made dimensions responsive
             variants={{
               hidden: { scale: 1.5, opacity: 0 },
               visible: {
@@ -150,14 +150,14 @@ const DirectorsSection: React.FC<{ scrollYProgress: any }> = ({ scrollYProgress 
           >
             <div className='flex items-center justify-center ml-4 sm:ml-12 gap-2 sm:gap-4'>
               <div>
-                <h2 className="text-xl sm:text-2xl font-semibold mb-1 sm:mb-2">{director.name}</h2>
-                <h3 className="text-lg sm:text-xl text-gray-900 mb-2 sm:mb-4">{director.role}</h3>
+                <h2 className="text-lg sm:text-lg md:text-xl xl:text-2xl  font-semibold mb-1 sm:mb-2">{director.name}</h2>
+                <h3 className="text-lg sm:text-lg md:text-lg xl:text-xl text-gray-900 mb-2 sm:mb-4">{director.role}</h3>
               </div>
               <Link href={director.insta} target='_blank'>
                 <IconBrandInstagram className='size-12 sm:size-16 hover:scale-105 transition-all duration-300' />
               </Link>
             </div>
-            <p className="text-black text-base sm:text-lg max-w-xl font-montserrat">{director.bio}</p>
+            <p className="text-black text-base sm:text-lg md:text-lg xl:text-lg max-w-xl font-montserrat">{director.bio}</p>
           </motion.div>
         </motion.div>
       );

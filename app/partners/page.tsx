@@ -316,7 +316,7 @@ export default function Partners() {
       />,
       <PartnerSection
       key="biletbg"
-      logo="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/biletbg.svg"
+      logo="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/bilet.png"
       description={          
         <>
         <motion.h2 
@@ -331,11 +331,38 @@ export default function Partners() {
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ ease: "easeInOut", duration: 0.75 }}
               className="">
-                  BUMBUL STUDIO е консултантска и комуникационна агенция, която помага на бизнеси,
-                  брандове, експертни лица, инициативи и каузи в полето на маркетинга, рекламата и
-                  събития. Знаем, че ключът към ефективното позициониране е в комуникацията, затова
-                  от BUMBUL STUDIO ще Ви подкрепим от идеята до реализацията, като обръщаме внимание
-                  на всяка подробност по трасето.
+                Ние сме онлайн платформа за продажба на билети в България, 
+                която свързва публиката с културни, спортни и развлекателни събития в цялата страна. 
+                С нашият опит, ние сме се утвърдили като надежден партньор в разпространението 
+                на билети за разнообразни събития – от театрални постановки и концерти до кинопрожекции и фестивали.
+          </motion.p>
+          <br/>
+          <motion.h2 
+          className='text-2xl font-bold mb-4 text-dblue'
+          initial={{ y: 48, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ ease: "easeInOut", duration: 0.75 }}>
+            Защо подкрепямe този филм?
+            </motion.h2>
+            <motion.p       
+              initial={{ y: 32, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ ease: "easeInOut", duration: 0.75 }}
+              className="">
+                Подкрепяме филма <strong>&quot;Чистота или Смърт&quot;</strong>, защото вярваме в силата на документалното кино 
+                да повдига важни обществени теми и да създава пространство за диалог. Като платформа, която ежедневно 
+                свързва хората с изкуството, осъзнаваме отговорността си да подкрепяме проекти, които не само забавляват, 
+                но и променят перспективи и разбирания.
+          </motion.p>
+          <br/>
+            <motion.p       
+              initial={{ y: 32, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ ease: "easeInOut", duration: 0.75 }}
+              className="">
+                Чрез нашата мрежа се стремим да направим филма достъпен за възможно най-широка аудитория, 
+                защото вярваме, че темата за зависимостите заслужава да бъде видяна и обсъдена от цялото общество. 
+                Това е филм, който може да промени животи, да вдъхнови надежда и да покаже, че промяната е възможна.
           </motion.p>
         </>
         }

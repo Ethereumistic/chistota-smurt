@@ -25,8 +25,8 @@ const Trailer = () => {
   }, []);
 
   const videoSources = {
-    trailer: trailerUrl || "https://www.youtube.com/embed/c1nYtX-NUsc", // Fallback to a default trailer URL if not set
-    movie: movieUrl || "https://www.youtube.com/embed/Uala9zAU_Rk", // Fallback to a default movie URL if not set
+    trailer: trailerUrl || "https://www.youtube.com/embed/njX2bu-_Vw4", // Fallback to a default trailer URL if not set
+    movie: movieUrl || "https://www.youtube.com/embed/njX2bu-_Vw4", // Fallback to a default movie URL if not set
   }
 
   // Define the TrailerButton2 component
