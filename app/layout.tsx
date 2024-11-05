@@ -19,6 +19,25 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   title: "Чистота или Смърт",
   description: "Чистота или Смърт - филм за зависимостта",
+  openGraph: {
+    title: 'Чистота или Смърт',
+    description: 'Чистота или Смърт - филм за зависимостта',
+    images: [{
+      url: 'https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/cover/preview.png', // Replace with your actual image URL
+      width: 1200,
+      height: 630,
+      alt: 'Чистота или Смърт Preview Image',
+    }],
+    locale: 'bg_BG',
+    type: 'website',
+  },
+  // Optional: Add Twitter Card metadata
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Чистота или Смърт',
+    description: 'Чистота или Смърт - филм за зависимостта',
+    images: ['https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/cover/preview.png'], // Replace with your actual image URL
+  },
 };
 
 
