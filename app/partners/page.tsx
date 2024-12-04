@@ -232,6 +232,98 @@ export default function Partners() {
       );
     }
 
+    if (currentFilter === 'Всички' || currentFilter === 'Благодарности') {
+      sections.push(
+        <PartnerSection
+        logo="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/teodor.png"
+        description={          
+          <>
+          <motion.h2 
+          className='text-2xl font-bold mb-4 text-dblue'
+          initial={{ y: 48, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ ease: "easeInOut", duration: 0.75 }}>
+            TEODOR
+            </motion.h2>
+              <motion.p       
+                initial={{ y: 32, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ ease: "easeInOut", duration: 0.75 }}
+                className="">
+                  Ние от TEODOR знаем, че най-ценният ни ресурс са хората. 
+                  Нашата мисия да бъдем пътеводител за качество и стил в мъжката мода 
+                  е пряко свързана с уважението, добрата комуникация и личното отношение, 
+                  което проявяваме към всеки наш клиент или служител. Ние вярваме, 
+                  че малките жестове означат много и бихме искали чрез подкрепата на тази 
+                  кауза да приобщим и други организации и фирми, като по този начин дадем 
+                  по-голяма гласност и разбиране към хората с проблемна зависимост. 
+                  Да избягаш от тях е най лесно, да застанеш до тях  - най-мъжко!
+            </motion.p>
+
+          </>
+          }
+        isMainSponsor={false}
+        className="mb-36 bg-lblue/[0.5] p-8 rounded-xl"
+        link="https://teodor.bg/"
+        type="Благодарности"
+
+      />,
+      <PartnerSection
+      key="empo"
+      logo="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/empo.png"
+      description={          
+        <>
+        <motion.h2 
+          className='text-2xl font-bold mb-4 text-dblue'
+          initial={{ y: 48, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ ease: "easeInOut", duration: 0.75 }}>
+            The Emporium Hotel Plovdiv - MGallery Collection
+            </motion.h2>
+            <motion.p       
+              initial={{ y: 32, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ ease: "easeInOut", duration: 0.75 }}
+              className="">
+                За екипа на <strong>The Emporium Hotel Plovdiv - MGallery Collection</strong> е 
+                въпрос на отговорно поведение да застане в подкрепа на проект като 
+                документалния филм <strong>&quot;Чистота или смърт&quot;</strong>.
+          </motion.p>
+          <br/>
+            <motion.p       
+              initial={{ y: 32, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ ease: "easeInOut", duration: 0.75 }}
+              className="">
+                За нас подобни инициативи са в основата на така належащата промяна в обществото ни - 
+                решението на всеки проблем започва с осъзнаването му!
+                Освзнато трябва да е и подпомагането на всеки, отделил от времето и емоцията си, 
+                за да провокира информираност, емпатия и лична отговорност! Благодарим на създателите на 
+                <strong>&quot;Чистота или смърт&quot;</strong>, че ни предоставиха възможност да бъдем съпричастни към 
+                проблеми, които могат да се случат на всеки от нас!
+          </motion.p>
+          <br/>
+            <motion.p       
+              initial={{ y: 32, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ ease: "easeInOut", duration: 0.75 }}
+              className="">
+                <strong>The Emporium Hotel Plovdiv - MGallery Collection</strong> е 
+                единствения по рода си 5-звезден Smart хотел в гр. Пловдив и на Балканския полуостров! 
+                Като част от престижната френска верига Accor, той дава комплексен отговор и на най-високите 
+                изисквания за дизайн на интериора, персонален комфорт и условия за бизнес и релаксация.
+          </motion.p>
+        </>
+        }
+      isMainSponsor={true}
+      className="mb-36 bg-orange-100/[0.5] p-8 rounded-xl"
+      link="https://emporiumplovdiv.com/"
+      type="Благодарности"
+
+    />
+      );
+    }
+
     if (currentFilter === 'Всички' || currentFilter === 'Юристи') {
       sections.push(
         <PartnerSection
@@ -678,7 +770,7 @@ export default function Partners() {
       sections.push(
 
 <PartnerSection
-  logo="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/association.png"
+  logo="https://cdn.jsdelivr.net/gh/Ethereumistic/chistota-smurt-assets/partners/aso.png"
   description={          
     <>
     <motion.h2 
